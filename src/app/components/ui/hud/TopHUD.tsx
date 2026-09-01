@@ -652,7 +652,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
         />
 
         <HudTooltip
-          label={pauseLocked ? "Speed locked" : "Decrease speed (−0.5)"}
+          label={pauseLocked ? "속도 고정됨" : "Decrease speed (−0.5)"}
         >
           <button
             onClick={() => {
@@ -684,7 +684,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
             return (
               <HudTooltip
                 key={speed}
-                label={pauseLocked ? "Speed locked" : `${speed}× speed`}
+                label={pauseLocked ? "속도 고정됨" : `${speed}× speed`}
               >
                 <button
                   onClick={() => {
@@ -721,7 +721,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
         </div>
 
         <HudTooltip
-          label={pauseLocked ? "Speed locked" : "Increase speed (+0.5)"}
+          label={pauseLocked ? "속도 고정됨" : "Increase speed (+0.5)"}
         >
           <button
             onClick={() => {

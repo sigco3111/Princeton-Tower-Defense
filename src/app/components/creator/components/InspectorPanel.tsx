@@ -322,7 +322,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
             <button
               onClick={onExportMap}
               className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border border-cyan-700/40 bg-cyan-900/15 px-3 py-1.5 text-xs text-cyan-200 hover:bg-cyan-800/25 transition-colors"
-              title="Export this map as a .ptd.json file"
+              title="이 맵을 .ptd.json 파일로 내보내기"
             >
               <Download size={12} />
               Export
@@ -330,7 +330,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
             <button
               onClick={onImportMap}
               className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border border-cyan-700/40 bg-cyan-900/15 px-3 py-1.5 text-xs text-cyan-200 hover:bg-cyan-800/25 transition-colors"
-              title="Import a map from a .ptd.json file"
+              title=".ptd.json 파일에서 맵 가져오기"
             >
               <Upload size={12} />
               Import

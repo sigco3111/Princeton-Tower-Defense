@@ -128,7 +128,7 @@ const TemplateWavesView: React.FC<{
         value={waveTemplate}
         onChange={(event) => onApplyPresetWaves(event.target.value)}
         className="w-full rounded border border-cyan-700/40 bg-stone-950/80 px-2 py-1 text-xs text-cyan-200 outline-none focus:border-cyan-400/60"
-        title="Only imports waves — does not affect decorations, hazards, objectives, or theme"
+        title="웨이브만 가져오며 장식, 환경 위험, 목표, 테마에는 영향을 주지 않습니다"
       >
         {waveTemplateOptions.map((option) => (
           <option key={option.value} value={option.value}>

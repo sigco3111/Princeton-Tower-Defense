@@ -139,7 +139,7 @@ export const ObjectivePanel: React.FC<ObjectivePanelProps> = ({
           }
         }}
         className="w-full rounded border border-cyan-700/40 bg-stone-950/80 px-2 py-1 text-xs text-cyan-200 outline-none focus:border-cyan-400/60"
-        title="Replaces objectives with the selected preset's objectives"
+        title="선택한 프리셋의 목표로 목표를 교체합니다"
       >
         <option value="" disabled>
           Select preset...

@@ -153,7 +153,7 @@ export function importMapFromFile(): Promise<CreatorDraftState> {
           const parsed = JSON.parse(reader.result as string);
 
           if (!isPlainObject(parsed)) {
-            reject(new Error("File does not contain valid JSON object."));
+            reject(new Error("파일에 유효한 JSON 객체가 포함되어 있지 않습니다."));
             return;
           }
 
@@ -165,7 +165,7 @@ export function importMapFromFile(): Promise<CreatorDraftState> {
           } else {
             reject(
               new Error(
-                "Unrecognized file format. Expected a Princeton TD map file."
+                "인식할 수 없는 파일 형식입니다. Princeton TD 맵 파일이 필요합니다."
               )
             );
             return;
