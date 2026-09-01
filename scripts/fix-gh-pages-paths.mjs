@@ -21,7 +21,7 @@ const TARGET_EXTENSIONS = [".html", ".js", ".css", ".webmanifest", ".txt"];
 function walk(dir) {
   const results = [];
   for (const name of readdirSync(dir)) {
-    if (name === "_next" || name === "node_modules") continue;
+    if (name === "node_modules") continue;
     const path = join(dir, name);
     const stat = statSync(path);
     if (stat.isDirectory()) {
