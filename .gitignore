@@ -1,48 +1,115 @@
+# ===============================================
+# Princeton Tower Defense 한글화 미러 .gitignore
+# ===============================================
+# Next.js 16 + gh-pages 정적 export에서 빌드 산출물(404/, __next.*.txt, _next/,
+# 라우트별 폴더 등)이 실수로 추적되는 것을 방지. 다음 에이전트가 이 함정에
+# 빠지지 않도록 명확히 명시.
+
 # OS
 .DS_Store
 Thumbs.db
 
-# Editor
+# Editor / IDE
 .vscode/
 .idea/
+.cursor/
+.claude/
 
-# Node
+# Node / package managers
 node_modules/
 .pnp.*
+.pnpm-store/
 
-# Next.js build output
+# ===============================================
+# Next.js 16 build output (절대 추적 금지)
+# ===============================================
 .next/
 out/
+
+# Next.js dynamic route build artifacts
+404/
+404.html
+__next.*.txt
+__next.$oc$slug*
+_next/
+
+# 빌드된 페이지 폴더들 (라우트별)
+_not-found/
+ashen_spiral/
+blight_basin/
+bog/
+cannon_crest/
+carnegie/
+codex/
+crater/
+credits/
+creator/
+fortress/
+frist_outpost/
+glacier/
+infernal_gate/
+ivy_crossroads/
+lava/
+mirage_dunes/
+nassau/
+oasis/
+peak/
+poe/
+pyramid/
+sandbox/
+settings/
+sphinx/
+sun_obelisk/
+sunken_temple/
+sunscorch_labyrinth/
+throne/
+triad_keep/
+whiteout_pass/
+witch_hut/
+
+# 빌드된 manifest/webmanifest/sitemap/robots
+manifest.webmanifest
+sitemap.xml
+robots.txt
+llms.txt
+llms-full.txt
+
+# 빌드된 root HTML
+index.html
+index.txt
+favicon.ico
+fonts/
 
 # Vercel
 .vercel
 
 # TypeScript
 *.tsbuildinfo
+next-env.d.ts.bak
 
 # Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+*.log
 
-# Large media - 영상 (시간 최적화, 푸시 1GB 한도)
+# ===============================================
+# Large media — 1GB 푸시 한도 보호
+# ===============================================
 public/videos/
 
-# Large legacy images - 사용되지 않는 옛 이미지
+# Legacy / unused images
 public/images/old/
 
-# Optimized PNG/WebP 미사용 파일은 그대로 둠
-
-# 로컬 환경 변수
+# ===============================================
+# Environment
+# ===============================================
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# pnpm
-.pnpm-store/
-
 # 임시 산출물
-*.log
 .cache/
+.DS_Store
