@@ -1,0 +1,820 @@
+"use client";
+
+import { ChevronRight, SkipForward, BookOpen, ArrowRight } from "lucide-react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
+
+import {
+  TOWER_DATA,
+  HERO_DATA,
+  TOWER_TAGS,
+  TOWER_QUICK_SUMMARY,
+} from "../../constants";
+import { TOWER_STATS } from "../../constants/towerStats";
+import type { TutorialStep } from "../../constants/tutorial";
+import { TUTORIAL_STEPS } from "../../constants/tutorial";
+import {
+  TowerSprite,
+  SpellSprite,
+  HeroSprite,
+  FramedSprite,
+  TOWER_SPRITE_FRAME_THEME,
+} from "../../sprites";
+import type { TowerType, SpellType, HeroType } from "../../types";
+import { OrnateFrame } from "./primitives/OrnateFrame";
+import { TagBadge } from "./primitives/TagBadge";
+import { GOLD, PANEL, panelGradient, dividerGradient } from "./system/theme";
+
+// =============================================================================
+// PROPS
+// =============================================================================
+
+export interface TutorialOverlayProps {
+  onComplete: () => void;
+  onSkip: () => void;
+  selectedHero?: HeroType | null;
+  selectedSpells?: SpellType[];
+  onHeroChange?: (hero: HeroType) => void;
+  onSpellToggle?: (spell: SpellType) => void;
+}
+
+// =============================================================================
+// HIGHLIGHT RECT + POSITIONING
+// =============================================================================
+
+interface HighlightRect {
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+}
+
+const PADDING = 8;
+
+function getHighlightElement(step: TutorialStep): HTMLElement | null {
+  if (!step.highlight) {
+    return null;
+  }
+  return document.querySelector(`[data-tutorial="${step.highlight}"]`);
+}
+
+function getHighlightRect(el: HTMLElement | null): HighlightRect | null {
+  if (!el) {
+    return null;
+  }
+  const r = el.getBoundingClientRect();
+  return {
+    height: r.height + PADDING * 2,
+    left: r.left - PADDING,
+    top: r.top - PADDING,
+    width: r.width + PADDING * 2,
+  };
+}
+
+function getPanelPosition(
+  step: TutorialStep,
+  highlight: HighlightRect | null
+): React.CSSProperties {
+  if (!highlight) {
+    return { left: "50%", top: "50%", transform: "translate(-50%, -50%)" };
+  }
+
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+
+  switch (step.position) {
+    case "top-right": {
+      return { right: 16, top: highlight.top + highlight.height + 12 };
+    }
+    case "top-left": {
+      return { left: 16, top: highlight.top + highlight.height + 12 };
+    }
+    case "bottom-left": {
+      const panelBottom = highlight.top - 12;
+      return { bottom: vh - panelBottom, left: 16 };
+    }
+    case "bottom-right": {
+      const panelBottom = highlight.top - 12;
+      return { bottom: vh - panelBottom, right: 16 };
+    }
+    case "bottom-center": {
+      const panelBottom = highlight.top - 12;
+      return {
+        bottom: vh - panelBottom,
+        left: "50%",
+        transform: "translateX(-50%)",
+      };
+    }
+    case "center":
+    default: {
+      return { left: "50%", top: "50%", transform: "translate(-50%, -50%)" };
+    }
+  }
+}
+
+// =============================================================================
+// TOWER CATALOG (for the build-towers step) — uses centralized tags
+// =============================================================================
+
+const TOWER_DISPLAY_ORDER: TowerType[] = [
+  "cannon",
+  "library",
+  "lab",
+  "arch",
+  "club",
+  "station",
+  "mortar",
+];
+
+function TowerCatalog() {
+  return (
+    <div className="mt-2 sm:mt-3 mb-1 space-y-1 sm:space-y-1.5">
+      {TOWER_DISPLAY_ORDER.map((towerType) => {
+        const theme = TOWER_SPRITE_FRAME_THEME[towerType];
+        const towerData = TOWER_DATA[towerType];
+        const tags = TOWER_TAGS[towerType];
+        const summary = TOWER_QUICK_SUMMARY[towerType];
+        return (
+          <div
+            key={towerType}
+            className="flex items-center gap-2 sm:gap-2.5 rounded-lg p-1.5 sm:p-2"
+            style={{
+              background: "rgba(10,10,16,0.5)",
+              border: `1px solid ${theme.border}`,
+            }}
+          >
+            <div className="flex-shrink-0">
+              <FramedSprite size={38} theme={theme}>
+                <TowerSprite type={towerType} size={28} level={1} />
+              </FramedSprite>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                <span className="text-xs sm:text-sm font-bold text-amber-200 truncate">
+                  {towerData.name}
+                </span>
+                <span className="text-[10px] sm:text-xs text-amber-400/50 ml-auto flex-shrink-0">
+                  {towerData.cost} PP
+                </span>
+              </div>
+              <p className="text-[10px] sm:text-[12px] text-amber-100/70 leading-snug">
+                {summary}
+              </p>
+              <div className="flex flex-wrap gap-0.5 mt-1">
+                {tags.map((tag) => (
+                  <TagBadge key={tag} tag={tag} size={8} />
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// =============================================================================
+// SPELL CATALOG (for the use-spells step)
+// =============================================================================
+
+interface SpellCardInfo {
+  type: SpellType;
+  name: string;
+  tagline: string;
+  color: string;
+}
+
+const SPELL_CARDS: SpellCardInfo[] = [
+  {
+    color: "border-red-700/40",
+    name: "화염구",
+    tagline: "강력한 광역 화염 피해를 입히는 메테오 샤워",
+    type: "fireball",
+  },
+  {
+    color: "border-blue-700/40",
+    name: "번개",
+    tagline: "체인 라이트닝이 적 사이를 튀어다닙니다",
+    type: "lightning",
+  },
+  {
+    color: "border-cyan-700/40",
+    name: "빙결",
+    tagline: "가장 앞에 있는 적을 몇 초간 동결시킵니다",
+    type: "freeze",
+  },
+  {
+    color: "border-fuchsia-700/40",
+    name: "주문 방어막",
+    tagline: "적을 표시하고 쓰러진 유닛을 유령 아군으로 되살립니다",
+    type: "hex_ward",
+  },
+  {
+    color: "border-amber-700/40",
+    name: "페이데이",
+    tagline: "즉시 보너스 paw point를 지급합니다",
+    type: "payday",
+  },
+  {
+    color: "border-emerald-700/40",
+    name: "Reinforcements",
+    tagline: "맵 어디든 병사를 배치합니다",
+    type: "reinforcements",
+  },
+];
+
+const MAX_SPELLS = 3;
+
+function SpellCatalog({
+  selectedSpells,
+  onSpellToggle,
+}: {
+  selectedSpells?: SpellType[];
+  onSpellToggle?: (spell: SpellType) => void;
+}) {
+  const selected = selectedSpells ?? [];
+  const isFull = selected.length >= MAX_SPELLS;
+  return (
+    <div className="mt-2 sm:mt-3 mb-1">
+      <div className="flex items-center justify-between mb-1.5">
+        <span className="text-[10px] sm:text-xs text-amber-300/50 font-semibold uppercase tracking-wider">
+          Tap to equip/unequip
+        </span>
+        <span className="text-[10px] sm:text-xs text-amber-200/40">
+          {selected.length}/{MAX_SPELLS} equipped
+        </span>
+      </div>
+      <div className="grid grid-cols-2 gap-1 sm:gap-1.5">
+        {SPELL_CARDS.map((spell) => {
+          const isSelected = selected.includes(spell.type);
+          const isDisabled = !isSelected && isFull;
+          return (
+            <button
+              key={spell.type}
+              type="button"
+              onClick={() => onSpellToggle?.(spell.type)}
+              disabled={isDisabled}
+              className="flex items-center gap-1.5 sm:gap-2 rounded-lg p-1 sm:p-1.5 relative text-left transition-all duration-150"
+              style={{
+                background: isSelected
+                  ? "rgba(251,191,36,0.1)"
+                  : "rgba(10,10,16,0.5)",
+                border: isSelected
+                  ? "2px solid rgba(251,191,36,0.5)"
+                  : "1px solid rgba(80,80,80,0.25)",
+                boxShadow: isSelected
+                  ? "0 0 10px rgba(251,191,36,0.15)"
+                  : "none",
+                cursor: isDisabled ? "not-allowed" : "pointer",
+                opacity: isDisabled ? 0.4 : 1,
+              }}
+            >
+              {isSelected && (
+                <div className="absolute top-0.5 right-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-amber-400/80">
+                  Equipped
+                </div>
+              )}
+              <SpellSprite type={spell.type} size={30} />
+              <div className="min-w-0">
+                <span className="text-[11px] sm:text-[13px] font-bold text-amber-200 block">
+                  {spell.name}
+                </span>
+                <span className="text-[9px] sm:text-[11px] text-amber-200/40 leading-tight block">
+                  {spell.tagline}
+                </span>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// =============================================================================
+// HERO CARDS (for the move-hero step)
+// =============================================================================
+
+interface HeroCardInfo {
+  type: HeroType;
+  role: string;
+  tagline: string;
+  roleColor: string;
+}
+
+const HERO_CARDS: HeroCardInfo[] = [
+  {
+    role: "난전형",
+    roleColor: "bg-orange-900/60 text-orange-300 border-orange-700/40",
+    tagline: "맹렬한 근접 전사. 포효로 근처의 모든 적을 기절시킵니다.",
+    type: "tiger",
+  },
+  {
+    role: "원거리",
+    roleColor: "bg-pink-900/60 text-pink-300 border-pink-700/40",
+    tagline: "음파를 사용하는 원거리 공격수. 하이트 노트로 적을 기절시키고 아군을 치유합니다.",
+    type: "tenor",
+  },
+  {
+    role: "전차",
+    roleColor: "bg-indigo-900/60 text-indigo-300 border-indigo-700/40",
+    tagline: "장갑을 두른 수비수. 무적이 되며 적의 도발을 유도합니다.",
+    type: "mathey",
+  },
+  {
+    role: "포격",
+    roleColor: "bg-stone-800/60 text-stone-300 border-stone-600/40",
+    tagline: "원거리에서 바위를 던집니다. 막대한 광역 피해.",
+    type: "rocky",
+  },
+  {
+    role: "Support",
+    roleColor: "bg-teal-900/60 text-teal-300 border-teal-700/40",
+    tagline: "모든 타워의 피해 +50% 및 사거리 +25%를 증가시킵니다.",
+    type: "scott",
+  },
+  {
+    role: "소환형",
+    roleColor: "bg-red-900/60 text-red-300 border-red-700/40",
+    tagline: "전설의 지휘관. 장갑 기사를 소환합니다.",
+    type: "captain",
+  },
+  {
+    role: "Tech",
+    roleColor: "bg-yellow-900/60 text-yellow-300 border-yellow-700/40",
+    tagline: "자동 포탑을 배치하여 교차 사격을 형성합니다.",
+    type: "engineer",
+  },
+  {
+    role: "Sky Guardian",
+    roleColor: "bg-amber-900/60 text-amber-300 border-amber-700/40",
+    tagline: "비행하는 불사조. 불을 내뿜으며 공중 적을 사냥합니다.",
+    type: "nassau",
+  },
+  {
+    role: "Controller",
+    roleColor: "bg-emerald-900/60 text-emerald-300 border-emerald-700/40",
+    tagline: "자연의 수호자. 파괴적인 넝쿨 폭풍으로 적의 발을 묶습니다.",
+    type: "ivy",
+  },
+];
+
+function HeroCatalog({
+  selectedHero,
+  onHeroChange,
+}: {
+  selectedHero?: HeroType | null;
+  onHeroChange?: (hero: HeroType) => void;
+}) {
+  return (
+    <div className="mt-2 sm:mt-3 mb-1 space-y-1 sm:space-y-1.5">
+      {HERO_CARDS.map((card) => {
+        const heroData = HERO_DATA[card.type];
+        const heroColor = heroData.color;
+        const isSelected = selectedHero === card.type;
+        return (
+          <button
+            key={card.type}
+            type="button"
+            onClick={() => onHeroChange?.(card.type)}
+            className="flex items-start gap-2 sm:gap-2.5 rounded-lg p-1.5 sm:p-2 relative w-full text-left transition-all duration-150"
+            style={{
+              background: isSelected ? `${heroColor}18` : "rgba(10,10,16,0.5)",
+              border: isSelected
+                ? `2px solid ${heroColor}88`
+                : `1px solid ${heroColor}44`,
+              boxShadow: isSelected ? `0 0 12px ${heroColor}30` : "none",
+              cursor: "pointer",
+            }}
+          >
+            {isSelected && (
+              <div
+                className="absolute top-1 right-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full"
+                style={{
+                  background: `${heroColor}30`,
+                  border: `1px solid ${heroColor}55`,
+                  color: heroColor,
+                }}
+              >
+                Selected
+              </div>
+            )}
+            <div
+              className="flex-shrink-0 rounded-xl overflow-hidden mt-0.5"
+              style={{
+                alignItems: "center",
+                background: `radial-gradient(circle, ${heroColor}22, rgba(6,6,10,0.9))`,
+                border: `1.5px solid ${heroColor}66`,
+                display: "flex",
+                height: 42,
+                justifyContent: "center",
+                width: 42,
+              }}
+            >
+              <HeroSprite type={card.type} size={34} />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-1 sm:gap-1.5 mb-0.5">
+                <span className="text-xs sm:text-sm font-bold text-amber-200">
+                  {heroData.name}
+                </span>
+                <span
+                  className={`text-[8px] sm:text-[10px] font-semibold px-1 sm:px-1.5 py-[1px] rounded-full border ${card.roleColor}`}
+                >
+                  {card.role}
+                </span>
+              </div>
+              <p className="text-[11px] sm:text-[13px] text-amber-100/70 leading-snug">
+                {card.tagline}
+              </p>
+              <div className="hidden sm:flex items-center gap-2 mt-1">
+                <span className="text-[11px] text-amber-400/50">
+                  <span className="font-semibold text-amber-300/60">
+                    {heroData.ability}
+                  </span>{" "}
+                  — {heroData.abilityDesc}
+                </span>
+              </div>
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+// =============================================================================
+// TUTORIAL UPGRADE TREE (for the upgrade-towers step)
+// =============================================================================
+
+const EXAMPLE_TOWER: TowerType = "cannon";
+
+function TutorialUpgradeTree() {
+  const towerType = EXAMPLE_TOWER;
+  const theme = TOWER_SPRITE_FRAME_THEME[towerType];
+  const statsDef = TOWER_STATS[towerType];
+  const towerData = TOWER_DATA[towerType];
+  const levels = [1, 2, 3] as const;
+
+  return (
+    <div
+      className="mt-2 sm:mt-3 mb-1 rounded-lg border p-2 sm:p-2.5"
+      style={{
+        background: "rgba(10,10,16,0.55)",
+        borderColor: GOLD.innerBorder10,
+      }}
+    >
+      <p className="text-[10px] sm:text-xs text-amber-300/60 font-semibold uppercase tracking-wider mb-1.5 sm:mb-2 text-center">
+        Example: {towerData.name}
+      </p>
+
+      {/* Levels 1-3, then arrow to Lv4 A/B fork — all left-to-right */}
+      <div className="flex items-center justify-center gap-0">
+        {levels.map((lvl, i) => {
+          const desc = statsDef.levels[lvl]?.description || `Level ${lvl}`;
+          const shortDesc = desc.split(" - ")[0] || desc;
+          return (
+            <React.Fragment key={lvl}>
+              <div className="flex flex-col items-center">
+                <div
+                  className="rounded-lg overflow-hidden"
+                  style={{ border: `1.5px solid ${theme.border}` }}
+                >
+                  <FramedSprite size={34} theme={theme}>
+                    <TowerSprite type={towerType} size={26} level={lvl} />
+                  </FramedSprite>
+                </div>
+                <span className="text-[10px] mt-0.5 text-amber-200/50 text-center leading-tight max-w-[60px]">
+                  Lv{lvl}
+                </span>
+              </div>
+              <ArrowRight
+                size={16}
+                className="flex-shrink-0 mx-1 text-amber-400/50"
+              />
+            </React.Fragment>
+          );
+        })}
+
+        {/* Level 4 A/B fork inline */}
+        <div className="flex flex-col items-center gap-1">
+          {(["A", "B"] as const).map((branch) => {
+            const info = towerData.upgrades[branch];
+            const borderCol =
+              branch === "A" ? "rgba(239,68,68,0.6)" : "rgba(59,130,246,0.6)";
+            const labelColor =
+              branch === "A" ? "text-red-300" : "text-blue-300";
+            return (
+              <div key={branch} className="flex items-center gap-1.5">
+                <div
+                  className="rounded-lg overflow-hidden"
+                  style={{ border: `1.5px solid ${borderCol}` }}
+                >
+                  <FramedSprite size={34} theme={theme}>
+                    <TowerSprite
+                      type={towerType}
+                      size={26}
+                      level={4}
+                      upgrade={branch}
+                    />
+                  </FramedSprite>
+                </div>
+                <div className="flex flex-col">
+                  <span
+                    className={`text-[10px] font-semibold ${labelColor} leading-tight`}
+                  >
+                    {info.name}
+                  </span>
+                  <span className="text-[9px] text-amber-200/30 leading-tight max-w-[80px]">
+                    {info.effect}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// =============================================================================
+// COMPONENT
+// =============================================================================
+
+export const TutorialOverlay: React.FC<TutorialOverlayProps> = ({
+  onComplete,
+  onSkip,
+  selectedHero,
+  selectedSpells,
+  onHeroChange,
+  onSpellToggle,
+}) => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [highlightRect, setHighlightRect] = useState<HighlightRect | null>(
+    null
+  );
+  const rafRef = useRef(0);
+
+  const step = TUTORIAL_STEPS[currentStep];
+  const isLastStep = currentStep === TUTORIAL_STEPS.length - 1;
+  const totalSteps = TUTORIAL_STEPS.length;
+
+  // Continuously track the highlighted element's position
+  useEffect(() => {
+    function tick() {
+      if (!step) {
+        return;
+      }
+      const el = getHighlightElement(step);
+      const rect = getHighlightRect(el);
+      setHighlightRect((prev) => {
+        if (!rect && !prev) {
+          return prev;
+        }
+        if (!rect) {
+          return null;
+        }
+        if (
+          prev &&
+          prev.top === rect.top &&
+          prev.left === rect.left &&
+          prev.width === rect.width &&
+          prev.height === rect.height
+        ) {
+          return prev;
+        }
+        return rect;
+      });
+      rafRef.current = requestAnimationFrame(tick);
+    }
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [step]);
+
+  const handleNext = useCallback(() => {
+    if (isAnimating) {
+      return;
+    }
+    if (isLastStep) {
+      onComplete();
+      return;
+    }
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentStep((prev) => prev + 1);
+      setIsAnimating(false);
+    }, 150);
+  }, [isLastStep, onComplete, isAnimating]);
+
+  const handleSkip = useCallback(() => {
+    onSkip();
+  }, [onSkip]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "입력" || e.key === " " || e.key === "ArrowRight") {
+        e.preventDefault();
+        handleNext();
+      } else if (e.key === "탈출") {
+        e.preventDefault();
+        handleSkip();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleNext, handleSkip]);
+
+  if (!step) {
+    return null;
+  }
+
+  const descriptionLines = step.description.split("\n").filter(Boolean);
+  const panelStyle = getPanelPosition(step, highlightRect);
+  const showTowerCatalog = step.id === "build-towers";
+  const showSpellCatalog = step.id === "use-spells";
+  const showUpgradeTree = step.id === "upgrade-towers";
+  const showHeroCatalog = step.id === "move-hero";
+
+  // Build the box-shadow spotlight cutout mask
+  const overlayStyle: React.CSSProperties = highlightRect
+    ? {
+        // Massive box-shadow covers everything except the cutout rect
+        border: "2px solid rgba(251,191,36,0.45)",
+        borderRadius: 12,
+        boxShadow: `0 0 0 9999px rgba(0,0,0,0.72)`,
+        height: highlightRect.height,
+        left: highlightRect.left,
+        pointerEvents: "none" as const,
+        position: "fixed",
+        top: highlightRect.top,
+        transition: "all 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+        width: highlightRect.width,
+        zIndex: 300,
+      }
+    : {
+        background: "rgba(0,0,0,0.72)",
+        inset: 0,
+        pointerEvents: "none" as const,
+        position: "fixed" as const,
+        zIndex: 300,
+      };
+
+  return (
+    <>
+      {/* Spotlight cutout overlay */}
+      <div style={overlayStyle} />
+
+      {/* Glow ring around cutout */}
+      {highlightRect && (
+        <div
+          className="pointer-events-none"
+          style={{
+            borderRadius: 16,
+            boxShadow:
+              "0 0 24px rgba(251,191,36,0.3), inset 0 0 24px rgba(251,191,36,0.1)",
+            height: highlightRect.height + 8,
+            left: highlightRect.left - 4,
+            position: "fixed",
+            top: highlightRect.top - 4,
+            transition: "all 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+            width: highlightRect.width + 8,
+            zIndex: 300,
+          }}
+        />
+      )}
+
+      {/* Click blocker (allows clicks only in the tutorial panel) */}
+      <div
+        className="fixed inset-0"
+        style={{ pointerEvents: "none", zIndex: 301 }}
+      />
+
+      {/* Tutorial panel */}
+      <div
+        className="fixed w-[92vw] sm:w-full max-w-lg rounded-xl sm:rounded-2xl overflow-hidden"
+        style={{
+          ...panelStyle,
+          background: panelGradient,
+          border: `2px solid ${GOLD.border35}`,
+          boxShadow: `0 0 60px ${GOLD.glow07}, inset 0 0 30px ${GOLD.glow04}`,
+          opacity: isAnimating ? 0.3 : 1,
+          pointerEvents: "auto",
+          transition: "opacity 150ms ease",
+          zIndex: 302,
+        }}
+      >
+        <OrnateFrame
+          className="relative w-full h-full overflow-hidden"
+          cornerSize={40}
+        >
+          {/* Header */}
+          <div
+            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2.5 sm:py-3.5 border-b"
+            style={{ borderColor: GOLD.border25 }}
+          >
+            <div
+              className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg"
+              style={{
+                background: `linear-gradient(135deg, ${PANEL.bgWarmLight}, ${PANEL.bgWarmMid})`,
+                border: `1px solid ${GOLD.innerBorder12}`,
+              }}
+            >
+              <BookOpen size={16} className="text-amber-400" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h2 className="text-sm sm:text-base font-bold text-amber-200 tracking-wide">
+                {step.title}
+              </h2>
+              <p className="text-[10px] sm:text-xs text-amber-200/40 mt-0.5">
+                Step {currentStep + 1} of {totalSteps}
+              </p>
+            </div>
+          </div>
+
+          {/* Body */}
+          <div className="px-3 sm:px-5 py-3 sm:py-4 max-h-[40dvh] sm:max-h-[50dvh] overflow-y-auto">
+            {descriptionLines.map((line, i) => (
+              <p
+                key={i}
+                className="text-xs sm:text-sm text-amber-100/80 leading-relaxed"
+                style={{ marginTop: i > 0 ? 6 : 0, whiteSpace: "pre-wrap" }}
+              >
+                {line}
+              </p>
+            ))}
+            {showTowerCatalog && <TowerCatalog />}
+            {showSpellCatalog && (
+              <SpellCatalog
+                selectedSpells={selectedSpells}
+                onSpellToggle={onSpellToggle}
+              />
+            )}
+            {showUpgradeTree && <TutorialUpgradeTree />}
+            {showHeroCatalog && (
+              <HeroCatalog
+                selectedHero={selectedHero}
+                onHeroChange={onHeroChange}
+              />
+            )}
+          </div>
+
+          {/* Divider */}
+          <div
+            className="mx-3 sm:mx-4"
+            style={{ background: dividerGradient, height: 1 }}
+          />
+
+          {/* Footer */}
+          <div className="flex items-center justify-between px-3 sm:px-5 py-2 sm:py-3">
+            {/* Progress dots */}
+            <div className="flex gap-1 sm:gap-1.5">
+              {TUTORIAL_STEPS.map((_, i) => (
+                <div
+                  key={i}
+                  className="rounded-full transition-all duration-200"
+                  style={{
+                    background:
+                      i === currentStep
+                        ? "rgba(251,191,36,0.8)"
+                        : i < currentStep
+                          ? "rgba(251,191,36,0.35)"
+                          : "rgba(255,255,255,0.15)",
+                    height: 5,
+                    width: i === currentStep ? 12 : 5,
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Buttons */}
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <button
+                onClick={handleSkip}
+                className="flex items-center gap-1 px-2 sm:px-3 py-1.5 rounded-lg text-[10px] sm:text-xs text-amber-200/50 hover:text-amber-200/80 hover:bg-white/5 transition-colors"
+              >
+                <SkipForward size={11} />
+                Skip
+              </button>
+              <button
+                onClick={handleNext}
+                className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold text-amber-100 transition-all hover:brightness-110"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(180,125,30,0.85), rgba(120,75,15,0.9))",
+                  border: `1px solid ${GOLD.border40}`,
+                  boxShadow: `0 0 12px ${GOLD.glow07}`,
+                }}
+              >
+                {isLastStep ? "Let's Go!" : "다음"}
+                <ChevronRight size={13} />
+              </button>
+            </div>
+          </div>
+        </OrnateFrame>
+      </div>
+    </>
+  );
+};
+
+export default TutorialOverlay;

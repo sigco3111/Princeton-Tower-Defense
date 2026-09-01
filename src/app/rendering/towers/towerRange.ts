@@ -1,0 +1,456 @@
+import {
+  TILE_SIZE,
+  TOWER_DATA,
+  TOWER_COLORS,
+  ISO_PRISM_W_FACTOR,
+  ISO_PRISM_D_FACTOR,
+  LEVEL_2_RANGE_MULT,
+  LEVEL_3_RANGE_MULT,
+  LEVEL_4_RANGE_MULT,
+} from "../../constants";
+import type { MapTheme } from "../../constants/maps";
+import { LEVEL_DATA } from "../../constants/maps";
+import { TOWER_STATS } from "../../constants/towerStats";
+import { getGameSettings } from "../../hooks/useSettings";
+import type { Tower, DraggingTower, Position, TowerType } from "../../types";
+import {
+  gridToWorld,
+  worldToScreen,
+  worldToScreenRounded,
+  isValidBuildPosition,
+  isoTileDiamondHalfH,
+} from "../../utils";
+import { drawTransitionBlob } from "../decorations/landmarkTransition";
+import type { TransitionRadii } from "../decorations/landmarkTransition";
+import { isMountainTerrainKind } from "../maps/challengeTerrain";
+import { renderRangeReticle, RETICLE_COLORS } from "../ui/reticles";
+import { renderArchTower } from "./arch";
+import { renderCannonTower } from "./cannon";
+import { renderClubTower } from "./club";
+import { renderLabTower } from "./lab";
+import { renderLibraryTower } from "./library";
+import { renderMortarTower } from "./mortar";
+import { renderStationTower } from "./station";
+import { getTowerFoundationSize, getTowerYShift } from "./towerHelpers";
+
+export function renderStationRange(
+  ctx: CanvasRenderingContext2D,
+  tower: Tower & { isHovered?: boolean },
+  canvasWidth: number,
+  canvasHeight: number,
+  dpr: number,
+  cameraOffset?: Position,
+  cameraZoom?: number
+) {
+  if (!tower.isHovered && !tower.selected) {
+    return;
+  }
+
+  const baseRange = tower.spawnRange || 180;
+  const rangeBoost = tower.rangeBoost || 1;
+  const range = baseRange * rangeBoost;
+  const isBoosted = rangeBoost > 1;
+  const zoom = cameraZoom || 1;
+  const worldPos = gridToWorld(tower.pos);
+  const screenPos = worldToScreen(
+    worldPos,
+    canvasWidth,
+    canvasHeight,
+    dpr,
+    cameraOffset,
+    cameraZoom
+  );
+  screenPos.y -= isoTileDiamondHalfH(zoom);
+
+  renderRangeReticle(ctx, {
+    color: isBoosted ? RETICLE_COLORS.cyan : RETICLE_COLORS.orange,
+    dashed: true,
+    range,
+    state: tower.isHovered ? "hovered" : "normal",
+    x: screenPos.x,
+    y: screenPos.y,
+    zoom,
+  });
+}
+
+export function renderTowerRange(
+  ctx: CanvasRenderingContext2D,
+  tower: Tower & { isHovered?: boolean },
+  canvasWidth: number,
+  canvasHeight: number,
+  dpr: number,
+  cameraOffset?: Position,
+  cameraZoom?: number
+) {
+  const tData = TOWER_DATA[tower.type];
+  if (tData.range <= 0) {
+    return;
+  }
+  const zoom = cameraZoom || 1;
+  const worldPos = gridToWorld(tower.pos);
+  const screenPos = worldToScreen(
+    worldPos,
+    canvasWidth,
+    canvasHeight,
+    dpr,
+    cameraOffset,
+    cameraZoom
+  );
+  screenPos.y -= isoTileDiamondHalfH(zoom);
+
+  let { range } = tData;
+  if (tower.level === 2) {
+    range *= LEVEL_2_RANGE_MULT;
+  }
+  if (tower.level === 3) {
+    if (tower.type === "library" && tower.upgrade === "B") {
+      range *= LEVEL_4_RANGE_MULT;
+    } else {
+      range *= LEVEL_3_RANGE_MULT;
+    }
+  }
+  if (tower.level >= 4 && tower.upgrade) {
+    const towerStats = TOWER_STATS[tower.type];
+    const upgradeRange = towerStats?.upgrades?.[tower.upgrade]?.stats?.range;
+    if (upgradeRange !== undefined) {
+      range = upgradeRange;
+    } else {
+      range = tData.range * LEVEL_4_RANGE_MULT;
+    }
+  }
+  range *= tower.rangeBoost || 1;
+
+  const hasRangeBuff = (tower.rangeBoost || 1) > 1;
+
+  let rangeMod = 1;
+  let hasRangeDebuff = false;
+  const now = Date.now();
+  if (tower.debuffs && tower.debuffs.length > 0) {
+    for (const debuff of tower.debuffs) {
+      if (now >= debuff.until) {
+        continue;
+      }
+      if (debuff.type === "blind") {
+        rangeMod *= 1 - debuff.intensity;
+        hasRangeDebuff = true;
+      }
+    }
+  }
+  range *= rangeMod;
+
+  const state = hasRangeDebuff
+    ? ("debuffed" as const)
+    : hasRangeBuff
+      ? ("buffed" as const)
+      : tower.isHovered
+        ? ("hovered" as const)
+        : ("normal" as const);
+
+  renderRangeReticle(ctx, {
+    range,
+    state,
+    x: screenPos.x,
+    y: screenPos.y,
+    zoom: cameraZoom || 1,
+  });
+}
+// ============================================================================
+// TOWER PREVIEW — offscreen canvas for tinted actual-tower rendering
+// ============================================================================
+
+let _previewCanvas: HTMLCanvasElement | null = null;
+let _previewCtx: CanvasRenderingContext2D | null = null;
+const PREVIEW_CANVAS_SIZE = 600;
+
+function getPreviewCtx(): {
+  ctx: CanvasRenderingContext2D;
+  canvas: HTMLCanvasElement;
+} {
+  if (!_previewCanvas) {
+    _previewCanvas = document.createElement("canvas");
+    _previewCanvas.width = PREVIEW_CANVAS_SIZE;
+    _previewCanvas.height = PREVIEW_CANVAS_SIZE;
+    _previewCtx = _previewCanvas.getContext("2d")!;
+  }
+  _previewCtx!.clearRect(0, 0, PREVIEW_CANVAS_SIZE, PREVIEW_CANVAS_SIZE);
+  return { canvas: _previewCanvas, ctx: _previewCtx! };
+}
+
+function renderTowerOnCtx(
+  ctx: CanvasRenderingContext2D,
+  screenPos: Position,
+  type: TowerType,
+  zoom: number,
+  time: number
+): void {
+  const tower: Tower = {
+    id: "__preview__",
+    lastAttack: 0,
+    level: 1,
+    pos: { x: 0, y: 0 },
+    rotation:
+      type === "cannon"
+        ? Math.PI * 0.75
+        : type === "mortar"
+          ? -Math.PI * 0.5
+          : 0,
+    type,
+  };
+  const colors = TOWER_COLORS[type];
+
+  switch (type) {
+    case "cannon": {
+      renderCannonTower(
+        ctx,
+        screenPos,
+        tower,
+        zoom,
+        time,
+        colors,
+        [],
+        "",
+        0,
+        0,
+        1
+      );
+      break;
+    }
+    case "library": {
+      renderLibraryTower(ctx, screenPos, tower, zoom, time, colors);
+      break;
+    }
+    case "lab": {
+      renderLabTower(
+        ctx,
+        screenPos,
+        tower,
+        zoom,
+        time,
+        colors,
+        [],
+        "",
+        0,
+        0,
+        1
+      );
+      break;
+    }
+    case "arch": {
+      renderArchTower(ctx, screenPos, tower, zoom, time, colors);
+      break;
+    }
+    case "club": {
+      renderClubTower(ctx, screenPos, tower, zoom, time, colors);
+      break;
+    }
+    case "station": {
+      renderStationTower(ctx, screenPos, tower, zoom, time, colors);
+      break;
+    }
+    case "mortar": {
+      renderMortarTower(ctx, screenPos, tower, zoom, time, colors);
+      break;
+    }
+  }
+}
+
+export function renderTowerPreview(
+  ctx: CanvasRenderingContext2D,
+  dragging: DraggingTower,
+  canvasWidth: number,
+  canvasHeight: number,
+  dpr: number,
+  towers: Tower[],
+  selectedMap: string,
+  gridWidth: number = 16,
+  gridHeight: number = 10,
+  cameraOffset?: Position,
+  cameraZoom?: number,
+  blockedPositions?: Set<string>
+) {
+  const zoom = cameraZoom || 1;
+  const width = canvasWidth / dpr;
+  const height = canvasHeight / dpr;
+  const offset = cameraOffset || { x: 0, y: 0 };
+
+  const isoX = (dragging.pos.x - width / 2) / zoom - offset.x;
+  const isoY = (dragging.pos.y - height / 3) / zoom - offset.y;
+  const worldX = isoX + isoY * 2;
+  const worldY = isoY * 2 - isoX;
+  const gridPos = {
+    x: Math.floor(worldX / TILE_SIZE),
+    y: Math.floor(worldY / TILE_SIZE),
+  };
+
+  const worldPos = gridToWorld(gridPos);
+  const screenPos = worldToScreen(
+    worldPos,
+    canvasWidth,
+    canvasHeight,
+    dpr,
+    cameraOffset,
+    cameraZoom
+  );
+  screenPos.y -= isoTileDiamondHalfH(zoom);
+
+  // Check validity including blocked positions (landmarks and special towers)
+  const isValid = isValidBuildPosition(
+    gridPos,
+    selectedMap,
+    towers,
+    gridWidth,
+    gridHeight,
+    40,
+    blockedPositions,
+    dragging.type
+  );
+
+  // Single base indicator at the anchor cell (footprint logic is handled by validation)
+  ctx.fillStyle = isValid
+    ? "rgba(100, 255, 100, 0.4)"
+    : "rgba(255, 80, 80, 0.4)";
+  ctx.beginPath();
+  ctx.ellipse(
+    screenPos.x,
+    screenPos.y + 8 * zoom,
+    32 * zoom,
+    16 * zoom,
+    0,
+    0,
+    Math.PI * 2
+  );
+  ctx.fill();
+
+  ctx.strokeStyle = isValid
+    ? "rgba(50, 200, 50, 0.8)"
+    : "rgba(200, 50, 50, 0.8)";
+  ctx.lineWidth = 2 * zoom;
+  ctx.beginPath();
+  ctx.ellipse(
+    screenPos.x,
+    screenPos.y + 8 * zoom,
+    32 * zoom,
+    16 * zoom,
+    0,
+    0,
+    Math.PI * 2
+  );
+  ctx.stroke();
+
+  // Render the actual tower model onto an offscreen canvas, then tint it
+  const { ctx: tCtx, canvas: tCanvas } = getPreviewCtx();
+  const center = PREVIEW_CANVAS_SIZE / 2;
+  const time = Date.now() / 1000;
+
+  renderTowerOnCtx(
+    tCtx,
+    { x: center, y: center },
+    dragging.type as TowerType,
+    zoom,
+    time
+  );
+
+  // Tint the entire drawn content green or red
+  tCtx.globalCompositeOperation = "source-atop";
+  tCtx.fillStyle = isValid ? "rgba(0, 220, 0, 0.3)" : "rgba(220, 0, 0, 0.3)";
+  tCtx.fillRect(0, 0, PREVIEW_CANVAS_SIZE, PREVIEW_CANVAS_SIZE);
+  tCtx.globalCompositeOperation = "source-over";
+
+  ctx.save();
+  ctx.globalAlpha = 0.85;
+  ctx.drawImage(tCanvas, screenPos.x - center, screenPos.y - center);
+  ctx.restore();
+
+  // Range preview - show level 1 base range when placing
+  if (getGameSettings().ui.showTowerRadii) {
+    const tData = TOWER_DATA[dragging.type];
+    if (tData.range > 0) {
+      renderRangeReticle(ctx, {
+        color: isValid ? RETICLE_COLORS.blue : RETICLE_COLORS.red,
+        dashed: true,
+        fillAlpha: 0,
+        range: tData.range,
+        state: "preview",
+        strokeAlpha: 0.6,
+        x: screenPos.x,
+        y: screenPos.y,
+        zoom,
+      });
+    }
+
+    if (dragging.type === "station" && tData.spawnRange) {
+      renderRangeReticle(ctx, {
+        color: isValid ? RETICLE_COLORS.gold : RETICLE_COLORS.red,
+        dashed: true,
+        fillAlpha: 0,
+        range: tData.spawnRange,
+        state: "preview",
+        strokeAlpha: 0.5,
+        x: screenPos.x,
+        y: screenPos.y,
+        zoom,
+      });
+    }
+  }
+}
+
+function getTowerTransitionRadii(tower: Tower, zoom: number): TransitionRadii {
+  const baseTower = { ...tower, level: 1 as const };
+  const fnd = getTowerFoundationSize(baseTower);
+  const baseW = fnd.w * zoom;
+  const baseH = fnd.d * zoom;
+  return {
+    innerH: baseH * ISO_PRISM_D_FACTOR * 0.55,
+    innerW: baseW * ISO_PRISM_W_FACTOR * 0.55,
+    midH: baseH * ISO_PRISM_D_FACTOR * 0.8,
+    midW: baseW * ISO_PRISM_W_FACTOR * 0.8,
+    outerH: baseH * ISO_PRISM_D_FACTOR * 1.1,
+    outerW: baseW * ISO_PRISM_W_FACTOR * 1.1,
+  };
+}
+
+export function renderTowerGroundTransition(
+  ctx: CanvasRenderingContext2D,
+  tower: Tower,
+  canvasWidth: number,
+  canvasHeight: number,
+  dpr: number,
+  selectedMap: string,
+  cameraOffset?: Position,
+  cameraZoom?: number
+) {
+  const worldPos = gridToWorld(tower.pos);
+  const screenPos = worldToScreenRounded(
+    worldPos,
+    canvasWidth,
+    canvasHeight,
+    dpr,
+    cameraOffset,
+    cameraZoom
+  );
+  const zoom = cameraZoom || 1;
+  const time = Date.now() / 1000;
+
+  const levelData = LEVEL_DATA[selectedMap];
+  const mapTheme: MapTheme = (levelData?.theme as MapTheme) || "grassland";
+  const isChallenge = isMountainTerrainKind(levelData?.levelKind);
+  const radii = getTowerTransitionRadii(tower, zoom);
+
+  const baseTower = { ...tower, level: 1 as const };
+  const yShift = getTowerYShift(baseTower);
+  const adjustedPos = { x: screenPos.x, y: screenPos.y + (2 - yShift) * zoom };
+
+  drawTransitionBlob(
+    ctx,
+    adjustedPos,
+    zoom,
+    time,
+    mapTheme,
+    radii,
+    tower.pos.x,
+    tower.pos.y,
+    selectedMap,
+    1,
+    isChallenge
+  );
+}

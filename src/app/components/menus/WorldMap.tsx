@@ -1,0 +1,1989 @@
+"use client";
+import {
+  Star,
+  Swords,
+  Play,
+  X,
+  Skull,
+  Flag,
+  Heart,
+  MapPin,
+  ChevronRight,
+  Trophy,
+  Clock,
+  AlertTriangle,
+  Eye,
+  BarChart3,
+} from "lucide-react";
+import Image from "next/image";
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useCallback,
+  useMemo,
+} from "react";
+
+import { LEVEL_DATA } from "../../constants";
+import type {
+  CustomLevelDefinition,
+  CustomLevelDraftInput,
+  CustomLevelUpsertResult,
+} from "../../customLevels/types";
+import type { LevelStats } from "../../hooks/useLocalStorage";
+import { useSettings } from "../../hooks/useSettings";
+import { useUrlNavigation } from "../../hooks/useUrlNavigation";
+import { RegionIcon } from "../../sprites";
+import type {
+  GameState,
+  LevelStars,
+  HeroType,
+  SpellType,
+  SpellUpgradeLevels,
+} from "../../types";
+import { OrnateFrame } from "../ui/primitives/OrnateFrame";
+import {
+  PANEL,
+  GOLD,
+  AMBER_CARD,
+  RED_CARD,
+  BLUE_CARD,
+  NEUTRAL,
+  SELECTED,
+  OVERLAY,
+  panelGradient,
+  dividerGradient,
+} from "../ui/system/theme";
+import { BattlefieldPreview } from "./BattlefieldPreview";
+import { CampaignOverview } from "./CampaignOverview";
+import type { CodexTabId } from "./CodexModal";
+import { MobileCampaignBar } from "./MobileCampaignBar";
+import { MobileLevelSheet } from "./MobileLevelSheet";
+import { MobileLoadoutBar } from "./MobileLoadoutBar";
+import { ShareLevelButton } from "./shared/ShareLevelButton";
+import { getCampaignLevels } from "./shared/worldMapRegions";
+import { drawWorldMapCanvas } from "./world-map/worldMapCanvasRenderer";
+import {
+  WORLD_LEVELS,
+  MAP_WIDTH,
+  getWaveCount,
+  DEV_LEVELS,
+  DEV_LEVEL_IDS,
+} from "./world-map/worldMapData";
+import { WorldMapDesktopLoadout } from "./world-map/WorldMapDesktopLoadout";
+import { WorldMapModals } from "./world-map/WorldMapModals";
+import { WorldMapShoutOut } from "./world-map/WorldMapShoutOut";
+import { WorldMapTopBar } from "./world-map/WorldMapTopBar";
+import { getWorldLevelById, getLevelNodeY } from "./world-map/worldMapUtils";
+
+// =============================================================================
+// WORLD MAP COMPONENT
+// =============================================================================
+
+interface WorldMapProps {
+  setSelectedMap: (map: string) => void;
+  setGameState: (state: GameState) => void;
+  levelStars: LevelStars;
+  levelStats: Record<string, LevelStats>;
+  customLevels: CustomLevelDefinition[];
+  onSaveCustomLevel: (draft: CustomLevelDraftInput) => CustomLevelUpsertResult;
+  onDeleteCustomLevel: (levelId: string) => void;
+  unlockedMaps: string[];
+  selectedHero: HeroType | null;
+  setSelectedHero: (hero: HeroType | null) => void;
+  selectedSpells: SpellType[];
+  setSelectedSpells: (spells: SpellType[]) => void;
+  availableSpellStars: number;
+  totalSpellStarsEarned: number;
+  spentSpellStars: number;
+  spellUpgradeLevels: SpellUpgradeLevels;
+  upgradeSpell: (spellType: SpellType) => void;
+  downgradeSpell: (spellType: SpellType) => void;
+  spellAutoAim: Partial<Record<SpellType, boolean>>;
+  onToggleSpellAutoAim: (spellType: SpellType) => void;
+  gameState: GameState;
+  /** When Battle is clicked without hero/spells selected, run this to pick random loadout and start */
+  onStartWithRandomLoadout?: () => void;
+  isDevMode?: boolean;
+  onDevModeChange?: (enabled: boolean) => void;
+  /** Called when a level URL is visited directly — shows a landing page before battle */
+  onFreeplayRequest?: (levelId: string, isUnlocked: boolean) => void;
+}
+
+interface SelectableLevel {
+  id: string;
+  name: string;
+  description: string;
+  region: (typeof WORLD_LEVELS)[number]["지역"];
+  difficulty: 1 | 2 | 3;
+  kind?: "campaign" | "challenge" | "custom" | "sandbox";
+  tags: string[];
+  isCustom?: boolean;
+}
+
+export const WorldMap: React.FC<WorldMapProps> = ({
+  setSelectedMap,
+  setGameState,
+  levelStars,
+  levelStats,
+  customLevels,
+  onSaveCustomLevel,
+  onDeleteCustomLevel,
+  unlockedMaps,
+  selectedHero,
+  setSelectedHero,
+  selectedSpells,
+  setSelectedSpells,
+  availableSpellStars,
+  totalSpellStarsEarned,
+  spentSpellStars,
+  spellUpgradeLevels,
+  upgradeSpell,
+  downgradeSpell,
+  spellAutoAim,
+  onToggleSpellAutoAim,
+  onStartWithRandomLoadout,
+  isDevMode,
+  onDevModeChange,
+  onFreeplayRequest,
+}) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const bottomPanelRef = useRef<HTMLDivElement>(null);
+  const [hoveredLevel, setHoveredLevel] = useState<string | null>(null);
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+  const canvasWrapperRef = useRef<HTMLDivElement>(null);
+  const [showCodex, setShowCodex] = useState(false);
+  const [codexTab, setCodexTab] = useState<CodexTabId>("타워");
+  const [showCreator, setShowCreator] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [showCredits, setShowCredits] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const {
+    settings,
+    updateCategory,
+    applyPreset,
+    resetToDefaults,
+    resetCategory,
+  } = useSettings();
+  const { getInitialNavigation, updateUrl, resetUrl } = useUrlNavigation();
+  const [showBattlefieldPreview, setShowBattlefieldPreview] = useState<
+    boolean | null
+  >(null);
+  const [animTime, setAnimTime] = useState(0);
+  const animTimeRef = useRef(0);
+  const [mapHeight, setMapHeight] = useState(500);
+  const [containerWidth, setContainerWidth] = useState(MAP_WIDTH);
+  const [loadoutCompact, setLoadoutCompact] = useState(true);
+  const [hoveredHero, setHoveredHero] = useState<HeroType | null>(null);
+  const [hoveredSpell, setHoveredSpell] = useState<SpellType | null>(null);
+  const [isMobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth < 768
+  );
+  const [wmEntranceStage, setWmEntranceStage] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+  useEffect(() => {
+    const delays = [80, 220, 380, 540, 700];
+    const timers = delays.map((d, i) =>
+      setTimeout(
+        () =>
+          setWmEntranceStage((prev) => {
+            const n = [...prev];
+            n[i] = true;
+            return n;
+          }),
+        d
+      )
+    );
+    return () => timers.forEach(clearTimeout);
+  }, []);
+  const imageCache = useRef<Record<string, HTMLImageElement>>({});
+  const lastCanvasSizeRef = useRef({ h: 0, w: 0 });
+  const staticBgCacheRef = useRef<{
+    canvas: HTMLCanvasElement | null;
+    w: number;
+    h: number;
+  }>({ canvas: null, h: 0, w: 0 });
+  const decorationCacheRef = useRef<{
+    groundCanvas: HTMLCanvasElement | null;
+    structureCanvas: HTMLCanvasElement | null;
+    w: number;
+    h: number;
+    timeBucket: number;
+  }>({ groundCanvas: null, h: 0, structureCanvas: null, timeBucket: -1, w: 0 });
+  const fogOverlayCacheRef = useRef<{
+    canvas: HTMLCanvasElement | null;
+    w: number;
+    h: number;
+  }>({ canvas: null, h: 0, w: 0 });
+  const pathCacheRef = useRef<{
+    canvas: HTMLCanvasElement | null;
+    w: number;
+    h: number;
+    timeBucket: number;
+    unlockedKey: string;
+  }>({ canvas: null, h: 0, timeBucket: -1, unlockedKey: "", w: 0 });
+  const nodeCacheRef = useRef<{
+    canvas: HTMLCanvasElement | null;
+    w: number;
+    h: number;
+    timeBucket: number;
+    hoveredLevel: string | null;
+    selectedLevel: string | null;
+    starsKey: string;
+    unlockedKey: string;
+  }>({
+    canvas: null,
+    h: 0,
+    hoveredLevel: null,
+    selectedLevel: null,
+    starsKey: "",
+    timeBucket: -1,
+    unlockedKey: "",
+    w: 0,
+  });
+  const atmosphereCacheRef = useRef<{
+    canvas: HTMLCanvasElement | null;
+    w: number;
+    h: number;
+    timeBucket: number;
+  }>({ canvas: null, h: 0, timeBucket: -1, w: 0 });
+  // Tracks last-composed paint state inside drawWorldMapCanvas. Prevents the
+  // ~6 full-canvas blits per rAF tick when nothing visible has changed.
+  const paintKeyRef = useRef<string>("");
+  const dragRef = useRef({
+    dragStartX: 0,
+    dragStartY: 0,
+    hasDragged: false,
+    isDragging: false,
+    resetTimeoutId: 0 as number | undefined,
+    scrollStartLeft: 0,
+    scrollStartTop: 0,
+  });
+
+  const initialScrollSkippedRef = useRef(false);
+  const initialScrollDoneRef = useRef(false);
+
+  // Hero map position tracking for animated movement between levels
+  const heroMapPosRef = useRef({ x: 0, y: 0 });
+  const heroTargetPosRef = useRef({ x: 0, y: 0 });
+  const heroMovingRef = useRef(false);
+  const heroFacingRightRef = useRef(true);
+  const heroInitializedRef = useRef(false);
+
+  // Drag cursor style — only the cursor visual needs React state; all other
+  // drag logic reads from `dragRef.current.isDragging` to avoid re-renders on
+  // every mouse-move.
+  const [dragCursor, setDragCursor] = useState(false);
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (!containerRef.current) {
+        return;
+      }
+      const cw = containerRef.current.clientWidth;
+      const ch = containerRef.current.clientHeight;
+      const scale = Math.max(1, Math.min(1.5, cw / MAP_WIDTH));
+      setContainerWidth(cw);
+      setMapHeight(ch / scale);
+    };
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    window.visualViewport?.addEventListener("resize", updateDimensions);
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+      window.visualViewport?.removeEventListener("resize", updateDimensions);
+    };
+  }, []);
+
+  const navCampaignLevels = useMemo(() => getCampaignLevels(), []);
+  const totalStars = navCampaignLevels.reduce(
+    (sum, l) => sum + (levelStars[l.id] || 0),
+    0
+  );
+  const maxStars = navCampaignLevels.length * 3;
+  const unlockedMapSet = useMemo(() => new Set(unlockedMaps), [unlockedMaps]);
+  const customLevelById = useMemo(
+    () => new Map(customLevels.map((level) => [level.id, level])),
+    [customLevels]
+  );
+  const isCustomLevel = useCallback(
+    (levelId: string) => customLevelById.has(levelId),
+    [customLevelById]
+  );
+  const visibleWorldLevels = useMemo(
+    () => (isDevMode ? [...WORLD_LEVELS, ...DEV_LEVELS] : WORLD_LEVELS),
+    [isDevMode]
+  );
+  const isLevelUnlocked = useCallback(
+    (levelId: string) =>
+      isCustomLevel(levelId) ||
+      unlockedMapSet.has(levelId) ||
+      (isDevMode === true && DEV_LEVEL_IDS.has(levelId)),
+    [isCustomLevel, unlockedMapSet, isDevMode]
+  );
+  const getLevelById = useCallback(
+    (id: string): SelectableLevel | undefined => {
+      const campaignLevel = getWorldLevelById(id);
+      if (campaignLevel) {
+        return campaignLevel;
+      }
+
+      const customLevel = customLevelById.get(id);
+      if (!customLevel) {
+        return undefined;
+      }
+      return {
+        description: customLevel.description,
+        difficulty: customLevel.difficulty,
+        id: customLevel.id,
+        isCustom: true,
+        kind: "custom",
+        name: customLevel.name,
+        region: customLevel.theme,
+        tags: ["커스텀"],
+      };
+    },
+    [customLevelById]
+  );
+  const mapScale = Math.max(1, Math.min(1.5, containerWidth / MAP_WIDTH));
+  const displayW = Math.round(MAP_WIDTH * mapScale);
+  const displayH = Math.round(mapHeight * mapScale);
+
+  const getY = useCallback(
+    (pct: number) => getLevelNodeY(pct, mapHeight),
+    [mapHeight]
+  );
+
+  // Initialize hero position at first unlocked level, then track selectedLevel changes
+  useEffect(() => {
+    if (!mapHeight) {
+      return;
+    }
+    const targetId = selectedLevel;
+    const targetLevel = targetId
+      ? visibleWorldLevels.find((l) => l.id === targetId)
+      : null;
+
+    if (targetLevel) {
+      const tx = targetLevel.x;
+      const ty = getLevelNodeY(targetLevel.y, mapHeight);
+      heroTargetPosRef.current = { x: tx, y: ty };
+
+      if (!heroInitializedRef.current) {
+        heroMapPosRef.current = { x: tx, y: ty };
+        heroInitializedRef.current = true;
+      } else {
+        const dx = tx - heroMapPosRef.current.x;
+        heroFacingRightRef.current = dx >= 0;
+        heroMovingRef.current = true;
+      }
+    } else if (!heroInitializedRef.current) {
+      // Spawn hero to the right of the "Your Kingdom" castle (x=140, y=60%)
+      const castleX = 140;
+      const castleY = getLevelNodeY(60, mapHeight);
+      heroMapPosRef.current = { x: castleX, y: castleY };
+      heroTargetPosRef.current = { x: castleX, y: castleY };
+      heroInitializedRef.current = true;
+    }
+  }, [selectedLevel, mapHeight, visibleWorldLevels, unlockedMapSet]);
+
+  // Scroll to furthest unlocked level on initial load (after localStorage hydration)
+  useEffect(() => {
+    if (initialScrollDoneRef.current) {
+      return;
+    }
+
+    // Skip the pre-hydration render where unlockedMaps is still defaults
+    if (!initialScrollSkippedRef.current) {
+      initialScrollSkippedRef.current = true;
+      return;
+    }
+
+    initialScrollDoneRef.current = true;
+
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) {
+      return;
+    }
+
+    const furthestLevel = [...visibleWorldLevels]
+      .toReversed()
+      .find((level) => unlockedMapSet.has(level.id));
+
+    if (!furthestLevel) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      const ly = getLevelNodeY(furthestLevel.y, mapHeight);
+      const targetX =
+        furthestLevel.x * mapScale - scrollContainer.clientWidth / 2;
+      const targetY = ly * mapScale - scrollContainer.clientHeight / 2;
+
+      scrollContainer.scrollLeft = Math.max(0, targetX);
+      scrollContainer.scrollTop = Math.max(0, targetY);
+    });
+  }, [unlockedMaps, mapScale, mapHeight, visibleWorldLevels, unlockedMapSet]);
+
+  useEffect(() => {
+    const nav = getInitialNavigation();
+    if (!nav) {
+      return;
+    }
+
+    if (nav.level && getWorldLevelById(nav.level) && onFreeplayRequest) {
+      onFreeplayRequest(nav.level, isLevelUnlocked(nav.level));
+      return;
+    }
+    if (nav.codex.open) {
+      setCodexTab(nav.codex.tab);
+      setShowCodex(true);
+    } else if (nav.creator) {
+      setShowCreator(true);
+    } else if (nav.credits) {
+      setShowCredits(true);
+    } else if (nav.settings) {
+      setShowSettings(true);
+    } else {
+      resetUrl();
+    }
+  }, [
+    getInitialNavigation,
+    setSelectedMap,
+    isLevelUnlocked,
+    resetUrl,
+    onFreeplayRequest,
+  ]);
+
+  const handleLevelClick = useCallback(
+    (levelId: string) => {
+      if (isLevelUnlocked(levelId)) {
+        setSelectedLevel(levelId);
+        setSelectedMap(levelId);
+        setHoveredLevel(null);
+      }
+    },
+    [isLevelUnlocked, setSelectedMap]
+  );
+
+  const scrollMapToLevel = useCallback(
+    (levelId: string) => {
+      const scrollContainer = scrollContainerRef.current;
+      if (!scrollContainer) {
+        return;
+      }
+      const level = visibleWorldLevels.find((l) => l.id === levelId);
+      if (!level) {
+        return;
+      }
+
+      const ly = getLevelNodeY(level.y, mapHeight);
+      const targetX = level.x * mapScale - scrollContainer.clientWidth / 2;
+      const targetY = ly * mapScale - scrollContainer.clientHeight / 2;
+
+      scrollContainer.scrollTo({
+        behavior: "smooth",
+        left: Math.max(0, targetX),
+        top: Math.max(0, targetY),
+      });
+    },
+    [visibleWorldLevels, mapHeight, mapScale]
+  );
+
+  const handleSidebarLevelClick = useCallback(
+    (levelId: string) => {
+      handleLevelClick(levelId);
+      scrollMapToLevel(levelId);
+    },
+    [handleLevelClick, scrollMapToLevel]
+  );
+  const showCampaignPreview = useCallback(
+    () => setShowBattlefieldPreview(true),
+    []
+  );
+  const handleCustomLevelPlaytest = useCallback(
+    (levelId: string) => {
+      if (!customLevelById.has(levelId)) {
+        return;
+      }
+      setSelectedLevel(levelId);
+      setSelectedMap(levelId);
+      setHoveredLevel(null);
+      setShowCreator(false);
+      resetUrl();
+    },
+    [customLevelById, setSelectedMap, resetUrl]
+  );
+  const startGame = () => {
+    if (selectedLevel && selectedHero && selectedSpells.length === 3) {
+      setGameState("playing");
+    }
+  };
+  const toggleSpell = (spell: SpellType) => {
+    if (selectedSpells.includes(spell)) {
+      setSelectedSpells(selectedSpells.filter((s) => s !== spell));
+    } else if (selectedSpells.length < 3) {
+      setSelectedSpells([...selectedSpells, spell]);
+    } else {
+      setSelectedSpells([...selectedSpells.slice(1), spell]);
+    }
+  };
+
+  const drawMapRef = useRef<() => void>(() => {});
+
+  drawMapRef.current = () => {
+    drawWorldMapCanvas({
+      animTimeRef,
+      atmosphereCache: atmosphereCacheRef,
+      canvasRef,
+      containerWidth,
+      decorationCache: decorationCacheRef,
+      fogOverlayCache: fogOverlayCacheRef,
+      heroFacingRight: heroFacingRightRef,
+      heroMapPos: heroMapPosRef,
+      heroMoving: heroMovingRef,
+      heroType: selectedHero,
+      hoveredLevel,
+      imageCache,
+      isMobile,
+      lastCanvasSizeRef,
+      levelStars,
+      levels: visibleWorldLevels,
+      mapHeight,
+      nodeCache: nodeCacheRef,
+      paintKeyRef,
+      pathCache: pathCacheRef,
+      selectedLevel,
+      staticBgCache: staticBgCacheRef,
+      unlockedMaps,
+    });
+  };
+
+  useEffect(() => {
+    if (selectedLevel && !getLevelById(selectedLevel)) {
+      setSelectedLevel(null);
+    }
+  }, [selectedLevel, getLevelById]);
+
+  useEffect(() => {
+    const dragState = dragRef.current;
+    return () => {
+      if (dragState.resetTimeoutId) {
+        window.clearTimeout(dragState.resetTimeoutId);
+      }
+    };
+  }, []);
+
+  // Track whether the preview overlay needs animTime state updates.
+  // Reading a ref inside rAF avoids coupling the effect to React state.
+  // (assigned after showPreview is derived, below)
+  const showPreviewRef = useRef(false);
+
+  useEffect(() => {
+    let animationId: number;
+    let lastDrawTime = 0;
+    let lastPreviewTime = 0;
+    const frameInterval = 20;
+
+    let lastTimestamp = 0;
+    const HERO_SPEED = 200; // pixels per second
+
+    const animate = (timestamp: number) => {
+      const dt = lastTimestamp > 0 ? (timestamp - lastTimestamp) / 1000 : 0;
+      lastTimestamp = timestamp;
+
+      // Interpolate hero position toward target
+      if (heroMovingRef.current) {
+        const pos = heroMapPosRef.current;
+        const target = heroTargetPosRef.current;
+        const dx = target.x - pos.x;
+        const dy = target.y - pos.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 2) {
+          heroMapPosRef.current = { x: target.x, y: target.y };
+          heroMovingRef.current = false;
+        } else {
+          const step = Math.min(HERO_SPEED * dt, dist);
+          heroMapPosRef.current = {
+            x: pos.x + (dx / dist) * step,
+            y: pos.y + (dy / dist) * step,
+          };
+        }
+      }
+
+      if (timestamp - lastDrawTime > frameInterval) {
+        animTimeRef.current = timestamp / 1000;
+        lastDrawTime = timestamp;
+        drawMapRef.current();
+      }
+
+      // React state for BattlefieldPreview (~10fps)
+      if (showPreviewRef.current && timestamp - lastPreviewTime > 100) {
+        setAnimTime(timestamp / 1000);
+        lastPreviewTime = timestamp;
+      }
+
+      animationId = requestAnimationFrame(animate);
+    };
+    animate(0);
+    return () => cancelAnimationFrame(animationId);
+  }, [isMobile]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (dragRef.current.isDragging) {
+      return;
+    }
+    const canvas = canvasRef.current;
+    if (!canvas) {
+      return;
+    }
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = MAP_WIDTH / rect.width;
+    const scaleY = mapHeight / rect.height;
+    const mouseX = (e.clientX - rect.left) * scaleX;
+    const mouseY = (e.clientY - rect.top) * scaleY;
+
+    let nextHoveredLevel: string | null = null;
+    for (const level of visibleWorldLevels) {
+      const ly = getY(level.y);
+      const distSq = (mouseX - level.x) ** 2 + (mouseY - ly) ** 2;
+      if (distSq < 28 * 28) {
+        nextHoveredLevel = level.id;
+        break;
+      }
+    }
+    setHoveredLevel((prev) =>
+      prev === nextHoveredLevel ? prev : nextHoveredLevel
+    );
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    // Don't process click if we were actually dragging (moved more than threshold)
+    if (dragRef.current.hasDragged) {
+      return;
+    }
+
+    const canvas = canvasRef.current;
+    if (!canvas) {
+      return;
+    }
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = MAP_WIDTH / rect.width;
+    const scaleY = mapHeight / rect.height;
+    const mouseX = (e.clientX - rect.left) * scaleX;
+    const mouseY = (e.clientY - rect.top) * scaleY;
+
+    for (const level of visibleWorldLevels) {
+      const ly = getY(level.y);
+      const distSq = (mouseX - level.x) ** 2 + (mouseY - ly) ** 2;
+      if (distSq < 28 * 28) {
+        handleLevelClick(level.id);
+        return;
+      }
+    }
+    setSelectedLevel(null);
+  };
+
+  // Drag-to-scroll handlers (mouse)
+  const handleDragStart = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = scrollContainerRef.current;
+    if (!container) {
+      return;
+    }
+    dragRef.current.isDragging = true;
+    dragRef.current.hasDragged = false;
+    dragRef.current.dragStartX = e.pageX - container.offsetLeft;
+    dragRef.current.dragStartY = e.pageY - container.offsetTop;
+    dragRef.current.scrollStartLeft = container.scrollLeft;
+    dragRef.current.scrollStartTop = container.scrollTop;
+    setDragCursor(true);
+  };
+
+  const handleDragMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!dragRef.current.isDragging) {
+      return;
+    }
+    e.preventDefault();
+    const container = scrollContainerRef.current;
+    if (!container) {
+      return;
+    }
+    const x = e.pageX - container.offsetLeft;
+    const y = e.pageY - container.offsetTop;
+    const walkX = (x - dragRef.current.dragStartX) * 1.5;
+    const walkY = (y - dragRef.current.dragStartY) * 1.5;
+    if (
+      Math.abs(x - dragRef.current.dragStartX) > 5 ||
+      Math.abs(y - dragRef.current.dragStartY) > 5
+    ) {
+      dragRef.current.hasDragged = true;
+    }
+    container.scrollLeft = dragRef.current.scrollStartLeft - walkX;
+    container.scrollTop = dragRef.current.scrollStartTop - walkY;
+  };
+
+  const handleDragEnd = () => {
+    dragRef.current.isDragging = false;
+    setDragCursor(false);
+    if (dragRef.current.resetTimeoutId) {
+      window.clearTimeout(dragRef.current.resetTimeoutId);
+    }
+    dragRef.current.resetTimeoutId = window.setTimeout(() => {
+      dragRef.current.hasDragged = false;
+      dragRef.current.resetTimeoutId = undefined;
+    }, 50);
+  };
+
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const container = scrollContainerRef.current;
+    if (!container || e.touches.length !== 1) {
+      return;
+    }
+    dragRef.current.isDragging = true;
+    dragRef.current.hasDragged = false;
+    dragRef.current.dragStartX = e.touches[0].pageX - container.offsetLeft;
+    dragRef.current.dragStartY = e.touches[0].pageY - container.offsetTop;
+    dragRef.current.scrollStartLeft = container.scrollLeft;
+    dragRef.current.scrollStartTop = container.scrollTop;
+    setDragCursor(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!dragRef.current.isDragging) {
+      return;
+    }
+    const container = scrollContainerRef.current;
+    if (!container || e.touches.length !== 1) {
+      return;
+    }
+    const x = e.touches[0].pageX - container.offsetLeft;
+    const y = e.touches[0].pageY - container.offsetTop;
+    const walkX = (x - dragRef.current.dragStartX) * 1.5;
+    const walkY = (y - dragRef.current.dragStartY) * 1.5;
+    if (
+      Math.abs(x - dragRef.current.dragStartX) > 5 ||
+      Math.abs(y - dragRef.current.dragStartY) > 5
+    ) {
+      dragRef.current.hasDragged = true;
+    }
+    container.scrollLeft = dragRef.current.scrollStartLeft - walkX;
+    container.scrollTop = dragRef.current.scrollStartTop - walkY;
+  };
+
+  const handleTouchEnd = () => {
+    dragRef.current.isDragging = false;
+    setDragCursor(false);
+    if (dragRef.current.resetTimeoutId) {
+      window.clearTimeout(dragRef.current.resetTimeoutId);
+    }
+    dragRef.current.resetTimeoutId = window.setTimeout(() => {
+      dragRef.current.hasDragged = false;
+      dragRef.current.resetTimeoutId = undefined;
+    }, 50);
+  };
+
+  const openCodexTo = useCallback(
+    (tab: CodexTabId) => {
+      setCodexTab(tab);
+      setShowCodex(true);
+      updateUrl({ tab, type: "codex" });
+    },
+    [updateUrl]
+  );
+
+  const hasBattles = useMemo(
+    () => Object.values(levelStats).some((s) => (s.timesPlayed || 0) > 0),
+    [levelStats]
+  );
+
+  // Wait for localStorage hydration before trusting hasBattles.
+  // useLocalStorage initialises with DEFAULT (levelStats: {}) and hydrates
+  // via an effect, so hasBattles is unreliable on the very first render.
+  // The ref flips to true inside the same micro-task as the hydration effect,
+  // meaning the next render that has real data will also see postHydration=true.
+  const postHydrationRef = useRef(false);
+  useEffect(() => {
+    postHydrationRef.current = true;
+  }, []);
+
+  useEffect(() => {
+    const handler = () => setIsFullscreen(!!document.fullscreenElement);
+    document.addEventListener("fullscreenchange", handler);
+    return () => document.removeEventListener("fullscreenchange", handler);
+  }, []);
+
+  const showPreview =
+    !selectedLevel &&
+    (showBattlefieldPreview !== null
+      ? showBattlefieldPreview
+      : postHydrationRef.current && !hasBattles);
+  showPreviewRef.current = showPreview;
+
+  const canStart = selectedLevel && selectedHero && selectedSpells.length === 3;
+  const currentLevel = selectedLevel ? getLevelById(selectedLevel) : null;
+  const isCurrentCustomLevel = Boolean(currentLevel?.isCustom);
+  const isCurrentChallengeLevel =
+    Boolean(currentLevel?.kind === "challenge") && !isCurrentCustomLevel;
+  const isCurrentSandboxLevel =
+    Boolean(currentLevel?.kind === "sandbox") && !isCurrentCustomLevel;
+  const challengeBadgeStyle: React.CSSProperties =
+    currentLevel?.region === "grassland"
+      ? {
+          background:
+            "linear-gradient(135deg, rgba(41,110,59,0.9), rgba(22,68,36,0.95))",
+          border: "1px solid rgba(160,242,168,0.55)",
+          color: "rgb(230,255,218)",
+        }
+      : currentLevel?.region === "swamp"
+        ? {
+            background:
+              "linear-gradient(135deg, rgba(28,98,94,0.9), rgba(12,60,58,0.95))",
+            border: "1px solid rgba(146,232,217,0.55)",
+            color: "rgb(224,255,248)",
+          }
+        : currentLevel?.region === "desert"
+          ? {
+              background:
+                "linear-gradient(135deg, rgba(133,99,41,0.9), rgba(84,56,21,0.95))",
+              border: "1px solid rgba(255,216,132,0.55)",
+              color: "rgb(255,242,206)",
+            }
+          : currentLevel?.region === "winter"
+            ? {
+                background:
+                  "linear-gradient(135deg, rgba(47,87,129,0.9), rgba(28,56,92,0.95))",
+                border: "1px solid rgba(169,213,255,0.55)",
+                color: "rgb(231,246,255)",
+              }
+            : {
+                background:
+                  "linear-gradient(135deg, rgba(145,38,20,0.9), rgba(90,18,10,0.95))",
+                border: "1px solid rgba(255,170,90,0.55)",
+                color: "rgb(255,225,170)",
+              };
+  const waveCount = selectedLevel ? getWaveCount(selectedLevel) : 0;
+  const currentLevelPreviewImage = currentLevel
+    ? LEVEL_DATA[currentLevel.id]?.previewImage
+    : undefined;
+  const fallbackPreviewImage =
+    currentLevel && !currentLevelPreviewImage
+      ? (visibleWorldLevels
+          .filter((l) => l.region === currentLevel.region)
+          .map((l) => LEVEL_DATA[l.id]?.previewImage)
+          .find(Boolean) ?? LEVEL_DATA.poe?.previewImage)
+      : undefined;
+
+  function goToNextLevel() {
+    if (!currentLevel || isCurrentCustomLevel || isCurrentSandboxLevel) {
+      const firstLevel = visibleWorldLevels[0];
+      if (firstLevel) {
+        handleLevelClick(firstLevel.id);
+      }
+      return;
+    }
+    const unlockedLevels = visibleWorldLevels
+      .filter((lvl) => isLevelUnlocked(lvl.id) && lvl.kind !== "sandbox")
+      .map((lvl) => lvl.id);
+    const currentIndex = unlockedLevels.indexOf(currentLevel.id);
+    if (currentIndex === unlockedLevels.length - 1) {
+      const firstLevelId = unlockedLevels[0];
+      if (firstLevelId) {
+        handleLevelClick(firstLevelId);
+      }
+      return;
+    }
+    if (currentIndex < unlockedLevels.length - 1) {
+      const nextLevelId = unlockedLevels[currentIndex + 1];
+      if (nextLevelId) {
+        handleLevelClick(nextLevelId);
+      }
+    }
+  }
+  function goToPreviousLevel() {
+    if (!currentLevel || isCurrentCustomLevel || isCurrentSandboxLevel) {
+      const firstLevel = visibleWorldLevels[0];
+      if (firstLevel) {
+        handleLevelClick(firstLevel.id);
+      }
+      return;
+    }
+    const unlockedLevels = visibleWorldLevels
+      .filter((lvl) => isLevelUnlocked(lvl.id) && lvl.kind !== "sandbox")
+      .map((lvl) => lvl.id);
+    const currentIndex = unlockedLevels.indexOf(currentLevel.id);
+    if (currentIndex === 0) {
+      const lastLevelId = unlockedLevels.at(-1);
+      if (lastLevelId) {
+        handleLevelClick(lastLevelId);
+      }
+      return;
+    }
+    if (currentIndex > 0) {
+      const prevLevelId = unlockedLevels[currentIndex - 1];
+      if (prevLevelId) {
+        handleLevelClick(prevLevelId);
+      }
+    }
+  }
+
+  return (
+    <div
+      className="w-full h-dvh flex flex-col text-amber-100 overflow-hidden"
+      style={{
+        background: `linear-gradient(180deg, ${PANEL.bgLight} 0%, ${PANEL.bgDark} 100%)`,
+        borderRight: `2px solid ${GOLD.border30}`,
+        paddingBottom: "env(safe-area-inset-bottom)",
+      }}
+    >
+      {/* TOP BAR */}
+      <div
+        className="mx-1.5 sm:mx-3 mt-1.5 sm:mt-3 transition-all duration-500 ease-out"
+        style={{
+          opacity: wmEntranceStage[0] ? 1 : 0,
+          transform: wmEntranceStage[0] ? "translateY(0)" : "translateY(-12px)",
+        }}
+      >
+        <WorldMapTopBar
+          totalStars={totalStars}
+          maxStars={maxStars}
+          isFullscreen={isFullscreen}
+          onToggleFullscreen={() => {
+            if (document.fullscreenElement) {
+              document.exitFullscreen();
+            } else {
+              document.documentElement.requestFullscreen();
+            }
+          }}
+          onOpenCodex={openCodexTo}
+          onOpenCreator={() => {
+            setShowCreator(true);
+            updateUrl({ type: "creator" });
+          }}
+          onOpenSettings={() => {
+            setShowSettings(true);
+            updateUrl({ type: "settings" });
+          }}
+          onShowCredits={() => {
+            setShowCredits(true);
+            updateUrl({ type: "credits" });
+          }}
+          onPreviousLevel={goToPreviousLevel}
+          onNextLevel={goToNextLevel}
+        />
+      </div>
+
+      {/* MAIN CONTENT */}
+      <div className="flex-1 flex flex-col sm:flex-row overflow-hidden min-h-0">
+        {/* MOBILE: Compact campaign bar with horizontal region scroller */}
+        <MobileCampaignBar
+          levelStars={levelStars}
+          unlockedMaps={unlockedMaps}
+          selectedLevel={selectedLevel}
+          onSelectLevel={handleSidebarLevelClick}
+          isDevMode={isDevMode}
+        />
+
+        {/* DESKTOP: LEFT SIDEBAR */}
+        <div
+          className="hidden sm:flex sm:h-auto sm:w-72 flex-shrink-0 flex-col overflow-hidden pl-3 pt-3 pb-3 xl:pb-0 transition-all duration-600 ease-out"
+          style={{
+            WebkitBackdropFilter: "blur(12px)",
+            backdropFilter: "blur(12px)",
+            background: `linear-gradient(180deg, rgba(52,36,20,0.85) 0%, rgba(32,22,12,0.88) 100%)`,
+            opacity: wmEntranceStage[1] ? 1 : 0,
+            transform: wmEntranceStage[1]
+              ? "translateX(0)"
+              : "translateX(-18px)",
+          }}
+        >
+          <OrnateFrame
+            className="flex-1 flex flex-col overflow-hidden rounded-2xl shadow-xl"
+            style={{ border: `1.5px solid ${GOLD.border25}` }}
+            cornerSize={20}
+            showBorders={true}
+            showSideBorders={true}
+            showTopBottomBorders={true}
+            sideBorderScale={0.6}
+            topBottomBorderScale={0.75}
+          >
+            <div
+              className="flex-1 flex flex-col h-full overflow-hidden"
+              style={{
+                background: `linear-gradient(180deg, rgba(52,36,20,0.92) 0%, rgba(32,22,12,0.95) 100%)`,
+                boxShadow: `0 0 20px ${GOLD.glow07}, inset 0 0 12px ${GOLD.glow04}`,
+              }}
+            >
+              {selectedLevel && currentLevel ? (
+                <div
+                  className="flex-1 flex flex-col h-full overflow-hidden"
+                  style={{ animation: "wm-fade-in 0.35s ease-out both" }}
+                >
+                  <div className="flex-1 overflow-y-auto">
+                    <div className="relative overflow-hidden">
+                      {/* Top gold divider line */}
+                      <div
+                        className="h-px"
+                        style={{ background: dividerGradient }}
+                      />
+                      <div
+                        className="relative p-4"
+                        style={{ borderBottom: `1px solid ${GOLD.border25}` }}
+                      >
+                        {/* Inner glow border */}
+                        <div
+                          className="absolute inset-[2px] rounded-sm pointer-events-none"
+                          style={{ border: `1px solid ${GOLD.innerBorder08}` }}
+                        />
+
+                        {/* Level name + close button */}
+                        <div className="flex items-start justify-between gap-2 mb-1 relative z-10">
+                          <div className="flex items-start gap-2 min-w-0 flex-1">
+                            <div className="relative shrink-0 mt-1">
+                              <div className="absolute -inset-2 rounded-full bg-amber-400/15 blur-md animate-pulse" />
+                              <MapPin
+                                size={18}
+                                className="text-amber-400 drop-shadow-lg relative z-10"
+                              />
+                            </div>
+                            <h2
+                              className="text-lg font-bold drop-shadow-lg leading-tight break-words min-w-0"
+                              style={{
+                                backgroundImage:
+                                  "linear-gradient(180deg, #fde68a 0%, #d4a84a 60%, #92400e 100%)",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                              }}
+                            >
+                              {currentLevel.name}
+                            </h2>
+                          </div>
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            <ShareLevelButton
+                              levelId={currentLevel.id}
+                              levelName={currentLevel.name}
+                              iconSize={14}
+                            />
+                            <button
+                              onClick={() => setSelectedLevel(null)}
+                              className="p-1.5 rounded-lg transition-all hover:scale-110 shrink-0"
+                              style={{
+                                background: PANEL.bgWarmMid,
+                                border: `1px solid ${GOLD.border25}`,
+                              }}
+                            >
+                              <X size={16} className="text-amber-400" />
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Tags row */}
+                        <div className="flex items-center gap-1.5 flex-wrap mb-2 relative z-10">
+                          {isCurrentChallengeLevel && (
+                            <span
+                              className="text-[9px] font-bold px-2 py-0.5 rounded-md tracking-wider uppercase"
+                              style={challengeBadgeStyle}
+                            >
+                              Challenge
+                            </span>
+                          )}
+                          {currentLevel.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-[9px] font-semibold px-2 py-0.5 rounded-md tracking-wide"
+                              style={{
+                                background: `linear-gradient(135deg, ${PANEL.bgWarmLight}, ${PANEL.bgWarmMid})`,
+                                border: `1px solid ${GOLD.border25}`,
+                                color: "rgba(252,211,77,0.8)",
+                              }}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Description */}
+                        <p className="whitespace-pre-line text-amber-400/80 text-sm italic mb-3 relative z-10">
+                          &ldquo;{currentLevel.description}&rdquo;
+                        </p>
+
+                        {/* Difficulty + Waves + Stars row */}
+                        <div className="flex items-center gap-1.5 sm:mb-2 relative z-10 flex-wrap">
+                          {/* Difficulty card */}
+                          <div
+                            className="relative flex items-center gap-1.5 px-2 py-1.5 rounded-md"
+                            style={{
+                              background: `linear-gradient(135deg, ${NEUTRAL.bgLight}, ${NEUTRAL.bgDark})`,
+                              border: `1px solid ${NEUTRAL.border}`,
+                              boxShadow: `inset 0 0 6px ${NEUTRAL.glow}`,
+                            }}
+                          >
+                            <div
+                              className="absolute inset-[2px] rounded-[4px] pointer-events-none"
+                              style={{
+                                border: `1px solid ${NEUTRAL.innerBorder}`,
+                              }}
+                            />
+                            <Skull size={12} className="text-amber-400" />
+                            <div className="flex gap-0.5">
+                              {[1, 2, 3].map((d) => (
+                                <div
+                                  key={d}
+                                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                                    d <= currentLevel.difficulty
+                                      ? `${
+                                          currentLevel.difficulty === 1
+                                            ? "bg-green-500 shadow-green-500/50"
+                                            : currentLevel.difficulty === 2
+                                              ? "bg-yellow-500 shadow-yellow-500/50"
+                                              : "bg-red-500 shadow-red-500/50"
+                                        } shadow-md`
+                                      : "bg-stone-700"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Waves card */}
+                          <div
+                            className="flex items-center gap-1.5 px-2 py-1 rounded-md relative"
+                            style={{
+                              background: `linear-gradient(135deg, ${AMBER_CARD.bgBase}, ${AMBER_CARD.bgDark})`,
+                              border: `1px solid ${AMBER_CARD.border}`,
+                              boxShadow: `inset 0 0 6px ${AMBER_CARD.glow}`,
+                            }}
+                          >
+                            <div
+                              className="absolute inset-[2px] rounded-[4px] pointer-events-none"
+                              style={{
+                                border: `1px solid ${AMBER_CARD.innerBorder}`,
+                              }}
+                            />
+                            <Flag size={12} className="text-amber-300" />
+                            <span className="text-amber-200 font-bold text-xs">
+                              {waveCount} Waves
+                            </span>
+                          </div>
+
+                          {/* Stars (mobile) */}
+                          <div
+                            className="flex sm:hidden items-center gap-1.5 px-2 py-1 rounded-md relative"
+                            style={{
+                              background: `linear-gradient(135deg, ${AMBER_CARD.bgBase}, ${AMBER_CARD.bgDark})`,
+                              border: `1px solid ${AMBER_CARD.border}`,
+                              boxShadow: `inset 0 0 6px ${AMBER_CARD.glow}`,
+                            }}
+                          >
+                            <div
+                              className="absolute inset-[2px] rounded-[4px] pointer-events-none"
+                              style={{
+                                border: `1px solid ${AMBER_CARD.innerBorder}`,
+                              }}
+                            />
+                            <Trophy size={12} className="text-yellow-500" />
+                            <div className="flex gap-0.5">
+                              {[1, 2, 3].map((s) => (
+                                <Star
+                                  key={s}
+                                  size={14}
+                                  className={`transition-all ${
+                                    (levelStars[currentLevel.id] || 0) >= s
+                                      ? "text-yellow-400 fill-yellow-400 drop-shadow-lg"
+                                      : "text-stone-600"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Best Stars (desktop) */}
+                        <div
+                          className="hidden sm:flex items-center gap-2 px-2.5 py-1.5 rounded-md relative"
+                          style={{
+                            background: `linear-gradient(135deg, ${AMBER_CARD.bgBase}, ${AMBER_CARD.bgDark})`,
+                            border: `1px solid ${AMBER_CARD.border}`,
+                            boxShadow: `inset 0 0 8px ${AMBER_CARD.glow}`,
+                          }}
+                        >
+                          <div
+                            className="absolute inset-[2px] rounded-[4px] pointer-events-none"
+                            style={{
+                              border: `1px solid ${AMBER_CARD.innerBorder}`,
+                            }}
+                          />
+                          <Trophy size={14} className="text-yellow-500" />
+                          <span className="text-amber-400 text-xs font-medium">
+                            Best:
+                          </span>
+                          <div className="flex gap-0.5">
+                            {[1, 2, 3].map((s) => (
+                              <Star
+                                key={s}
+                                size={15}
+                                className={`transition-all ${
+                                  (levelStars[currentLevel.id] || 0) >= s
+                                    ? "text-yellow-400 fill-yellow-400 drop-shadow-lg"
+                                    : "text-stone-600"
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Stats cards (hearts + time) */}
+                        {levelStats[currentLevel.id] && (
+                          <div className="grid grid-cols-2 gap-1.5 mt-1.5 relative z-10">
+                            <div
+                              className="flex items-center gap-1.5 px-2 py-1.5 rounded-md relative"
+                              style={{
+                                background: `linear-gradient(135deg, ${RED_CARD.bgLight}, ${RED_CARD.bgDark})`,
+                                border: `1px solid ${RED_CARD.border}`,
+                                boxShadow: `inset 0 0 8px ${RED_CARD.glow06}`,
+                              }}
+                            >
+                              <div
+                                className="absolute inset-[2px] rounded-[4px] pointer-events-none"
+                                style={{
+                                  border: `1px solid ${RED_CARD.innerBorder12}`,
+                                }}
+                              />
+                              <Heart
+                                size={13}
+                                className="text-red-400 fill-red-400"
+                              />
+                              <div className="text-xs text-red-200 font-mono font-bold">
+                                {levelStats[currentLevel.id]?.bestHearts}/20
+                              </div>
+                            </div>
+                            <div
+                              className="flex items-center gap-1.5 px-2 py-1.5 rounded-md relative"
+                              style={{
+                                background: `linear-gradient(135deg, ${BLUE_CARD.bgLight}, ${BLUE_CARD.bgDark})`,
+                                border: `1px solid ${BLUE_CARD.border}`,
+                                boxShadow: `inset 0 0 8px ${BLUE_CARD.glow}`,
+                              }}
+                            >
+                              <div
+                                className="absolute inset-[2px] rounded-[4px] pointer-events-none"
+                                style={{
+                                  border: `1px solid ${BLUE_CARD.innerBorder}`,
+                                }}
+                              />
+                              <Clock size={13} className="text-blue-400" />
+                              <span className="text-blue-200 text-xs font-mono font-bold">
+                                {levelStats[currentLevel.id]?.bestTime
+                                  ? `${Math.floor(
+                                      levelStats[currentLevel.id]!.bestTime! /
+                                        60
+                                    )}m ${
+                                      levelStats[currentLevel.id]!.bestTime! %
+                                      60
+                                    }s`
+                                  : "N/A"}
+                              </span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <div
+                      className="p-2 sm:p-4 flex flex-col"
+                      style={{ borderBottom: `1px solid ${GOLD.border25}` }}
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <div
+                          className="flex-1 h-px"
+                          style={{
+                            background: `linear-gradient(90deg, ${GOLD.border25}, transparent)`,
+                          }}
+                        />
+                        <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest">
+                          Battlefield Preview
+                        </span>
+                        <div
+                          className="flex-1 h-px"
+                          style={{
+                            background: `linear-gradient(90deg, transparent, ${GOLD.border25})`,
+                          }}
+                        />
+                      </div>
+                      <div
+                        className="relative aspect-video rounded-2xl overflow-hidden animate-wm-border-breathe"
+                        style={{
+                          background: PANEL.bgDeep,
+                          boxShadow: `0 0 30px ${GOLD.glow07}, inset 0 0 15px ${OVERLAY.black40}`,
+                        }}
+                      >
+                        <div
+                          className="absolute inset-[3px] rounded-[14px] pointer-events-none z-10"
+                          style={{ border: `1px solid ${GOLD.innerBorder08}` }}
+                        />
+                        {currentLevelPreviewImage ? (
+                          <Image
+                            src={currentLevelPreviewImage}
+                            alt={`${currentLevel.name} preview`}
+                            fill
+                            sizes="(max-width: 640px) 100vw, 520px"
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                        ) : fallbackPreviewImage ? (
+                          <>
+                            <Image
+                              src={fallbackPreviewImage}
+                              alt=""
+                              fill
+                              sizes="(max-width: 640px) 100vw, 520px"
+                              className="absolute inset-0 w-full h-full object-cover opacity-50 blur-[1px]"
+                            />
+                            <div
+                              className="absolute inset-0"
+                              style={{
+                                background:
+                                  currentLevel.region === "grassland"
+                                    ? "linear-gradient(135deg, rgba(20,40,15,0.55), rgba(30,50,20,0.4))"
+                                    : currentLevel.region === "swamp"
+                                      ? "linear-gradient(135deg, rgba(15,35,32,0.55), rgba(20,40,35,0.4))"
+                                      : currentLevel.region === "desert"
+                                        ? "linear-gradient(135deg, rgba(50,35,12,0.55), rgba(40,28,10,0.4))"
+                                        : currentLevel.region === "winter"
+                                          ? "linear-gradient(135deg, rgba(20,30,45,0.55), rgba(15,25,40,0.4))"
+                                          : "linear-gradient(135deg, rgba(45,20,15,0.55), rgba(35,15,10,0.4))",
+                              }}
+                            />
+                            <div className="absolute inset-0 flex flex-col items-center justify-center">
+                              <RegionIcon
+                                type={currentLevel.region}
+                                size={56}
+                                framed
+                                challenge={isCurrentChallengeLevel}
+                                sandbox={isCurrentSandboxLevel}
+                              />
+                              <p className="mt-2 text-amber-300/70 text-[10px] font-bold uppercase tracking-widest drop-shadow-lg">
+                                {currentLevel.name}
+                              </p>
+                            </div>
+                          </>
+                        ) : null}
+                        <div
+                          className="absolute top-2 right-2 z-20 px-2 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider"
+                          style={{
+                            background: PANEL.bgDark,
+                            border: `1px solid ${GOLD.border30}`,
+                            boxShadow: `0 2px 6px ${OVERLAY.black40}`,
+                            color: "rgb(252,211,77)",
+                          }}
+                        >
+                          {currentLevel.region}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-2 sm:p-4">
+                      {/* Section title with decorative lines */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <div
+                          className="flex-1 h-px"
+                          style={{
+                            background: `linear-gradient(90deg, ${GOLD.border25}, transparent)`,
+                          }}
+                        />
+                        <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest">
+                          Region Campaign
+                        </span>
+                        <div
+                          className="flex-1 h-px"
+                          style={{
+                            background: `linear-gradient(90deg, transparent, ${GOLD.border25})`,
+                          }}
+                        />
+                      </div>
+                      {(() => {
+                        if (isCurrentCustomLevel) {
+                          return (
+                            <div className="space-y-2">
+                              <div className="rounded-lg border border-amber-700/40 bg-amber-900/15 p-2.5">
+                                <div className="text-xs uppercase tracking-widest text-amber-400/90 mb-1">
+                                  Custom Sandbox
+                                </div>
+                                <div className="text-xs text-amber-200/80 mb-2">
+                                  this map lives in your local creator sandbox.
+                                  open creator to edit paths, landmarks,
+                                  hazards, and objectives.
+                                </div>
+                                <button
+                                  onClick={() => {
+                                    setShowCreator(true);
+                                    updateUrl({ type: "creator" });
+                                  }}
+                                  className="rounded-md border border-amber-600/60 bg-amber-700/20 px-2.5 py-1 text-xs hover:bg-amber-700/30"
+                                >
+                                  Open Creator
+                                </button>
+                              </div>
+
+                              <div className="space-y-1.5 max-h-44 overflow-y-auto pr-1">
+                                {customLevels.map((level) => (
+                                  <button
+                                    key={level.id}
+                                    onClick={() =>
+                                      handleCustomLevelPlaytest(level.id)
+                                    }
+                                    className="w-full text-left rounded-lg border border-amber-800/50 bg-stone-900/70 px-2.5 py-2 hover:bg-stone-800/80 transition-colors"
+                                  >
+                                    <div className="text-sm font-medium text-amber-100 truncate">
+                                      {level.name}
+                                    </div>
+                                    <div className="text-[11px] text-amber-400/70">
+                                      {level.theme} • diff {level.difficulty}
+                                    </div>
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        const regionLevels = visibleWorldLevels.filter(
+                          (l) =>
+                            l.region === currentLevel.region &&
+                            !DEV_LEVEL_IDS.has(l.id) &&
+                            l.kind !== "sandbox"
+                        );
+                        const regionStars = regionLevels.reduce(
+                          (sum, l) => sum + (levelStars[l.id] || 0),
+                          0
+                        );
+                        const maxRegionStars = regionLevels.length * 3;
+                        return (
+                          <div className="space-y-1.5">
+                            {regionLevels.map((l) => {
+                              const levelPreview =
+                                LEVEL_DATA[l.id]?.previewImage;
+                              const fadeColor =
+                                l.id === selectedLevel
+                                  ? SELECTED.warmBgLight
+                                  : PANEL.bgWarmLight;
+                              return (
+                                <div
+                                  key={l.id}
+                                  className="flex items-center gap-3 p-2.5 rounded-lg transition-all cursor-pointer relative overflow-hidden"
+                                  style={{
+                                    background:
+                                      l.id === selectedLevel
+                                        ? `linear-gradient(135deg, ${SELECTED.warmBgLight}, ${SELECTED.warmBgDark})`
+                                        : `linear-gradient(135deg, ${PANEL.bgWarmLight}, ${PANEL.bgWarmMid})`,
+                                    border:
+                                      l.id === selectedLevel
+                                        ? `1.5px solid ${GOLD.accentBorder40}`
+                                        : `1.5px solid ${GOLD.border25}`,
+                                    boxShadow:
+                                      l.id === selectedLevel
+                                        ? `inset 0 0 10px ${GOLD.accentGlow08}`
+                                        : `inset 0 0 8px ${GOLD.glow04}`,
+                                  }}
+                                  onClick={() => handleLevelClick(l.id)}
+                                >
+                                  {levelPreview && (
+                                    <div className="absolute inset-0 overflow-hidden rounded-[inherit] pointer-events-none">
+                                      <Image
+                                        src={levelPreview}
+                                        alt=""
+                                        fill
+                                        unoptimized
+                                        className="absolute right-0 top-0 !h-full !w-[60%] !left-auto object-cover object-center opacity-25"
+                                        style={{
+                                          WebkitMaskImage:
+                                            "linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)",
+                                          maskImage:
+                                            "linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)",
+                                        }}
+                                      />
+                                      <div
+                                        className="absolute inset-0"
+                                        style={{
+                                          background: `linear-gradient(to right, ${fadeColor} 30%, transparent 70%)`,
+                                        }}
+                                      />
+                                    </div>
+                                  )}
+                                  <div
+                                    className="absolute inset-[2px] rounded-[6px] pointer-events-none"
+                                    style={{
+                                      border: `1px solid ${l.id === selectedLevel ? GOLD.accentBorder15 : GOLD.innerBorder08}`,
+                                    }}
+                                  />
+                                  <div className="relative z-10 w-8 h-8 flex items-center justify-center">
+                                    {isLevelUnlocked(l.id) ? (
+                                      <RegionIcon
+                                        type={l.region}
+                                        size={32}
+                                        framed
+                                        challenge={l.kind === "challenge"}
+                                        sandbox={l.kind === "sandbox"}
+                                      />
+                                    ) : (
+                                      <RegionIcon
+                                        type={l.region}
+                                        size={32}
+                                        framed
+                                        locked
+                                        challenge={l.kind === "challenge"}
+                                        sandbox={l.kind === "sandbox"}
+                                      />
+                                    )}
+                                  </div>
+                                  <div className="relative z-10 flex-1 min-w-0">
+                                    <div
+                                      className={`text-sm font-medium truncate ${l.id === selectedLevel ? "text-amber-100" : "text-amber-200/90"}`}
+                                    >
+                                      {l.name}
+                                    </div>
+                                  </div>
+                                  <div className="relative z-10 flex gap-0.5">
+                                    {[1, 2, 3].map((s) => (
+                                      <Star
+                                        key={s}
+                                        size={14}
+                                        className={
+                                          (levelStars[l.id] || 0) >= s
+                                            ? "text-yellow-400 fill-yellow-400 drop-shadow"
+                                            : "text-stone-600"
+                                        }
+                                      />
+                                    ))}
+                                  </div>
+                                </div>
+                              );
+                            })}
+                            {/* Region Progress footer */}
+                            <div
+                              className="mt-3 pt-3 flex items-center justify-between"
+                              style={{
+                                borderTop: `1px solid ${GOLD.border25}`,
+                              }}
+                            >
+                              <span className="text-amber-400 text-sm font-medium">
+                                Region Progress:
+                              </span>
+                              <div
+                                className="flex items-center gap-2 px-2.5 py-1 rounded-md"
+                                style={{
+                                  background: PANEL.bgWarmMid,
+                                  border: `1px solid ${GOLD.border25}`,
+                                }}
+                              >
+                                <Star
+                                  size={14}
+                                  className="text-yellow-400 fill-yellow-400"
+                                />
+                                <span className="text-amber-200 font-bold text-sm">
+                                  {regionStars}/{maxRegionStars}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })()}
+                    </div>
+                  </div>
+                  <div
+                    className="flex-shrink-0 p-2 sm:p-4"
+                    style={{
+                      background: `linear-gradient(180deg, transparent 0%, ${PANEL.bgDark} 100%)`,
+                      borderTop: `1px solid ${GOLD.border25}`,
+                    }}
+                  >
+                    {/* Warning messages - show prominently when not ready */}
+                    {!canStart && (
+                      <div
+                        className="mb-2 p-2 sm:p-3 rounded-xl relative"
+                        style={{
+                          background: `linear-gradient(135deg, ${RED_CARD.bgLight}, ${RED_CARD.bgDark})`,
+                          border: `1.5px solid ${RED_CARD.border25}`,
+                          boxShadow: `inset 0 0 10px ${RED_CARD.glow06}`,
+                        }}
+                      >
+                        <div
+                          className="absolute inset-[2px] rounded-[10px] pointer-events-none"
+                          style={{
+                            border: `1px solid ${RED_CARD.innerBorder10}`,
+                          }}
+                        />
+                        <div className="flex items-center justify-center gap-2 text-sm font-bold text-orange-300 relative z-10">
+                          <AlertTriangle
+                            size={16}
+                            className="text-orange-400 animate-pulse"
+                          />
+                          {!selectedHero && !selectedSpells.length && (
+                            <span>Select a Champion & 3 Spells</span>
+                          )}
+                          {!selectedHero && selectedSpells.length > 0 && (
+                            <span>Select a Champion</span>
+                          )}
+                          {selectedHero && selectedSpells.length < 3 && (
+                            <span>
+                              Select {3 - selectedSpells.length} more Spell
+                              {3 - selectedSpells.length > 1 ? "s" : ""}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                    <button
+                      onClick={startGame}
+                      disabled={!canStart}
+                      className={`w-full py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition-all relative overflow-hidden group ${canStart ? "animate-wm-battle-pulse hover:scale-[1.02] active:scale-[0.98]" : ""}`}
+                      style={
+                        canStart
+                          ? {
+                              background: `linear-gradient(135deg, rgba(170,120,20,0.95), rgba(140,90,15,0.95))`,
+                              border: `2px solid ${GOLD.accentBorder50}`,
+                              color: "rgba(253, 230, 138, 0.9)",
+                              textShadow: "0 1px 3px rgba(0,0,0,0.5)",
+                            }
+                          : {
+                              background: `linear-gradient(135deg, ${NEUTRAL.bgLight}, ${NEUTRAL.bgDark})`,
+                              border: `1.5px solid ${NEUTRAL.border}`,
+                              color: "rgb(120,113,108)",
+                              cursor: "not-allowed",
+                            }
+                      }
+                    >
+                      {canStart && (
+                        <>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                          <div
+                            className="absolute inset-[2px] rounded-[10px] pointer-events-none"
+                            style={{
+                              border: `1px solid ${GOLD.accentBorder15}`,
+                            }}
+                          />
+                        </>
+                      )}
+                      <div className="relative flex items-center justify-center gap-2 sm:gap-3">
+                        <Swords size={20} className="sm:w-6 sm:h-6" />
+                        <span className="tracking-wider">
+                          {canStart ? "BATTLE" : "Waiting..."}
+                        </span>
+                        {canStart && (
+                          <Play size={18} className="sm:w-5 sm:h-5" />
+                        )}
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex-1 flex flex-col h-full overflow-hidden relative">
+                  {!showPreview && (
+                    <CampaignOverview
+                      levelStars={levelStars}
+                      levelStats={levelStats}
+                      unlockedMaps={unlockedMaps}
+                      onSelectLevel={handleSidebarLevelClick}
+                      onTogglePreview={showCampaignPreview}
+                    />
+                  )}
+
+                  {/* BattlefieldPreview overlays on top (first-time users or manual toggle) */}
+                  {showPreview && (
+                    <div className="absolute h-full inset-0 z-20 bg-[#0a0806]">
+                      <BattlefieldPreview
+                        animTime={animTime}
+                        onSelectFarthestLevel={() => {
+                          const unlockedLevelsList = visibleWorldLevels.filter(
+                            (l) => isLevelUnlocked(l.id)
+                          );
+                          if (unlockedLevelsList.length > 0) {
+                            const farthestLevel = unlockedLevelsList.at(-1);
+                            if (farthestLevel) {
+                              handleLevelClick(farthestLevel.id);
+                            }
+                          }
+                        }}
+                      />
+                      {/* Toggle back to stats - only shown over the preview overlay */}
+                      <button
+                        onClick={() => setShowBattlefieldPreview(false)}
+                        className="absolute top-3 right-3 z-30 flex items-center gap-1.5 p-2 rounded-lg transition-all hover:scale-105 hover:brightness-110"
+                        style={{
+                          background: `linear-gradient(135deg, ${PANEL.bgWarmLight}, ${PANEL.bgWarmMid})`,
+                          border: `1px solid ${GOLD.border25}`,
+                          boxShadow: `0 2px 8px rgba(0,0,0,0.4)`,
+                        }}
+                        title="Show Campaign Stats"
+                      >
+                        <BarChart3 size={12} className="text-amber-400/80" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </OrnateFrame>
+
+          <WorldMapShoutOut visible={wmEntranceStage[4]} />
+        </div>
+        {/* RIGHT: Map + Loadout column */}
+        <div className="flex-1 flex flex-col min-w-0 min-h-0 overflow-hidden">
+          <div
+            className="relative flex-1 flex flex-col min-w-0 min-h-0 py-1 sm:py-3 px-1.5 sm:px-3 overflow-hidden transition-all duration-700 ease-out"
+            style={{
+              background: `linear-gradient(180deg, ${PANEL.bgLight} 0%, ${PANEL.bgDark} 100%)`,
+              opacity: wmEntranceStage[2] ? 1 : 0,
+              transform: wmEntranceStage[2] ? "scale(1)" : "scale(0.97)",
+            }}
+          >
+            <OrnateFrame
+              className="flex-1 relative bg-gradient-to-br from-stone-900 to-stone-950 rounded-2xl border-2 overflow-hidden shadow-2xl min-h-0 md:animate-wm-border-breathe"
+              style={{ borderColor: "rgba(180, 140, 60, 0.5)" }}
+              cornerSize={20}
+              showBorders={true}
+              sideBorderScale={0.6}
+              topBottomBorderScale={0.75}
+            >
+              <div ref={containerRef} className="absolute inset-0">
+                <div
+                  ref={scrollContainerRef}
+                  className="absolute h-full inset-0 overflow-x-auto overflow-y-hidden z-10"
+                  style={{
+                    background: "#0a0806",
+                    cursor: dragCursor ? "grabbing" : "grab",
+                    touchAction: "none",
+                  }}
+                  onMouseDown={handleDragStart}
+                  onMouseMove={handleDragMove}
+                  onMouseUp={handleDragEnd}
+                  onMouseLeave={handleDragEnd}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  <div
+                    ref={canvasWrapperRef}
+                    className="relative game-start-fade"
+                    style={{
+                      height: `${displayH}px`,
+                      margin: displayW <= containerWidth ? "0 auto" : undefined,
+                      width: `${displayW}px`,
+                    }}
+                  >
+                    <canvas
+                      ref={canvasRef}
+                      className="차단"
+                      style={{ cursor: dragCursor ? "grabbing" : "grab" }}
+                      onMouseMove={handleMouseMove}
+                      onMouseLeave={() => setHoveredLevel(null)}
+                      onClick={handleClick}
+                    />
+                    {selectedLevel &&
+                      !isMobile &&
+                      (() => {
+                        const worldLevel = visibleWorldLevels.find(
+                          (l) => l.id === selectedLevel
+                        );
+                        if (!worldLevel) {
+                          return null;
+                        }
+                        const scale = mapScale;
+                        const yMap = getY(worldLevel.y);
+                        const nodeSize = 28;
+                        const btnWidth = 120;
+                        const btnHeight = 38;
+                        const gap = 8;
+                        const tooltipBelow = worldLevel.y < 50;
+                        const centerXPx = worldLevel.x * scale;
+                        const btnTopPx = tooltipBelow
+                          ? (yMap - nodeSize - gap - btnHeight) * scale
+                          : (yMap + nodeSize + gap) * scale;
+                        const shieldPad = 14;
+                        const handleBattleClick = (e: React.MouseEvent) => {
+                          e.stopPropagation();
+                          if (canStart) {
+                            startGame();
+                          } else {
+                            onStartWithRandomLoadout?.();
+                          }
+                        };
+                        return (
+                          <div
+                            className="absolute z-40 pointer-events-auto"
+                            style={{
+                              height: `${btnHeight * scale + shieldPad * 2}px`,
+                              left: `${centerXPx - (btnWidth * scale) / 2 - shieldPad}px`,
+                              top: `${btnTopPx - shieldPad}px`,
+                              width: `${btnWidth * scale + shieldPad * 2}px`,
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                            onMouseDown={(e) => e.stopPropagation()}
+                          >
+                            <button
+                              type="button"
+                              onClick={handleBattleClick}
+                              className="absolute rounded-lg font-bold transition-all overflow-hidden group hover:brightness-125 hover:scale-105 active:scale-95"
+                              style={{
+                                background: `linear-gradient(180deg, rgba(200,150,30,0.97) 0%, rgba(160,105,15,0.97) 50%, rgba(130,80,10,0.97) 100%)`,
+                                border: `2px solid rgba(255,210,80,0.7)`,
+                                borderRadius: "8px",
+                                boxShadow: `0 0 18px rgba(255,180,40,0.35), 0 4px 12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,240,160,0.4), inset 0 -1px 0 rgba(80,50,10,0.4)`,
+                                color: "rgba(253,230,138,0.9)",
+                                height: `${btnHeight * scale}px`,
+                                left: `${shieldPad}px`,
+                                textShadow:
+                                  "0 1px 4px rgba(0,0,0,0.6), 0 0 10px rgba(255,200,60,0.3)",
+                                top: `${shieldPad}px`,
+                                width: `${btnWidth * scale}px`,
+                              }}
+                            >
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
+                              <div
+                                className="absolute inset-[2px] rounded-[6px] pointer-events-none"
+                                style={{
+                                  border: `1px solid rgba(255,230,140,0.2)`,
+                                }}
+                              />
+                              <span className="flex items-center justify-center gap-1.5 relative z-10 text-xs font-black tracking-widest uppercase">
+                                <Swords size={13} />
+                                BATTLE
+                                <ChevronRight size={14} className="-ml-0.5" />
+                              </span>
+                            </button>
+                          </div>
+                        );
+                      })()}
+                  </div>
+                </div>
+
+                {/* MOBILE/TABLET HERO & SPELL FLOATING CIRCLES */}
+                <div className="flex xl:hidden absolute w-full bottom-0 left-0 right-0 pointer-events-none z-20">
+                  <div className="w-full pointer-events-auto">
+                    <MobileLoadoutBar
+                      selectedHero={selectedHero}
+                      setSelectedHero={setSelectedHero}
+                      selectedSpells={selectedSpells}
+                      toggleSpell={toggleSpell}
+                      availableSpellStars={availableSpellStars}
+                      totalSpellStarsEarned={totalSpellStarsEarned}
+                      spentSpellStars={spentSpellStars}
+                      spellUpgradeLevels={spellUpgradeLevels}
+                      upgradeSpell={upgradeSpell}
+                      downgradeSpell={downgradeSpell}
+                    />
+                  </div>
+                </div>
+              </div>
+            </OrnateFrame>
+          </div>
+
+          <div
+            ref={bottomPanelRef}
+            className="transition-all duration-500 ease-out"
+            style={{
+              opacity: wmEntranceStage[3] ? 1 : 0,
+              transform: wmEntranceStage[3]
+                ? "translateY(0)"
+                : "translateY(14px)",
+            }}
+          >
+            <WorldMapDesktopLoadout
+              loadoutCompact={loadoutCompact}
+              setLoadoutCompact={setLoadoutCompact}
+              selectedHero={selectedHero}
+              setSelectedHero={setSelectedHero}
+              hoveredHero={hoveredHero}
+              setHoveredHero={setHoveredHero}
+              selectedSpells={selectedSpells}
+              toggleSpell={toggleSpell}
+              hoveredSpell={hoveredSpell}
+              setHoveredSpell={setHoveredSpell}
+              availableSpellStars={availableSpellStars}
+              totalSpellStarsEarned={totalSpellStarsEarned}
+              spentSpellStars={spentSpellStars}
+              spellUpgradeLevels={spellUpgradeLevels}
+              upgradeSpell={upgradeSpell}
+              downgradeSpell={downgradeSpell}
+              spellAutoAim={spellAutoAim}
+              onToggleSpellAutoAim={onToggleSpellAutoAim}
+              onOpenCodex={openCodexTo}
+              onSelectBattleShortcut={() => {
+                const unlockedLevelsList = visibleWorldLevels.filter((level) =>
+                  isLevelUnlocked(level.id)
+                );
+                const farthestLevel = unlockedLevelsList.at(-1);
+                if (farthestLevel) {
+                  handleLevelClick(farthestLevel.id);
+                }
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* MOBILE: Level detail bottom sheet */}
+      {isMobile && (
+        <MobileLevelSheet
+          level={currentLevel ?? null}
+          levelStars={levelStars}
+          levelStats={levelStats}
+          unlockedMaps={unlockedMaps}
+          canStart={!!canStart}
+          onClose={() => setSelectedLevel(null)}
+          onBattle={startGame}
+          onBattleRandom={() => onStartWithRandomLoadout?.()}
+          onNavigateNext={goToNextLevel}
+          onNavigatePrev={goToPreviousLevel}
+          onSelectLevel={handleSidebarLevelClick}
+          isDevMode={isDevMode}
+        />
+      )}
+
+      <WorldMapModals
+        showCodex={showCodex}
+        codexTab={codexTab}
+        onCloseCodex={() => {
+          setShowCodex(false);
+          resetUrl();
+        }}
+        showSettings={showSettings}
+        onCloseSettings={() => {
+          setShowSettings(false);
+          resetUrl();
+        }}
+        settingsState={{
+          applyPreset,
+          resetCategory,
+          resetToDefaults,
+          settings,
+          updateCategory,
+        }}
+        onDevModeChange={onDevModeChange}
+        showCredits={showCredits}
+        onCloseCredits={() => {
+          setShowCredits(false);
+          resetUrl();
+        }}
+        showCreator={showCreator}
+        onCloseCreator={() => {
+          setShowCreator(false);
+          resetUrl();
+        }}
+        customLevels={customLevels}
+        onSaveCustomLevel={onSaveCustomLevel}
+        onDeleteCustomLevel={onDeleteCustomLevel}
+        onPlayCustomLevel={handleCustomLevelPlaytest}
+      />
+    </div>
+  );
+};
+
+export default WorldMap;

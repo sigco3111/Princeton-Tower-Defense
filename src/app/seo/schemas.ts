@@ -1,0 +1,326 @@
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_AUTHOR,
+  SITE_DESCRIPTION,
+  GITHUB_URL,
+  GAME_STATS,
+  TOWER_NAMES,
+  REGION_NAMES,
+  HERO_NAMES,
+  SPELL_NAMES,
+  AUTHOR_URL,
+  AUTHOR_GITHUB,
+  AUTHOR_TWITTER,
+  AUTHOR_LINKEDIN,
+  AUTHOR_SAME_AS,
+} from "./constants";
+
+const PERSON_ID = `${SITE_URL}/#author`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+const GAME_ID = `${SITE_URL}/#game`;
+
+function getPersonSchema() {
+  return {
+    "@id": PERSON_ID,
+    "@type": "Person",
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Princeton University",
+      url: "https://www.princeton.edu",
+    },
+    jobTitle: "Software Engineer",
+    knowsAbout: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "HTML5 Canvas",
+      "Game Development",
+      "Tower Defense",
+      "Web Development",
+      "Isometric Rendering",
+      "Three.js",
+      "WebGL",
+      "Full-Stack Development",
+    ],
+    name: SITE_AUTHOR,
+    sameAs: [...AUTHOR_SAME_AS],
+    url: AUTHOR_URL,
+  };
+}
+
+function getWebSiteSchema() {
+  return {
+    "@id": WEBSITE_ID,
+    "@type": "WebSite",
+    description: SITE_DESCRIPTION,
+    inLanguage: "en-US",
+    name: SITE_NAME,
+    publisher: { "@id": PERSON_ID },
+    url: SITE_URL,
+  };
+}
+
+function getVideoGameSchema() {
+  return {
+    "@id": GAME_ID,
+    "@type": "VideoGame",
+    abstract:
+      `${SITE_NAME} features ${GAME_STATS.levels} handcrafted levels across ${GAME_STATS.regions} themed regions ` +
+      `(${REGION_NAMES.join(", ")}), ${GAME_STATS.towers} upgradeable towers with dual upgrade paths, ` +
+      `${GAME_STATS.heroes} hero units, ${GAME_STATS.spells} castable spells, ${GAME_STATS.enemyTypes}+ enemy types, ` +
+      `and a full custom level creator with sharing support.`,
+    applicationCategory: "게임",
+    author: { "@id": PERSON_ID },
+    characterAttribute: HERO_NAMES.map((hero) => ({
+      "@type": "Thing",
+      description: `A playable hero character in ${SITE_NAME} with unique active abilities`,
+      name: hero,
+    })),
+    dateModified: new Date().toISOString().split("T")[0],
+    datePublished: "2024-12-01",
+    description: SITE_DESCRIPTION,
+    gameItem: TOWER_NAMES.map((tower) => ({
+      "@type": "Thing",
+      description: `A buildable tower in ${SITE_NAME} inspired by a Princeton University campus landmark`,
+      name: tower,
+    })),
+    gamePlatform: ["Web Browser", "Desktop Browser", "Mobile Browser"],
+    genre: ["Tower Defense", "Strategy", "캐주얼"],
+    image: `${SITE_URL}/images/new/gameplay_grounds_ui.png`,
+    inLanguage: "en",
+    isAccessibleForFree: true,
+    mainEntityOfPage: { "@id": WEBSITE_ID },
+    name: SITE_NAME,
+    numberOfPlayers: { "@type": "QuantitativeValue", value: 1 },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    operatingSystem: "Any (Browser-based)",
+    playMode: "SinglePlayer",
+    potentialAction: SPELL_NAMES.map((spell) => ({
+      "@type": "PlayAction",
+      description: `Use the ${spell} spell to aid your tower defenses`,
+      name: `Cast ${spell}`,
+    })),
+    publisher: { "@id": PERSON_ID },
+    sameAs: [GITHUB_URL],
+    screenshot: [
+      `${SITE_URL}/images/new/gameplay_grounds_ui.png`,
+      `${SITE_URL}/images/new/gameplay_desert_ui.png`,
+      `${SITE_URL}/images/new/gameplay_swamp_ui.png`,
+      `${SITE_URL}/images/new/gameplay_winter_ui.png`,
+      `${SITE_URL}/images/new/gameplay_volcano_ui.png`,
+      `${SITE_URL}/images/new/gameplay_sandbox_ui.png`,
+      `${SITE_URL}/images/promo/landingpage.png`,
+      `${SITE_URL}/images/promo/worldmap.png`,
+    ],
+    url: SITE_URL,
+  };
+}
+
+function getWebApplicationSchema() {
+  return {
+    "@type": "WebApplication",
+    applicationCategory: "GameApplication",
+    author: { "@id": PERSON_ID },
+    browserRequirements: "JavaScript 및 HTML5 Canvas 지원 필요",
+    featureList: [
+      `${GAME_STATS.towers} unique towers inspired by Princeton campus landmarks, each with 2 upgrade paths`,
+      `${GAME_STATS.heroes} summonable hero characters with active abilities`,
+      `${GAME_STATS.spells} castable spells with upgrade trees`,
+      `${GAME_STATS.levels} levels across ${GAME_STATS.regions} themed regions: ${REGION_NAMES.join(", ")}`,
+      `${GAME_STATS.enemyTypes}+ enemy types including bosses, flying, ranged, and swarm enemies`,
+      "Custom level creator with path editor, hazard placement, and wave composition",
+      "Star-gated world map progression system",
+      "Challenge maps with tower restrictions for advanced players",
+      "Dual-path levels with split enemy routes",
+      "Environmental hazards: lava, quicksand, blizzard zones, poison fog, and more",
+      "Isometric HTML5 Canvas rendering with no downloads or plugins required",
+    ],
+    name: SITE_NAME,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    operatingSystem: "Any",
+    url: SITE_URL,
+  };
+}
+
+function getFAQSchema() {
+  return {
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Princeton Tower Defense is a free browser-based tower defense strategy game set at Princeton University. " +
+            "Players build towers at iconic campus landmarks like Nassau Hall, Firestone Library, and Blair Arch to defend " +
+            "against waves of enemies. The game features 26 levels across 5 themed regions, " +
+            "7 upgradeable towers with dual upgrade paths, 9 hero characters, 6 spells, and a custom level creator.",
+        },
+        name: "프린스턴 타워 디펜스란 무엇인가요?",
+      },
+      {
+        "@type": "Question",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            `There are ${GAME_STATS.towers} towers in Princeton Tower Defense, each inspired by a real Princeton campus landmark: ` +
+            `${TOWER_NAMES.join(", ")}. Each tower has two distinct upgrade paths. For example, Nassau Cannon can upgrade into ` +
+            "a rapid-fire Gatling Gun or a burn-damage Flamethrower, and Dinky Station can summon ranged Centaurs or tanky Royal Cavalry.",
+        },
+        name: "프린스턴 타워 디펜스에는 몇 개의 타워가 있나요?",
+      },
+      {
+        "@type": "Question",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Yes, Princeton Tower Defense is completely free to play in any modern web browser. No download, installation, or account required. " +
+            "The game runs on HTML5 Canvas and works on desktop and mobile browsers.",
+        },
+        name: "프린스턴 타워 디펜스는 무료인가요?",
+      },
+      {
+        "@type": "Question",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            `Princeton Tower Defense has ${GAME_STATS.levels} levels spread across ${GAME_STATS.regions} themed regions: ` +
+            "Princeton Grounds (grassland with Poe Field, Carnegie Lake, Nassau Hall), " +
+            "Murky Marshes (swamp with Murky Bog, Witch's Domain, Sunken Temple), " +
+            "Sahara Sands (desert with Desert Oasis, Pyramid Pass, Sphinx Gate), " +
+            "Frozen Frontier (winter with Glacier Path, Frost Fortress, Summit Peak), " +
+            "and Volcanic Depths (lava with Lava Fields, Caldera Basin, Obsidian Throne). " +
+            "Each region also includes challenge maps with special tower restrictions.",
+        },
+        name: "프린스턴 타워 디펜스에는 어떤 지역과 맵이 있나요?",
+      },
+      {
+        "@type": "Question",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Yes! Princeton Tower Defense includes a full custom level creator. You can design your own maps with primary and secondary enemy paths, " +
+            "place hero spawn points, add special objective structures (beacons, shrines, vaults, barracks), " +
+            "set theme-specific decorations and environmental hazards, pre-place towers, and compose custom enemy waves. " +
+            "Choose from 5 map themes: grassland, swamp, desert, winter, and volcanic.",
+        },
+        name: "프린스턴 타워 디펜스에서 커스텀 레벨을 만들 수 있나요?",
+      },
+      {
+        "@type": "Question",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            `Princeton Tower Defense features ${GAME_STATS.heroes} playable heroes: ${HERO_NAMES.join(", ")}. ` +
+            "Each hero has unique active abilities and can be deployed on the battlefield to support your tower defenses. " +
+            "Heroes gain experience and can turn the tide during difficult waves.",
+        },
+        name: "프린스턴 타워 디펜스에는 어떤 영웅이 있나요?",
+      },
+      {
+        "@type": "Question",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Princeton Tower Defense stands out with its Princeton University campus theme. All towers, enemies, and maps reference real " +
+            "campus landmarks and student life. It features dual-lane enemy paths, 9 heroes with active abilities, a spell system with upgrades, " +
+            "environmental hazards like lava geysers and quicksand, special objective structures, challenge maps with tower restrictions, " +
+            "and a full custom level creator. It's built entirely with React and HTML5 Canvas with isometric rendering and no game engine.",
+        },
+        name: "프린스턴 타워 디펜스는 다른 타워 디펜스 게임과 어떻게 다른가요?",
+      },
+      {
+        "@type": "Question",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Princeton Tower Defense is built with Next.js 16, React 19, TypeScript, and HTML5 Canvas. " +
+            "The entire rendering pipeline (isometric terrain, tower animations, projectile arcs, death effects, fog, god rays, and ambient particles) " +
+            "is hand-written Canvas 2D with no game engine or sprite sheets. Static layers are cached to offscreen canvases, " +
+            "quality-aware rendering adjusts detail based on runtime performance, and the UI uses Tailwind CSS with Radix Themes. " +
+            "Created by Kevin Liu (kevin-liu.tech).",
+        },
+        name: "프린스턴 타워 디펜스는 어떤 기술로 만들어졌나요?",
+      },
+    ],
+  };
+}
+
+function getBreadcrumbSchema() {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        item: SITE_URL,
+        name: "홈",
+        position: 1,
+      },
+      {
+        "@type": "ListItem",
+        item: `${SITE_URL}/codex`,
+        name: "도감",
+        position: 2,
+      },
+      {
+        "@type": "ListItem",
+        item: `${SITE_URL}/creator`,
+        name: "Level Creator",
+        position: 2,
+      },
+      {
+        "@type": "ListItem",
+        item: `${SITE_URL}/credits`,
+        name: "제작진",
+        position: 2,
+      },
+    ],
+  };
+}
+
+function getSoftwareSourceCodeSchema() {
+  return {
+    "@type": "SoftwareSourceCode",
+    author: { "@id": PERSON_ID },
+    codeRepository: GITHUB_URL,
+    dateCreated: "2024-12-01",
+    license: "https://opensource.org/licenses/MIT",
+    name: SITE_NAME,
+    programmingLanguage: ["TypeScript", "React 19", "Next.js 16"],
+    runtimePlatform: "Web Browser",
+    targetProduct: { "@id": GAME_ID },
+  };
+}
+
+export function getEntityGraph() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      getPersonSchema(),
+      getWebSiteSchema(),
+      getVideoGameSchema(),
+      getWebApplicationSchema(),
+      getFAQSchema(),
+      getBreadcrumbSchema(),
+      getSoftwareSourceCodeSchema(),
+    ],
+  };
+}
+
+export {
+  getVideoGameSchema,
+  getWebApplicationSchema,
+  getFAQSchema,
+  getBreadcrumbSchema,
+  getSoftwareSourceCodeSchema,
+};

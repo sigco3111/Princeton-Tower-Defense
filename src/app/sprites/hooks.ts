@@ -1,0 +1,72 @@
+import type { CSSProperties } from "react";
+import { useEffect, useLayoutEffect } from "react";
+
+export const SPRITE_PAD = 1.8;
+
+export function spriteContainerStyle(w: number, h: number): CSSProperties {
+  return { position: "relative", width: w, height: h };
+}
+
+export function spriteCanvasStyle(w: number, h: number): CSSProperties {
+  return {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: w,
+    height: h,
+    pointerEvents: "none",
+  };
+}
+
+export function setupSpriteCanvas(
+  canvas: HTMLCanvasElement,
+  width: number,
+  height: number
+): CanvasRenderingContext2D | null {
+  const ctx = canvas.getContext("2d");
+  if (!ctx) {
+    return null;
+  }
+
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = Math.max(1, Math.round(width * dpr));
+  canvas.height = Math.max(1, Math.round(height * dpr));
+
+  // Reset transform each frame to avoid accumulated scale drift.
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, width, height);
+  return ctx;
+}
+
+/**
+ * Draws the first frame synchronously before paint (useLayoutEffect) so the
+ * canvas is never visible in a blank state. Animated sprites continue with
+ * a rAF loop via useEffect.
+ */
+export function useSpriteTicker(
+  animated: boolean,
+  frameMs: number,
+  render: (time: number) => void
+): void {
+  useLayoutEffect(() => {
+    render(0);
+  }, [render]);
+
+  useEffect(() => {
+    if (!animated) {
+      return;
+    }
+
+    let rafId = 0;
+    const start = performance.now();
+
+    const loop = (now: number) => {
+      render((now - start) / frameMs);
+      rafId = window.requestAnimationFrame(loop);
+    };
+
+    rafId = window.requestAnimationFrame(loop);
+    return () => window.cancelAnimationFrame(rafId);
+  }, [animated, frameMs, render]);
+}
