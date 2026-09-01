@@ -43,6 +43,10 @@ function patch(path) {
     `${BASE_PATH}/images/`,
   );
   content = content.replace(
+    /(?<!\/Princeton-Tower-Defense)\/fonts\//g,
+    `${BASE_PATH}/fonts/`,
+  );
+  content = content.replace(
     /(?<!\/Princeton-Tower-Defense)\/favicon\.ico/g,
     `${BASE_PATH}/favicon.ico`,
   );
