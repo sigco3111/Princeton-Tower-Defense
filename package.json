@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && pnpm build:fix-paths",
+    "build": "next build --webpack && pnpm build:fix-paths",
     "build:fix-paths": "node scripts/fix-gh-pages-paths.mjs",
     "start": "next start",
     "check": "ultracite check",
