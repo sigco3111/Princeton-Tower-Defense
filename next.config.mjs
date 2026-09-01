@@ -6,15 +6,16 @@ const SOCIAL_AND_SEO_BOTS =
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // GitHub Pages 정적 export — sigco3111.github.io/Princeton-Tower-Defense/
-  // basePath는 서브경로 prefix를 위해 필요. assetPrefix는 _next 자산 경로.
+  // 서브경로 호스팅이라 basePath가 필요. basePath 없으면 브라우저가 루트에서
+  // 자산을 찾으려고 해서 404 발생. trailingSlash로 /bog/index.html 형태로 빌드.
   output: 'export',
-  // gh-pages는 trailingSlash 없이도 동작하지만, 일부 라우트는 trailingSlash와 호환되도록
+  // sub-route(/bog/, /codex/ 등)가 gh-pages에서 정상 작동하도록 강제
   trailingSlash: true,
   // 이미지 최적화 비활성화 (정적 export와 호환 안 됨)
   images: {
     unoptimized: true,
   },
-  // gh-pages 서브경로 배포용
+  // gh-pages 서브경로 배포용 (필수)
   basePath: '/Princeton-Tower-Defense',
   assetPrefix: '/Princeton-Tower-Defense/',
 
