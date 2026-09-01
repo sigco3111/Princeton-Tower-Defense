@@ -24,20 +24,26 @@
 ### 원인 (확정됨)
 **Next.js 16 + `output: 'export'`에서 public/ 폴더 자산은 basePath를 무시하고 절대 경로로 출력됩니다.**
 
-- `/_next/static/chunks/*.js` (CSS/JS): ✅ basePath 자동 적용
+- `/_next/static/chunks/*.js` (CSS/JS): ✅ basePath 자동 적용 (단, 그 안에 포함된 src: "/images/..." 같은 문자열은 basePath 미적용)
 - `/images/*.png`, `/favicon.ico`, `/manifest.webmanifest`: ❌ basePath 무시
 
 ### 해결책 (이미 구현됨)
-**`scripts/fix-gh-pages-paths.mjs`** — post-build 스크립트로 43개 HTML/JS 파일의 public/ 자산 경로에 `/Princeton-Tower-Defense` prefix를 일괄 추가.
+**`scripts/fix-gh-pages-paths.mjs`** — post-build 스크립트로 모든 HTML/JS/CSS 파일의 public/ 자산 경로에 `/Princeton-Tower-Defense` prefix를 일괄 추가. walk()에서 `_next` 디렉토리를 더 이상 스킵하지 않음 (이전 버전 버그).
 
 ```bash
 pnpm build  # 자동으로 next build + fix-gh-pages-paths 실행
 ```
 
+### GitHub Pages 함정 두 가지
+1. **Jekyll 자동 제외**: GitHub Pages는 기본적으로 Jekyll을 사용. `_`로 시작하는 폴더(`_next/`)와 파일을 모두 무시한다. 따라서 gh-pages에 `_next/`가 있어도 **404**가 발생한다.
+   - **해결**: gh-pages 루트에 `.nojekyll` 빈 파일을 추가.
+2. **basePath 누락**: `_next/static/chunks/*.js` 안에 `src:"/images/..."` 같은 문자열이 그대로 박혀 있어, 빌드 출력 HTML은 basePath가 적용되어 있어도 JS 런타임에서 이미지를 못 찾는다.
+   - **해결**: `fix-gh-pages-paths.mjs`가 `_next/static/chunks/*.js`도 패치.
+
 ### 다음 에이전트가 할 일
 1. `pnpm install` (의존성 설치)
 2. `pnpm build` (자동으로 fix-gh-pages-paths 실행됨)
-3. `~/Desktop/princeton-td/gh-pages-deploy/` 폴더에 out/ 내용 복사 후 gh-pages에 푸시
+3. `cd out && touch .nojekyll && git init -b gh-pages` 후 origin에 force-push
 4. 사용자에게 강력 새로고침 안내 (Ctrl+Shift+R / Cmd+Shift+R)
 
 ---
