@@ -134,9 +134,9 @@ const SANDBOX_THEMES: SandboxTheme[] = [
     name: "Swamp Horrors",
   },
   {
-    bosses: ["교수", "학장", "trustee", "마스코트"],
-    elites: ["3학년", "4학년", "gradstudent", "archer", "crossbowman"],
-    grunts: ["frosh", "2학년", "athlete", "tiger_fan"],
+    bosses: ["professor", "dean", "trustee", "mascot"],
+    elites: ["junior", "senior", "gradstudent", "archer", "crossbowman"],
+    grunts: ["frosh", "sophomore", "athlete", "tiger_fan"],
     name: "Academic Gauntlet",
   },
   {

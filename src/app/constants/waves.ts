@@ -33,8 +33,8 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 3: Flying intro
     [
-      { count: 3, interval: 850, type: "마스코트" },
-      { count: 3, delay: 3800, interval: 800, type: "2학년" },
+      { count: 3, interval: 850, type: "mascot" },
+      { count: 3, delay: 3800, interval: 800, type: "sophomore" },
       { count: 4, delay: 3500, interval: 700, type: "athlete" },
       { count: 3, delay: 3500, interval: 800, type: "hexer" },
       { count: 3, delay: 3500, interval: 700, type: "mosquito" },
@@ -57,7 +57,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 6: Tank challenge
     [
-      { count: 3, interval: 1000, type: "3학년" },
+      { count: 3, interval: 1000, type: "junior" },
       { count: 4, delay: 2800, interval: 700, type: "archer" },
       { count: 6, delay: 2800, interval: 600, type: "frosh" },
       { count: 3, delay: 2800, interval: 800, type: "assassin" },
@@ -65,14 +65,14 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 7: Boss intro
     [
-      { count: 3, interval: 1400, type: "4학년" },
+      { count: 3, interval: 1400, type: "senior" },
       { count: 5, delay: 2500, interval: 600, type: "tiger_fan" },
       { count: 3, delay: 2500, interval: 800, type: "banshee" },
       { count: 4, delay: 2500, interval: 700, type: "mage" },
     ],
     // Wave 8: FINALE
     [
-      { count: 4, interval: 1100, type: "4학년" },
+      { count: 4, interval: 1100, type: "senior" },
       { count: 4, delay: 2200, interval: 650, type: "harpy" },
       { count: 6, delay: 2200, interval: 500, type: "athlete" },
       { count: 4, delay: 2200, interval: 650, type: "hexer" },
@@ -135,7 +135,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 4: Tank push
     [
-      { count: 4, interval: 850, type: "3학년" },
+      { count: 4, interval: 850, type: "junior" },
       { count: 5, delay: 3200, interval: 650, type: "tiger_fan" },
       { count: 4, delay: 3000, interval: 700, type: "cultist" },
       { count: 4, delay: 3000, interval: 700, type: "berserker" },
@@ -158,7 +158,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 7: Boss assault
     [
-      { count: 4, interval: 1100, type: "4학년" },
+      { count: 4, interval: 1100, type: "senior" },
       { count: 3, delay: 2600, interval: 1200, type: "shadow_knight" },
       { count: 6, delay: 2500, interval: 550, type: "tiger_fan" },
       { count: 4, delay: 2500, interval: 700, type: "hexer" },
@@ -174,7 +174,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 9: Gradstudent boss
     [
       { count: 3, interval: 1800, type: "gradstudent" },
-      { count: 4, delay: 2400, interval: 900, type: "4학년" },
+      { count: 4, delay: 2400, interval: 900, type: "senior" },
       { count: 5, delay: 2200, interval: 650, type: "harpy" },
       { count: 7, delay: 2200, interval: 500, type: "frosh" },
       { count: 4, delay: 2200, interval: 750, type: "banshee" },
@@ -235,11 +235,11 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
       { count: 4, interval: 750, type: "cultist" },
       { count: 3, delay: 3800, interval: 800, type: "hexer" },
       { count: 5, delay: 3500, interval: 650, type: "athlete" },
-      { count: 3, delay: 3500, interval: 800, type: "2학년" },
+      { count: 3, delay: 3500, interval: 800, type: "sophomore" },
     ],
     // Wave 3: Air dominance
     [
-      { count: 4, interval: 750, type: "마스코트" },
+      { count: 4, interval: 750, type: "mascot" },
       { count: 3, delay: 3500, interval: 900, type: "banshee" },
       { count: 4, delay: 3200, interval: 700, type: "harpy" },
       { count: 5, delay: 3200, interval: 650, type: "frosh" },
@@ -247,7 +247,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 4: Tank siege
     [
-      { count: 4, interval: 900, type: "3학년" },
+      { count: 4, interval: 900, type: "junior" },
       { count: 5, delay: 3200, interval: 650, type: "tiger_fan" },
       { count: 4, delay: 3000, interval: 700, type: "crossbowman" },
       { count: 3, delay: 3000, interval: 800, type: "specter" },
@@ -277,7 +277,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 8: Professor arrives
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 4, delay: 2500, interval: 1200, type: "gradstudent" },
       { count: 3, delay: 2400, interval: 1200, type: "shadow_knight" },
       { count: 6, delay: 2400, interval: 500, type: "athlete" },
@@ -285,14 +285,14 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 9: Necromancer ritual
     [
       { count: 4, interval: 1300, type: "necromancer" },
-      { count: 4, delay: 2400, interval: 900, type: "4학년" },
+      { count: 4, delay: 2400, interval: 900, type: "senior" },
       { count: 5, delay: 2200, interval: 650, type: "harpy" },
       { count: 3, delay: 2200, interval: 1400, type: "catapult" },
     ],
     // Wave 10: Juggernaut siege
     [
       { count: 1, interval: 3200, type: "juggernaut" },
-      { count: 3, delay: 2200, interval: 1600, type: "교수" },
+      { count: 3, delay: 2200, interval: 1600, type: "professor" },
       { count: 6, delay: 2200, interval: 500, type: "tiger_fan" },
       { count: 5, delay: 2200, interval: 700, type: "banshee" },
       { count: 4, delay: 2200, interval: 800, type: "infernal" },
@@ -300,16 +300,16 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 11: Dean's arrival
     [
-      { count: 1, interval: 3200, type: "학장" },
-      { count: 4, delay: 2000, interval: 1400, type: "교수" },
+      { count: 1, interval: 3200, type: "dean" },
+      { count: 4, delay: 2000, interval: 1400, type: "professor" },
       { count: 4, delay: 2000, interval: 1100, type: "shadow_knight" },
       { count: 4, delay: 2000, interval: 900, type: "wyvern" },
       { count: 8, delay: 2000, interval: 450, type: "frosh" },
     ],
     // Wave 12: NASSAU FINALE
     [
-      { count: 3, interval: 2200, type: "학장" },
-      { count: 4, delay: 2000, interval: 1200, type: "교수" },
+      { count: 3, interval: 2200, type: "dean" },
+      { count: 4, delay: 2000, interval: 1200, type: "professor" },
       { count: 1, delay: 2000, interval: 3200, type: "juggernaut" },
       { count: 5, delay: 2000, interval: 600, type: "assassin" },
       { count: 6, delay: 2000, interval: 600, type: "banshee" },
@@ -408,7 +408,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 6: Tank wall
     [
       { count: 4, interval: 950, type: "swamp_troll" },
-      { count: 3, delay: 2800, interval: 1100, type: "4학년" },
+      { count: 3, delay: 2800, interval: 1100, type: "senior" },
       { count: 6, delay: 2600, interval: 550, type: "bog_creature" },
       { count: 4, delay: 2600, interval: 700, type: "berserker" },
       { count: 3, delay: 2600, interval: 800, type: "giant_toad" },
@@ -431,7 +431,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 9: Boss wave
     [
       { count: 3, interval: 1600, type: "gradstudent" },
-      { count: 4, delay: 2400, interval: 800, type: "3학년" },
+      { count: 4, delay: 2400, interval: 800, type: "junior" },
       { count: 4, delay: 2200, interval: 750, type: "banshee" },
       { count: 7, delay: 2200, interval: 500, type: "bog_creature" },
       { count: 3, delay: 2200, interval: 800, type: "thornwalker" },
@@ -487,7 +487,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     [
       { count: 4, interval: 750, type: "harpy" },
       { count: 3, delay: 3500, interval: 900, type: "banshee" },
-      { count: 3, delay: 3200, interval: 800, type: "마스코트" },
+      { count: 3, delay: 3200, interval: 800, type: "mascot" },
       { count: 5, delay: 3200, interval: 650, type: "bog_creature" },
       { count: 3, delay: 3200, interval: 750, type: "silk_moth" },
     ],
@@ -508,7 +508,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 6: Surprise dean - early boss appearance
     [
-      { count: 1, interval: 3200, type: "학장" },
+      { count: 1, interval: 3200, type: "dean" },
       { count: 5, delay: 2800, interval: 850, type: "swamp_troll" },
       { count: 7, delay: 2500, interval: 500, type: "bog_creature" },
       { count: 4, delay: 2500, interval: 700, type: "thornwalker" },
@@ -526,12 +526,12 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     [
       { count: 4, interval: 1300, type: "necromancer" },
       { count: 5, delay: 2500, interval: 700, type: "specter" },
-      { count: 4, delay: 2400, interval: 900, type: "4학년" },
+      { count: 4, delay: 2400, interval: 900, type: "senior" },
       { count: 6, delay: 2400, interval: 500, type: "will_o_wisp" },
     ],
     // Wave 9: Professor boss
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 3, delay: 2400, interval: 1300, type: "gradstudent" },
       { count: 5, delay: 2200, interval: 850, type: "swamp_troll" },
       { count: 4, delay: 2200, interval: 750, type: "banshee" },
@@ -546,8 +546,8 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 11: Dean arrives
     [
-      { count: 1, interval: 3200, type: "학장" },
-      { count: 4, delay: 2200, interval: 900, type: "4학년" },
+      { count: 1, interval: 3200, type: "dean" },
+      { count: 4, delay: 2200, interval: 900, type: "senior" },
       { count: 4, delay: 2000, interval: 950, type: "wyvern" },
       { count: 4, delay: 2000, interval: 850, type: "infernal" },
       { count: 7, delay: 2000, interval: 450, type: "will_o_wisp" },
@@ -555,14 +555,14 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 12: Juggernaut push
     [
       { count: 1, interval: 3200, type: "juggernaut" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 5, delay: 2000, interval: 800, type: "swamp_troll" },
       { count: 5, delay: 2000, interval: 650, type: "harpy" },
       { count: 4, delay: 2000, interval: 750, type: "plaguebearer" },
     ],
     // Wave 13: Triple threat
     [
-      { count: 3, interval: 1800, type: "교수" },
+      { count: 3, interval: 1800, type: "professor" },
       { count: 4, delay: 2000, interval: 1000, type: "shadow_knight" },
       { count: 5, delay: 2000, interval: 650, type: "banshee" },
       { count: 8, delay: 2000, interval: 450, type: "bog_creature" },
@@ -571,8 +571,8 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 14: FINALE
     [
-      { count: 3, interval: 2200, type: "학장" },
-      { count: 3, delay: 2000, interval: 1600, type: "교수" },
+      { count: 3, interval: 2200, type: "dean" },
+      { count: 3, delay: 2000, interval: 1600, type: "professor" },
       { count: 4, delay: 2000, interval: 1100, type: "necromancer" },
       { count: 6, delay: 2000, interval: 700, type: "swamp_troll" },
       { count: 4, delay: 2000, interval: 850, type: "wyvern" },
@@ -633,7 +633,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
       { count: 4, interval: 750, type: "harpy" },
       { count: 3, delay: 3500, interval: 900, type: "banshee" },
       { count: 5, delay: 3500, interval: 650, type: "bog_creature" },
-      { count: 3, delay: 3500, interval: 800, type: "마스코트" },
+      { count: 3, delay: 3500, interval: 800, type: "mascot" },
       { count: 3, delay: 3500, interval: 700, type: "mosquito" },
     ],
     // Wave 4: Ranged barrage
@@ -661,8 +661,8 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 7: Tank wall
     [
-      { count: 4, interval: 850, type: "3학년" },
-      { count: 3, delay: 2800, interval: 1100, type: "4학년" },
+      { count: 4, interval: 850, type: "junior" },
+      { count: 3, delay: 2800, interval: 1100, type: "senior" },
       { count: 6, delay: 2600, interval: 550, type: "bog_creature" },
       { count: 3, delay: 2600, interval: 950, type: "infernal" },
     ],
@@ -683,7 +683,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 10: Professor boss
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 3, delay: 2400, interval: 1300, type: "gradstudent" },
       { count: 4, delay: 2400, interval: 750, type: "thornwalker" },
       { count: 4, delay: 2400, interval: 800, type: "warlock" },
@@ -698,8 +698,8 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 12: Dean arrives
     [
-      { count: 1, interval: 3200, type: "학장" },
-      { count: 4, delay: 2200, interval: 900, type: "4학년" },
+      { count: 1, interval: 3200, type: "dean" },
+      { count: 4, delay: 2200, interval: 900, type: "senior" },
       { count: 4, delay: 2200, interval: 950, type: "wyvern" },
       { count: 4, delay: 2200, interval: 850, type: "infernal" },
       { count: 7, delay: 2200, interval: 450, type: "will_o_wisp" },
@@ -707,7 +707,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 13: Trustee arrival
     [
       { count: 1, interval: 3200, type: "trustee" },
-      { count: 3, delay: 2200, interval: 1600, type: "교수" },
+      { count: 3, delay: 2200, interval: 1600, type: "professor" },
       { count: 4, delay: 2000, interval: 800, type: "plaguebearer" },
       { count: 5, delay: 2000, interval: 800, type: "swamp_troll" },
       { count: 5, delay: 2000, interval: 700, type: "specter" },
@@ -724,15 +724,15 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 15: Juggernaut push
     [
       { count: 1, interval: 3200, type: "juggernaut" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 4, delay: 2000, interval: 1000, type: "shadow_knight" },
       { count: 4, delay: 2000, interval: 900, type: "wyvern" },
       { count: 5, delay: 2000, interval: 650, type: "thornwalker" },
     ],
     // Wave 16: Dean council
     [
-      { count: 3, interval: 2200, type: "학장" },
-      { count: 3, delay: 2000, interval: 1600, type: "교수" },
+      { count: 3, interval: 2200, type: "dean" },
+      { count: 3, delay: 2000, interval: 1600, type: "professor" },
       { count: 6, delay: 2000, interval: 750, type: "swamp_troll" },
       { count: 5, delay: 2000, interval: 650, type: "banshee" },
       { count: 4, delay: 2000, interval: 1100, type: "necromancer" },
@@ -750,11 +750,11 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 18: FINALE
     [
       { count: 3, interval: 2200, type: "trustee" },
-      { count: 3, delay: 2000, interval: 2000, type: "학장" },
+      { count: 3, delay: 2000, interval: 2000, type: "dean" },
       { count: 5, delay: 2000, interval: 900, type: "shadow_knight" },
       { count: 7, delay: 2000, interval: 650, type: "swamp_troll" },
       { count: 5, delay: 2000, interval: 800, type: "wyvern" },
-      { count: 3, delay: 2000, interval: 1400, type: "교수" },
+      { count: 3, delay: 2000, interval: 1400, type: "professor" },
     ],
     // Wave 19: Lich council
     [
@@ -821,7 +821,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 3: Flying intro
     [
-      { count: 4, interval: 750, type: "마스코트" },
+      { count: 4, interval: 750, type: "mascot" },
       { count: 3, delay: 3500, interval: 800, type: "harpy" },
       { count: 5, delay: 3500, interval: 600, type: "scarab" },
       { count: 3, delay: 3500, interval: 750, type: "crossbowman" },
@@ -845,7 +845,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 6: Tank wall
     [
-      { count: 3, interval: 1100, type: "4학년" },
+      { count: 3, interval: 1100, type: "senior" },
       { count: 4, delay: 2800, interval: 900, type: "scorpion" },
       { count: 3, delay: 2600, interval: 800, type: "assassin" },
       { count: 3, delay: 2600, interval: 900, type: "plaguebearer" },
@@ -870,7 +870,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 9: Boss wave
     [
       { count: 3, interval: 1600, type: "gradstudent" },
-      { count: 4, delay: 2200, interval: 900, type: "4학년" },
+      { count: 4, delay: 2200, interval: 900, type: "senior" },
       { count: 3, delay: 2200, interval: 1100, type: "sandworm" },
       { count: 3, delay: 2200, interval: 1000, type: "wyvern" },
       { count: 7, delay: 2200, interval: 450, type: "nomad" },
@@ -925,7 +925,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 3: Flying wave
     [
       { count: 4, interval: 750, type: "harpy" },
-      { count: 3, delay: 3500, interval: 800, type: "마스코트" },
+      { count: 3, delay: 3500, interval: 800, type: "mascot" },
       { count: 5, delay: 3200, interval: 650, type: "nomad" },
       { count: 3, delay: 3200, interval: 900, type: "banshee" },
       { count: 4, delay: 3200, interval: 600, type: "locust" },
@@ -963,14 +963,14 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 8: Dean arrives early
     [
-      { count: 1, interval: 3200, type: "학장" },
-      { count: 4, delay: 2400, interval: 900, type: "4학년" },
+      { count: 1, interval: 3200, type: "dean" },
+      { count: 4, delay: 2400, interval: 900, type: "senior" },
       { count: 4, delay: 2200, interval: 1000, type: "sandworm" },
       { count: 6, delay: 2200, interval: 750, type: "scorpion" },
     ],
     // Wave 9: Professor + catapult barrage
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 3, delay: 2200, interval: 1200, type: "catapult" },
       { count: 8, delay: 2000, interval: 400, type: "scarab" },
       { count: 7, delay: 2000, interval: 450, type: "nomad" },
@@ -986,15 +986,15 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 11: Double Dean
     [
-      { count: 3, interval: 2200, type: "학장" },
-      { count: 3, delay: 2000, interval: 1600, type: "교수" },
+      { count: 3, interval: 2200, type: "dean" },
+      { count: 3, delay: 2000, interval: 1600, type: "professor" },
       { count: 6, delay: 2000, interval: 750, type: "scorpion" },
       { count: 4, delay: 2000, interval: 1000, type: "sandworm" },
       { count: 5, delay: 2000, interval: 600, type: "berserker" },
     ],
     // Wave 12: FINALE
     [
-      { count: 3, interval: 2000, type: "학장" },
+      { count: 3, interval: 2000, type: "dean" },
       { count: 1, delay: 2000, interval: 3200, type: "juggernaut" },
       { count: 6, delay: 2000, interval: 700, type: "scorpion" },
       { count: 5, delay: 2000, interval: 800, type: "wyvern" },
@@ -1082,15 +1082,15 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 8: Professor boss
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 4, delay: 2400, interval: 1200, type: "gradstudent" },
       { count: 5, delay: 2200, interval: 850, type: "scorpion" },
       { count: 3, delay: 2200, interval: 1200, type: "catapult" },
     ],
     // Wave 9: Dean arrives
     [
-      { count: 1, interval: 3200, type: "학장" },
-      { count: 5, delay: 2200, interval: 850, type: "4학년" },
+      { count: 1, interval: 3200, type: "dean" },
+      { count: 5, delay: 2200, interval: 850, type: "senior" },
       { count: 4, delay: 2200, interval: 950, type: "wyvern" },
       { count: 4, delay: 2000, interval: 1000, type: "sandworm" },
       { count: 8, delay: 2000, interval: 400, type: "scarab" },
@@ -1099,7 +1099,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 10: Dragon awakens
     [
       { count: 1, interval: 3200, type: "dragon" },
-      { count: 3, delay: 2000, interval: 1600, type: "교수" },
+      { count: 3, delay: 2000, interval: 1600, type: "professor" },
       { count: 6, delay: 2000, interval: 750, type: "scorpion" },
       { count: 5, delay: 2000, interval: 650, type: "banshee" },
       { count: 7, delay: 2000, interval: 450, type: "nomad" },
@@ -1107,14 +1107,14 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 11: Trustee arrival
     [
       { count: 1, interval: 3200, type: "trustee" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 4, delay: 2000, interval: 1000, type: "shadow_knight" },
       { count: 5, delay: 2000, interval: 750, type: "infernal" },
       { count: 8, delay: 2000, interval: 400, type: "scarab" },
     ],
     // Wave 12: Double Dean
     [
-      { count: 3, interval: 2200, type: "학장" },
+      { count: 3, interval: 2200, type: "dean" },
       { count: 1, delay: 2000, interval: 3200, type: "juggernaut" },
       { count: 5, delay: 2000, interval: 850, type: "wyvern" },
       { count: 6, delay: 2000, interval: 700, type: "scorpion" },
@@ -1133,7 +1133,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     [
       { count: 3, interval: 2200, type: "trustee" },
       { count: 3, delay: 2000, interval: 2000, type: "dragon" },
-      { count: 3, delay: 2000, interval: 2000, type: "학장" },
+      { count: 3, delay: 2000, interval: 2000, type: "dean" },
       { count: 7, delay: 2000, interval: 600, type: "scorpion" },
       { count: 4, delay: 2000, interval: 1000, type: "catapult" },
       { count: 1, delay: 18_000, interval: 3200, type: "juggernaut" },
@@ -1204,7 +1204,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 3: Flying intro
     [
-      { count: 4, interval: 750, type: "마스코트" },
+      { count: 4, interval: 750, type: "mascot" },
       { count: 3, delay: 3500, interval: 800, type: "harpy" },
       { count: 4, delay: 3500, interval: 700, type: "frostling" },
       { count: 3, delay: 3500, interval: 850, type: "ice_witch" },
@@ -1227,7 +1227,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 6: Tank wall
     [
-      { count: 3, interval: 1100, type: "4학년" },
+      { count: 3, interval: 1100, type: "senior" },
       { count: 4, delay: 2800, interval: 950, type: "yeti" },
       { count: 3, delay: 2600, interval: 900, type: "plaguebearer" },
       { count: 4, delay: 2600, interval: 800, type: "ice_witch" },
@@ -1251,22 +1251,22 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 9: Professor boss
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 3, delay: 2400, interval: 1300, type: "gradstudent" },
       { count: 6, delay: 2200, interval: 500, type: "snow_goblin" },
       { count: 3, delay: 2200, interval: 950, type: "infernal" },
     ],
     // Wave 10: Boss escalation
     [
-      { count: 4, interval: 900, type: "4학년" },
-      { count: 4, delay: 2200, interval: 800, type: "3학년" },
+      { count: 4, interval: 900, type: "senior" },
+      { count: 4, delay: 2200, interval: 800, type: "junior" },
       { count: 5, delay: 2200, interval: 700, type: "ice_witch" },
       { count: 4, delay: 2200, interval: 650, type: "berserker" },
       { count: 4, delay: 2200, interval: 700, type: "frost_troll" },
     ],
     // Wave 11: Dean arrives
     [
-      { count: 1, interval: 3200, type: "학장" },
+      { count: 1, interval: 3200, type: "dean" },
       { count: 4, delay: 2200, interval: 950, type: "wyvern" },
       { count: 5, delay: 2000, interval: 850, type: "yeti" },
       { count: 5, delay: 2000, interval: 550, type: "frostling" },
@@ -1274,7 +1274,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 12: FINALE
     [
-      { count: 3, interval: 2200, type: "학장" },
+      { count: 3, interval: 2200, type: "dean" },
       { count: 6, delay: 2000, interval: 750, type: "yeti" },
       { count: 4, delay: 2000, interval: 1100, type: "necromancer" },
       { count: 8, delay: 2000, interval: 450, type: "snow_goblin" },
@@ -1362,15 +1362,15 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 8: Professor boss
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 3, delay: 2400, interval: 1300, type: "gradstudent" },
       { count: 4, delay: 2200, interval: 950, type: "wyvern" },
       { count: 5, delay: 2200, interval: 700, type: "ice_witch" },
     ],
     // Wave 9: Dean arrives
     [
-      { count: 1, interval: 3200, type: "학장" },
-      { count: 5, delay: 2200, interval: 850, type: "4학년" },
+      { count: 1, interval: 3200, type: "dean" },
+      { count: 5, delay: 2200, interval: 850, type: "senior" },
       { count: 5, delay: 2200, interval: 850, type: "yeti" },
       { count: 4, delay: 2000, interval: 700, type: "banshee" },
       { count: 5, delay: 2000, interval: 550, type: "frostling" },
@@ -1387,15 +1387,15 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 11: Juggernaut push
     [
       { count: 1, interval: 3200, type: "juggernaut" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 4, delay: 2000, interval: 900, type: "wyvern" },
       { count: 5, delay: 2000, interval: 700, type: "ice_witch" },
       { count: 5, delay: 2000, interval: 600, type: "harpy" },
     ],
     // Wave 12: Double Dean
     [
-      { count: 3, interval: 2200, type: "학장" },
-      { count: 3, delay: 2000, interval: 1600, type: "교수" },
+      { count: 3, interval: 2200, type: "dean" },
+      { count: 3, delay: 2000, interval: 1600, type: "professor" },
       { count: 6, delay: 2000, interval: 750, type: "yeti" },
       { count: 4, delay: 2000, interval: 800, type: "infernal" },
       { count: 5, delay: 2000, interval: 600, type: "berserker" },
@@ -1403,7 +1403,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 13: Trustee arrival
     [
       { count: 1, interval: 3200, type: "trustee" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 4, delay: 2000, interval: 1000, type: "shadow_knight" },
       { count: 6, delay: 2000, interval: 500, type: "frostling" },
       { count: 8, delay: 2000, interval: 400, type: "snow_goblin" },
@@ -1412,7 +1412,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 14: FINALE
     [
       { count: 3, interval: 2600, type: "trustee" },
-      { count: 3, delay: 2000, interval: 2200, type: "학장" },
+      { count: 3, delay: 2000, interval: 2200, type: "dean" },
       { count: 7, delay: 2000, interval: 700, type: "yeti" },
       { count: 1, delay: 2000, interval: 2800, type: "dragon" },
       { count: 4, delay: 2000, interval: 1000, type: "necromancer" },
@@ -1473,7 +1473,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
       { count: 4, interval: 750, type: "harpy" },
       { count: 3, delay: 3500, interval: 1100, type: "wyvern" },
       { count: 5, delay: 3500, interval: 650, type: "snow_goblin" },
-      { count: 3, delay: 3500, interval: 800, type: "마스코트" },
+      { count: 3, delay: 3500, interval: 800, type: "mascot" },
       { count: 3, delay: 3500, interval: 700, type: "snow_moth" },
     ],
     // Wave 4: Ranged barrage
@@ -1501,14 +1501,14 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 7: Tank siege
     [
-      { count: 4, interval: 1000, type: "4학년" },
+      { count: 4, interval: 1000, type: "senior" },
       { count: 5, delay: 2600, interval: 850, type: "yeti" },
       { count: 3, delay: 2500, interval: 900, type: "plaguebearer" },
       { count: 6, delay: 2500, interval: 550, type: "snow_goblin" },
     ],
     // Wave 8: Professor boss
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 4, delay: 2500, interval: 1200, type: "gradstudent" },
       { count: 4, delay: 2400, interval: 950, type: "wyvern" },
       { count: 3, delay: 2400, interval: 950, type: "infernal" },
@@ -1525,8 +1525,8 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 10: Dean arrives
     [
-      { count: 1, interval: 3200, type: "학장" },
-      { count: 5, delay: 2200, interval: 850, type: "4학년" },
+      { count: 1, interval: 3200, type: "dean" },
+      { count: 5, delay: 2200, interval: 850, type: "senior" },
       { count: 4, delay: 2200, interval: 1000, type: "shadow_knight" },
       { count: 6, delay: 2000, interval: 500, type: "frostling" },
       { count: 7, delay: 2000, interval: 450, type: "snow_goblin" },
@@ -1534,14 +1534,14 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 11: Trustee arrival
     [
       { count: 1, interval: 3200, type: "trustee" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 5, delay: 2000, interval: 800, type: "yeti" },
       { count: 1, delay: 2000, interval: 2800, type: "dragon" },
       { count: 4, delay: 2000, interval: 1100, type: "necromancer" },
     ],
     // Wave 12: Double Dean
     [
-      { count: 3, interval: 2200, type: "학장" },
+      { count: 3, interval: 2200, type: "dean" },
       { count: 1, delay: 2000, interval: 3200, type: "juggernaut" },
       { count: 5, delay: 2000, interval: 850, type: "wyvern" },
       { count: 5, delay: 2000, interval: 700, type: "ice_witch" },
@@ -1550,7 +1550,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 13: Golem awakens
     [
       { count: 1, interval: 2600, type: "golem" },
-      { count: 3, delay: 2000, interval: 1800, type: "교수" },
+      { count: 3, delay: 2000, interval: 1800, type: "professor" },
       { count: 6, delay: 2000, interval: 750, type: "yeti" },
       { count: 4, delay: 2000, interval: 800, type: "infernal" },
       { count: 5, delay: 2000, interval: 650, type: "specter" },
@@ -1559,7 +1559,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 14: Double Trustee
     [
       { count: 3, interval: 2600, type: "trustee" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 5, delay: 2000, interval: 950, type: "shadow_knight" },
       { count: 6, delay: 2000, interval: 500, type: "frostling" },
       { count: 8, delay: 2000, interval: 400, type: "snow_goblin" },
@@ -1578,7 +1578,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
       { count: 3, delay: 2000, interval: 2200, type: "trustee" },
       { count: 8, delay: 2000, interval: 650, type: "yeti" },
       { count: 3, delay: 2000, interval: 2000, type: "dragon" },
-      { count: 3, delay: 2000, interval: 2000, type: "학장" },
+      { count: 3, delay: 2000, interval: 2000, type: "dean" },
       { count: 3, delay: 15_000, interval: 2400, type: "juggernaut" },
       { count: 2, delay: 2000, interval: 1000, type: "wendigo" },
       { count: 2, delay: 2000, interval: 1000, type: "mammoth" },
@@ -1679,15 +1679,15 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 7: Professor boss
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 3, delay: 2600, interval: 1300, type: "gradstudent" },
       { count: 3, delay: 2500, interval: 1100, type: "wyvern" },
       { count: 4, delay: 2500, interval: 850, type: "infernal" },
     ],
     // Wave 8: Dean arrives
     [
-      { count: 1, interval: 3200, type: "학장" },
-      { count: 4, delay: 2400, interval: 900, type: "4학년" },
+      { count: 1, interval: 3200, type: "dean" },
+      { count: 4, delay: 2400, interval: 900, type: "senior" },
       { count: 5, delay: 2400, interval: 800, type: "ember_guard" },
       { count: 3, delay: 2200, interval: 900, type: "plaguebearer" },
       { count: 6, delay: 2200, interval: 500, type: "fire_imp" },
@@ -1704,7 +1704,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 10: Trustee arrival
     [
       { count: 1, interval: 3200, type: "trustee" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 5, delay: 2000, interval: 800, type: "ember_guard" },
       { count: 1, delay: 2000, interval: 2800, type: "dragon" },
       { count: 4, delay: 2000, interval: 1000, type: "shadow_knight" },
@@ -1720,7 +1720,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 12: Double Dean
     [
-      { count: 3, interval: 2200, type: "학장" },
+      { count: 3, interval: 2200, type: "dean" },
       { count: 1, delay: 2000, interval: 3200, type: "juggernaut" },
       { count: 4, delay: 2000, interval: 900, type: "wyvern" },
       { count: 6, delay: 2000, interval: 700, type: "ember_guard" },
@@ -1738,7 +1738,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     [
       { count: 3, interval: 2200, type: "trustee" },
       { count: 3, delay: 2000, interval: 2000, type: "dragon" },
-      { count: 3, delay: 2000, interval: 2000, type: "학장" },
+      { count: 3, delay: 2000, interval: 2000, type: "dean" },
       { count: 7, delay: 2000, interval: 600, type: "ember_guard" },
       { count: 1, delay: 2000, interval: 3200, type: "juggernaut" },
       { count: 1, delay: 18_000, interval: 2600, type: "golem" },
@@ -1815,7 +1815,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 7: Tank wall
     [
-      { count: 4, interval: 1000, type: "4학년" },
+      { count: 4, interval: 1000, type: "senior" },
       { count: 5, delay: 2500, interval: 850, type: "ember_guard" },
       { count: 4, delay: 2400, interval: 750, type: "specter" },
       { count: 6, delay: 2400, interval: 500, type: "fire_imp" },
@@ -1824,15 +1824,15 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 8: Professor boss
     [
-      { count: 3, interval: 2000, type: "교수" },
+      { count: 3, interval: 2000, type: "professor" },
       { count: 4, delay: 2400, interval: 1200, type: "gradstudent" },
       { count: 4, delay: 2200, interval: 950, type: "wyvern" },
       { count: 5, delay: 2200, interval: 800, type: "magma_spawn" },
     ],
     // Wave 9: Dean arrives
     [
-      { count: 1, interval: 3200, type: "학장" },
-      { count: 5, delay: 2200, interval: 850, type: "4학년" },
+      { count: 1, interval: 3200, type: "dean" },
+      { count: 5, delay: 2200, interval: 850, type: "senior" },
       { count: 5, delay: 2200, interval: 800, type: "ember_guard" },
       { count: 5, delay: 2000, interval: 650, type: "harpy" },
       { count: 4, delay: 2000, interval: 800, type: "infernal" },
@@ -1840,7 +1840,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 10: Trustee arrival
     [
       { count: 1, interval: 3200, type: "trustee" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 1, delay: 2000, interval: 2800, type: "dragon" },
       { count: 4, delay: 2000, interval: 1000, type: "shadow_knight" },
       { count: 7, delay: 2000, interval: 450, type: "fire_imp" },
@@ -1857,15 +1857,15 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 12: Juggernaut push
     [
       { count: 1, interval: 3200, type: "juggernaut" },
-      { count: 1, delay: 2000, interval: 2600, type: "학장" },
+      { count: 1, delay: 2000, interval: 2600, type: "dean" },
       { count: 3, delay: 2000, interval: 1200, type: "catapult" },
       { count: 5, delay: 2000, interval: 600, type: "berserker" },
       { count: 8, delay: 2000, interval: 400, type: "fire_imp" },
     ],
     // Wave 13: Double Dean
     [
-      { count: 3, interval: 2200, type: "학장" },
-      { count: 3, delay: 2400, interval: 1600, type: "교수" },
+      { count: 3, interval: 2200, type: "dean" },
+      { count: 3, delay: 2400, interval: 1600, type: "professor" },
       { count: 6, delay: 1800, interval: 700, type: "ember_guard" },
       { count: 5, delay: 2200, interval: 800, type: "wyvern" },
       { count: 5, delay: 1600, interval: 700, type: "infernal" },
@@ -1882,7 +1882,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 15: Double Trustee
     [
       { count: 3, interval: 2600, type: "trustee" },
-      { count: 3, delay: 2000, interval: 2200, type: "학장" },
+      { count: 3, delay: 2000, interval: 2200, type: "dean" },
       { count: 7, delay: 2000, interval: 650, type: "ember_guard" },
       { count: 3, delay: 2000, interval: 2000, type: "dragon" },
       { count: 6, delay: 2000, interval: 600, type: "specter" },
@@ -1893,7 +1893,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
       { count: 3, delay: 2000, interval: 2000, type: "dragon" },
       { count: 3, delay: 2000, interval: 2800, type: "golem" },
       { count: 8, delay: 2000, interval: 550, type: "ember_guard" },
-      { count: 3, delay: 2000, interval: 2000, type: "학장" },
+      { count: 3, delay: 2000, interval: 2000, type: "dean" },
       { count: 1, delay: 18_000, interval: 3200, type: "juggernaut" },
     ],
     // Wave 17: Fallen army
@@ -1956,9 +1956,9 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 4: Tank wall
     [
-      { count: 4, interval: 1000, type: "4학년" },
+      { count: 4, interval: 1000, type: "senior" },
       { count: 4, delay: 3200, interval: 900, type: "ember_guard" },
-      { count: 4, delay: 3000, interval: 800, type: "3학년" },
+      { count: 4, delay: 3000, interval: 800, type: "junior" },
       { count: 4, delay: 3000, interval: 850, type: "infernal" },
       { count: 3, delay: 3000, interval: 900, type: "magma_beetle" },
     ],
@@ -1987,15 +1987,15 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 8: Professor boss
     [
-      { count: 4, interval: 1800, type: "교수" },
+      { count: 4, interval: 1800, type: "professor" },
       { count: 4, delay: 2400, interval: 1200, type: "gradstudent" },
       { count: 4, delay: 2200, interval: 950, type: "wyvern" },
       { count: 5, delay: 2200, interval: 750, type: "magma_spawn" },
     ],
     // Wave 9: Dean arrives
     [
-      { count: 3, interval: 2400, type: "학장" },
-      { count: 5, delay: 2200, interval: 850, type: "4학년" },
+      { count: 3, interval: 2400, type: "dean" },
+      { count: 5, delay: 2200, interval: 850, type: "senior" },
       { count: 1, delay: 2200, interval: 2800, type: "dragon" },
       { count: 5, delay: 2000, interval: 750, type: "ember_guard" },
       { count: 7, delay: 2000, interval: 450, type: "fire_imp" },
@@ -2012,7 +2012,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 11: Trustee arrival
     [
       { count: 1, interval: 3200, type: "trustee" },
-      { count: 3, delay: 2000, interval: 2200, type: "학장" },
+      { count: 3, delay: 2000, interval: 2200, type: "dean" },
       { count: 3, delay: 2000, interval: 2000, type: "dragon" },
       { count: 4, delay: 2000, interval: 1000, type: "shadow_knight" },
       { count: 6, delay: 2000, interval: 650, type: "ember_guard" },
@@ -2028,8 +2028,8 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // Wave 13: Double Dean
     [
-      { count: 3, interval: 2200, type: "학장" },
-      { count: 4, delay: 2000, interval: 1400, type: "교수" },
+      { count: 3, interval: 2200, type: "dean" },
+      { count: 4, delay: 2000, interval: 1400, type: "professor" },
       { count: 5, delay: 2000, interval: 800, type: "wyvern" },
       { count: 5, delay: 2000, interval: 600, type: "berserker" },
       { count: 7, delay: 2000, interval: 550, type: "magma_spawn" },
@@ -2063,7 +2063,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 17: Ultimate assault
     [
       { count: 4, interval: 2200, type: "trustee" },
-      { count: 3, delay: 2000, interval: 2000, type: "학장" },
+      { count: 3, delay: 2000, interval: 2000, type: "dean" },
       { count: 3, delay: 2000, interval: 2400, type: "juggernaut" },
       { count: 3, delay: 2000, interval: 2000, type: "dragon" },
       { count: 8, delay: 2000, interval: 500, type: "ember_guard" },
@@ -2072,7 +2072,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     [
       { count: 5, interval: 2000, type: "trustee" },
       { count: 4, delay: 2000, interval: 2000, type: "golem" },
-      { count: 3, delay: 2000, interval: 2000, type: "학장" },
+      { count: 3, delay: 2000, interval: 2000, type: "dean" },
       { count: 4, delay: 2000, interval: 1800, type: "dragon" },
       { count: 3, delay: 2000, interval: 2400, type: "juggernaut" },
       { count: 10, delay: 2000, interval: 400, type: "ember_guard" },
@@ -2143,7 +2143,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // W4: Tank wall with ranged backline
     [
-      { count: 5, interval: 900, type: "3학년" },
+      { count: 5, interval: 900, type: "junior" },
       { count: 3, delay: 2400, interval: 1100, type: "skeleton_knight" },
       { count: 6, delay: 2200, interval: 620, type: "crossbowman" },
       { count: 3, delay: 2000, interval: 900, type: "bone_mage" },
@@ -2159,7 +2159,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // W6: Surprise early dean + dark knight vanguard
     [
-      { count: 1, interval: 3000, type: "학장" },
+      { count: 1, interval: 3000, type: "dean" },
       { count: 4, delay: 2600, interval: 950, type: "dark_knight" },
       { count: 3, delay: 2200, interval: 1100, type: "fallen_paladin" },
       { count: 12, delay: 1800, interval: 400, type: "tiger_fan" },
@@ -2676,7 +2676,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
     // W4: Surprise dean + speed flankers
     [
-      { count: 1, interval: 3000, type: "학장" },
+      { count: 1, interval: 3000, type: "dean" },
       { count: 8, delay: 2800, interval: 480, type: "assassin" },
       { count: 7, delay: 2000, interval: 540, type: "berserker" },
     ],
@@ -3251,41 +3251,41 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
   sandbox: [
     [{ count: 8, interval: 800, type: "frosh" }],
     [
-      { count: 6, interval: 700, type: "2학년" },
+      { count: 6, interval: 700, type: "sophomore" },
       { count: 4, delay: 2000, interval: 600, type: "frosh" },
     ],
     [
-      { count: 5, interval: 800, type: "3학년" },
-      { count: 5, delay: 2500, interval: 700, type: "2학년" },
+      { count: 5, interval: 800, type: "junior" },
+      { count: 5, delay: 2500, interval: 700, type: "sophomore" },
       { count: 6, delay: 3000, interval: 500, type: "timber_wolf" },
     ],
     [
-      { count: 4, interval: 900, type: "4학년" },
-      { count: 4, delay: 2000, interval: 800, type: "3학년" },
+      { count: 4, interval: 900, type: "senior" },
+      { count: 4, delay: 2000, interval: 800, type: "junior" },
     ],
     [
       { count: 3, interval: 1000, type: "gradstudent" },
-      { count: 5, delay: 2500, interval: 800, type: "4학년" },
+      { count: 5, delay: 2500, interval: 800, type: "senior" },
       { count: 3, delay: 2800, interval: 800, type: "giant_eagle" },
       { count: 2, delay: 2800, interval: 900, type: "mantis" },
     ],
     [
-      { count: 2, interval: 1200, type: "교수" },
+      { count: 2, interval: 1200, type: "professor" },
       { count: 4, delay: 3000, interval: 900, type: "gradstudent" },
     ],
     [
       { count: 15, interval: 400, type: "frosh" },
-      { count: 10, delay: 3000, interval: 500, type: "2학년" },
+      { count: 10, delay: 3000, interval: 500, type: "sophomore" },
       { count: 8, delay: 2500, interval: 450, type: "timber_wolf" },
     ],
     [
-      { count: 3, interval: 1000, type: "교수" },
-      { count: 6, delay: 2000, interval: 700, type: "4학년" },
-      { count: 8, delay: 4000, interval: 600, type: "3학년" },
+      { count: 3, interval: 1000, type: "professor" },
+      { count: 6, delay: 2000, interval: 700, type: "senior" },
+      { count: 8, delay: 4000, interval: 600, type: "junior" },
     ],
     [
-      { count: 1, interval: 1000, type: "학장" },
-      { count: 4, delay: 3000, interval: 900, type: "교수" },
+      { count: 1, interval: 1000, type: "dean" },
+      { count: 4, delay: 3000, interval: 900, type: "professor" },
       { count: 3, delay: 3000, interval: 800, type: "forest_troll" },
       { count: 2, delay: 3000, interval: 900, type: "bombardier_beetle" },
     ],
@@ -3304,7 +3304,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
       { count: 4, delay: 2200, interval: 600, type: "fire_ant" },
     ],
     [
-      { count: 2, interval: 1200, type: "학장" },
+      { count: 2, interval: 1200, type: "dean" },
       { count: 6, delay: 2500, interval: 700, type: "gradstudent" },
       { count: 20, delay: 5000, interval: 300, type: "frosh" },
     ],
@@ -3397,17 +3397,17 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     // Wave 7: Academic Progression
     [
       { count: 1, interval: 1000, type: "frosh" },
-      { count: 1, delay: 3000, interval: 1000, type: "2학년" },
-      { count: 1, delay: 3000, interval: 1000, type: "3학년" },
-      { count: 1, delay: 3000, interval: 1000, type: "4학년" },
+      { count: 1, delay: 3000, interval: 1000, type: "sophomore" },
+      { count: 1, delay: 3000, interval: 1000, type: "junior" },
+      { count: 1, delay: 3000, interval: 1000, type: "senior" },
       { count: 1, delay: 3000, interval: 1000, type: "gradstudent" },
-      { count: 1, delay: 3000, interval: 1000, type: "교수" },
-      { count: 1, delay: 3000, interval: 1000, type: "학장" },
+      { count: 1, delay: 3000, interval: 1000, type: "professor" },
+      { count: 1, delay: 3000, interval: 1000, type: "dean" },
       { count: 1, delay: 3000, interval: 1000, type: "trustee" },
     ],
     // Wave 8: Campus & Ranged
     [
-      { count: 1, interval: 1000, type: "마스코트" },
+      { count: 1, interval: 1000, type: "mascot" },
       { count: 1, delay: 3000, interval: 1000, type: "athlete" },
       { count: 1, delay: 3000, interval: 1000, type: "tiger_fan" },
       { count: 1, delay: 3000, interval: 1000, type: "archer" },
