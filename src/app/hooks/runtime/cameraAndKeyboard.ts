@@ -225,7 +225,7 @@ export function handleSpacePause(
     return;
   }
   const tag = (e.target as HTMLElement)?.tagName;
-  if (tag === "BUTTON" || tag === "INPUT") {
+  if (tag === "버튼" || tag === "INPUT") {
     return;
   }
   e.preventDefault();

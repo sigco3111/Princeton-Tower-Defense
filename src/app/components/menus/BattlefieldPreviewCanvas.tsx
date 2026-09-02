@@ -99,7 +99,7 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
     // Scene configurations inspired by game regions
     const scenes = [
       {
-        name: "Nassau Campus",
+        name: "나소 캠퍼스",
         bg1: "#1a2810",
         bg2: "#0d1408",
         groundColor: "#2d4a1f",
@@ -114,7 +114,7 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
         bg1: "#3d1a0a",
         bg2: "#1a0805",
         groundColor: "#4a1a10",
-        name: "Volcanic Caldera",
+        name: "화산 칼데라",
         particles: "embers",
         secondary: "#fbbf24",
         skyGlow: "#ef444440",
@@ -125,7 +125,7 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
         bg1: "#1a2a3a",
         bg2: "#0d151d",
         groundColor: "#3a5a6a",
-        name: "Frozen Glacier",
+        name: "얼어붙은 빙하",
         particles: "snow",
         secondary: "#e0f2fe",
         skyGlow: "#60a5fa30",
@@ -136,7 +136,7 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
         bg1: "#4a3a20",
         bg2: "#2a2010",
         groundColor: "#8a7050",
-        name: "Desert Sphinx",
+        name: "사막 스핑크스",
         particles: "sand",
         secondary: "#d97706",
         skyGlow: "#fbbf2420",
@@ -158,7 +158,7 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
         bg1: "#15102a",
         bg2: "#08051a",
         groundColor: "#2a2a4a",
-        name: "Night Siege",
+        name: "야간 공성",
         particles: "magic",
         secondary: "#f97316",
         skyGlow: "#a855f730",
@@ -1696,11 +1696,11 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
       ctx.strokeRect(32, -80, 8, 12);
       ctx.strokeRect(32, -55, 8, 12);
 
-      // "BLAIR" text suggestion on arch
+      // "블레어" text suggestion on arch
       ctx.fillStyle = "#7a7068";
       ctx.font = "bold 6px serif";
       ctx.textAlign = "center";
-      ctx.fillText("BLAIR", 0, -72);
+      ctx.fillText("블레어", 0, -72);
 
       ctx.restore();
     };

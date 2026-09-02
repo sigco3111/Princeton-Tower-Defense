@@ -48,7 +48,7 @@ const DIFFICULTY_LABEL: Record<number, string> = {
 const KIND_LABEL: Record<string, string> = {
   campaign: "캠페인",
   challenge: "Challenge Map",
-  sandbox: "Sandbox Mode",
+  sandbox: "샌드박스 모드",
 };
 
 const CODEX_TAB_META: Record<string, { title: string; description: string }> = {
@@ -141,7 +141,7 @@ export function getRouteMetadata(slug: string[] | undefined): Metadata {
       return {};
     }
 
-    case "level": {
+    case "레벨": {
       return getLevelMeta(route.levelId) ?? {};
     }
 

@@ -93,7 +93,7 @@ const COMPACT_ACTIONS: {
     color: "#93c5fd",
     glow: "rgba(60,100,200,0.2)",
     icon: <Info size={13} />,
-    label: "FAQ",
+    label: "자주 묻는 질문",
     tab: "guide",
   },
   {
@@ -102,7 +102,7 @@ const COMPACT_ACTIONS: {
     color: "#fbbf24",
     glow: "rgba(200,160,60,0.2)",
     icon: <Swords size={13} />,
-    label: "Battle",
+    label: "전투",
     tab: null,
   },
 ];
@@ -291,7 +291,7 @@ export function WorldMapDesktopLoadout({
                     />
                   ))}
                   <QuickActionButton
-                    label="Battle"
+                    label="전투"
                     color="#fbbf24"
                     bg="rgba(160,110,25,0.6)"
                     border="rgba(200,160,60,0.5)"

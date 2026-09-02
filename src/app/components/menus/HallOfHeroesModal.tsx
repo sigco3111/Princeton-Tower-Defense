@@ -398,7 +398,7 @@ export const HallOfHeroesModal: React.FC<HallOfHeroesModalProps> = ({
                     <HeroStatCard
                       icon={<Heart size={14} className="text-red-400" />}
                       value={hero.hp}
-                      label="HP"
+                      label="체력"
                       bg="rgba(127,29,29,0.2)"
                       barColor="#ef4444"
                       maxValue={STAT_MAX.HP}
@@ -406,7 +406,7 @@ export const HallOfHeroesModal: React.FC<HallOfHeroesModalProps> = ({
                     <HeroStatCard
                       icon={<Swords size={14} className="text-orange-400" />}
                       value={hero.damage}
-                      label="DMG"
+                      label="피해"
                       bg="rgba(124,45,18,0.2)"
                       barColor="#f97316"
                       maxValue={STAT_MAX.DMG}
@@ -414,7 +414,7 @@ export const HallOfHeroesModal: React.FC<HallOfHeroesModalProps> = ({
                     <HeroStatCard
                       icon={<Target size={14} className="text-blue-400" />}
                       value={hero.range}
-                      label="RNG"
+                      label="사거리"
                       bg="rgba(30,58,138,0.2)"
                       barColor="#3b82f6"
                       maxValue={STAT_MAX.RNG}
@@ -422,7 +422,7 @@ export const HallOfHeroesModal: React.FC<HallOfHeroesModalProps> = ({
                     <HeroStatCard
                       icon={<Gauge size={14} className="text-green-400" />}
                       value={hero.speed}
-                      label="SPD"
+                      label="속도"
                       bg="rgba(20,83,45,0.2)"
                       barColor="#22c55e"
                       maxValue={STAT_MAX.SPD}

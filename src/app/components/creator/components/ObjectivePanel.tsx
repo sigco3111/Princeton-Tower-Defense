@@ -67,7 +67,7 @@ const ObjectiveRow: React.FC<{
         <button
           onClick={() => onRemove(index)}
           className="rounded-md border border-red-800/30 bg-red-900/15 p-1 hover:bg-red-800/25 transition-colors text-red-400/70 hover:text-red-300"
-          title="Remove objective"
+          title="목표 제거"
         >
           <Trash2 size={10} />
         </button>
@@ -79,7 +79,7 @@ const ObjectiveRow: React.FC<{
       </div>
       <div className="text-[10px] text-amber-500/50 inline-flex items-center gap-0.5">
         <MapPin size={8} />
-        {entry.pos ? `${entry.pos.x}, ${entry.pos.y}` : "Not placed"}
+        {entry.pos ? `${entry.pos.x}, ${entry.pos.y}` : "배치 안 됨"}
       </div>
     </div>
   );

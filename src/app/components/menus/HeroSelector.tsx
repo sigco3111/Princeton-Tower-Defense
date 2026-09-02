@@ -526,7 +526,7 @@ export const HeroSelector: React.FC<HeroSelectorProps> = ({
               background: "rgba(180,140,60,0.12)",
               border: "1px solid rgba(180,140,60,0.25)",
             }}
-            title="View in Codex"
+            title="도감에서 보기"
           >
             <Info size={10} className="text-amber-400/70" />
           </button>

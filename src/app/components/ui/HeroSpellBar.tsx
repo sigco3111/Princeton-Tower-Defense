@@ -242,7 +242,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           color: "text-blue-300",
           icon: <Target size={9} className="text-blue-400" />,
           label: "대상",
-          value: freezeStats.isGlobal ? "Global" : `${freezeStats.maxTargets}`,
+          value: freezeStats.isGlobal ? "전역" : `${freezeStats.maxTargets}`,
         },
         {
           bg: "rgba(49,46,129,0.3)",
@@ -276,7 +276,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(88,28,135,0.2)",
           color: "text-fuchsia-300",
           icon: <Users size={9} className="text-fuchsia-400" />,
-          label: "Raises",
+          label: "올림",
           value: `${hexWardStats.maxReanimations}`,
         },
         {
@@ -284,7 +284,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(76,29,149,0.2)",
           color: "text-purple-300",
           icon: <Eye size={9} className="text-purple-400" />,
-          label: "Marked",
+          label: "표시됨",
           value: `${hexWardStats.maxTargets}`,
         },
         {
@@ -318,7 +318,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(113,63,18,0.2)",
           color: "text-yellow-300",
           icon: <Swords size={9} className="text-yellow-400" />,
-          label: "Total DMG",
+          label: "총 피해",
           value: `${lightningStats.totalDamage}`,
         },
         {
@@ -360,7 +360,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(120,53,15,0.2)",
           color: "text-amber-300",
           icon: <Coins size={9} className="text-amber-400" />,
-          label: "Base PP",
+          label: "기본 PP",
           value: `${paydayStats.basePayout}`,
         },
         {
@@ -368,7 +368,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(20,83,45,0.2)",
           color: "text-green-300",
           icon: <TrendingUp size={9} className="text-green-400" />,
-          label: "Per Enemy",
+          label: "적당",
           value: `+${paydayStats.bonusPerEnemy}`,
         },
         {
@@ -376,7 +376,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(113,63,18,0.2)",
           color: "text-yellow-300",
           icon: <Sparkles size={9} className="text-yellow-400" />,
-          label: "Max Total",
+          label: "최대 총합",
           value: `${paydayStats.basePayout + paydayStats.maxBonus}`,
         },
       ],
@@ -412,7 +412,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(127,29,29,0.2)",
           color: "text-red-300",
           icon: <Heart size={9} className="text-red-400" />,
-          label: "HP Each",
+          label: "각각 체력",
           value: `${reinforcementStats.knightHp}`,
         },
         {
@@ -420,7 +420,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(124,45,18,0.2)",
           color: "text-orange-300",
           icon: <Swords size={9} className="text-orange-400" />,
-          label: "DMG Each",
+          label: "각각 피해",
           value: `${reinforcementStats.knightDamage}`,
         },
       ],
@@ -521,7 +521,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                               />
                               <feMerge>
                                 <feMergeNode in="blur" />
-                                <feMergeNode in="SourceGraphic" />
+                                <feMergeNode in="원본 그래픽" />
                               </feMerge>
                             </filter>
                           </defs>
@@ -845,7 +845,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                               <feGaussianBlur stdDeviation="2" result="blur" />
                               <feMerge>
                                 <feMergeNode in="blur" />
-                                <feMergeNode in="SourceGraphic" />
+                                <feMergeNode in="원본 그래픽" />
                               </feMerge>
                             </filter>
                             <linearGradient
@@ -1346,7 +1346,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                         <feGaussianBlur stdDeviation="2" result="blur" />
                         <feMerge>
                           <feMergeNode in="blur" />
-                          <feMergeNode in="SourceGraphic" />
+                          <feMergeNode in="원본 그래픽" />
                         </feMerge>
                       </filter>
                     </defs>

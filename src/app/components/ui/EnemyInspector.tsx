@@ -134,7 +134,7 @@ export const EnemyInspector: React.FC<EnemyInspectorProps> = ({
         <span
           className={`text-[10px] font-bold tracking-wider ${isActive ? "text-purple-200" : "text-amber-300"}`}
         >
-          {isActive ? "EXIT INSPECT" : "INSPECT"}
+          {isActive ? "검사 종료" : "검사"}
         </span>
       </button>
 
@@ -210,7 +210,7 @@ const TRAIT_ICONS: Record<EnemyTrait, (size: number) => React.ReactNode> = {
 function getTraitInfo(trait: EnemyTrait, iconSize = 10) {
   const meta = ENEMY_TRAIT_META[trait] ?? {
     color: "text-gray-400",
-    desc: "Unknown trait",
+    desc: "알 수 없는 특성",
     label: trait,
     pillColor: "",
   };
@@ -540,7 +540,7 @@ export const EnemyDetailTooltip: React.FC<EnemyDetailTooltipProps> = ({
       <div className="grid grid-cols-4 gap-1 mb-1.5">
         <StatTile
           icon={<Heart size={10} className="text-red-400" />}
-          label="HP"
+          label="체력"
           value={eData.hp}
           className="bg-red-950/40 border-red-900/40 text-red-400"
         />
@@ -580,7 +580,7 @@ export const EnemyDetailTooltip: React.FC<EnemyDetailTooltipProps> = ({
           />
           <StatTile
             icon={<Swords size={9} className="text-purple-400" />}
-            label="Proj Dmg"
+            label="발사체 피해"
             value={eData.projectileDamage ?? "—"}
             className="bg-purple-950/40 border-purple-900/40 text-purple-400"
           />
@@ -591,13 +591,13 @@ export const EnemyDetailTooltip: React.FC<EnemyDetailTooltipProps> = ({
         <div className="grid grid-cols-2 gap-1 mb-1.5">
           <StatTile
             icon={<Target size={9} className="text-orange-400" />}
-            label="AoE Rad"
+            label="광역 반경"
             value={eData.aoeRadius ?? 0}
             className="bg-orange-950/40 border-orange-900/40 text-orange-400"
           />
           <StatTile
             icon={<Swords size={9} className="text-orange-400" />}
-            label="AoE Dmg"
+            label="광역 피해"
             value={eData.aoeDamage ?? 0}
             className="bg-orange-950/40 border-orange-900/40 text-orange-400"
           />
@@ -608,7 +608,7 @@ export const EnemyDetailTooltip: React.FC<EnemyDetailTooltipProps> = ({
         <div className="grid grid-cols-2 gap-1 mb-1.5">
           <StatTile
             icon={<Wind size={9} className="text-cyan-400" />}
-            label="Swoop"
+            label="급강하"
             value={eData.troopDamage}
             className="bg-cyan-950/40 border-cyan-900/40 text-cyan-400"
           />
@@ -831,7 +831,7 @@ export const TroopDetailTooltip: React.FC<TroopDetailTooltipProps> = ({
       <div className="grid grid-cols-3 gap-1 mb-1">
         <StatTile
           icon={<Swords size={10} className="text-red-400" />}
-          label="DMG"
+          label="피해"
           value={damage}
           className="bg-red-950/40 border-red-900/40 text-red-400"
         />
@@ -843,7 +843,7 @@ export const TroopDetailTooltip: React.FC<TroopDetailTooltipProps> = ({
         />
         <StatTile
           icon={<Heart size={10} className="text-green-400" />}
-          label="Max HP"
+          label="최대 체력"
           value={troop.maxHp}
           className="bg-green-950/40 border-green-900/40 text-green-400"
         />
@@ -922,7 +922,7 @@ export const HeroDetailTooltip: React.FC<HeroDetailTooltipProps> = ({
       <div className="grid grid-cols-4 gap-1 mb-1.5">
         <StatTile
           icon={<Swords size={10} className="text-red-400" />}
-          label="DMG"
+          label="피해"
           value={hData.damage}
           className="bg-red-950/40 border-red-900/40 text-red-400"
         />

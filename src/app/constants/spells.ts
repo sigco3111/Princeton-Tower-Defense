@@ -6,7 +6,7 @@ export const SPELL_DATA: Record<SpellType, SpellData> = {
     cooldown: 15_000,
     cost: 50,
     desc: "메테오 10개를 떨어뜨려 각각 80의 광역 피해를 입히고, 적을 4초 동안 불태웁니다",
-    name: "Fireball Strike",
+    name: "화염구 강타",
     shortName: "Fireballs",
   },
   freeze: {
@@ -34,14 +34,14 @@ export const SPELL_DATA: Record<SpellType, SpellData> = {
     cooldown: 30_000,
     cost: 0,
     desc: "80 이상의 Paw Points를 획득합니다 (적 1명당 보너스 추가)",
-    name: "Paw Point Payday",
+    name: "발자국 점수 payday",
     shortName: "페이데이",
   },
   reinforcements: {
     cooldown: 25_000,
     cost: 75,
     desc: "장갑을 갖춘 증원 3명을 전장에 소환합니다",
-    name: "Reinforcements",
+    name: "증원",
     shortName: "증원",
   },
 };
@@ -188,7 +188,7 @@ export const SPELL_TECH_TREE: Record<SpellType, SpellUpgradeNode[]> = {
       cost: SPELL_MAJOR_UPGRADE_COST,
       description: "표식된 적은 치유 또는 재생 불가",
       level: 5,
-      title: "Mortality Seal",
+      title: "사선 인장",
     },
     {
       cost: SPELL_UPGRADE_COSTS[5],
@@ -246,7 +246,7 @@ export const SPELL_TECH_TREE: Record<SpellType, SpellUpgradeNode[]> = {
       cost: SPELL_UPGRADE_COSTS[1],
       description: "+2 payout per enemy and higher cap",
       level: 2,
-      title: "Aggressive Yield",
+      title: "공격적 수익",
     },
     {
       cost: SPELL_UPGRADE_COSTS[2],
@@ -302,7 +302,7 @@ export const SPELL_TECH_TREE: Record<SpellType, SpellUpgradeNode[]> = {
       cost: SPELL_MAJOR_UPGRADE_COST,
       description: "근접과 원거리 혼합 편성 해제",
       level: 5,
-      title: "Warhost Doctrine",
+      title: "전숙주 교리",
     },
     {
       cost: SPELL_UPGRADE_COSTS[5],

@@ -135,7 +135,7 @@ function MobileHeroCircle({
             <feGaussianBlur stdDeviation="2" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
+              <feMergeNode in="원본 그래픽" />
             </feMerge>
           </filter>
         </defs>
@@ -336,7 +336,7 @@ function MobileAbilityCircle({
             <feGaussianBlur stdDeviation="1.5" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
+              <feMergeNode in="원본 그래픽" />
             </feMerge>
           </filter>
         </defs>
@@ -614,7 +614,7 @@ function MobileSpellCircle({
             <feGaussianBlur stdDeviation="1.5" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
+              <feMergeNode in="원본 그래픽" />
             </feMerge>
           </filter>
         </defs>

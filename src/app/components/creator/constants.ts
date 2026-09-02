@@ -59,27 +59,27 @@ export const OBJECTIVE_TYPE_STATS: Record<
   barracks: {
     effect: "시간이 지나며 아군 병력을 생성합니다.",
     risk: "이를 잃으면 증원 압력이 줄어듭니다.",
-    title: "Barracks",
+    title: "병영",
   },
   beacon: {
     effect: "주변 수비대에 버프 오라를 부여합니다.",
     risk: "적이 돌파하면 목표가 함락됩니다.",
-    title: "Beacon",
+    title: "비콘",
   },
   chrono_relay: {
     effect: "주변 타워의 공격 속도를 증가시킵니다.",
     risk: "이를 잃으면 해당 구역의 DPS 템포가 느려집니다.",
-    title: "Arcane Time Crystal",
+    title: "비전 시간 수정",
   },
   sentinel_nexus: {
     effect: "10초마다 잠긴 대상을 벼락으로 강타합니다.",
     risk: "이를 잃으면 통제 가능한 맵 압력이 사라집니다.",
-    title: "Imperial Sentinel",
+    title: "제국 감시병",
   },
   shrine: {
     effect: "아군에게 주기적인 치유 펄스를 제공합니다.",
     risk: "이를 잃으면 지속력 템포가 사라집니다.",
-    title: "Shrine",
+    title: "사당",
   },
   sunforge_orrery: {
     effect: "삼중 플라즈마 연사가 밀집한 적 무리를 강타합니다.",
@@ -301,8 +301,8 @@ export const DEFAULT_PRESET_ID = "default";
 
 export const TOOL_OPTIONS: ToolOption[] = [
   { icon: MousePointer2, key: "select", label: "선택" },
-  { icon: Route, key: "path_primary", label: "Path A" },
-  { icon: GitBranch, key: "path_secondary", label: "Path B" },
+  { icon: Route, key: "path_primary", label: "경로 A" },
+  { icon: GitBranch, key: "path_secondary", label: "경로 B" },
   { icon: User, key: "hero_spawn", label: "영웅" },
 ];
 

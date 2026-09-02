@@ -563,7 +563,7 @@ const REGION_ACCENT: Record<LevelNode["지역"], string> = {
 const KIND_LABEL: Record<NonNullable<LevelNode["kind"]> | "campaign", string> =
   {
     campaign: "캠페인",
-    challenge: "Challenge",
+    challenge: "도전",
     sandbox: "샌드박스",
   };
 

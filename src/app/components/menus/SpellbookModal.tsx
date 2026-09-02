@@ -122,7 +122,7 @@ const SPELL_META: Record<
       "conic-gradient(from 0deg, transparent, rgba(16,185,129,0.2), transparent, rgba(52,211,153,0.15), transparent)",
     bg: "rgba(16,32,22,0.98)",
     border: "rgba(16,185,129,0.5)",
-    element: "Nature",
+    element: "자연",
     icon: <Shield size={14} className="text-emerald-400" />,
     nameColor: "text-emerald-200",
     trait: SPELL_TRAITS.reinforcements.trait,

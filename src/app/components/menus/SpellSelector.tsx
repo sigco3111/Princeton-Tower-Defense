@@ -392,7 +392,7 @@ export const SpellSelector: React.FC<SpellSelectorProps> = ({
               const C = 2 * Math.PI * R;
               const fillFrac = selectedSpells.length / 3;
               return (
-                <HudTooltip label="Spellbook" position="top">
+                <HudTooltip label="주문서" position="top">
                   <button
                     type="button"
                     onMouseEnter={() => setSbHovered(true)}
@@ -717,7 +717,7 @@ export const SpellSelector: React.FC<SpellSelectorProps> = ({
                 background: "rgba(140,80,200,0.12)",
                 border: "1px solid rgba(140,80,200,0.25)",
               }}
-              title="View in Codex"
+              title="도감에서 보기"
             >
               <Info size={10} className="text-purple-400/70" />
             </button>

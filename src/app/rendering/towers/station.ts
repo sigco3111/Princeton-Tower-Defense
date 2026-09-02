@@ -9395,7 +9395,7 @@ export function renderStationTower(
     ctx.fill();
   }
 
-  // "ON TIME" sign board — isometric flat panel
+  // "정시" sign board — isometric flat panel
   const signX = screenPos.x + 27 * zoom;
   const signY = screenPos.y - 12 * zoom;
 
@@ -9490,7 +9490,7 @@ export function renderStationTower(
   ctx.closePath();
   ctx.stroke();
 
-  // "ON TIME" text — isometric lean matching face slope
+  // "정시" text — isometric lean matching face slope
   const textCX = signX;
   const textCY = signY - sbFaceH * 0.55;
   const onTimeGlow = 0.7 + Math.sin(time * 3) * 0.3;
@@ -9502,7 +9502,7 @@ export function renderStationTower(
   ctx.shadowBlur = 4 * zoom;
   ctx.font = `bold ${2.5 * zoom}px monospace`;
   ctx.textAlign = "center";
-  ctx.fillText("ON TIME", 0, 0);
+  ctx.fillText("정시", 0, 0);
   ctx.restore();
   ctx.shadowBlur = 0;
 

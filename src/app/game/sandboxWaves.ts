@@ -40,7 +40,7 @@ const SANDBOX_THEMES: SandboxTheme[] = [
       "skeleton_archer",
       "hellhound",
     ],
-    name: "Dark Fantasy",
+    name: "다크 판타지",
   },
   {
     bosses: ["brood_mother"],
@@ -100,7 +100,7 @@ const SANDBOX_THEMES: SandboxTheme[] = [
     bosses: ["phoenix", "sphinx_guardian", "djinn"],
     elites: ["sandworm", "manticore", "basilisk"],
     grunts: ["nomad", "scarab", "scorpion"],
-    name: "Desert Raiders",
+    name: "사막 약탈자",
   },
   {
     bosses: ["wendigo", "mammoth", "frost_colossus"],
@@ -118,7 +118,7 @@ const SANDBOX_THEMES: SandboxTheme[] = [
       "volcanic_drake",
     ],
     grunts: ["fire_imp", "magma_spawn", "fire_ant", "ash_moth"],
-    name: "Volcanic Fury",
+    name: "화산 격노",
   },
   {
     bosses: ["swamp_hydra", "swamp_leviathan"],
@@ -137,13 +137,13 @@ const SANDBOX_THEMES: SandboxTheme[] = [
     bosses: ["professor", "dean", "trustee", "mascot"],
     elites: ["junior", "senior", "gradstudent", "archer", "crossbowman"],
     grunts: ["frosh", "sophomore", "athlete", "tiger_fan"],
-    name: "Academic Gauntlet",
+    name: "학술 갑옷",
   },
   {
     bosses: ["juggernaut", "assassin", "dragon"],
     elites: ["golem", "shadow_knight", "catapult", "harpy", "wyvern"],
     grunts: ["archer", "crossbowman", "berserker"],
-    name: "War Machine",
+    name: "전쟁 기계",
   },
 ];
 
@@ -291,7 +291,7 @@ export function getSandboxThemeName(waveIndex: number): string | null {
     return "혼돈의";
   }
   if (waveNum % 5 === 0) {
-    return "Boss Rush";
+    return "보스 러시";
   }
   return null;
 }

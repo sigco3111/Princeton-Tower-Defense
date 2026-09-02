@@ -106,12 +106,12 @@ export const ALL_PRESET_SECTIONS: PresetSection[] = [
 ];
 
 export const PRESET_SECTION_LABELS: Record<PresetSection, string> = {
-  decorations: "Decorations",
-  hazards: "Hazards",
-  objectives: "Objectives",
+  decorations: "장식",
+  hazards: "위험요소",
+  objectives: "목표",
   paths: "Paths",
   theme: "Theme & Settings",
-  waves: "Waves",
+  waves: "웨이브",
 };
 
 export interface ObjectiveTypeStats {

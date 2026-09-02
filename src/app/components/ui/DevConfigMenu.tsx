@@ -198,7 +198,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
             type="button"
             onClick={openMenu}
             className="inline-flex items-center gap-2 rounded-lg border border-amber-300/60 bg-black/80 px-3 py-2 text-xs font-bold uppercase tracking-wide text-amber-100 shadow-lg backdrop-blur"
-            title="Open dev config"
+            title="개발자 설정 열기"
           >
             <Wrench size={14} />
 
@@ -215,7 +215,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                 type="button"
                 onClick={() => setIsOpen(false)}
                 className="inline-flex items-center gap-1 rounded border border-amber-300/40 px-2 py-1 font-semibold text-amber-200 hover:bg-amber-950/60"
-                title="Close dev config"
+                title="개발자 설정 닫기"
               >
                 Close
                 <ChevronUp size={14} />
@@ -237,7 +237,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                         : "border-zinc-400/60 bg-zinc-900/60 text-zinc-200"
                     }`}
                   >
-                    {devPerfEnabled ? "ON" : "OFF"}
+                    {devPerfEnabled ? "켜기" : "끄기"}
                   </button>
                 </div>
                 {devPerfEnabled ? (
@@ -279,7 +279,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                         : "border-zinc-400/60 bg-zinc-900/60 text-zinc-200"
                     }`}
                   >
-                    {photoModeEnabled ? "ON" : "OFF"}
+                    {photoModeEnabled ? "켜기" : "끄기"}
                   </button>
                 </div>
                 <div className="text-[10px] leading-snug text-fuchsia-200/60">
@@ -557,7 +557,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                   <span className="font-mono">
                     {selectedLevelId || "(none)"}
                   </span>{" "}
-                  | unlocked {levelIsUnlocked ? "yes" : "no"} | stars{" "}
+                  | unlocked {levelIsUnlocked ? "yes" : "아니오"} | stars{" "}
                   {currentStars}
                 </div>
 

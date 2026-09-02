@@ -9,9 +9,9 @@ export const SCREENSHOTS = [
 
 export const SCREENSHOT_LABELS = [
   "나소 홀",
-  "Desert Oasis",
-  "Frozen Glacier",
-  "Volcanic Caldera",
+  "사막 오아시스",
+  "얼어붙은 빙하",
+  "화산 칼데라",
   "음울한 늪",
   "샌드박스 전장",
 ] as const;

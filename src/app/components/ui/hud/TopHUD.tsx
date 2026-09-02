@@ -789,7 +789,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
         style={{ border: `1px solid ${GOLD.innerBorder08}` }}
       />
       <HudTooltip
-        label={`Performance mode: ${performanceMode ? "ON" : "OFF"} · ${currentFps} FPS`}
+        label={`Performance mode: ${performanceMode ? "켜기" : "끄기"} · ${currentFps} FPS`}
       >
         <button
           onClick={togglePerformanceMode}

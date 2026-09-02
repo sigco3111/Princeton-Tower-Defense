@@ -295,7 +295,7 @@ function LogoShield({
         />
         <Image
           src="/images/logos/princeton-td-logo.svg"
-          alt="Princeton TD"
+          alt="프린스턴 TD"
           width={52}
           height={52}
           priority

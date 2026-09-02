@@ -56,13 +56,13 @@ const EVENT_ICONS: Partial<Record<GameEventType, React.ReactNode>> = {
 };
 
 const FILTER_GROUPS: { label: string; types: GameEventType[] }[] = [
-  { label: "Combat", types: ["enemy_killed", "enemy_leaked", "life_lost"] },
+  { label: "전투", types: ["enemy_killed", "enemy_leaked", "life_lost"] },
   {
     label: "경제",
     types: ["tower_built", "tower_sold", "tower_upgraded", "income_earned"],
   },
-  { label: "Waves", types: ["wave_started", "wave_completed"] },
-  { label: "Abilities", types: ["spell_cast", "hero_action"] },
+  { label: "웨이브", types: ["wave_started", "wave_completed"] },
+  { label: "능력", types: ["spell_cast", "hero_action"] },
   { label: "게임", types: ["victory", "defeat", "game_start", "speed_change"] },
 ];
 
@@ -107,7 +107,7 @@ const EventRow: React.FC<EventRowProps> = React.memo(({ event }) => {
     </div>
   );
 });
-EventRow.displayName = "EventRow";
+EventRow.displayName = "이벤트";
 
 interface StatPillProps {
   icon: React.ReactNode;
@@ -140,13 +140,13 @@ const StatsBar: React.FC<StatsBarProps> = React.memo(({ stats }) => (
     <StatPill
       icon={<Skull size={11} />}
       value={stats.enemiesKilled}
-      label="Kills"
+      label="처치"
       color="#f87171"
     />
     <StatPill
       icon={<Coins size={11} />}
       value={stats.totalIncomeEarned}
-      label="Earned"
+      label="획득"
       color="#34d399"
     />
     <StatPill
@@ -164,12 +164,12 @@ const StatsBar: React.FC<StatsBarProps> = React.memo(({ stats }) => (
     <StatPill
       icon={<Heart size={11} />}
       value={stats.livesLost}
-      label="Lost"
+      label="손실"
       color="#ef4444"
     />
   </div>
 ));
-StatsBar.displayName = "StatsBar";
+StatsBar.displayName = "스탯 바";
 
 // =============================================================================
 // DEV MENU COMPONENT
@@ -277,7 +277,7 @@ export const DevMenu: React.FC<DevMenuProps> = ({
           <button
             onClick={onClear}
             className="p-0.5 rounded hover:bg-red-500/15 text-red-400/50 hover:text-red-300 transition-colors"
-            title="Clear all events"
+            title="이벤트 전체 삭제"
           >
             <Trash2 size={11} />
           </button>

@@ -32,7 +32,7 @@ const SENTINEL_GRASSLAND: SentinelPalette = {
   hotRgb: "80, 220, 180",
   reticleColor: { b: 180, g: 220, r: 80 },
   reticleGlow: { b: 160, g: 200, r: 40 },
-  stoneName: "Emerald",
+  stoneName: "에메랄드",
 };
 
 // ── Desert — amber gold ────────────────────────────────────────────────────
@@ -47,7 +47,7 @@ const SENTINEL_DESERT: SentinelPalette = {
   hotRgb: "255, 185, 60",
   reticleColor: { b: 60, g: 185, r: 255 },
   reticleGlow: { b: 30, g: 150, r: 220 },
-  stoneName: "Amber",
+  stoneName: "호박",
 };
 
 // ── Winter — icy blue ──────────────────────────────────────────────────────
@@ -62,7 +62,7 @@ const SENTINEL_WINTER: SentinelPalette = {
   hotRgb: "130, 200, 255",
   reticleColor: { b: 255, g: 200, r: 130 },
   reticleGlow: { b: 240, g: 160, r: 80 },
-  stoneName: "Sapphire",
+  stoneName: "사파이어",
 };
 
 // ── Volcanic — crimson red (original) ──────────────────────────────────────
@@ -77,7 +77,7 @@ const SENTINEL_VOLCANIC: SentinelPalette = {
   hotRgb: "255, 110, 96",
   reticleColor: { b: 70, g: 80, r: 255 },
   reticleGlow: { b: 30, g: 30, r: 220 },
-  stoneName: "Ruby",
+  stoneName: "루비",
 };
 
 // ── Swamp — sickly green ──────────────────────────────────────────────────
@@ -92,7 +92,7 @@ const SENTINEL_SWAMP: SentinelPalette = {
   hotRgb: "160, 230, 80",
   reticleColor: { b: 80, g: 230, r: 160 },
   reticleGlow: { b: 40, g: 200, r: 120 },
-  stoneName: "Jade",
+  stoneName: "옥",
 };
 
 export function getSentinelPalette(theme?: MapTheme): SentinelPalette {

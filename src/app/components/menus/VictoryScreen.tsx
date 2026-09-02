@@ -618,7 +618,7 @@ const CATEGORY_CONFIG: {
     fillClass: "text-red-400 fill-red-400",
     icon: Heart,
     key: "survival",
-    label: "Survival",
+    label: "생존",
   },
   {
     color: "text-amber-500/85",
@@ -626,7 +626,7 @@ const CATEGORY_CONFIG: {
     fillClass: "text-amber-400 fill-amber-400",
     icon: Swords,
     key: "strategy",
-    label: "Strategy",
+    label: "전략",
   },
 ];
 

@@ -2871,11 +2871,11 @@ export function renderEffect(
       );
       ctx.stroke();
 
-      // "DISABLED" text
+      // "비활성화" text
       ctx.fillStyle = `rgba(254, 205, 211, ${alpha * 0.8})`;
       ctx.font = `bold ${8 * zoom}px Arial`;
       ctx.fillText(
-        "DISABLED",
+        "비활성화",
         screenPos.x,
         screenPos.y - towerDisableSize * 0.7
       );

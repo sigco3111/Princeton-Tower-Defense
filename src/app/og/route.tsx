@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
   const baseUrl = await getBaseUrl();
   const fonts = await getOGFonts(baseUrl);
 
-  const levelId = request.nextUrl.searchParams.get("level")?.toLowerCase();
+  const levelId = request.nextUrl.searchParams.get("레벨")?.toLowerCase();
   const level = levelId ? findLevelById(levelId) : null;
 
   const element = level

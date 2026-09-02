@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   applicationName: SITE_NAME,
   authors: [{ name: SITE_AUTHOR, url: AUTHOR_URL }],
-  category: "Games",
+  category: "게임",
   classification: "Tower Defense Strategy Game",
   creator: SITE_AUTHOR,
   description: SITE_DESCRIPTION,

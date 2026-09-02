@@ -112,7 +112,7 @@ export const NavMoreDropdown: React.FC<NavMoreDropdownProps> = ({
     {
       href: `${GITHUB_URL}/issues`,
       icon: Bug,
-      label: "Report Bug",
+      label: "버그 신고",
     },
     "divider",
     {

@@ -385,7 +385,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
         heroMovingRef.current = true;
       }
     } else if (!heroInitializedRef.current) {
-      // Spawn hero to the right of the "Your Kingdom" castle (x=140, y=60%)
+      // Spawn hero to the right of the "당신의 왕국" castle (x=140, y=60%)
       const castleX = 140;
       const castleY = getLevelNodeY(60, mapHeight);
       heroMapPosRef.current = { x: castleX, y: castleY };
@@ -1674,7 +1674,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                       <div className="relative flex items-center justify-center gap-2 sm:gap-3">
                         <Swords size={20} className="sm:w-6 sm:h-6" />
                         <span className="tracking-wider">
-                          {canStart ? "BATTLE" : "Waiting..."}
+                          {canStart ? "전투" : "Waiting..."}
                         </span>
                         {canStart && (
                           <Play size={18} className="sm:w-5 sm:h-5" />

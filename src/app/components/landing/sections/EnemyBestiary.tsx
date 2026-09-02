@@ -55,13 +55,13 @@ const THREAT = {
   boss: {
     color: "#ef4444",
     icon: "\u2620",
-    label: "BOSS",
+    label: "보스",
     nameColor: "#fca5a5",
   },
   elite: {
     color: "#a855f7",
     icon: "\u2666",
-    label: "ELITE",
+    label: "정예",
     nameColor: "#d8b4fe",
   },
   minion: {

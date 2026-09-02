@@ -178,7 +178,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                 borderClass: "border-cyan-500/60",
                 headerColor: "text-cyan-300",
                 icon: <Snowflake size={12} />,
-                label: "FROZEN",
+                label: "빙결",
                 tagClass: "bg-cyan-900/60 text-cyan-200 border-cyan-600/40",
               },
               hold: {
@@ -186,7 +186,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                 borderClass: "border-amber-600/60",
                 headerColor: "text-amber-300",
                 icon: <Ban size={12} />,
-                label: "ON HOLD",
+                label: "보류",
                 tagClass: "bg-amber-900/60 text-amber-200 border-amber-600/40",
               },
               petrify: {
@@ -194,7 +194,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                 borderClass: "border-stone-500/60",
                 headerColor: "text-stone-300",
                 icon: <Mountain size={12} />,
-                label: "PETRIFIED",
+                label: "석화",
                 tagClass: "bg-stone-800/60 text-stone-200 border-stone-600/40",
               },
               stun: {
@@ -202,7 +202,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                 borderClass: "border-yellow-500/60",
                 headerColor: "text-yellow-300",
                 icon: <Zap size={12} />,
-                label: "STUNNED",
+                label: "기절",
                 tagClass:
                   "bg-yellow-900/60 text-yellow-200 border-yellow-600/40",
               },

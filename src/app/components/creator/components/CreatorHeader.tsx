@@ -90,7 +90,7 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
           <input
             value={draft.name}
             onChange={(event) => onUpdateDraft({ name: event.target.value })}
-            placeholder="Map Name"
+            placeholder="지도 이름"
             className="flex-1 min-w-[120px] max-w-[260px] rounded-lg border border-amber-700/50 bg-stone-900/80 px-3 py-1.5 text-sm text-amber-100 outline-none focus:border-amber-400/80 placeholder:text-amber-500/40 transition-colors"
           />
 
@@ -133,7 +133,7 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
                 onUpdateDraft({ startingPawPoints: Number(event.target.value) })
               }
               className="w-14 bg-transparent text-xs text-amber-200 outline-none tabular-nums"
-              title="Starting paw points"
+              title="시작 발자국 점수"
             />
           </div>
 
@@ -160,14 +160,14 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
           <button
             onClick={() => setExpanded(!expanded)}
             className="p-1.5 rounded-lg border border-amber-700/40 bg-stone-900/50 hover:bg-stone-800/70 transition-colors text-amber-300/80"
-            title={expanded ? "Collapse details" : "Expand details"}
+            title={expanded ? "세부 정보 접기" : "세부 정보 펼치기"}
           >
             {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
           </button>
           <button
             onClick={onClose}
             className="p-1.5 rounded-lg border border-amber-700/40 bg-stone-900/50 hover:bg-red-900/40 hover:border-red-700/50 transition-colors text-amber-300/80 hover:text-red-200"
-            title="Close Creator"
+            title="제작기 닫기"
           >
             <X size={14} />
           </button>

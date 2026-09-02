@@ -184,7 +184,7 @@ export function HeroRoster() {
         <SectionFlourish />
         <MapSectionHeader
           subtitle="9 Unique Champions"
-          title="Choose Your Hero"
+          title="영웅 선택"
         />
 
         {/* Hero selector strip */}
@@ -450,7 +450,7 @@ export function HeroRoster() {
           <SectionFlourish />
           <MapSectionHeader
             subtitle="6 Arcane Abilities"
-            title="The Spellbook"
+            title="주문서"
           />
 
           <div className="flex gap-4 sm:gap-6 justify-center flex-wrap px-4 sm:px-8">

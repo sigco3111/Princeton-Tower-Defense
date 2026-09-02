@@ -455,25 +455,25 @@ export const SETTINGS_CATEGORIES: SettingsCategoryMeta[] = [
     description: "장식 밀도, 나무, 마을 및 지형",
     icon: "trees",
     id: "landscaping",
-    label: "Landscaping",
+    label: "조경",
   },
   {
     description: "애니메이션 품질, 화면 흔들림 및 시각 효과",
     icon: "sparkles",
     id: "animation",
-    label: "Animation",
+    label: "애니메이션",
   },
   {
     description: "줌, 패닝 및 카메라 동작",
     icon: "move",
     id: "camera",
-    label: "Camera",
+    label: "카메라",
   },
   {
     description: "HUD 요소, 피해 숫자 및 오버레이",
     icon: "layout",
     id: "ui",
-    label: "Interface",
+    label: "인터페이스",
   },
   {
     description: "음악, 효과음, 환경음 볼륨 조절",
@@ -485,7 +485,7 @@ export const SETTINGS_CATEGORIES: SettingsCategoryMeta[] = [
     description: "색약 지원, 모션 및 가독성",
     icon: "eye",
     id: "accessibility",
-    label: "Accessibility",
+    label: "접근성",
   },
 ];
 

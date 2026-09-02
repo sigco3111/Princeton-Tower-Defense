@@ -84,7 +84,7 @@ const HERO_TOWER_SPRITE_TWEAKS: Record<
 };
 
 const HERO_COUNTS = [
-  { value: "26", label: "Maps" },
+  { value: "26", label: "지도" },
   { value: "7", label: "tower" },
   { value: "9", label: "영웅" },
   { value: "6", label: "주문" },
@@ -101,21 +101,21 @@ const LEFT_PREVIEWS: LevelPreview[] = [
   { file: "nassau", id: "nassau", name: "나소 홀" },
   { file: "poe", id: "poe", name: "포 필드" },
   { file: "carnegie", id: "carnegie", name: "카네기 호수" },
-  { file: "glacier", id: "glacier", name: "Glacier Path" },
-  { file: "caldera", id: "crater", name: "Caldera Basin" },
-  { file: "pyramid", id: "pyramid", name: "Pyramid Pass" },
-  { file: "witch_hut", id: "witch_hut", name: "Witch's Domain" },
-  { file: "fortress", id: "fortress", name: "Frost Fortress" },
+  { file: "glacier", id: "glacier", name: "빙하 길" },
+  { file: "caldera", id: "crater", name: "칼데라 분지" },
+  { file: "pyramid", id: "pyramid", name: "피라미드 고개" },
+  { file: "witch_hut", id: "witch_hut", name: "마녀의 영역" },
+  { file: "fortress", id: "fortress", name: "서리 요새" },
 ];
 
 const RIGHT_PREVIEWS: LevelPreview[] = [
   { file: "lava_fields", id: "lava", name: "용암 지대" },
-  { file: "oasis", id: "oasis", name: "Desert Oasis" },
-  { file: "sphinx", id: "sphinx", name: "Sphinx Gate" },
-  { file: "peak", id: "peak", name: "Summit Peak" },
-  { file: "throne", id: "throne", name: "Obsidian Throne" },
+  { file: "oasis", id: "oasis", name: "사막 오아시스" },
+  { file: "sphinx", id: "sphinx", name: "스핑크스 문" },
+  { file: "peak", id: "peak", name: "봉우리 정상" },
+  { file: "throne", id: "throne", name: "흑요석 왕좌" },
   { file: "sandbox", id: "sandbox", name: "샌드박스 전장" },
-  { file: "sunken_temple", id: "sunken_temple", name: "Sunken Temple" },
+  { file: "sunken_temple", id: "sunken_temple", name: "가라앉은 신전" },
   { file: "murky_bog", id: "bog", name: "음울한 소택지" },
 ];
 
@@ -256,7 +256,7 @@ function HeroTagline({ show }: { show: boolean }) {
   return (
     <div
       className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 px-3 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] tabular-nums"
-      aria-label="Game contents"
+      aria-label="게임 구성"
       style={{
         opacity: show ? 1 : 0,
         transform: show ? "translateY(0)" : "translateY(12px)",
@@ -489,7 +489,7 @@ export function HeroSection({ onPlay, exiting, onCredits }: HeroSectionProps) {
         >
           <Image
             src="/images/logos/princeton-td-logo.svg"
-            alt="Princeton Tower Defense"
+            alt="프린스턴 타워 디펜스"
             width={64}
             height={64}
             priority
@@ -520,9 +520,9 @@ export function HeroSection({ onPlay, exiting, onCredits }: HeroSectionProps) {
                 color: `rgba(${T.accentRgb},0.78)`,
                 textShadow: `0 1px 3px rgba(0,0,0,0.6), 0 0 18px rgba(${T.accentRgb},0.22)`,
               }}
-              aria-label="Tower Defense"
+              aria-label="타워 디펜스"
             >
-              {[..."TOWER DEFENSE"].map((ch, i) =>
+              {[..."타워 디펜스"].map((ch, i) =>
                 ch === " " ? (
                   <span
                     key={i}
@@ -565,7 +565,7 @@ export function HeroSection({ onPlay, exiting, onCredits }: HeroSectionProps) {
               onMouseLeave={(e) => {
                 e.currentTarget.style.color = `rgba(${T.accentRgb},0.55)`;
               }}
-              aria-label="Previous towers"
+              aria-label="이전 타워"
             >
               <ChevronLeft size={28} strokeWidth={2.2} />
             </button>
@@ -768,7 +768,7 @@ export function HeroSection({ onPlay, exiting, onCredits }: HeroSectionProps) {
               onMouseLeave={(e) => {
                 e.currentTarget.style.color = `rgba(${T.accentRgb},0.55)`;
               }}
-              aria-label="Next towers"
+              aria-label="다음 타워"
             >
               <ChevronRight size={28} strokeWidth={2.2} />
             </button>

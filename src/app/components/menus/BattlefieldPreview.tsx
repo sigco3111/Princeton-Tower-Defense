@@ -207,7 +207,7 @@ export const BattlefieldPreview: React.FC<{
             background: "rgba(20,16,12,0.6)",
             border: "1px solid rgba(180,140,60,0.15)",
           }}
-          title="Toggle live animation"
+          title="라이브 애니메이션 토글"
         >
           <Clapperboard
             size={12}

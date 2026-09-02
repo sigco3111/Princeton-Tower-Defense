@@ -81,19 +81,19 @@ export const DecorationInspectorTooltip: React.FC<
       </div>
       <div className="px-3 py-2 space-y-1">
         <Row label="유형" value={decoration.type} />
-        <Row label="Height" value={volume.heightTag} valueClass={tagColor} />
-        <Row label="Scale" value={decoration.scale.toFixed(2)} />
-        <Row label="Variant" value={String(decoration.variant)} />
+        <Row label="높이" value={volume.heightTag} valueClass={tagColor} />
+        <Row label="규모" value={decoration.scale.toFixed(2)} />
+        <Row label="변형" value={String(decoration.variant)} />
         <Row
-          label="Grid"
+          label="격자"
           value={`(${Number(gridPos.x.toFixed(1))}, ${Number(gridPos.y.toFixed(1))})`}
         />
         <Row
-          label="World"
+          label="세계"
           value={`(${Math.round(decoration.x)}, ${Math.round(decoration.y)})`}
         />
         <Row
-          label="Rotation"
+          label="회전"
           value={`${(decoration.rotation * (180 / Math.PI)).toFixed(0)}°`}
         />
       </div>

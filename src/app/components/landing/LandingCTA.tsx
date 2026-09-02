@@ -15,7 +15,7 @@ interface LandingCTAProps {
 export function LandingCTA({
   onClick,
   disabled,
-  label = "Enter the Realm",
+  label = "영역 입장",
 }: LandingCTAProps) {
   return (
     <button

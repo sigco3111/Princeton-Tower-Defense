@@ -23,21 +23,21 @@ const GAME_ID = `${SITE_URL}/#game`;
 function getPersonSchema() {
   return {
     "@id": PERSON_ID,
-    "@type": "Person",
+    "@type": "사람",
     alumniOf: {
       "@type": "CollegeOrUniversity",
-      name: "Princeton University",
+      name: "프린스턴 대학교",
       url: "https://www.princeton.edu",
     },
     jobTitle: "Software Engineer",
     knowsAbout: [
-      "React",
+      "반응",
       "Next.js",
       "TypeScript",
       "HTML5 Canvas",
       "Game Development",
-      "Tower Defense",
-      "Web Development",
+      "타워 디펜스",
+      "웹 개발",
       "Isometric Rendering",
       "Three.js",
       "WebGL",
@@ -52,7 +52,7 @@ function getPersonSchema() {
 function getWebSiteSchema() {
   return {
     "@id": WEBSITE_ID,
-    "@type": "WebSite",
+    "@type": "웹사이트",
     description: SITE_DESCRIPTION,
     inLanguage: "en-US",
     name: SITE_NAME,
@@ -64,7 +64,7 @@ function getWebSiteSchema() {
 function getVideoGameSchema() {
   return {
     "@id": GAME_ID,
-    "@type": "VideoGame",
+    "@type": "비디오 게임",
     abstract:
       `${SITE_NAME} features ${GAME_STATS.levels} handcrafted levels across ${GAME_STATS.regions} themed regions ` +
       `(${REGION_NAMES.join(", ")}), ${GAME_STATS.towers} upgradeable towers with dual upgrade paths, ` +
@@ -73,7 +73,7 @@ function getVideoGameSchema() {
     applicationCategory: "게임",
     author: { "@id": PERSON_ID },
     characterAttribute: HERO_NAMES.map((hero) => ({
-      "@type": "Thing",
+      "@type": "것",
       description: `A playable hero character in ${SITE_NAME} with unique active abilities`,
       name: hero,
     })),
@@ -81,12 +81,12 @@ function getVideoGameSchema() {
     datePublished: "2024-12-01",
     description: SITE_DESCRIPTION,
     gameItem: TOWER_NAMES.map((tower) => ({
-      "@type": "Thing",
+      "@type": "것",
       description: `A buildable tower in ${SITE_NAME} inspired by a Princeton University campus landmark`,
       name: tower,
     })),
-    gamePlatform: ["Web Browser", "Desktop Browser", "Mobile Browser"],
-    genre: ["Tower Defense", "Strategy", "캐주얼"],
+    gamePlatform: ["웹 브라우저", "Desktop Browser", "Mobile Browser"],
+    genre: ["타워 디펜스", "전략", "캐주얼"],
     image: `${SITE_URL}/images/new/gameplay_grounds_ui.png`,
     inLanguage: "en",
     isAccessibleForFree: true,
@@ -94,7 +94,7 @@ function getVideoGameSchema() {
     name: SITE_NAME,
     numberOfPlayers: { "@type": "QuantitativeValue", value: 1 },
     offers: {
-      "@type": "Offer",
+      "@type": "제공",
       availability: "https://schema.org/InStock",
       price: "0",
       priceCurrency: "USD",
@@ -124,7 +124,7 @@ function getVideoGameSchema() {
 
 function getWebApplicationSchema() {
   return {
-    "@type": "WebApplication",
+    "@type": "웹 애플리케이션",
     applicationCategory: "GameApplication",
     author: { "@id": PERSON_ID },
     browserRequirements: "JavaScript 및 HTML5 Canvas 지원 필요",
@@ -143,7 +143,7 @@ function getWebApplicationSchema() {
     ],
     name: SITE_NAME,
     offers: {
-      "@type": "Offer",
+      "@type": "제공",
       price: "0",
       priceCurrency: "USD",
     },
@@ -157,9 +157,9 @@ function getFAQSchema() {
     "@type": "FAQPage",
     mainEntity: [
       {
-        "@type": "Question",
+        "@type": "질문",
         acceptedAnswer: {
-          "@type": "Answer",
+          "@type": "답변",
           text:
             "Princeton Tower Defense is a free browser-based tower defense strategy game set at Princeton University. " +
             "Players build towers at iconic campus landmarks like Nassau Hall, Firestone Library, and Blair Arch to defend " +
@@ -169,9 +169,9 @@ function getFAQSchema() {
         name: "프린스턴 타워 디펜스란 무엇인가요?",
       },
       {
-        "@type": "Question",
+        "@type": "질문",
         acceptedAnswer: {
-          "@type": "Answer",
+          "@type": "답변",
           text:
             `There are ${GAME_STATS.towers} towers in Princeton Tower Defense, each inspired by a real Princeton campus landmark: ` +
             `${TOWER_NAMES.join(", ")}. Each tower has two distinct upgrade paths. For example, Nassau Cannon can upgrade into ` +
@@ -180,9 +180,9 @@ function getFAQSchema() {
         name: "프린스턴 타워 디펜스에는 몇 개의 타워가 있나요?",
       },
       {
-        "@type": "Question",
+        "@type": "질문",
         acceptedAnswer: {
-          "@type": "Answer",
+          "@type": "답변",
           text:
             "Yes, Princeton Tower Defense is completely free to play in any modern web browser. No download, installation, or account required. " +
             "The game runs on HTML5 Canvas and works on desktop and mobile browsers.",
@@ -190,9 +190,9 @@ function getFAQSchema() {
         name: "프린스턴 타워 디펜스는 무료인가요?",
       },
       {
-        "@type": "Question",
+        "@type": "질문",
         acceptedAnswer: {
-          "@type": "Answer",
+          "@type": "답변",
           text:
             `Princeton Tower Defense has ${GAME_STATS.levels} levels spread across ${GAME_STATS.regions} themed regions: ` +
             "Princeton Grounds (grassland with Poe Field, Carnegie Lake, Nassau Hall), " +
@@ -205,9 +205,9 @@ function getFAQSchema() {
         name: "프린스턴 타워 디펜스에는 어떤 지역과 맵이 있나요?",
       },
       {
-        "@type": "Question",
+        "@type": "질문",
         acceptedAnswer: {
-          "@type": "Answer",
+          "@type": "답변",
           text:
             "Yes! Princeton Tower Defense includes a full custom level creator. You can design your own maps with primary and secondary enemy paths, " +
             "place hero spawn points, add special objective structures (beacons, shrines, vaults, barracks), " +
@@ -217,9 +217,9 @@ function getFAQSchema() {
         name: "프린스턴 타워 디펜스에서 커스텀 레벨을 만들 수 있나요?",
       },
       {
-        "@type": "Question",
+        "@type": "질문",
         acceptedAnswer: {
-          "@type": "Answer",
+          "@type": "답변",
           text:
             `Princeton Tower Defense features ${GAME_STATS.heroes} playable heroes: ${HERO_NAMES.join(", ")}. ` +
             "Each hero has unique active abilities and can be deployed on the battlefield to support your tower defenses. " +
@@ -228,9 +228,9 @@ function getFAQSchema() {
         name: "프린스턴 타워 디펜스에는 어떤 영웅이 있나요?",
       },
       {
-        "@type": "Question",
+        "@type": "질문",
         acceptedAnswer: {
-          "@type": "Answer",
+          "@type": "답변",
           text:
             "Princeton Tower Defense stands out with its Princeton University campus theme. All towers, enemies, and maps reference real " +
             "campus landmarks and student life. It features dual-lane enemy paths, 9 heroes with active abilities, a spell system with upgrades, " +
@@ -240,9 +240,9 @@ function getFAQSchema() {
         name: "프린스턴 타워 디펜스는 다른 타워 디펜스 게임과 어떻게 다른가요?",
       },
       {
-        "@type": "Question",
+        "@type": "질문",
         acceptedAnswer: {
-          "@type": "Answer",
+          "@type": "답변",
           text:
             "Princeton Tower Defense is built with Next.js 16, React 19, TypeScript, and HTML5 Canvas. " +
             "The entire rendering pipeline (isometric terrain, tower animations, projectile arcs, death effects, fog, god rays, and ambient particles) " +
@@ -261,25 +261,25 @@ function getBreadcrumbSchema() {
     "@type": "BreadcrumbList",
     itemListElement: [
       {
-        "@type": "ListItem",
+        "@type": "목록 항목",
         item: SITE_URL,
         name: "홈",
         position: 1,
       },
       {
-        "@type": "ListItem",
+        "@type": "목록 항목",
         item: `${SITE_URL}/codex`,
         name: "도감",
         position: 2,
       },
       {
-        "@type": "ListItem",
+        "@type": "목록 항목",
         item: `${SITE_URL}/creator`,
         name: "Level Creator",
         position: 2,
       },
       {
-        "@type": "ListItem",
+        "@type": "목록 항목",
         item: `${SITE_URL}/credits`,
         name: "제작진",
         position: 2,
@@ -297,7 +297,7 @@ function getSoftwareSourceCodeSchema() {
     license: "https://opensource.org/licenses/MIT",
     name: SITE_NAME,
     programmingLanguage: ["TypeScript", "React 19", "Next.js 16"],
-    runtimePlatform: "Web Browser",
+    runtimePlatform: "웹 브라우저",
     targetProduct: { "@id": GAME_ID },
   };
 }

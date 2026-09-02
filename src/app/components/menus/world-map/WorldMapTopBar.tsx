@@ -65,7 +65,7 @@ const PrincetonLogo: React.FC = () => (
     <div className="z-[-1] object-bottom object-contain absolute top-[-4.1rem] right-[-26rem] pointer-events-none select-none">
       <Image
         src="/images/new/gameplay_volcano.png"
-        alt="Battle Scene"
+        alt="전투 장면"
         width={1200}
         height={700}
         priority

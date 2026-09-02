@@ -55,11 +55,11 @@ const TAB_CONFIG: {
   icon: typeof Paintbrush;
   color: string;
 }[] = [
-  { color: "amber", icon: Paintbrush, key: "decoration", label: "Deco" },
-  { color: "sky", icon: Landmark, key: "landmark", label: "Land" },
-  { color: "red", icon: AlertTriangle, key: "hazard", label: "Hazard" },
-  { color: "purple", icon: ChessRook, key: "objective", label: "Obj" },
-  { color: "blue", icon: Sword, key: "tower", label: "Tower" },
+  { color: "amber", icon: Paintbrush, key: "decoration", label: "장식" },
+  { color: "sky", icon: Landmark, key: "landmark", label: "랜드" },
+  { color: "red", icon: AlertTriangle, key: "hazard", label: "위험요소" },
+  { color: "purple", icon: ChessRook, key: "objective", label: "목표" },
+  { color: "blue", icon: Sword, key: "tower", label: "타워" },
 ];
 
 const getDisplayName = (tab: PaletteTab, value: string): string => {
@@ -299,8 +299,8 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
             }`}
             title={
               showAllThemes
-                ? "Showing all themes"
-                : "Showing current theme only"
+                ? "모든 테마 표시"
+                : "현재 테마만 표시"
             }
           >
             {showAllThemes ? "전체" : formatAssetName(theme)}

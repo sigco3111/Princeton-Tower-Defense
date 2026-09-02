@@ -215,7 +215,7 @@ function RealmMasteryBanner({
                   : "rgba(255,220,130,0.9)",
               }}
             >
-              {isPerfect ? "전설" : "True Champion"}
+              {isPerfect ? "전설" : "진정한 챔피언"}
             </span>
           </div>
           <div className="flex items-center gap-2.5">
@@ -269,7 +269,7 @@ function RealmMasteryBanner({
                     : "rgba(255,235,180,0.95)",
                 }}
               >
-                {isPerfect ? "Every Star Claimed" : "Every Battle Won"}
+                {isPerfect ? "모든 별 획득" : "모든 전투 승리"}
               </div>
               <div
                 className="text-[10px] mt-0.5"
@@ -280,7 +280,7 @@ function RealmMasteryBanner({
                 }}
               >
                 {isPerfect
-                  ? "A legend forged eternal"
+                  ? "영원히 새겨진 전설"
                   : "별을 모두 모아 전설의 경지에 오르세요"}
               </div>
             </div>
@@ -436,7 +436,7 @@ export const CampaignOverview = memo(function CampaignOverview({
                 background: `linear-gradient(135deg, ${PANEL.bgWarmLight}, ${PANEL.bgWarmMid})`,
                 border: `1px solid ${GOLD.border25}`,
               }}
-              title="Show Battle Scene"
+              title="전투 장면 보기"
             >
               <Eye size={14} className="text-amber-400/70" />
             </button>
@@ -629,7 +629,7 @@ export const CampaignOverview = memo(function CampaignOverview({
           ═══════════════════════════════════════════════════ */}
       <div className="flex-1 overflow-y-auto px-3.5 pt-2.5 pb-3">
         <div className="mb-2.5">
-          <SectionDivider label="Regions" />
+          <SectionDivider label="지역" />
         </div>
 
         <div className="space-y-2">
@@ -733,7 +733,7 @@ export const CampaignOverview = memo(function CampaignOverview({
         {lastPlayedLevel && lastPlayed && (
           <div className="mt-4">
             <div className="mb-2.5">
-              <SectionDivider label="Recent" />
+              <SectionDivider label="최근" />
             </div>
             <button
               onClick={() => onSelectLevel(lastPlayed.id)}
@@ -845,4 +845,4 @@ export const CampaignOverview = memo(function CampaignOverview({
   );
 });
 
-CampaignOverview.displayName = "CampaignOverview";
+CampaignOverview.displayName = "캠페인 개요";

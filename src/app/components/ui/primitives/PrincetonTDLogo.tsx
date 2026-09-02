@@ -8,7 +8,7 @@ export default function PrincetonTDLogo({
   return (
     <Image
       src="/images/logos/princeton-td-logo.svg"
-      alt="Princeton TD"
+      alt="프린스턴 TD"
       width={84}
       height={84}
       className={size}

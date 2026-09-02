@@ -54,7 +54,7 @@ const LANDMARK_INFO: Record<
     desc: "수차적으로 불꽃을 뿜어내는 그을린 통풍구의 소용돌이입니다.",
     icon: <Flame className="text-orange-400" size={16} />,
     lore: "한곳에 너무 오래 서 있으면, 땅이 당신을 어떻게 할지 궁리하기 시작합니다.",
-    name: "Ashen Spiral",
+    name: "잿빛 나선",
   },
   aurora_crystal: {
     desc: "빛나는 에너지를 내뿜는 수정 결정입니다.",
@@ -72,13 +72,13 @@ const LANDMARK_INFO: Record<
     desc: "부식성 웅덩이가 죽은 땅을 뚫고 거품을 이는 독성 분지입니다.",
     icon: <Skull className="text-lime-400" size={16} />,
     lore: "이곳의 공기가 이상합니다. 버섯들은 그것에 무척 신이 난 것 같습니다.",
-    name: "Blight Basin",
+    name: "황폐 분지",
   },
   bone_altar: {
     desc: "수많은 뼈로 쌓아 올린 음산한 제단입니다.",
     icon: <Skull className="text-red-400" size={16} />,
     lore: "암흑 의식이 행해지던 곳입니다. 아무리 닦아도 얼룩은 지워지지 않습니다.",
-    name: "Bone Altar",
+    name: "뼈 제단",
   },
   cannon_crest: {
     desc: "나소 대포가 늘어서 있는 깊이 파인 포격 방어선입니다.",
@@ -102,7 +102,7 @@ const LANDMARK_INFO: Record<
     desc: "사막의 바람 속에서 도발적으로 서 있는 고대 그리스 신전입니다.",
     icon: <Home className="text-amber-400" size={16} />,
     lore: "Whig 홀의 자매 격인 Clio는 모래가 모든 것을 덮는 곳에서도 그 자리를 지킵니다. 해질녘 기둥들이 긴 그림자를 드리웁니다.",
-    name: "Clio Hall",
+    name: "클리오 홀",
   },
   cobra_statue: {
     desc: "어두운 에너지를 내뿜는 위협적인 우상.",
@@ -138,7 +138,7 @@ const LANDMARK_INFO: Record<
     desc: "습지에 풍화된 둥근 탑이 특징인 로마네스크 양식의 홀입니다.",
     icon: <Home className="text-amber-400" size={16} />,
     lore: "둥근 아치에는 속삭이는 주문의 메아리가 울립니다. 늪이 그 말을 듣고 있는 것 같습니다.",
-    name: "East Pyne Hall",
+    name: "이스트 파인 홀",
   },
   fine_hall: {
     desc: "화산의 잔열에 휩싸인 현대적 수학관 탑입니다.",
@@ -168,7 +168,7 @@ const LANDMARK_INFO: Record<
     desc: "투박한 망루와 모닥불 주변에 지어진 눈 덮인 울타리 전초기지입니다.",
     icon: <Fence className="text-cyan-300" size={16} />,
     lore: "벽은 삐걱거리고, 불은 꺼져 가는데, 어떻게든 매겨울을 버팁니다.",
-    name: "Frist Outpost",
+    name: "프리스트 초소",
   },
   frost_citadel: {
     desc: "마법의 얼음으로 깎아 만든 거대한 요새입니다.",
@@ -192,7 +192,7 @@ const LANDMARK_INFO: Record<
     desc: "전장을 지키는 문입니다.",
     icon: <Fence className="text-cyan-400" size={16} />,
     lore: "문은 그다지 튼튼해 보이지 않습니다.",
-    name: "Gate",
+    name: "문",
   },
   giant_sphinx: {
     desc: "사막의 모래를 내려다보는 거대한 스핑크스입니다.",
@@ -204,7 +204,7 @@ const LANDMARK_INFO: Record<
     desc: "수천 년의 바람과 추위에 깎인 거대한 고대 얼음 덩어리입니다.",
     icon: <Snowflake className="text-cyan-400" size={16} />,
     lore: "기억보다 오래된 수정 기둥들이 침묵의 파수꾼처럼 얼어붙은 고원을 천천히 가로질러 이동합니다.",
-    name: "Glacier",
+    name: "빙하",
   },
   hieroglyph_wall: {
     desc: "고대 상형 문자로 뒤덮인 풍화된 석벽입니다.",
@@ -216,7 +216,7 @@ const LANDMARK_INFO: Record<
     desc: "높은 시계탑을 갖춘 대학 고딕 양식의 기숙사입니다.",
     icon: <Home className="text-cyan-400" size={16} />,
     lore: "얼어붙은 시계탑은 여전히 매시간 종을 울리며, 적막한 얼음 속의 반항하는 심장 박동처럼 울립니다.",
-    name: "Holder Hall",
+    name: "홀더 홀",
   },
   ice_bridge: {
     desc: "험준한 균형을 가로지르는 얼어붙은 아치입니다.",
@@ -240,13 +240,13 @@ const LANDMARK_INFO: Record<
     desc: "지옥불과 유황으로 이글이글 타오르는 문입니다.",
     icon: <Flame className="text-red-400" size={16} />,
     lore: "그곳은 매우 뜨거운 곳으로 이어집니다. 반대쪽 발판에 '희망을 버려라'라고 적혀 있습니다. 참으로 은근합니다.",
-    name: "Infernal Gate",
+    name: "지옥의 문",
   },
   ivy_crossroads: {
     desc: "오래된 캠퍼스의 돌담을 따라 갈래길을 표시하는 담쟁이덩굴이 뒤덮인 아치입니다.",
     icon: <Landmark className="text-emerald-400" size={16} />,
     lore: "누가 먼저 이 아치를 지었는지 아무도 기억하지 못합니다. 이제는 담쟁이덩굴이 선배 격입니다.",
-    name: "Ivy Crossroads",
+    name: "아이비 교차로",
   },
   lava_fall: {
     desc: "전장 가로질러 흐르는 용암 폭포입니다.",
@@ -258,7 +258,7 @@ const LANDMARK_INFO: Record<
     desc: "사구에서 솟아오른 중앙 고딕 탑을 갖춘 장엄한 강의 홀입니다.",
     icon: <Home className="text-amber-400" size={16} />,
     lore: "예전에는 철학이 가르쳐지던 곳입니다. 이제는 이 벽을 지키는 자들에게 인내를 가르칩니다.",
-    name: "McCosh Hall",
+    name: "맥코시 홀",
   },
   nassau_hall: {
     desc: "1746년에 세워진 프린스턴 대학의 역사적인 중심부입니다.",
@@ -294,13 +294,13 @@ const LANDMARK_INFO: Record<
     desc: "관측탑이 딸린 이탈리아풍 저택으로, 늪에 절반이 삼켜진 채 있습니다.",
     icon: <Home className="text-amber-400" size={16} />,
     lore: "총장의 옛 거처입니다. 그 탑에서는 여전히 다가오는 어둠을 살필 수 있습니다.",
-    name: "Prospect House",
+    name: "프로스펙트 하우스",
   },
   pyramid: {
     desc: "잊혀진 문명의 거대한 석조 기념물입니다.",
     icon: <Landmark className="text-amber-400" size={16} />,
     lore: "전설에 따르면, 다른 누구보다 먼저 기하학의 비밀을 발견한 학자들이 세웠다고 합니다.",
-    name: "Ancient Pyramid",
+    name: "고대 피라미드",
   },
   robertson_hall: {
     desc: "사암으로 된 깔끔한 기하학적 형태의 모더니즘 각진 건물입니다.",
@@ -330,7 +330,7 @@ const LANDMARK_INFO: Record<
     desc: "살아있는 돌로 깎아 만든 신화 속 수호자입니다.",
     icon: <Eye className="text-amber-400" size={16} />,
     lore: "지나가는 모든 자에게 수수께끼를 냅니다. 대부분의 적은 너무 어리석어 제대로 답하지 못합니다.",
-    name: "Sphinx",
+    name: "스핑크스",
   },
   statue: {
     desc: "잊혀진 영웅의 풍화된 동상입니다.",
@@ -342,7 +342,7 @@ const LANDMARK_INFO: Record<
     desc: "태양의 힘을 전달하는 황금 첨탑입니다.",
     icon: <TrendingUp className="text-amber-400" size={16} />,
     lore: "한낮에는 그림자를 드리우지 않습니다. 한밤중에는 빛을 떠올리듯 희미하게 빛납니다.",
-    name: "Sun Obelisk",
+    name: "태양 오벨리스크",
   },
   sunken_pillar: {
     desc: "흙 속에 절반 묻힌 거대한 기둥입니다.",
@@ -366,25 +366,25 @@ const LANDMARK_INFO: Record<
     desc: "탁한 물과 녹색 깃발로 둘러싸인 요새화된 습지 요새입니다.",
     icon: <Shield className="text-emerald-400" size={16} />,
     lore: "세 개의 홀이 한때 이 요새에 식량을 공급했습니다. 이제 벽만 손님 명단을 기억합니다.",
-    name: "Triad Keep",
+    name: "삼두 요새",
   },
   volcano_rim: {
     desc: "전장을 둘러싼 용암의 테두리입니다.",
     icon: <Flame className="text-orange-400" size={16} />,
     lore: "영원한 불꽃의 벼랑입니다.",
-    name: "Volcano Rim",
+    name: "화산 가장자리",
   },
   war_monument: {
     desc: "오래전 쓰러진 전사들을 기리는 거대한 기념비입니다.",
     icon: <Swords className="text-stone-400" size={16} />,
     lore: "그 표면에 새겨진 모든 이름은 한 명의 영웅을 의미합니다. 이름이 아주 많습니다.",
-    name: "War Monument",
+    name: "전쟁 기념비",
   },
   whig_hall: {
     desc: "습지에 천천히 잠식당하는 그리스 부흥 양식의 신전입니다.",
     icon: <Home className="text-amber-400" size={16} />,
     lore: "한때 토론과 수사학의 홀이었으나, 이제 이끼와 덩굴이 무너지는 기둥을 놓고 다투고 있습니다.",
-    name: "Whig Hall",
+    name: "휘그 홀",
   },
   witch_cottage: {
     desc: "물약과 오래된 마법 냄새가 진동하는 구부러진 거처입니다.",
@@ -497,7 +497,7 @@ const HAZARD_INFO: Record<
     effect: "모든 유닛을 감속시키고 익사시킵니다 — 4~9 DPS + 38% 감속",
     effectColor: "text-blue-300",
     icon: <Activity className="text-blue-400" size={16} />,
-    name: "Deep Water",
+    name: "깊은 물",
   },
   eruption_zone: {
     desc: "깊은 지하에서 녹은 암석이 주기적으로 분출합니다.",
@@ -511,7 +511,7 @@ const HAZARD_INFO: Record<
     effect: "10 fire DPS to all units",
     effectColor: "text-orange-400",
     icon: <Flame className="text-orange-400" size={16} />,
-    name: "Hellfire Zone",
+    name: "지옥불 구역",
   },
   ice: {
     desc: "발을 디디기 어려운 얼어붙은 지대입니다.",
@@ -525,7 +525,7 @@ const HAZARD_INFO: Record<
     effect: "이 구역을 통과하는 모든 유닛의 이동 속도 60% 증가",
     effectColor: "text-cyan-400",
     icon: <Snowflake className="text-cyan-400" size={16} />,
-    name: "Ice Sheet",
+    name: "얼음판",
   },
   ice_spikes: {
     desc: "날카로운 수정 결정이 얼어붙은 땅에서 솟아오릅니다.",
@@ -539,7 +539,7 @@ const HAZARD_INFO: Record<
     effect: "주기적인 비산으로 근처의 모든 유닛에게 화염 피해 4를 입힙니다",
     effectColor: "text-red-300",
     icon: <Flame className="text-red-300" size={16} />,
-    name: "Lava Pool",
+    name: "용암 웅덩이",
   },
   lava_geyser: {
     desc: "깊은 지하에서 녹은 암석이 주기적으로 분출합니다.",
@@ -553,14 +553,14 @@ const HAZARD_INFO: Record<
     effect: "18 burst damage per lightning strike to all units",
     effectColor: "text-yellow-300",
     icon: <Zap className="text-yellow-300" size={16} />,
-    name: "Lightning Field",
+    name: "번개 필드",
   },
   maelstrom: {
     desc: "모든 것을 압도적인 중심으로 끌어당기는 회오리 소용돌이입니다.",
     effect: "8-20 DPS + 55% slow to all units",
     effectColor: "text-cyan-300",
     icon: <Wind className="text-cyan-300" size={16} />,
-    name: "Maelstrom",
+    name: "소용돌이",
   },
   poison: {
     desc: "농축된 독소가 모인 웅덩이입니다.",
@@ -574,14 +574,14 @@ const HAZARD_INFO: Record<
     effect: "통과하는 모든 유닛에게 DPS 15의 피해를 입힙니다",
     effectColor: "text-green-400",
     icon: <Wind className="text-green-400" size={16} />,
-    name: "Poison Fog",
+    name: "독 안개",
   },
   quicksand: {
     desc: "밟는 모든 것을 삼키는 위험한 지형입니다.",
     effect: "모든 유닛의 이동 속도 50% 감소",
     effectColor: "text-yellow-400",
     icon: <TrendingDown className="text-yellow-400" size={16} />,
-    name: "Quicksand",
+    name: "유사트",
   },
   slippery_ice: {
     desc: "매우 미끄러운 얼음 표면입니다.",
@@ -609,21 +609,21 @@ const HAZARD_INFO: Record<
     effect: "6 DPS poison + 35% slow to all units",
     effectColor: "text-lime-400",
     icon: <Wind className="text-lime-400" size={16} />,
-    name: "Toxic Swamp",
+    name: "독성 늪",
   },
   void: {
     desc: "생명력을 빨아들이는 차원의 균열입니다.",
     effect: "8 DPS + 30% slow to all units",
     effectColor: "text-purple-400",
     icon: <CircleOff className="text-purple-400" size={16} />,
-    name: "Void Rift",
+    name: "공허 균열",
   },
   volcano: {
     desc: "전장 위로 용암암을 내던지는 불안정한 분화구입니다.",
     effect: "파괴적인 분출로 근처의 모든 유닛에게 화염 피해 15를 입힙니다",
     effectColor: "text-red-400",
     icon: <Flame className="text-red-400" size={16} />,
-    name: "Volcano",
+    name: "화산",
   },
 };
 

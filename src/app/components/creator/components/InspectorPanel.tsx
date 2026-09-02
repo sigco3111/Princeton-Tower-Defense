@@ -100,23 +100,23 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
       return `Path B node ${selection.index + 1}`;
     }
     if (selection.kind === "hero_spawn") {
-      return "Hero Spawn";
+      return "영웅 스폰";
     }
     if (selection.kind === "special_tower") {
       return selectedObjective
         ? OBJECTIVE_TYPE_STATS[selectedObjective.type].title
-        : "Objective";
+        : "목표";
     }
     if (selection.kind === "tower") {
       return selectedTower
         ? (TOWER_DISPLAY_NAMES[selectedTower.type as TowerType] ??
             formatAssetName(selectedTower.type))
-        : "Tower";
+        : "타워";
     }
     if (selection.kind === "hazard") {
       return selectedHazard?.type
         ? formatAssetName(selectedHazard.type)
-        : "Hazard";
+        : "위험요소";
     }
     const decoType = selectedDecoration?.type ?? selectedDecoration?.category;
     const isLandmark = Boolean(
@@ -125,8 +125,8 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
     return decoType
       ? formatAssetName(decoType)
       : isLandmark
-        ? "Landmark"
-        : "Decoration";
+        ? "랜드마크"
+        : "장식";
   })();
 
   return (

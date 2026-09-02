@@ -22,7 +22,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/svg+xml",
       },
     ],
-    name: "Princeton Tower Defense",
+    name: "프린스턴 타워 디펜스",
     orientation: "landscape",
     screenshots: [
       {
@@ -68,7 +68,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
       },
     ],
-    short_name: "Princeton TD",
+    short_name: "프린스턴 TD",
     start_url: "/",
     theme_color: "#E87722",
   };

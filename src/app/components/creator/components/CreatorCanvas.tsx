@@ -146,7 +146,7 @@ export const CreatorCanvas: React.FC<CreatorCanvasProps> = ({
                 ? "bg-red-600/25 text-red-200"
                 : "text-amber-300/80 hover:bg-stone-800/80"
             }`}
-            title="Erase tool"
+            title="지우개 도구"
           >
             <Eraser size={12} />
           </button>
@@ -157,7 +157,7 @@ export const CreatorCanvas: React.FC<CreatorCanvasProps> = ({
           <button
             onClick={onZoomOut}
             className="inline-flex h-6 w-7 items-center justify-center rounded-md hover:bg-stone-800/80 transition-colors text-amber-300/80"
-            title="Zoom out"
+            title="축소"
           >
             <ZoomOut size={12} />
           </button>
@@ -167,7 +167,7 @@ export const CreatorCanvas: React.FC<CreatorCanvasProps> = ({
           <button
             onClick={onZoomIn}
             className="inline-flex h-6 w-7 items-center justify-center rounded-md hover:bg-stone-800/80 transition-colors text-amber-300/80"
-            title="Zoom in"
+            title="확대"
           >
             <ZoomIn size={12} />
           </button>

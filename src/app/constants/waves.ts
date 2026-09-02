@@ -2854,7 +2854,7 @@ export const LEVEL_WAVES: Record<string, WaveGroup[][]> = {
     ],
   ],
 
-  // FRIST OUTPOST - "Blizzard Rush" (speed-focused, wraiths + hellhounds)
+  // FRIST OUTPOST - "눈보라 돌진" (speed-focused, wraiths + hellhounds)
   frist_outpost: [
     // W1: Blizzard scouts
     [

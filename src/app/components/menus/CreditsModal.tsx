@@ -21,10 +21,10 @@ interface CreditsModalProps {
 }
 
 const GALLERY = [
-  { src: "/images/new/gameplay_grounds_ui.png", label: "Grasslands" },
+  { src: "/images/new/gameplay_grounds_ui.png", label: "초원" },
   { src: "/images/new/gameplay_desert_ui.png", label: "사막" },
   { src: "/images/new/gameplay_swamp_ui.png", label: "늪지" },
-  { src: "/images/new/gameplay_winter_ui.png", label: "Frontier" },
+  { src: "/images/new/gameplay_winter_ui.png", label: "변경" },
   { src: "/images/new/gameplay_volcano_ui.png", label: "화산" },
   { src: "/images/new/gameplay_sandbox_ui.png", label: "샌드박스" },
 ] as const;
@@ -32,7 +32,7 @@ const GALLERY = [
 const SOCIAL_LINKS = [
   {
     href: "https://www.kevin-liu.tech/",
-    label: "Portfolio",
+    label: "포트폴리오",
     sub: "kevin-liu.tech",
     icon: (
       <svg
@@ -109,7 +109,7 @@ const ARCH_LAYERS = [
     items: [
       "Tower AI",
       "Pathfinding",
-      "Wave Orchestration",
+      "웨이브 조율",
       "Projectile Physics",
       "Hero & Spell Logic",
     ],
@@ -138,8 +138,8 @@ const TECH_STATS = [
   { label: "영웅", value: "9 Playable" },
   { label: "레벨", value: "26 Maps" },
   { label: "적", value: "100+" },
-  { label: "Engine", value: "Canvas 2D" },
-  { label: "Framework", value: "Next.js" },
+  { label: "엔진", value: "Canvas 2D" },
+  { label: "프레임워크", value: "Next.js" },
 ] as const;
 
 export const CreditsModal: React.FC<CreditsModalProps> = ({ onClose }) => {
@@ -231,12 +231,12 @@ export const CreditsModal: React.FC<CreditsModalProps> = ({ onClose }) => {
 
             {/* Developer */}
             <div className="space-y-3">
-              <SectionLabel text="Developer" />
+              <SectionLabel text="개발자" />
               <div className="p-5 rounded-xl bg-amber-950/30 border border-amber-800/30">
                 <div className="flex items-start gap-4">
                   <img
                     src="/images/kevin.png"
-                    alt="Kevin Liu"
+                    alt="케빈 리우"
                     className="w-16 h-16 rounded-full object-cover flex-shrink-0"
                     style={{
                       border: "2.5px solid rgba(251,191,36,0.4)",
@@ -292,7 +292,7 @@ export const CreditsModal: React.FC<CreditsModalProps> = ({ onClose }) => {
 
             {/* Gallery */}
             <div className="space-y-3">
-              <SectionLabel text="Every Region" />
+              <SectionLabel text="모든 지역" />
               <div className="grid grid-cols-3 gap-2">
                 {GALLERY.map((shot, i) => (
                   <button

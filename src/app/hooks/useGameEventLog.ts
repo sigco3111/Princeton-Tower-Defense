@@ -50,14 +50,14 @@ export const EVENT_COLORS: Record<GameEventType, string> = {
 
 export const EVENT_LABELS: Record<GameEventType, string> = {
   defeat: "패배",
-  enemy_killed: "Kill",
-  enemy_leaked: "Leak",
+  enemy_killed: "처치",
+  enemy_leaked: "누출",
   game_start: "시작",
   hero_action: "영웅",
   income_earned: "수입",
   life_lost: "생명의",
   speed_change: "속도",
-  spell_cast: "Spell",
+  spell_cast: "주문",
   tower_built: "빌드",
   tower_sold: "판매",
   tower_upgraded: "업그레이드",

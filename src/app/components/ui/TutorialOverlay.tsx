@@ -216,7 +216,7 @@ const SPELL_CARDS: SpellCardInfo[] = [
   },
   {
     color: "border-emerald-700/40",
-    name: "Reinforcements",
+    name: "증원",
     tagline: "맵 어디든 병사를 배치합니다",
     type: "reinforcements",
   },
@@ -327,7 +327,7 @@ const HERO_CARDS: HeroCardInfo[] = [
     type: "rocky",
   },
   {
-    role: "Support",
+    role: "지원",
     roleColor: "bg-teal-900/60 text-teal-300 border-teal-700/40",
     tagline: "모든 타워의 피해 +50% 및 사거리 +25%를 증가시킵니다.",
     type: "scott",
@@ -345,13 +345,13 @@ const HERO_CARDS: HeroCardInfo[] = [
     type: "engineer",
   },
   {
-    role: "Sky Guardian",
+    role: "하늘 수호자",
     roleColor: "bg-amber-900/60 text-amber-300 border-amber-700/40",
     tagline: "비행하는 불사조. 불을 내뿜으며 공중 적을 사냥합니다.",
     type: "nassau",
   },
   {
-    role: "Controller",
+    role: "컨트롤러",
     roleColor: "bg-emerald-900/60 text-emerald-300 border-emerald-700/40",
     tagline: "자연의 수호자. 파괴적인 넝쿨 폭풍으로 적의 발을 묶습니다.",
     type: "ivy",

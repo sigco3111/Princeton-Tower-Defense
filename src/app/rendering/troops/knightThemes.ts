@@ -266,8 +266,8 @@ export interface KnightColorVariation {
 }
 
 export const KNIGHT_COLOR_VARIATIONS: readonly KnightColorVariation[] = [
-  { label: "Station", ownerType: "station" },
-  { label: "Barracks", ownerType: "barracks" },
+  { label: "역", ownerType: "station" },
+  { label: "병영", ownerType: "barracks" },
   { label: "화산", mapTheme: "volcanic", ownerType: "barracks" },
   { label: "머서", ownerType: "hero_summon" },
 ];

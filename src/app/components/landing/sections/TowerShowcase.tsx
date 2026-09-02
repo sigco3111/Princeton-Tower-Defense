@@ -69,7 +69,7 @@ function getTowerStats(
   const out: StatEntry[] = [];
 
   if (stats.damage > 0) {
-    out.push({ label: "DMG", value: `${Math.round(stats.damage)}` });
+    out.push({ label: "피해", value: `${Math.round(stats.damage)}` });
   }
   if ((stats.slowAmount ?? 0) > 0) {
     out.push({
@@ -78,18 +78,18 @@ function getTowerStats(
     });
   }
   if ((stats.income ?? 0) > 0) {
-    out.push({ label: "INCOME", value: `${stats.income} PP` });
+    out.push({ label: "수입", value: `${stats.income} PP` });
   }
   if ((stats.maxTroops ?? 0) > 0 && stats.damage === 0 && !stats.income) {
-    out.push({ label: "TROOPS", value: `×${stats.maxTroops}` });
+    out.push({ label: "병사", value: `×${stats.maxTroops}` });
   }
   if (stats.range > 0) {
-    out.push({ label: "RANGE", value: `${Math.round(stats.range)}` });
+    out.push({ label: "범위", value: `${Math.round(stats.range)}` });
   }
 
   if (stats.attackSpeed > 0) {
     out.push({
-      label: "RATE",
+      label: "비율",
       value: `${(1000 / stats.attackSpeed).toFixed(1)}/s`,
     });
   } else if ((stats.spawnInterval ?? 0) > 0) {
@@ -99,13 +99,13 @@ function getTowerStats(
     });
   } else if ((stats.incomeInterval ?? 0) > 0) {
     out.push({
-      label: "CYCLE",
+      label: "주기",
       value: `${(stats.incomeInterval! / 1000).toFixed(0)}s`,
     });
   }
 
   if ((stats.splashRadius ?? 0) > 0) {
-    out.push({ label: "AOE", value: `${Math.round(stats.splashRadius!)}` });
+    out.push({ label: "광역", value: `${Math.round(stats.splashRadius!)}` });
   }
   if ((stats.chainTargets ?? 0) > 1) {
     out.push({ label: "CHAIN", value: `×${stats.chainTargets}` });
@@ -332,7 +332,7 @@ export function TowerShowcase() {
       <div className="absolute inset-0 landing-texture-crosshatch pointer-events-none" />
       <div className="relative z-10">
         <SectionFlourish />
-        <MapSectionHeader subtitle="7 Tower Classes" title="The Arsenal" />
+        <MapSectionHeader subtitle="7 Tower Classes" title="무기고" />
 
         <div className="mx-3 sm:mx-6 lg:mx-12">
           <OrnateFrame

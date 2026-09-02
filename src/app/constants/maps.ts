@@ -1513,10 +1513,10 @@ export const LEVEL_DATA: Record<
     previewImage: "/images/previews/murky_bog.png",
   },
   witch_hut: {
-    name: "Witch's Domain",
+    name: "마녀의 영역",
     position: { x: 300, y: 120 },
     description:
-      "A cursed clearing where dark magic festers. The witch's hut pulses with evil energy.",
+      "저주받은 빈터로 어둠의 마법이 서식한다. 마녀의 오두막이 사악한 기운으로 맥동한다.",
     camera: { offset: { x: -180, y: -330 }, zoom: 0.85 },
     region: "swamp",
     theme: "swamp",
@@ -1634,7 +1634,7 @@ export const LEVEL_DATA: Record<
     previewImage: "/images/previews/witch_hut.png",
   },
   sunken_temple: {
-    name: "Sunken Temple",
+    name: "가라앉은 신전",
     position: { x: 480, y: 200 },
     description:
       "Ancient ruins half-submerged in fetid waters. Something stirs in the depths below.",
@@ -1752,10 +1752,10 @@ export const LEVEL_DATA: Record<
   // DESERT REGION - Sahara Sands
   // =====================
   oasis: {
-    name: "Desert Oasis",
+    name: "사막 오아시스",
     position: { x: 120, y: 200 },
     description:
-      "A precious water source under siege. Palm trees sway in the hot desert wind.",
+      "공격받는 귀중한 수원. 야자수가 뜨거운 사막 바람에 흔들린다.",
     camera: { offset: { x: -120, y: -330 }, zoom: 0.9 },
     region: "desert",
     theme: "desert",
@@ -1880,7 +1880,7 @@ export const LEVEL_DATA: Record<
     previewImage: "/images/previews/oasis.png",
   },
   pyramid: {
-    name: "Pyramid Pass",
+    name: "피라미드 고개",
     position: { x: 300, y: 120 },
     description:
       "Navigate the ancient canyon beneath the great pyramid. Beware of ambushes!",
@@ -2016,7 +2016,7 @@ export const LEVEL_DATA: Record<
     previewImage: "/images/previews/pyramid.png",
   },
   sphinx: {
-    name: "Sphinx Gate",
+    name: "스핑크스 문",
     position: { x: 480, y: 200 },
     description:
       "The ancient guardian's domain. The Sphinx watches all who dare to pass.",
@@ -2152,7 +2152,7 @@ export const LEVEL_DATA: Record<
   // WINTER REGION - Frozen Frontier
   // =====================
   glacier: {
-    name: "Glacier Path",
+    name: "빙하 길",
     position: { x: 120, y: 200 },
     description:
       "Ice-covered mountain pass. Freezing winds howl through the peaks.",
@@ -2295,7 +2295,7 @@ export const LEVEL_DATA: Record<
     previewImage: "/images/previews/glacier.png",
   },
   fortress: {
-    name: "Frost Fortress",
+    name: "서리 요새",
     position: { x: 300, y: 120 },
     description:
       "An abandoned stronghold of ice and stone. What dark forces drove out its defenders?",
@@ -2432,7 +2432,7 @@ export const LEVEL_DATA: Record<
     previewImage: "/images/previews/fortress.png",
   },
   peak: {
-    name: "Summit Peak",
+    name: "봉우리 정상",
     position: { x: 480, y: 200 },
     description:
       "The highest point of defense. A frozen throne awaits at the mountain's apex.",
@@ -2731,7 +2731,7 @@ export const LEVEL_DATA: Record<
     previewImage: "/images/previews/lava_fields.png",
   },
   crater: {
-    name: "Caldera Basin",
+    name: "칼데라 분지",
     position: { x: 300, y: 200 },
     description:
       "Inside the volcano's heart. The ground trembles with each eruption.",
@@ -2867,7 +2867,7 @@ export const LEVEL_DATA: Record<
     previewImage: "/images/previews/caldera.png",
   },
   throne: {
-    name: "Obsidian Throne",
+    name: "흑요석 왕좌",
     position: { x: 480, y: 200 },
     description:
       "The ultimate challenge. An ancient dark lord's seat of power, guarded by his legions.",
@@ -3121,7 +3121,7 @@ export const LEVEL_DATA: Record<
     ],
     heroSpawn: { x: 20, y: 13 },
     levelKind: "challenge",
-    name: "Ivy Crossroads",
+    name: "아이비 교차로",
     position: { x: 360, y: 260 },
     previewImage: "/images/previews/nassau.png",
     region: "grassland",
@@ -3225,7 +3225,7 @@ export const LEVEL_DATA: Record<
     ],
     heroSpawn: { x: 17, y: 13 },
     levelKind: "challenge",
-    name: "Blight Basin",
+    name: "황폐 분지",
     position: { x: 720, y: 260 },
     previewImage: "/images/previews/sunken_temple.png",
     region: "swamp",
@@ -3458,7 +3458,7 @@ export const LEVEL_DATA: Record<
     ],
     heroSpawn: { x: 12, y: 15 },
     levelKind: "challenge",
-    name: "Whiteout Pass",
+    name: "화이트아웃 고개",
     position: { x: 1420, y: 260 },
     previewImage: "/images/previews/peak.png",
     region: "winter",
@@ -3575,7 +3575,7 @@ export const LEVEL_DATA: Record<
     ],
     heroSpawn: { x: 13, y: 14 },
     levelKind: "challenge",
-    name: "Ashen Spiral",
+    name: "잿빛 나선",
     position: { x: 1740, y: 260 },
     previewImage: "/images/previews/throne.png",
     region: "volcanic",
@@ -3805,7 +3805,7 @@ export const LEVEL_DATA: Record<
     ],
     heroSpawn: { x: 21, y: 15 },
     levelKind: "challenge",
-    name: "Triad Keep",
+    name: "삼두 요새",
     position: { x: 810, y: 270 },
     previewImage: "/images/previews/sunken_temple.png",
     region: "swamp",
@@ -3933,7 +3933,7 @@ export const LEVEL_DATA: Record<
     ],
     heroSpawn: { x: 16, y: 15 },
     levelKind: "challenge",
-    name: "Frist Outpost",
+    name: "프리스트 초소",
     position: { x: 1460, y: 250 },
     previewImage: "/images/previews/peak.png",
     region: "winter",
@@ -4051,7 +4051,7 @@ export const LEVEL_DATA: Record<
     ],
     heroSpawn: { x: 15, y: 12 },
     levelKind: "challenge",
-    name: "Sun Obelisk",
+    name: "태양 오벨리스크",
     position: { x: 940, y: 260 },
     previewImage: "/images/previews/pyramid.png",
     region: "desert",
@@ -4143,7 +4143,7 @@ export const LEVEL_DATA: Record<
     ],
     heroSpawn: { x: 15, y: 16 },
     levelKind: "challenge",
-    name: "Mirage Dunes",
+    name: "신기루 사구",
     position: { x: 820, y: 260 },
     region: "desert",
     secondaryPath: "mirage_dunes_b",
@@ -4256,7 +4256,7 @@ export const LEVEL_DATA: Record<
     ],
     heroSpawn: { x: 27, y: 14 },
     levelKind: "challenge",
-    name: "Infernal Gate",
+    name: "지옥의 문",
     position: { x: 1640, y: 260 },
     previewImage: "/images/previews/caldera.png",
     region: "volcanic",
@@ -4369,7 +4369,7 @@ export const LEVEL_DATA: Record<
     difficulty: 1,
     heroSpawn: { x: 15, y: 2 },
     levelKind: "custom",
-    name: "Enemy Showcase",
+    name: "적 도감",
     position: { x: 60, y: 60 },
     prePlacedTowers: buildShowcaseTowers,
     region: "grassland",
@@ -4454,7 +4454,7 @@ export const LEVEL_DATA: Record<
     difficulty: 1,
     heroSpawn: { x: 25, y: 2 },
     levelKind: "custom",
-    name: "Building Showcase",
+    name: "건물 도감",
     position: { x: 60, y: 40 },
     region: "grassland",
     startingPawPoints: 99_999,

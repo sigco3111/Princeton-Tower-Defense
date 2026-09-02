@@ -17,7 +17,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     desc: "광채나는 갑옷을 입은 왕실 전투마 위의 우레 같은 창기사. 돌격 시 파괴적이며 거의 밀어낼 수 없다.",
     hp: 1800,
     isMounted: true,
-    name: "Cavalry",
+    name: "기병대",
   },
   centaur: {
     attackSpeed: 700,
@@ -28,7 +28,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     hp: 1200,
     isMounted: true,
     isRanged: true,
-    name: "Centaur",
+    name: "켄타우로스",
     range: 280,
   },
   elite: {

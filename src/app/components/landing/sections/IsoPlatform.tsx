@@ -77,7 +77,7 @@ export function IsoPlatform({
           <feGaussianBlur stdDeviation="3" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
+            <feMergeNode in="원본 그래픽" />
           </feMerge>
         </filter>
       </defs>

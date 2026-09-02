@@ -770,7 +770,7 @@ function getSpellStatsForType(
           iconClass: "text-indigo-400/70",
           bg: "rgba(49,46,129,0.15)",
           textColor: "text-indigo-300/80",
-          value: s.isGlobal ? "Global" : `${s.maxTargets} max`,
+          value: s.isGlobal ? "전역" : `${s.maxTargets} max`,
         },
       ];
     }

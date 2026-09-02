@@ -96,7 +96,7 @@ export const CameraModeOverlay: React.FC<CameraModeOverlayProps> = ({
         <button
           onClick={onExit}
           className="ml-2 p-1 rounded-md hover:bg-white/10 transition-colors"
-          title="Exit photo mode"
+          title="포토 모드 종료"
         >
           <X size={14} className="text-white/70" />
         </button>

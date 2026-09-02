@@ -1,7 +1,7 @@
 export const SITE_URL = "https://sigco3111.github.io/Princeton-Tower-Defense";
 export const SITE_NAME = "프린스턴 타워 디펜스";
-export const SITE_NAME_EN = "Princeton Tower Defense";
-export const SITE_AUTHOR = "Kevin Liu";
+export const SITE_NAME_EN = "프린스턴 타워 디펜스";
+export const SITE_AUTHOR = "케빈 리우";
 export const GITHUB_URL =
   "https://github.com/Kevin-Liu-01/Princeton-Tower-Defense";
 
@@ -53,10 +53,10 @@ export const KEYWORDS = [
 
   // Princeton-specific
   "프린스턴",
-  "Princeton University",
+  "프린스턴 대학교",
   "Princeton game",
-  "Princeton Tower Defense",
-  "Princeton TD",
+  "프린스턴 타워 디펜스",
+  "프린스턴 TD",
   "Princeton tower defence",
   "PrincetonTD",
   "나소 홀",
@@ -186,7 +186,7 @@ export const KEYWORDS = [
   "play in browser",
 
   // Creator / developer
-  "Kevin Liu",
+  "케빈 리우",
   "Kevin Liu game",
   "Kevin Liu Princeton",
   "kevin-liu.tech",
@@ -228,7 +228,7 @@ export const SPELL_NAMES = [
   "빙결",
   "주문 방어막",
   "페이데이",
-  "Reinforcements",
+  "증원",
 ] as const;
 
 export const GAME_STATS = {

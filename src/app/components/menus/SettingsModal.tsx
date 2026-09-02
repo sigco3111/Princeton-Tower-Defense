@@ -309,7 +309,7 @@ function DevModeSection({
                 onDevPasswordSubmit();
               }
             }}
-            placeholder="Password"
+            placeholder="비밀번호"
             className="w-full px-2 py-1.5 rounded text-xs"
             style={{
               background: PANEL.bgDeep,
@@ -348,10 +348,10 @@ function GraphicsPanel({ settings, updateCategory }: CategoryPanelProps) {
 
   return (
     <>
-      <SectionDivider label="Shadows & Lighting" />
+      <SectionDivider label="그림자 및 조명" />
       <SettingRow
         icon={<Sun size={16} />}
-        label="Shadow Quality"
+        label="그림자 품질"
         description="품질이 높을수록 더 큰 블러 반경을 사용합니다"
       >
         <SegmentedControl<ShadowQuality>
@@ -360,14 +360,14 @@ function GraphicsPanel({ settings, updateCategory }: CategoryPanelProps) {
             { label: "끄기", value: "off" },
             { label: "낮음", value: "low" },
             { label: "Med", value: "medium" },
-            { label: "High", value: "high" },
+            { label: "높음", value: "high" },
           ]}
           onChange={(v) => update({ shadowQuality: v })}
         />
       </SettingRow>
       <SettingRow
         icon={<Sun size={16} />}
-        label="God Rays"
+        label="신의 광선"
         description="볼류메트릭 광선 효과"
       >
         <ToggleControl
@@ -377,8 +377,8 @@ function GraphicsPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Sparkles size={16} />}
-        label="Screen Glow"
-        description="Ambient glow effects"
+        label="화면 글로우"
+        description="주변 발광 효과"
       >
         <ToggleControl
           value={g.showScreenGlow}
@@ -386,10 +386,10 @@ function GraphicsPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Particles & Effects" />
+      <SectionDivider label="파티클 및 효과" />
       <SettingRow
         icon={<Sparkles size={16} />}
-        label="Particle Density"
+        label="파티클 밀도"
         description="생성되는 파티클 수"
       >
         <SegmentedControl<ParticleDensity>
@@ -398,17 +398,17 @@ function GraphicsPanel({ settings, updateCategory }: CategoryPanelProps) {
             { label: "끄기", value: "off" },
             { label: "낮음", value: "reduced" },
             { label: "가득", value: "full" },
-            { label: "Extra", value: "extra" },
+            { label: "추가", value: "extra" },
           ]}
           onChange={(v) => update({ particleDensity: v })}
         />
       </SettingRow>
 
-      <SectionDivider label="Atmosphere" />
+      <SectionDivider label="대기" />
       <SettingRow
         icon={<Cloud size={16} />}
-        label="Fog Quality"
-        description="Fog bank complexity"
+        label="안개 품질"
+        description="안개 단수 복잡도"
       >
         <SegmentedControl<FogQuality>
           value={g.fogQuality}
@@ -423,12 +423,12 @@ function GraphicsPanel({ settings, updateCategory }: CategoryPanelProps) {
       <SettingRow
         icon={<Palette size={16} />}
         label="그래디언트 품질"
-        description="Gradient color stops"
+        description="그라데이션 색상 단계"
       >
         <SegmentedControl<GradientQuality>
           value={g.gradientQuality}
           options={[
-            { label: "Simple", value: "simplified" },
+            { label: "단순", value: "simplified" },
             { label: "가득", value: "full" },
           ]}
           onChange={(v) => update({ gradientQuality: v })}
@@ -451,7 +451,7 @@ function GraphicsPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Sparkles size={16} />}
-        label="Aurora"
+        label="오로라"
         description="오로라 효과 (겨울 맵)"
       >
         <ToggleControl
@@ -461,7 +461,7 @@ function GraphicsPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Layers size={16} />}
-        label="Anti-Aliasing"
+        label="안티앨리어싱"
         description="캔버스 가장자리 부드럽게 처리"
       >
         <ToggleControl
@@ -480,18 +480,18 @@ function LandscapingPanel({ settings, updateCategory }: CategoryPanelProps) {
 
   const densityOptions: { value: DecorationDensity; label: string }[] = [
     { label: "최소", value: "minimal" },
-    { label: "Sparse", value: "sparse" },
+    { label: "듬성듬성", value: "sparse" },
     { label: "보통", value: "normal" },
-    { label: "Dense", value: "dense" },
-    { label: "Lush", value: "lush" },
+    { label: "조밀", value: "dense" },
+    { label: "무성한", value: "lush" },
   ];
 
   return (
     <>
-      <SectionDivider label="Vegetation" />
+      <SectionDivider label="식생" />
       <SettingRow
         icon={<Trees size={16} />}
-        label="Decoration Density"
+        label="장식 밀도"
         description="맵에 배치된 장식의 전체 개수"
       >
         <SegmentedControl<DecorationDensity>
@@ -502,7 +502,7 @@ function LandscapingPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Trees size={16} />}
-        label="Tree Clusters"
+        label="나무 군집"
         description="나무 군집의 수와 크기"
       >
         <SegmentedControl<DecorationDensity>
@@ -515,7 +515,7 @@ function LandscapingPanel({ settings, updateCategory }: CategoryPanelProps) {
       <SectionDivider label="구조물 & 마을" />
       <SettingRow
         icon={<Mountain size={16} />}
-        label="Village Density"
+        label="마을 밀도"
         description="마을 무리의 수"
       >
         <SegmentedControl<DecorationDensity>
@@ -525,10 +525,10 @@ function LandscapingPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Battlefield" />
+      <SectionDivider label="전장" />
       <SettingRow
         icon={<Swords size={16} />}
-        label="Battle Debris"
+        label="전투 잔해"
         description="분화구, 화살, 해골 등 전장 잔해"
       >
         <SegmentedControl<BattleDebrisDensity>
@@ -537,34 +537,34 @@ function LandscapingPanel({ settings, updateCategory }: CategoryPanelProps) {
             { label: "없음", value: "none" },
             { label: "낮음", value: "low" },
             { label: "Med", value: "medium" },
-            { label: "High", value: "high" },
+            { label: "높음", value: "high" },
           ]}
           onChange={(v) => update({ battleDebrisDensity: v })}
         />
       </SettingRow>
 
-      <SectionDivider label="Scaling" />
+      <SectionDivider label="크기 조정" />
       <SettingRow
         icon={<Maximize size={16} />}
-        label="Decoration Scale"
+        label="장식 크기"
         description="배치된 장식의 크기 범위"
       >
         <SegmentedControl<DecorationScale>
           value={l.decorationScale}
           options={[
-            { label: "Small", value: "small" },
+            { label: "작게", value: "small" },
             { label: "보통", value: "normal" },
-            { label: "Large", value: "large" },
-            { label: "Mixed", value: "mixed" },
+            { label: "크게", value: "large" },
+            { label: "혼합", value: "mixed" },
           ]}
           onChange={(v) => update({ decorationScale: v })}
         />
       </SettingRow>
 
-      <SectionDivider label="Toggles" />
+      <SectionDivider label="토글" />
       <SettingRow
         icon={<Layers size={16} />}
-        label="Path Decorations"
+        label="경로 장식"
         description="도로의 균열, 풀 뭉치, 표면 디테일"
       >
         <ToggleControl
@@ -574,7 +574,7 @@ function LandscapingPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Mountain size={16} />}
-        label="Landmarks"
+        label="랜드마크"
         description="주요 구조물 (피라미드, 성 등)"
       >
         <ToggleControl
@@ -584,7 +584,7 @@ function LandscapingPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Cloud size={16} />}
-        label="Water Effects"
+        label="물 효과"
         description="분수, 연못, 수경 시설"
       >
         <ToggleControl
@@ -603,10 +603,10 @@ function AnimationPanel({ settings, updateCategory }: CategoryPanelProps) {
 
   return (
     <>
-      <SectionDivider label="Quality" />
+      <SectionDivider label="품질" />
       <SettingRow
         icon={<Activity size={16} />}
-        label="Animation Intensity"
+        label="애니메이션 강도"
         description="전반적인 애니메이션 디테일 수준"
         tag="coming-soon"
       >
@@ -616,16 +616,16 @@ function AnimationPanel({ settings, updateCategory }: CategoryPanelProps) {
             { label: "끄기", value: "off" },
             { label: "낮음", value: "reduced" },
             { label: "보통", value: "normal" },
-            { label: "Enhanced", value: "enhanced" },
+            { label: "향상", value: "enhanced" },
           ]}
           onChange={(v) => update({ animationIntensity: v })}
         />
       </SettingRow>
 
-      <SectionDivider label="Screen Effects" />
+      <SectionDivider label="화면 효과" />
       <SettingRow
         icon={<Vibrate size={16} />}
-        label="Screen Shake"
+        label="화면 흔들림"
         description="충격 시 카메라 흔들림 강도"
         tag="coming-soon"
       >
@@ -639,10 +639,10 @@ function AnimationPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Toggles" />
+      <SectionDivider label="토글" />
       <SettingRow
         icon={<Skull size={16} />}
-        label="Death Animations"
+        label="죽음 애니메이션"
         description="적이 죽을 때 애니메이션 재생"
       >
         <ToggleControl
@@ -652,7 +652,7 @@ function AnimationPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Crosshair size={16} />}
-        label="Projectile Trails"
+        label="발사체 궤적"
         description="발사체에 시각적 궤적 표시"
       >
         <ToggleControl
@@ -662,7 +662,7 @@ function AnimationPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Shield size={16} />}
-        label="Tower Animations"
+        label="타워 애니메이션"
         description="타워 대기 및 공격 애니메이션"
         tag="coming-soon"
       >
@@ -673,7 +673,7 @@ function AnimationPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Activity size={16} />}
-        label="Idle Animations"
+        label="대기 애니메이션"
         description="장식에 미묘한 대기 동작"
         tag="coming-soon"
       >
@@ -693,10 +693,10 @@ function CameraPanel({ settings, updateCategory }: CategoryPanelProps) {
 
   return (
     <>
-      <SectionDivider label="Zoom" />
+      <SectionDivider label="줌" />
       <SettingRow
         icon={<ZoomIn size={16} />}
-        label="Default Zoom"
+        label="기본 줌"
         description="맵 입장 시 초기 확대 수준"
       >
         <SliderControl
@@ -710,7 +710,7 @@ function CameraPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<ZoomIn size={16} />}
-        label="Zoom Sensitivity"
+        label="줌 감도"
         description="스크롤에 따른 줌 반응 속도"
       >
         <SliderControl
@@ -723,10 +723,10 @@ function CameraPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Panning" />
+      <SectionDivider label="이동" />
       <SettingRow
         icon={<MousePointer size={16} />}
-        label="Edge Pan Speed"
+        label="가장자리 이동 속도"
         description="가장자리 호버 시 카메라 이동 속도"
         tag="coming-soon"
       >
@@ -736,16 +736,16 @@ function CameraPanel({ settings, updateCategory }: CategoryPanelProps) {
             { label: "끄기", value: "off" },
             { label: "감속", value: "slow" },
             { label: "보통", value: "normal" },
-            { label: "Fast", value: "fast" },
+            { label: "빠른", value: "fast" },
           ]}
           onChange={(v) => update({ edgePanSpeed: v })}
         />
       </SettingRow>
 
-      <SectionDivider label="Behavior" />
+      <SectionDivider label="동작" />
       <SettingRow
         icon={<Move size={16} />}
-        label="Smooth Camera"
+        label="부드러운 카메라"
         description="카메라 움직임 보간 처리"
         tag="coming-soon"
       >
@@ -756,7 +756,7 @@ function CameraPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Target size={16} />}
-        label="Zoom to Cursor"
+        label="커서 위치로 줌"
         description="마우스 위치로 줌인"
       >
         <ToggleControl
@@ -778,7 +778,7 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
       <SectionDivider label="HUD" />
       <SettingRow
         icon={<Activity size={16} />}
-        label="FPS Counter"
+        label="FPS 표시"
         description="초당 프레임 표시"
       >
         <ToggleControl
@@ -788,7 +788,7 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Clock size={16} />}
-        label="Game Timer"
+        label="게임 타이머"
         description="HUD 아래에 경과 시간 표시"
       >
         <ToggleControl
@@ -798,7 +798,7 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<PanelTop size={16} />}
-        label="Performance Overlay"
+        label="성능 오버레이"
         description="상세 성능 통계 표시"
         tag="coming-soon"
       >
@@ -808,25 +808,25 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Combat Feedback" />
+      <SectionDivider label="전투 피드백" />
       <SettingRow
         icon={<Swords size={16} />}
-        label="Damage Numbers"
+        label="데미지 숫자"
         description="데미지 수치 부유 표시"
       >
         <SegmentedControl<DamageNumberStyle>
           value={u.damageNumbers}
           options={[
             { label: "끄기", value: "off" },
-            { label: "Simple", value: "simple" },
-            { label: "Animated", value: "animated" },
+            { label: "단순", value: "simple" },
+            { label: "애니메이션", value: "animated" },
           ]}
           onChange={(v) => update({ damageNumbers: v })}
         />
       </SettingRow>
       <SettingRow
         icon={<Heart size={16} />}
-        label="Health Bars"
+        label="체력 바"
         description="적의 체력바 표시"
       >
         <ToggleControl
@@ -838,7 +838,7 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
       <SectionDivider label="타워 표시기" />
       <SettingRow
         icon={<Radio size={16} />}
-        label="Range Indicators"
+        label="사거리 표시기"
         description="타워 호버 시 사정거리 표시"
       >
         <ToggleControl
@@ -848,7 +848,7 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Target size={16} />}
-        label="Tower Radii"
+        label="타워 사거리"
         description="배치 중 반경 원 표시"
       >
         <ToggleControl
@@ -858,7 +858,7 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Star size={16} />}
-        label="Tower Badges"
+        label="타워 배지"
         description="타워에 레벨 별과 업그레이드 경로 배지 표시"
       >
         <ToggleControl
@@ -867,10 +867,10 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Overlays" />
+      <SectionDivider label="오버레이" />
       <SettingRow
         icon={<Gamepad2 size={16} />}
-        label="Camera D-Pad"
+        label="카메라 D-Pad"
         description="화면 상 카메라 이동 조작 표시"
       >
         <ToggleControl
@@ -880,7 +880,7 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Keyboard size={16} />}
-        label="Controls Reference"
+        label="조작 안내"
         description="키보드 단축키 참조 패널 표시"
       >
         <ToggleControl
@@ -889,10 +889,10 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Gameplay" />
+      <SectionDivider label="게임플레이" />
       <SettingRow
         icon={<Layers size={16} />}
-        label="Wave Preview"
+        label="웨이브 미리보기"
         description="다가오는 웨이브 구성 미리 보기"
       >
         <ToggleControl
@@ -902,7 +902,7 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<FastForward size={16} />}
-        label="Auto-Send Waves"
+        label="웨이브 자동 전송"
         description="타이머 만료 시 다음 웨이브 자동 시작"
       >
         <ToggleControl
@@ -911,26 +911,26 @@ function UIPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Interface Scale" />
+      <SectionDivider label="인터페이스 크기" />
       <SettingRow
         icon={<Maximize size={16} />}
-        label="UI Scale"
-        description="Size of HUD elements"
+        label="UI 크기"
+        description="HUD 요소 크기"
         tag="coming-soon"
       >
         <SegmentedControl<UIScale>
           value={u.uiScale}
           options={[
-            { label: "Compact", value: "compact" },
+            { label: "간결", value: "compact" },
             { label: "보통", value: "normal" },
-            { label: "Large", value: "large" },
+            { label: "크게", value: "large" },
           ]}
           onChange={(v) => update({ uiScale: v })}
         />
       </SettingRow>
       <SettingRow
         icon={<Clock size={16} />}
-        label="Tooltip Delay"
+        label="툴팁 지연"
         description="툴팁이 나타나기 전 시간 (밀리초)"
         tag="coming-soon"
       >
@@ -957,8 +957,8 @@ function AudioPanel({ settings, updateCategory }: CategoryPanelProps) {
       <SectionDivider label="볼륨" />
       <SettingRow
         icon={<Volume2 size={16} />}
-        label="Master Volume"
-        description="Overall audio level"
+        label="전체 음량"
+        description="전체 오디오 레벨"
         tag="coming-soon"
       >
         <SliderControl
@@ -972,7 +972,7 @@ function AudioPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<Zap size={16} />}
-        label="SFX Volume"
+        label="효과음 음량"
         description="효과음 (공격, 능력)"
         tag="coming-soon"
       >
@@ -988,7 +988,7 @@ function AudioPanel({ settings, updateCategory }: CategoryPanelProps) {
       <SettingRow
         icon={<Headphones size={16} />}
         label="음악 볼륨"
-        description="Background music"
+        description="배경 음악"
         tag="coming-soon"
       >
         <SliderControl
@@ -1016,10 +1016,10 @@ function AudioPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Behavior" />
+      <SectionDivider label="동작" />
       <SettingRow
         icon={<VolumeX size={16} />}
-        label="Mute When Unfocused"
+        label="비활성 시 음소거"
         description="탭이 비활성일 때 오디오 음소거"
         tag="coming-soon"
       >
@@ -1039,10 +1039,10 @@ function AccessibilityPanel({ settings, updateCategory }: CategoryPanelProps) {
 
   return (
     <>
-      <SectionDivider label="Vision" />
+      <SectionDivider label="시각" />
       <SettingRow
         icon={<Eye size={16} />}
-        label="Colorblind Mode"
+        label="색맹 모드"
         description="색약에 맞춰 색상 조정"
         tag="coming-soon"
       >
@@ -1050,16 +1050,16 @@ function AccessibilityPanel({ settings, updateCategory }: CategoryPanelProps) {
           value={acc.colorblindMode}
           options={[
             { label: "끄기", value: "off" },
-            { label: "Protan", value: "protanopia" },
-            { label: "Deuter", value: "deuteranopia" },
-            { label: "Tritan", value: "tritanopia" },
+            { label: "적색약 (Protan)", value: "protanopia" },
+            { label: "색약 (Deuter)", value: "deuteranopia" },
+            { label: "청황색약 (Tritan)", value: "tritanopia" },
           ]}
           onChange={(v) => update({ colorblindMode: v })}
         />
       </SettingRow>
       <SettingRow
         icon={<Contrast size={16} />}
-        label="High Contrast UI"
+        label="고대비 UI"
         description="UI 요소의 대비 강화"
         tag="coming-soon"
       >
@@ -1069,10 +1069,10 @@ function AccessibilityPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Motion" />
+      <SectionDivider label="동작" />
       <SettingRow
         icon={<Accessibility size={16} />}
-        label="Reduced Motion"
+        label="동작 줄이기"
         description="애니메이션과 동작 최소화"
         tag="coming-soon"
       >
@@ -1082,10 +1082,10 @@ function AccessibilityPanel({ settings, updateCategory }: CategoryPanelProps) {
         />
       </SettingRow>
 
-      <SectionDivider label="Readability" />
+      <SectionDivider label="가독성" />
       <SettingRow
         icon={<Type size={16} />}
-        label="Large Text"
+        label="큰 텍스트"
         description="UI 전체의 텍스트 크기 확대"
         tag="coming-soon"
       >
@@ -1096,7 +1096,7 @@ function AccessibilityPanel({ settings, updateCategory }: CategoryPanelProps) {
       </SettingRow>
       <SettingRow
         icon={<AlertCircle size={16} />}
-        label="Screen Reader Hints"
+        label="스크린 리더 힌트"
         description="보조 기술용 추가 ARIA 레이블"
         tag="coming-soon"
       >
@@ -1130,25 +1130,25 @@ const TABS: TabDef[] = [
   {
     icon: <Trees size={18} />,
     id: "landscaping",
-    label: "Landscaping",
+    label: "조경",
     panel: LandscapingPanel,
   },
   {
     icon: <Sparkles size={18} />,
     id: "animation",
-    label: "Animation",
+    label: "애니메이션",
     panel: AnimationPanel,
   },
   {
     icon: <Move size={18} />,
     id: "camera",
-    label: "Camera",
+    label: "카메라",
     panel: CameraPanel,
   },
   {
     icon: <LayoutDashboard size={18} />,
     id: "ui",
-    label: "Interface",
+    label: "인터페이스",
     panel: UIPanel,
   },
   {
@@ -1160,7 +1160,7 @@ const TABS: TabDef[] = [
   {
     icon: <Eye size={18} />,
     id: "accessibility",
-    label: "Accessibility",
+    label: "접근성",
     panel: AccessibilityPanel,
   },
 ];
@@ -1173,7 +1173,7 @@ const PRESET_BUTTONS: { value: QualityPreset; label: string; desc: string }[] =
   [
     {
       desc: "저사양 기기를 위한 최소 사양",
-      label: "Potato",
+      label: "저사양",
       value: "potato",
     },
     { desc: "프레임 확보를 위해 효과를 줄였습니다", label: "낮음", value: "low" },
@@ -1383,7 +1383,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               >
                 <RotateCcw size={14} />
                 <span className="hidden sm:inline">
-                  {confirmReset ? "Confirm?" : "Reset All"}
+                  {confirmReset ? "확인?" : "전체 초기화"}
                 </span>
               </button>
 

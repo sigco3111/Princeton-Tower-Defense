@@ -56,7 +56,7 @@ const REGION_ICONS = [MapPin, Flame, Zap, Shield, Crown];
 
 const CREDITS_LINKS = [
   {
-    description: "Portfolio",
+    description: "포트폴리오",
     href: "https://www.kevin-liu.tech/",
     icon: Globe,
     label: "kevin-liu.tech",
@@ -549,7 +549,7 @@ function ShareButtons({
         }}
       >
         {copied ? <Check size={12} /> : <Share2 size={12} />}
-        {copied ? "Copied!" : "Copy Link"}
+        {copied ? "Copied!" : "링크 복사"}
       </button>
 
       {/* Native share (mobile) */}
@@ -798,7 +798,7 @@ export function CampaignVictoryScreen({
                   boxShadow: `inset 0 0 25px ${GOLD.glow07}, 0 6px 30px ${OVERLAY.black60}`,
                 }}
               >
-                <SectionLabel text="Campaign Rating" icon={Trophy} />
+                <SectionLabel text="캠페인 평점" icon={Trophy} />
 
                 <div className="flex items-center justify-center gap-3 mt-3">
                   <div className="flex items-center gap-1">
@@ -851,7 +851,7 @@ export function CampaignVictoryScreen({
 
           {/* ===== CUMULATIVE STATS GRID ===== */}
           <AnimatedSection delay={baseDelay + SECTION_DELAY_MS}>
-            <SectionLabel text="Campaign Stats" icon={Swords} />
+            <SectionLabel text="캠페인 통계" icon={Swords} />
             <div className="grid grid-cols-2 gap-2 mt-2">
               <StatCard
                 icon={Clock}
@@ -863,7 +863,7 @@ export function CampaignVictoryScreen({
               />
               <StatCard
                 icon={Heart}
-                label="Hearts Saved"
+                label="남은 생명"
                 color="#f87171"
                 value={<AnimatedCounter target={bestOverallHearts} />}
                 subValue="Sum of best hearts"
@@ -871,7 +871,7 @@ export function CampaignVictoryScreen({
               />
               <StatCard
                 icon={Swords}
-                label="Battles Won"
+                label="승리한 전투"
                 color="#4ade80"
                 value={
                   <>
@@ -884,7 +884,7 @@ export function CampaignVictoryScreen({
               />
               <StatCard
                 icon={Shield}
-                label="Levels Cleared"
+                label="클리어한 레벨"
                 color="#c084fc"
                 value={
                   <>
@@ -916,7 +916,7 @@ export function CampaignVictoryScreen({
               />
               <StatCard
                 icon={Swords}
-                label="Enemies Slain"
+                label="처치한 적"
                 color="#fb923c"
                 value={<AnimatedCounter target={sessionStats.enemiesKilled} />}
                 delay={baseDelay + SECTION_DELAY_MS * 2 + STAT_STAGGER_MS * 3}
@@ -933,7 +933,7 @@ export function CampaignVictoryScreen({
 
           {/* ===== REGION BREAKDOWN ===== */}
           <AnimatedSection delay={baseDelay + SECTION_DELAY_MS * 3}>
-            <SectionLabel text="Region Progress" icon={MapPin} />
+            <SectionLabel text="지역 진행도" icon={MapPin} />
             <div className="flex flex-col gap-1.5 mt-2">
               {regionStats.map((r, i) => {
                 const Icon = REGION_ICONS[i % REGION_ICONS.length];

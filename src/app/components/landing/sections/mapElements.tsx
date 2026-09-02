@@ -365,9 +365,9 @@ const MAP_LOCATIONS: LocationDef[] = [
   { label: "나소 홀", left: "10%", top: "20%" },
   { label: "포 필드", right: "9%", top: "30%" },
   { bottom: "32%", label: "카네기 호수", left: "7%" },
-  { bottom: "24%", label: "The Caldera", right: "10%" },
-  { label: "Frozen Peak", right: "24%", top: "14%" },
-  { bottom: "38%", label: "Dark Marsh", right: "22%" },
+  { bottom: "24%", label: "칼데라", right: "10%" },
+  { label: "얼어붙은 봉우리", right: "24%", top: "14%" },
+  { bottom: "38%", label: "어두운 습지", right: "22%" },
 ];
 
 function LocationMarker({ label, ...pos }: LocationDef) {

@@ -25,21 +25,21 @@ export interface EnemyTagDef {
 }
 
 export const ENEMY_TAG_DEFS: EnemyTagDef[] = [
-  { color: "#38bdf8", id: "flying", label: "Flying" },
+  { color: "#38bdf8", id: "flying", label: "비행" },
   { color: "#94a3b8", id: "armored", label: "장갑" },
-  { color: "#facc15", id: "swift", label: "Swift" },
-  { color: "#22d3ee", id: "breach", label: "Breach" },
+  { color: "#facc15", id: "swift", label: "신속한" },
+  { color: "#22d3ee", id: "breach", label: "돌파" },
   { color: "#4ade80", id: "ranged", label: "원거리" },
   { color: "#c084fc", id: "summoner", label: "소환형" },
   { color: "#84cc16", id: "regen", label: "Regen" },
-  { color: "#2dd4bf", id: "arcane", label: "Arcane" },
-  { color: "#fb923c", id: "aoe", label: "AoE" },
-  { color: "#f43f5e", id: "saboteur", label: "Saboteur" },
+  { color: "#2dd4bf", id: "arcane", label: "비전" },
+  { color: "#fb923c", id: "aoe", label: "광역" },
+  { color: "#f43f5e", id: "saboteur", label: "방해공작원" },
   { color: "#ef4444", id: "burn", label: "화상" },
   { color: "#a3e635", id: "venom", label: "poison" },
   { color: "#eab308", id: "stun", label: "기절" },
-  { color: "#d1d5db", id: "undead", label: "Undead" },
-  { color: "#bef264", id: "insect", label: "Insect" },
+  { color: "#d1d5db", id: "undead", label: "언데드" },
+  { color: "#bef264", id: "insect", label: "곤충" },
 ];
 
 const TAG_MAP = Object.fromEntries(

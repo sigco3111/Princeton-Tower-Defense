@@ -245,7 +245,7 @@ export interface TowerCategory {
 }
 
 export const TOWER_CATEGORIES: Record<TowerType, TowerCategory> = {
-  arch: { colorName: "blue", label: "Multi-Target" },
+  arch: { colorName: "blue", label: "다중 대상" },
   cannon: { colorName: "red", label: "중포병" },
   club: { colorName: "amber", label: "경제" },
   lab: { colorName: "yellow", label: "에너지 피해" },
@@ -321,7 +321,7 @@ export const TOWER_TAG_DEFS: Record<TowerTag, TowerTagDef> = {
     bgClass: "bg-purple-950/60",
     borderClass: "border-purple-700/40",
     icon: "snowflake",
-    label: "Control",
+    label: "제어",
     textClass: "text-purple-300",
   },
   dps: {
@@ -370,7 +370,7 @@ export const TOWER_TAG_DEFS: Record<TowerTag, TowerTagDef> = {
     bgClass: "bg-emerald-950/60",
     borderClass: "border-emerald-700/40",
     icon: "heart-pulse",
-    label: "Support",
+    label: "지원",
     textClass: "text-emerald-300",
   },
 };
@@ -453,7 +453,7 @@ export const TOWER_ROLE_STYLES: Record<TowerType, TowerRoleStyle> = {
     accent: "rgba(249,115,22,0.7)",
     bg: "rgba(124,45,18,0.35)",
     border: "rgba(154,52,18,0.3)",
-    label: "AoE",
+    label: "광역",
     statColor: "rgb(253,186,116)",
     text: "rgb(253,186,116)",
   },
@@ -461,7 +461,7 @@ export const TOWER_ROLE_STYLES: Record<TowerType, TowerRoleStyle> = {
     accent: "rgba(232,121,249,0.7)",
     bg: "rgba(112,26,117,0.35)",
     border: "rgba(134,25,143,0.3)",
-    label: "Troops",
+    label: "병사",
     statColor: "rgb(240,171,252)",
     text: "rgb(240,171,252)",
   },

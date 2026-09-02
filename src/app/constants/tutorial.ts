@@ -41,7 +41,7 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
       "Tap a placed tower to upgrade it. Three stat upgrades, then choose one of two Lv.4 specializations.",
     id: "upgrade-towers",
     position: "center",
-    title: "Upgrading Towers",
+    title: "타워 업그레이드",
   },
   {
     description:
@@ -49,7 +49,7 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
     highlight: "hero-spell-bar",
     id: "move-hero",
     position: "bottom-center",
-    title: "Your Hero",
+    title: "당신의 영웅",
   },
   {
     description:
@@ -109,21 +109,21 @@ export const SPECIAL_TOWER_ENCOUNTERS: Record<SpecialTowerType, EncounterInfo> =
       description:
         "Pre-built Barracks that automatically spawn troops to block enemy paths. " +
         "These soldiers fight for free — support them with nearby towers!",
-      name: "Barracks",
+      name: "병영",
     },
     beacon: {
       category: "special_tower",
       description:
-        "A Beacon Tower boosts the range of all nearby towers. " +
+        "비콘 타워는 근처 모든 타워의 사거리를 증가시킵니다. " +
         "Build your towers close to it to take advantage of the buff!",
-      name: "Beacon Tower",
+      name: "비콘 타워",
     },
     chrono_relay: {
       category: "special_tower",
       description:
-        "A Chrono Relay accelerates the attack speed of nearby towers. " +
+        "크로노 릴레이는 근처 타워의 공격 속도를 높입니다. " +
         "Cluster your damage towers near it for devastating fire rates!",
-      name: "Chrono Relay",
+      name: "크로노 릴레이",
     },
     sentinel_nexus: {
       category: "special_tower",
@@ -135,9 +135,9 @@ export const SPECIAL_TOWER_ENCOUNTERS: Record<SpecialTowerType, EncounterInfo> =
     shrine: {
       category: "special_tower",
       description:
-        "A mystic Shrine that provides passive bonuses to your defenses. " +
+        "방어에 패시브 보너스를 제공하는 신비한 사당입니다. " +
         "Keep it in mind when planning your tower layout.",
-      name: "Shrine",
+      name: "사당",
     },
     sunforge_orrery: {
       category: "special_tower",
@@ -165,14 +165,14 @@ const HAZARD_ENCOUNTER_DATA: Partial<Record<HazardType, EncounterInfo>> = {
     description:
       "Deep water zones slow ground movement significantly. " +
       "Flying enemies are unaffected — prepare anti-air defenses!",
-    name: "Deep Water",
+    name: "깊은 물",
   },
   ice_sheet: {
     category: "hazard",
     description:
       "Slippery ice speeds up enemies as they slide across. " +
       "Place your strongest towers near the ice to catch fast-moving foes.",
-    name: "Ice Sheet",
+    name: "얼음판",
   },
   ice_spikes: {
     category: "hazard",
@@ -186,7 +186,7 @@ const HAZARD_ENCOUNTER_DATA: Partial<Record<HazardType, EncounterInfo>> = {
     description:
       "Molten lava deals continuous damage to anything that crosses it. " +
       "Keep your hero and troops away from these deadly flows!",
-    name: "Lava",
+    name: "용암",
   },
   lava_geyser: {
     category: "hazard",
@@ -198,29 +198,29 @@ const HAZARD_ENCOUNTER_DATA: Partial<Record<HazardType, EncounterInfo>> = {
   maelstrom: {
     category: "hazard",
     description:
-      "A swirling maelstrom that pulls and slows everything caught in its radius. " +
+      "반경 안의 모든 것을 끌어당기고 감속시키는 소용돌이입니다. " +
       "Dangerous for troops but great for keeping enemies in tower range.",
-    name: "Maelstrom",
+    name: "소용돌이",
   },
   poison_fog: {
     category: "hazard",
     description:
       "Toxic clouds deal damage over time to your troops and hero if they linger in the area. " +
       "Move your hero through quickly or avoid the fog entirely!",
-    name: "Poison Fog",
+    name: "독 안개",
   },
   quicksand: {
     category: "hazard",
     description:
       "Quicksand zones slow down enemies passing through — but also your troops! " +
       "Use towers to take advantage of slowed enemies, but keep your hero clear.",
-    name: "Quicksand",
+    name: "유사트",
   },
   storm_field: {
     category: "hazard",
     description:
       "Crackling storm energy that periodically damages and disrupts units in the area. " +
-      "Both enemies and your troops are affected!",
+      "적과 아군 모두 영향을 받습니다!",
     name: "폭풍 지대",
   },
   swamp: {
@@ -233,9 +233,9 @@ const HAZARD_ENCOUNTER_DATA: Partial<Record<HazardType, EncounterInfo>> = {
   volcano: {
     category: "hazard",
     description:
-      "An active volcano that erupts periodically, raining fire on a wide area. " +
+      "주기적으로 분출하여 넓은 지역에 불을 내리는 활화산입니다. " +
       "Watch for eruption warnings and reposition your hero!",
-    name: "Volcano",
+    name: "화산",
   },
 };
 
@@ -287,7 +287,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
   {
     category: "special",
     description:
-      "Berserkers are ferocious melee fighters that deal massive damage to your troops. " +
+      "버서커는 흉포한 근접 전사로, 병사들에게 막대한 피해를 입힙니다. " +
       "They move fast and hit hard — overwhelm them with tower fire before they reach your barracks.",
     members: ["berserker"],
     title: "광전사",
@@ -314,7 +314,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
       "Shadow Knights are elite warriors with heavy armor and devastating attacks. " +
       "They can disable your towers temporarily — spread your defenses to avoid losing too many at once.",
     members: ["shadow_knight"],
-    title: "Shadow Knight",
+    title: "그림자 기사",
   },
   {
     category: "special",
@@ -330,12 +330,12 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
       "Plaguebearers spread poison that damages your troops over time. " +
       "Keep your hero and barracks troops at a safe distance when possible.",
     members: ["plaguebearer"],
-    title: "Plaguebearer",
+    title: "역병 운반자",
   },
   {
     category: "special",
     description:
-      "Assassins are fast and stealthy, able to slip past your defenses. " +
+      "암살자는 빠르고 은밀하여 방어선을 빠져나갈 수 있습니다. " +
       "They deal critical damage and can be hard to catch — use slowing towers!",
     members: ["assassin"],
     title: "암살자",
@@ -343,7 +343,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
   {
     category: "boss",
     description:
-      "A Dragon approaches! This flying boss has massive HP, deals AoE fire damage, " +
+      "드래곤이 접근 중! 이 비행 보스는 엄청난 체력을 가지고 있으며, 광역 화염 피해를 입히고, " +
       "and is resistant to most attacks. Bring your best spells and upgraded towers!",
     members: ["dragon"],
     title: "드래곤",
@@ -354,7 +354,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
       "The Juggernaut is an unstoppable siege engine with the highest HP in the game. " +
       "It crushes everything in its path. Layer your defenses deep!",
     members: ["juggernaut"],
-    title: "Juggernaut",
+    title: "파괴자",
   },
   {
     category: "nature_swamp",
@@ -368,9 +368,9 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
     category: "nature_desert",
     description:
       "Desert enemies approach! Nomads are swift, Scorpions are venomous, and Scarabs swarm in numbers. " +
-      "AoE towers work well against the swarms.",
+      "광역 타워는 무리에게 효과적입니다.",
     members: ["nomad", "scorpion", "scarab"],
-    title: "Desert Raiders",
+    title: "사막 약탈자",
   },
   {
     category: "nature_winter",
@@ -378,7 +378,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
       "Frost enemies have arrived! Snow Goblins are quick, Yetis are tanky, " +
       "and Ice Witches can freeze your towers. Fire-based attacks are especially effective!",
     members: ["snow_goblin", "yeti", "ice_witch"],
-    title: "Winter Forces",
+    title: "겨울 군대",
   },
   {
     category: "nature_volcanic",
@@ -386,7 +386,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
       "Volcanic enemies are here! Magma Spawns leave burning trails, Fire Imps are fast and explosive, " +
       "and Ember Guards are heavily armored. Use slowing effects to control them.",
     members: ["magma_spawn", "fire_imp", "ember_guard"],
-    title: "Volcanic Fiends",
+    title: "화산 마귀들",
   },
   {
     category: "special",
@@ -394,7 +394,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
       "Thornwalkers regenerate HP over time and damage troops that attack them in melee. " +
       "Use ranged towers and spells to take them down safely.",
     members: ["thornwalker"],
-    title: "Thornwalker",
+    title: "가시걷이",
   },
   {
     category: "special",
@@ -402,7 +402,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
       "Sandworms burrow underground and surface near your towers! " +
       "They bypass part of the path — position your defenses further back.",
     members: ["sandworm"],
-    title: "Sandworm",
+    title: "모래벌레",
   },
   {
     category: "special",
@@ -410,7 +410,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
       "Frostlings freeze nearby towers on death, creating a temporary dead zone. " +
       "Spread your towers out to avoid chain-freezes!",
     members: ["frostling"],
-    title: "Frostling",
+    title: "서리 정령",
   },
   {
     category: "special",

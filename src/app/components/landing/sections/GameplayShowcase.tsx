@@ -12,11 +12,11 @@ import { MapSectionHeader, MapSectionBg } from "./mapElements";
 const T = LANDING_THEME;
 
 const REGION_PALETTES: Record<string, { accent: string; bg: string }> = {
-  "Desert Sands": { accent: "#fbbf24", bg: "rgba(60,40,10,0.55)" },
-  "Frozen Wastes": { accent: "#7dd3fc", bg: "rgba(14,26,50,0.55)" },
+  "사막": { accent: "#fbbf24", bg: "rgba(60,40,10,0.55)" },
+  "얼어붙은 황무지": { accent: "#7dd3fc", bg: "rgba(14,26,50,0.55)" },
   Grasslands: { accent: "#6ee7b7", bg: "rgba(16,42,28,0.55)" },
   "음울한 늪": { accent: "#a3e635", bg: "rgba(20,40,12,0.55)" },
-  "Volcanic Realm": { accent: "#f87171", bg: "rgba(60,14,14,0.55)" },
+  "화산 영역": { accent: "#f87171", bg: "rgba(60,14,14,0.55)" },
 };
 
 function RegionTile({

@@ -482,7 +482,7 @@ export const drawWorldMapCanvas = ({
       // Draw first tag badge in top-right corner
       const tagText =
         level.kind === "challenge"
-          ? "Challenge"
+          ? "도전"
           : level.kind === "sandbox"
             ? "샌드박스"
             : (level.tags[0] ?? "");

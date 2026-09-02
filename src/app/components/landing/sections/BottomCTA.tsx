@@ -83,7 +83,7 @@ export function BottomCTA({ onPlay, exiting }: BottomCTAProps) {
               <LandingCTA
                 onClick={onPlay}
                 disabled={exiting}
-                label="Play Now"
+                label="지금 플레이"
               />
               <span
                 className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-semibold text-center"

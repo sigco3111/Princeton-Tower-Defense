@@ -410,7 +410,7 @@ export function drawStructureLandmarkLayer(dc: WorldMapDrawContext): void {
   drawEnemyLair(dc, MAP_WIDTH - 70, 50);
 
   // Kingdom labels under castles
-  drawCastleLabel(dc, 70, 50, "YOUR KINGDOM", false);
+  drawCastleLabel(dc, 70, 50, "당신의 왕국", false);
   drawCastleLabel(dc, MAP_WIDTH - 70, 50, "ENEMY KINGDOM", true);
 
   // === ABOVE-PATH LANDMARKS (rendered over connection paths) ===

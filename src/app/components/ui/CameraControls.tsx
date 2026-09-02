@@ -237,7 +237,7 @@ export const CameraControls: React.FC<CameraControlsProps> = ({
                       height: 34,
                       width: 32,
                     }}
-                    title="Reset camera"
+                    title="카메라 초기화"
                   >
                     <RotateCcw size={10} className="text-amber-500/50" />
                   </button>
@@ -303,11 +303,11 @@ export const CameraControls: React.FC<CameraControlsProps> = ({
             )}
             <div className="flex flex-col gap-1">
               <ShortcutRow keyLabel="ESC" description="선택 해제" />
-              <ShortcutRow keyLabel="F2" description="Photo Mode" />
+              <ShortcutRow keyLabel="F2" description="포토 모드" />
               {!showDpad && (
                 <>
-                  <ShortcutRow keyLabel="WASD" description="Move Camera" />
-                  <ShortcutRow keyLabel="+/−" description="Zoom" />
+                  <ShortcutRow keyLabel="WASD" description="카메라 이동" />
+                  <ShortcutRow keyLabel="+/−" description="줌" />
                 </>
               )}
             </div>

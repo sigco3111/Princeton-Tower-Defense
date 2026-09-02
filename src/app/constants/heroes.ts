@@ -9,7 +9,7 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
     color: "#dc2626",
     damage: 65,
     description:
-      "A legendary commander wreathed in flame. Summons loyal knights to his banner.",
+      "불꽃에 휩싸인 전설적인 지휘관. 충성스러운 기사들을 자신의 깃발 아래 소환한다.",
     hp: 4650,
     isRanged: false,
     name: "머서 장군",
@@ -23,7 +23,7 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
     color: "#eab308",
     damage: 40,
     description:
-      "A brilliant inventor who deploys automated turrets designed in the Engineering Library. He needs more coffee.",
+      "공학 도서관에서 설계한 자동 포탑을 배치하는 천재 발명가. 커피가 더 필요하다.",
     hp: 2500,
     isRanged: true,
     name: "BSE 엔지니어",
@@ -111,7 +111,7 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
     color: "#8b5cf6",
     damage: 60,
     description:
-      "A virtuoso vocalist whose voice is a weapon. His sonic attacks pierce through even the toughest armor.",
+      "목소리가 무기인 virtuosity 보컬리스트. 그의 음향 공격은 가장 단단한 갑옷도 뚫는다.",
     hp: 3200,
     isRanged: true,
     name: "아카펠라 테너",
@@ -219,7 +219,7 @@ export const HERO_ROLES: Record<HeroType, HeroRole> = {
     bg: "rgba(5,45,25,0.85)",
     border: "rgba(5,150,105,0.35)",
     color: "text-emerald-300",
-    label: "Controller",
+    label: "컨트롤러",
   },
   mathey: {
     bg: "rgba(25,25,60,0.85)",
@@ -231,7 +231,7 @@ export const HERO_ROLES: Record<HeroType, HeroRole> = {
     bg: "rgba(60,30,5,0.85)",
     border: "rgba(230,126,34,0.35)",
     color: "text-amber-300",
-    label: "Sky Guardian",
+    label: "하늘 수호자",
   },
   rocky: {
     bg: "rgba(45,35,10,0.85)",
@@ -243,7 +243,7 @@ export const HERO_ROLES: Record<HeroType, HeroRole> = {
     bg: "rgba(8,45,42,0.85)",
     border: "rgba(20,184,166,0.35)",
     color: "text-teal-300",
-    label: "Support",
+    label: "지원",
   },
   tenor: {
     bg: "rgba(35,20,65,0.85)",

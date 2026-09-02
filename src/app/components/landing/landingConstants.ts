@@ -41,7 +41,7 @@ export const LANDING_STATS: FeatureStat[] = [
   { icon: Shield, label: "tower", value: "7" },
   { icon: Crown, label: "영웅", value: "9" },
   { icon: Sparkles, label: "주문", value: "6" },
-  { icon: Map, label: "Regions", value: "5" },
+  { icon: Map, label: "지역", value: "5" },
   { icon: Skull, label: "적", value: "100+" },
 ];
 
@@ -122,12 +122,12 @@ export interface ShowcaseSlide {
 
 export const GAMEPLAY_SHOWCASE: ShowcaseSlide[] = [
   {
-    label: "Grasslands",
+    label: "초원",
     levelId: "poe",
     src: "/images/new/gameplay_grounds_ui.png",
   },
   {
-    label: "Desert Sands",
+    label: "사막",
     levelId: "oasis",
     src: "/images/new/gameplay_desert_ui.png",
   },
@@ -137,12 +137,12 @@ export const GAMEPLAY_SHOWCASE: ShowcaseSlide[] = [
     src: "/images/new/gameplay_swamp_ui.png",
   },
   {
-    label: "Frozen Wastes",
+    label: "얼어붙은 황무지",
     levelId: "glacier",
     src: "/images/new/gameplay_winter_ui.png",
   },
   {
-    label: "Volcanic Realm",
+    label: "화산 영역",
     levelId: "lava",
     src: "/images/new/gameplay_volcano_ui.png",
   },
@@ -224,7 +224,7 @@ export const SPELL_GALLERY: CharacterDisplay[] = [
     color: "#ef4444",
     id: "fireball",
     image: "/images/spells/fireball-action.png",
-    name: "Fireball Strike",
+    name: "화염구 강타",
   },
   {
     color: "#a855f7",
@@ -248,13 +248,13 @@ export const SPELL_GALLERY: CharacterDisplay[] = [
     color: "#eab308",
     id: "payday",
     image: "/images/spells/payday-action.png",
-    name: "Paw Point Payday",
+    name: "발자국 점수 payday",
   },
   {
     color: "#22c55e",
     id: "reinforcements",
     image: "/images/spells/reinforcements-action.png",
-    name: "Reinforcements",
+    name: "증원",
   },
 ];
 
@@ -269,11 +269,11 @@ export const BATTLE_PREVIEW_SLIDES: BattlePreviewSlide[] = [
   { label: "나소 홀", src: "/images/previews/nassau.png" },
   { label: "포 필드", src: "/images/previews/poe.png" },
   { label: "카네기 호수", src: "/images/previews/carnegie.png" },
-  { label: "Frozen Glacier", src: "/images/previews/glacier.png" },
-  { label: "The Caldera", src: "/images/previews/caldera.png" },
-  { label: "Ancient Pyramid", src: "/images/previews/pyramid.png" },
+  { label: "얼어붙은 빙하", src: "/images/previews/glacier.png" },
+  { label: "칼데라", src: "/images/previews/caldera.png" },
+  { label: "고대 피라미드", src: "/images/previews/pyramid.png" },
   { label: "Witch's Hut", src: "/images/previews/witch_hut.png" },
-  { label: "Mountain Fortress", src: "/images/previews/fortress.png" },
+  { label: "산악 요새", src: "/images/previews/fortress.png" },
 ];
 
 // ─── All landing image URLs (for preloading) ─────────────────────────────────

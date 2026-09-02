@@ -80,7 +80,7 @@ interface SpellTheme {
   connector: string;
 }
 
-type NodeState = "unlocked" | "next" | "locked";
+type NodeState = "잠금 해제됨" | "next" | "locked";
 
 interface UpgradeTag {
   label: string;
@@ -137,12 +137,12 @@ const SPELL_THEMES: Record<SpellType, SpellTheme> = {
 };
 
 const LEVEL_ICON_MAP: Record<number, { Icon: LucideIcon; label: string }> = {
-  1: { Icon: CircleDot, label: "Initiate" },
-  2: { Icon: Shield, label: "Bulwark" },
-  3: { Icon: Swords, label: "Surge" },
-  4: { Icon: Sparkles, label: "Apex" },
-  5: { Icon: Crown, label: "Mastery" },
-  6: { Icon: Star, label: "Supremacy" },
+  1: { Icon: CircleDot, label: "시작" },
+  2: { Icon: Shield, label: "방어벽" },
+  3: { Icon: Swords, label: "급등" },
+  4: { Icon: Sparkles, label: "정점" },
+  5: { Icon: Crown, label: "숙련" },
+  6: { Icon: Star, label: "최고" },
 };
 
 const UPGRADE_ICON_MAP: Record<string, LucideIcon> = {
@@ -198,7 +198,7 @@ const UPGRADE_TAGS: Record<string, UpgradeTag[]> = {
     {
       accent: "#fbbf24",
       icon: Crosshair,
-      label: "Manual Targeting",
+      label: "수동 조준",
       special: true,
     },
   ],
@@ -207,12 +207,12 @@ const UPGRADE_TAGS: Record<string, UpgradeTag[]> = {
   ],
   "fireball-4": [
     { accent: "#fb923c", icon: Zap, label: "+15 Meteor Damage" },
-    { accent: "#f87171", icon: Shield, label: "Armor Piercing", special: true },
+    { accent: "#f87171", icon: Shield, label: "갑옷 관통", special: true },
   ],
   "fireball-5": [{ accent: "#fb923c", icon: Crown, label: "+3 Meteors" }],
   "fireball-6": [
     { accent: "#f87171", icon: Flame, label: "2× Burn DPS" },
-    { accent: "#fb923c", icon: Flame, label: "Searing Trails", special: true },
+    { accent: "#fb923c", icon: Flame, label: "이글거리는 궤적", special: true },
   ],
 
   "freeze-1": [
@@ -236,13 +236,13 @@ const UPGRADE_TAGS: Record<string, UpgradeTag[]> = {
     {
       accent: "#06b6d4",
       icon: Globe,
-      label: "Full Map Lockdown",
+      label: "전 맵 봉쇄",
       special: true,
     },
   ],
   "freeze-6": [
     { accent: "#67e8f9", icon: Snowflake, label: "+0.6s Freeze" },
-    { accent: "#06b6d4", icon: Clock, label: "Lingering Slow", special: true },
+    { accent: "#06b6d4", icon: Clock, label: "지속되는 감속", special: true },
   ],
 
   "hex_ward-1": [{ accent: "#d8b4fe", icon: Users, label: "+1 Reanimation" }],
@@ -252,8 +252,8 @@ const UPGRADE_TAGS: Record<string, UpgradeTag[]> = {
   ],
   "hex_ward-4": [{ accent: "#d8b4fe", icon: Users, label: "+2 Reanimations" }],
   "hex_ward-5": [
-    { accent: "#f0abfc", icon: Shield, label: "No Healing" },
-    { accent: "#a855f7", icon: Eye, label: "Mortality Seal", special: true },
+    { accent: "#f0abfc", icon: Shield, label: "치유 불가" },
+    { accent: "#a855f7", icon: Eye, label: "사선 인장", special: true },
   ],
   "hex_ward-6": [
     { accent: "#d8b4fe", icon: Users, label: "+2 Reanimations" },
@@ -268,7 +268,7 @@ const UPGRADE_TAGS: Record<string, UpgradeTag[]> = {
     {
       accent: "#fbbf24",
       icon: Crosshair,
-      label: "Manual Targeting",
+      label: "수동 조준",
       special: true,
     },
   ],
@@ -317,7 +317,7 @@ const UPGRADE_TAGS: Record<string, UpgradeTag[]> = {
     {
       accent: "#a78bfa",
       icon: Target,
-      label: "Ranged Formation",
+      label: "원거리 대형",
       special: true,
     },
   ],
@@ -492,7 +492,7 @@ const toLabelLines = (rawText: string): LabelLines => {
 
 const getNodeState = (currentLevel: number, nodeTier: number): NodeState => {
   if (currentLevel >= nodeTier) {
-    return "unlocked";
+    return "잠금 해제됨";
   }
   if (currentLevel + 1 === nodeTier) {
     return "next";
@@ -518,7 +518,7 @@ const getNodeBoxShadow = (
   if (selected) {
     return `0 0 0 2px ${theme.glow}, 0 0 18px ${theme.glow}66`;
   }
-  if (state === "unlocked") {
+  if (state === "잠금 해제됨") {
     return `inset 0 0 10px rgba(0,0,0,0.25), 0 0 6px rgba(74, 222, 128, 0.12)`;
   }
   if (state === "next") {
@@ -544,7 +544,7 @@ const renderConnector = (
   let dashArray: string | undefined;
   let animate = false;
 
-  if (state === "unlocked") {
+  if (state === "잠금 해제됨") {
     stroke = accentColor;
     strokeWidth = 2.5;
     opacity = 0.7;
@@ -630,7 +630,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(124,45,18,0.3)",
           border: "rgba(124,45,18,0.2)",
           color: "text-orange-300",
-          label: "Meteors",
+          label: "메테오",
           value: `${s.meteorCount}`,
         },
         {
@@ -654,7 +654,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(127,29,29,0.3)",
           border: "rgba(127,29,29,0.2)",
           color: "text-red-300",
-          label: "Burn DPS",
+          label: "연소 초당 피해",
           value: `${s.burnDamagePerSecond}/s`,
         },
         {
@@ -662,7 +662,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(68,64,60,0.3)",
           border: "rgba(68,64,60,0.2)",
           color: "text-stone-300",
-          label: "Fall Time",
+          label: "낙하 시간",
           value: `${(s.fallDurationMs / 1000).toFixed(1)}s`,
         },
       ];
@@ -675,7 +675,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(113,63,18,0.3)",
           border: "rgba(113,63,18,0.2)",
           color: "text-yellow-300",
-          label: "Total DMG",
+          label: "총 피해",
           value: `${s.totalDamage}`,
         },
         {
@@ -713,7 +713,7 @@ const getSpellStatsForDisplay = (
           border: "rgba(30,58,138,0.2)",
           color: "text-blue-300",
           label: "대상",
-          value: s.isGlobal ? "Global" : `${s.maxTargets}`,
+          value: s.isGlobal ? "전역" : `${s.maxTargets}`,
         },
         {
           Icon: Snowflake,
@@ -733,7 +733,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(88,28,135,0.3)",
           border: "rgba(88,28,135,0.2)",
           color: "text-fuchsia-300",
-          label: "Raises",
+          label: "올림",
           value: `${s.maxReanimations}`,
         },
         {
@@ -741,7 +741,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(76,29,149,0.3)",
           border: "rgba(76,29,149,0.2)",
           color: "text-purple-300",
-          label: "Marked",
+          label: "표시됨",
           value: `${s.maxTargets}`,
         },
         {
@@ -761,10 +761,10 @@ const getSpellStatsForDisplay = (
           value: s.blocksHealing
             ? s.damageAmp > 0
               ? `+${Math.round(s.damageAmp * 100)}% + No Heal`
-              : "No Heal"
+              : "치유 불가"
             : s.damageAmp > 0
               ? `+${Math.round(s.damageAmp * 100)}%`
-              : "Harvest Only",
+              : "수확만",
         },
       ];
     }
@@ -776,7 +776,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(120,53,15,0.3)",
           border: "rgba(120,53,15,0.2)",
           color: "text-amber-300",
-          label: "Base PP",
+          label: "기본 PP",
           value: `${s.basePayout}`,
         },
         {
@@ -784,7 +784,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(20,83,45,0.3)",
           border: "rgba(20,83,45,0.2)",
           color: "text-green-300",
-          label: "Per Enemy",
+          label: "적당",
           value: `+${s.bonusPerEnemy}`,
         },
         {
@@ -792,7 +792,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(113,63,18,0.3)",
           border: "rgba(113,63,18,0.2)",
           color: "text-yellow-300",
-          label: "Max Bonus",
+          label: "최대 보너스",
           value: `+${s.maxBonus}`,
         },
         {
@@ -800,7 +800,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(113,63,18,0.3)",
           border: "rgba(113,63,18,0.2)",
           color: "text-yellow-200",
-          label: "Max Total",
+          label: "최대 총합",
           value: `${s.basePayout + s.maxBonus}`,
         },
         {
@@ -808,7 +808,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(120,53,15,0.3)",
           border: "rgba(120,53,15,0.2)",
           color: "text-amber-300",
-          label: "Aura",
+          label: "오라",
           value: `${(s.auraDurationMs / 1000).toFixed(0)}s`,
         },
       ];
@@ -821,7 +821,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(6,78,59,0.3)",
           border: "rgba(6,78,59,0.2)",
           color: "text-emerald-300",
-          label: "Knights",
+          label: "기사",
           value: `${s.knightCount}`,
         },
         {
@@ -829,7 +829,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(127,29,29,0.3)",
           border: "rgba(127,29,29,0.2)",
           color: "text-red-300",
-          label: "HP Each",
+          label: "각각 체력",
           value: `${s.knightHp}`,
         },
         {
@@ -837,7 +837,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(124,45,18,0.3)",
           border: "rgba(124,45,18,0.2)",
           color: "text-orange-300",
-          label: "DMG Each",
+          label: "각각 피해",
           value: `${s.knightDamage}`,
         },
         {
@@ -845,7 +845,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(68,64,60,0.3)",
           border: "rgba(68,64,60,0.2)",
           color: "text-stone-300",
-          label: "Atk Speed",
+          label: "공격 속도",
           value: `${(s.knightAttackSpeedMs / 1000).toFixed(1)}s`,
         },
         {
@@ -853,7 +853,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(13,148,136,0.2)",
           border: "rgba(13,148,136,0.15)",
           color: "text-teal-300",
-          label: "Patrol",
+          label: "순찰",
           value: `${(s.moveRadius / TILE_SIZE).toFixed(1)}`,
         },
         s.rangedUnlocked
@@ -862,7 +862,7 @@ const getSpellStatsForDisplay = (
               bg: "rgba(88,28,135,0.3)",
               border: "rgba(88,28,135,0.2)",
               color: "text-purple-300",
-              label: "Atk Range",
+              label: "공격 사거리",
               value: "원거리",
             }
           : {
@@ -870,7 +870,7 @@ const getSpellStatsForDisplay = (
               bg: "rgba(68,64,60,0.3)",
               border: "rgba(68,64,60,0.2)",
               color: "text-stone-300",
-              label: "Atk Range",
+              label: "공격 사거리",
               value: "근접",
             },
       ];
@@ -1008,7 +1008,7 @@ export const SpellUpgradeModal: React.FC<SpellUpgradeModalProps> = ({
   const canBuySelected =
     selectedState === "next" && availableStars >= selectedNodeDef.cost;
   const canSellSelected =
-    selectedState === "unlocked" && selectedNode.tier === selectedSpellLevel;
+    selectedState === "잠금 해제됨" && selectedNode.tier === selectedSpellLevel;
   const sellRefund = canSellSelected
     ? getSpellDowngradeRefund(selectedNode.spellType, selectedSpellLevel)
     : 0;
@@ -1434,7 +1434,7 @@ export const SpellUpgradeModal: React.FC<SpellUpgradeModalProps> = ({
                                   <TierIcon size={9} />
                                   {node.level}
                                 </div>
-                                {state === "unlocked" && (
+                                {state === "잠금 해제됨" && (
                                   <div
                                     className="inline-flex items-center justify-center rounded-full"
                                     style={{
@@ -1653,13 +1653,13 @@ export const SpellUpgradeModal: React.FC<SpellUpgradeModalProps> = ({
                     background:
                       selectedState === "next"
                         ? selectedTheme.boardBg
-                        : selectedState === "unlocked"
+                        : selectedState === "잠금 해제됨"
                           ? "rgba(16, 56, 36, 0.25)"
                           : "rgba(38, 34, 30, 0.4)",
                     borderColor:
                       selectedState === "next"
                         ? `${selectedTheme.accent}55`
-                        : selectedState === "unlocked"
+                        : selectedState === "잠금 해제됨"
                           ? "rgba(74, 222, 128, 0.25)"
                           : "rgba(100, 93, 88, 0.3)",
                   }}
@@ -1834,14 +1834,14 @@ export const SpellUpgradeModal: React.FC<SpellUpgradeModalProps> = ({
                   {/* Status indicator */}
                   <div
                     className={`mt-3 rounded-lg border px-3 py-2 text-xs flex items-center gap-2 ${
-                      selectedState === "unlocked"
+                      selectedState === "잠금 해제됨"
                         ? "border-emerald-500/30 bg-emerald-950/30"
                         : selectedState === "next"
                           ? "border-yellow-500/30 bg-yellow-950/30"
                           : "border-stone-600/30 bg-stone-950/40"
                     }`}
                   >
-                    {selectedState === "unlocked" && (
+                    {selectedState === "잠금 해제됨" && (
                       <>
                         <Check
                           size={12}
@@ -1886,10 +1886,10 @@ export const SpellUpgradeModal: React.FC<SpellUpgradeModalProps> = ({
                           : "border-stone-600/40 bg-stone-800/40 text-stone-500 cursor-not-allowed"
                       }`}
                     >
-                      {selectedState === "unlocked"
+                      {selectedState === "잠금 해제됨"
                         ? "잠금 해제"
                         : selectedState === "locked"
-                          ? "Tier Locked"
+                          ? "등급 잠김"
                           : canBuySelected
                             ? `Upgrade · ${selectedNodeDef.cost} ★`
                             : `Need ${selectedNodeDef.cost - availableStars} more ★`}
@@ -1959,20 +1959,20 @@ export const SpellUpgradeModal: React.FC<SpellUpgradeModalProps> = ({
                 {/* Status line */}
                 <div
                   className={`rounded-md border px-2.5 py-1.5 text-[11px] flex items-center gap-1.5 mb-2 ${
-                    selectedState === "unlocked"
+                    selectedState === "잠금 해제됨"
                       ? "border-emerald-500/30 bg-emerald-950/30"
                       : selectedState === "next"
                         ? "border-yellow-500/30 bg-yellow-950/30"
                         : "border-stone-600/30 bg-stone-950/40"
                   }`}
                 >
-                  {selectedState === "unlocked" && (
+                  {selectedState === "잠금 해제됨" && (
                     <>
                       <Check size={11} className="text-emerald-400 shrink-0" />
                       <span className="text-emerald-300">
                         {canSellSelected
-                          ? "Sell to recover stars"
-                          : "Already unlocked"}
+                          ? "판매하여 별 회수"
+                          : "이미 잠금 해제됨"}
                       </span>
                     </>
                   )}
@@ -2008,10 +2008,10 @@ export const SpellUpgradeModal: React.FC<SpellUpgradeModalProps> = ({
                         : "border-stone-600/40 bg-stone-800/40 text-stone-500 cursor-not-allowed"
                     }`}
                   >
-                    {selectedState === "unlocked"
+                    {selectedState === "잠금 해제됨"
                       ? "잠금 해제"
                       : selectedState === "locked"
-                        ? "Tier Locked"
+                        ? "등급 잠김"
                         : canBuySelected
                           ? `Upgrade · ${selectedNodeDef.cost} ★`
                           : `Need ${selectedNodeDef.cost - availableStars} more ★`}

@@ -444,7 +444,7 @@ export function useCreatorDraft(
       pushDraftHistory(draftRef.current);
       setDraft(imported);
       draftRef.current = imported;
-      setNotice(`Imported "${imported.name || "Untitled"}".`);
+      setNotice(`Imported "${imported.name || "제목 없음"}".`);
       setErrors([]);
     } catch (error) {
       setErrors([error instanceof Error ? error.message : "Import failed."]);

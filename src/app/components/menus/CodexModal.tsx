@@ -190,7 +190,7 @@ const TRAIT_ICONS: Record<EnemyTrait, (size: number) => React.ReactNode> = {
 const getTraitInfo = (trait: EnemyTrait, iconSize = 12) => {
   const meta = ENEMY_TRAIT_META[trait] ?? {
     color: "text-gray-400",
-    desc: "Unknown trait",
+    desc: "알 수 없는 특성",
     label: trait,
     pillColor: "",
   };
@@ -290,7 +290,7 @@ const SPECIAL_TOWER_INFO: Record<
     color: "text-red-300",
     effect: "자동으로 기사 부대를 길 위에 배치합니다.",
     icon: <Users size={16} />,
-    name: "Frontier Barracks",
+    name: "변경 병영",
     numbers: "12초마다 소환되며, 최대 3명의 기사가 동시에 활동합니다",
     panelClass: "bg-red-950/35 border-red-800/40",
     role: "Auto Reinforcement",
@@ -300,17 +300,17 @@ const SPECIAL_TOWER_INFO: Record<
     color: "text-cyan-300",
     effect: "주변 타워와 정거장 부대 배치 거리를 강화합니다.",
     icon: <Zap size={16} />,
-    name: "Ancient Beacon",
+    name: "고대 비콘",
     numbers: "+20% range/deploy in 250 radius",
     panelClass: "bg-cyan-950/35 border-cyan-800/40",
-    role: "Range Aura",
+    role: "사거리 오라",
     tip: "광역 타워를 겹쳐 배치해 하나의 신호탑이 여러 라인을 강화하도록 하세요.",
   },
   chrono_relay: {
     color: "text-indigo-300",
     effect: "주변 타워들의 더 빠른 발사 주기를 동기화합니다.",
     icon: <Clock size={16} />,
-    name: "Arcane Time Crystal",
+    name: "비전 시간 수정",
     numbers: "+25% attack speed in 220 radius",
     panelClass: "bg-indigo-950/35 border-indigo-800/40",
     role: "Attack Speed Aura",
@@ -320,7 +320,7 @@ const SPECIAL_TOWER_INFO: Record<
     color: "text-rose-300",
     effect: "지정된 좌표에 주기적인 번개 공격을 내리꿉니다.",
     icon: <Target size={16} />,
-    name: "Imperial Sentinel",
+    name: "제국 감시병",
     numbers: `Every ${SENTINEL_NEXUS_STATS.strikeIntervalMs / 1000}s: up to ${SENTINEL_NEXUS_STATS.damage} damage in ${SENTINEL_NEXUS_STATS.radius} radius + short stun`,
     panelClass: "bg-rose-950/35 border-rose-800/40",
     role: "Retargetable Strike",
@@ -330,7 +330,7 @@ const SPECIAL_TOWER_INFO: Record<
     color: "text-green-300",
     effect: "영웅과 주변 부대에 치유 펄스를 부여합니다.",
     icon: <Sparkles size={16} />,
-    name: "Eldritch Shrine",
+    name: "고대 사당",
     numbers: "+50 HP every 5s in 200 radius",
     panelClass: "bg-green-950/35 border-green-800/40",
     role: "Sustain Aura",
@@ -351,10 +351,10 @@ const SPECIAL_TOWER_INFO: Record<
     effect:
       "적이 이 구조물을 공격할 수 있습니다. 무너지면 즉시 10명의 생명이 감소합니다.",
     icon: <Banknote size={16} />,
-    name: "Treasury Vault",
+    name: "보물 금고",
     numbers: "목표 HP는 맵에 따라 달라지며 (보통 420~1000)",
     panelClass: "bg-yellow-950/35 border-yellow-800/40",
-    role: "Objective",
+    role: "목표",
     tip: "금고 접근 라인 근처에 먼저 군중 제어 타워를 건설하세요.",
   },
 };
@@ -410,7 +410,7 @@ const HAZARD_INFO: Record<
       "출입구를 덮어 적이 물 위에 오래 머물게 하세요. 부대는 멀리 두세요.",
     effect: "물을 이동하는 모든 유닛을 끌어당겨 익사시킵니다.",
     icon: <Droplets size={16} />,
-    name: "Deep Water",
+    name: "깊은 물",
     numbers: "4-9 DPS and up to 38% slow",
     panelClass: "bg-blue-950/35 border-blue-800/40",
   },
@@ -420,7 +420,7 @@ const HAZARD_INFO: Record<
       "지속 데미지가 매우 높습니다 — 아군 유닛을 치우고 적이 타도록 두세요.",
     effect: "끊임없이 타오르는 화염이 영역 안의 모든 것을 태웁니다.",
     icon: <Flame size={16} />,
-    name: "Hellfire Zone",
+    name: "지옥불 구역",
     numbers: "10 fire DPS to all units",
     panelClass: "bg-orange-950/35 border-orange-700/40",
   },
@@ -430,7 +430,7 @@ const HAZARD_INFO: Record<
       "용암 시트 전에 데미지를 미리 축적하고 직후 마무리하세요.",
     effect: "미끄러운 지형으로 모든 유닛의 이동이 가속됩니다.",
     icon: <Snowflake size={16} />,
-    name: "Ice Sheet",
+    name: "얼음판",
     numbers: "+60% movement speed",
     panelClass: "bg-cyan-950/35 border-cyan-800/40",
   },
@@ -451,7 +451,7 @@ const HAZARD_INFO: Record<
       "낮지만 꾸준한 데미지 — 부대를 오래 두지 마세요.",
     effect: "끊임없이 끓어오르는 마그마가 주기적으로 주변 모든 유닛에게 튀깁니다.",
     icon: <Flame size={16} />,
-    name: "Lava Pool",
+    name: "용암 웅덩이",
     numbers: "4 fire damage per splash tick",
     panelClass: "bg-red-950/35 border-red-700/40",
   },
@@ -471,7 +471,7 @@ const HAZARD_INFO: Record<
       "예측할 수 없는 폭발 — 타격 범위에 부대를 두지 마세요.",
     effect: "산발적인 고압 전기 공격이 영역 내 모든 유닛을 강타합니다.",
     icon: <Zap size={16} />,
-    name: "Lightning Field",
+    name: "번개 필드",
     numbers: "18 burst damage per lightning strike",
     panelClass: "bg-yellow-950/35 border-yellow-700/40",
   },
@@ -482,7 +482,7 @@ const HAZARD_INFO: Record<
     effect:
       "강력한 압축 데미지와 모든 유닛의 이동력 감소를 가진 거대한 소용돌이입니다.",
     icon: <Wind size={16} />,
-    name: "Maelstrom",
+    name: "소용돌이",
     numbers: "8-20 DPS and up to 55% slow",
     panelClass: "bg-cyan-950/35 border-cyan-800/40",
   },
@@ -492,7 +492,7 @@ const HAZARD_INFO: Record<
       "안개 가장자리에서 슬로우/스턴을 사용해 적이 데미지를 받으며 천천히 빠져나가게 하세요.",
     effect: "모든 유닛에게 지속적으로 지속 데미지를 주는 영역입니다.",
     icon: <Droplets size={16} />,
-    name: "Poison Fog",
+    name: "독 안개",
     numbers: "15 DPS while inside",
     panelClass: "bg-green-950/35 border-green-800/40",
   },
@@ -501,7 +501,7 @@ const HAZARD_INFO: Record<
     counterplay: "포병 타워와 체인 타워를 위한 가상 병목 지점으로 활용하세요.",
     effect: "모든 유닛의 이동을 억제하는 영역입니다.",
     icon: <TrendingDown size={16} />,
-    name: "Quicksand",
+    name: "유사트",
     numbers: "50% movement slow",
     panelClass: "bg-yellow-950/35 border-yellow-800/40",
   },
@@ -521,7 +521,7 @@ const HAZARD_INFO: Record<
       "데미지와 슬로우를 결합합니다 — 타워를 머무는 시간을 활용하도록 배치하세요.",
     effect: "부식성 진흙탕이 모든 유닛을 중독시키고 속도를 늦춥니다.",
     icon: <Droplets size={16} />,
-    name: "Toxic Swamp",
+    name: "독성 늪",
     numbers: "6 DPS poison + 35% movement slow",
     panelClass: "bg-lime-950/35 border-lime-800/40",
   },
@@ -531,7 +531,7 @@ const HAZARD_INFO: Record<
       "더 약한 소용돌이로 취급하세요 — 출구 근처에 타워를 두면 슬로우된 적에게 데미지를 극대화할 수 있습니다.",
     effect: "차원의 균열이 생명을 흡수하고 모든 유닛을 느리게 합니다.",
     icon: <CircleOff size={16} />,
-    name: "Void Rift",
+    name: "공허 균열",
     numbers: "8 DPS + 30% movement slow",
     panelClass: "bg-purple-950/35 border-purple-800/40",
   },
@@ -541,7 +541,7 @@ const HAZARD_INFO: Record<
       "부대와 영웅을 치우세요 — 아군에게도 치명적입니다.",
     effect: "파괴적인 분출이 주변 모든 유닛에게 용암암을 던집니다.",
     icon: <Flame size={16} />,
-    name: "Volcano",
+    name: "화산",
     numbers: "15 fire damage per eruption burst",
     panelClass: "bg-red-950/35 border-red-800/40",
   },
@@ -1307,7 +1307,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
           stats: [
             {
               icon: <Users size={12} />,
-              label: "Meteors",
+              label: "메테오",
               value: `${stats.meteorCount}`,
             },
             {
@@ -1343,7 +1343,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
             },
             {
               icon: <Swords size={12} />,
-              label: "Total DMG",
+              label: "총 피해",
               value: `${stats.totalDamage}`,
             },
             {
@@ -1358,7 +1358,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
       case "freeze": {
         const stats = getFreezeSpellStats(0);
         return {
-          category: "Control",
+          category: "제어",
           color: "cyan",
           details: [
             "지속 시간 동안 적을 완전히 고정시키며, 가장 멀리 진행된 위협을 우선 처리합니다.",
@@ -1395,12 +1395,12 @@ export const CodexModal: React.FC<CodexModalProps> = ({
           stats: [
             {
               icon: <Users size={12} />,
-              label: "Raises",
+              label: "올림",
               value: `${stats.maxReanimations}`,
             },
             {
               icon: <Eye size={12} />,
-              label: "Marked",
+              label: "표시됨",
               value: `${stats.maxTargets}`,
             },
             {
@@ -1426,17 +1426,17 @@ export const CodexModal: React.FC<CodexModalProps> = ({
           stats: [
             {
               icon: <Coins size={12} />,
-              label: "Base",
+              label: "기반",
               value: `${stats.basePayout} PP`,
             },
             {
               icon: <TrendingUp size={12} />,
-              label: "Per Enemy",
+              label: "적당",
               value: `+${stats.bonusPerEnemy} PP`,
             },
             {
               icon: <Star size={12} />,
-              label: "Max Bonus",
+              label: "최대 보너스",
               value: `+${stats.maxBonus} PP`,
             },
           ],
@@ -1462,12 +1462,12 @@ export const CodexModal: React.FC<CodexModalProps> = ({
             },
             {
               icon: <Heart size={12} />,
-              label: "Unit HP",
+              label: "유닛 체력",
               value: `${stats.knightHp}`,
             },
             {
               icon: <Swords size={12} />,
-              label: "Unit DMG",
+              label: "유닛 피해",
               value: `${stats.knightDamage}`,
             },
           ],
@@ -1476,7 +1476,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
       }
       default: {
         return {
-          category: "Spell",
+          category: "주문",
           color: "purple",
           details: [],
           icon: <Sparkles size={14} />,
@@ -1565,7 +1565,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
           />
           <Image
             src="/images/new/gameplay_volcano.png"
-            alt="Battle Scene"
+            alt="전투 장면"
             fill
             sizes="100vw"
             className="z-5 object-bottom object-cover opacity-[0.05] pointer-events-none select-none"
@@ -1626,7 +1626,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                 count: troopTypes.length,
                 icon: <Users size={16} />,
                 id: "troops",
-                label: "Troops",
+                label: "병사",
               },
               {
                 count: enemyTypes.length,
@@ -1650,13 +1650,13 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                 count: hazardTypesInUse.length,
                 icon: <AlertTriangle size={16} />,
                 id: "hazards",
-                label: "Hazards",
+                label: "위험요소",
               },
               {
                 count: 5,
                 icon: <Info size={16} />,
                 id: "guide",
-                label: "FAQ",
+                label: "자주 묻는 질문",
               },
             ].map((tab) => (
               <button
@@ -1825,7 +1825,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                               color: "red",
                               displayValue: `${Math.floor(stats.damage)}`,
                               icon: <Swords size={12} />,
-                              label: "DMG",
+                              label: "피해",
                               max: towerMaxDmg,
                               value: stats.damage,
                             });
@@ -1835,7 +1835,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                               color: "blue",
                               displayValue: `${Math.floor(stats.range)}`,
                               icon: <Target size={12} />,
-                              label: "RNG",
+                              label: "사거리",
                               max: towerMaxRange,
                               value: stats.range,
                             });
@@ -2464,7 +2464,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     value={troop.hp}
                                     max={troopMaxHp}
                                     color="red"
-                                    label="HP"
+                                    label="체력"
                                     displayValue={`${troop.hp}`}
                                     icon={<Heart size={12} />}
                                   />
@@ -2472,7 +2472,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     value={troop.damage}
                                     max={troopMaxDmg}
                                     color="orange"
-                                    label="DMG"
+                                    label="피해"
                                     displayValue={`${troop.damage}`}
                                     icon={<Swords size={12} />}
                                   />
@@ -2480,7 +2480,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     value={1000 / troop.attackSpeed}
                                     max={troopMaxAtkRate}
                                     color="green"
-                                    label="SPD"
+                                    label="속도"
                                     displayValue={`${(troop.attackSpeed / 1000).toFixed(1)}s`}
                                     icon={<Gauge size={12} />}
                                   />
@@ -2494,7 +2494,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                       value={stats.damage}
                                       max={towerGlobalMaxDmg}
                                       color="red"
-                                      label="DMG"
+                                      label="피해"
                                       displayValue={`${Math.floor(stats.damage)}`}
                                       icon={<Swords size={12} />}
                                     />
@@ -2504,7 +2504,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                       value={stats.range}
                                       max={towerGlobalMaxRange}
                                       color="blue"
-                                      label="RNG"
+                                      label="사거리"
                                       displayValue={`${Math.floor(stats.range)}`}
                                       icon={<Target size={12} />}
                                     />
@@ -2514,7 +2514,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                       value={1000 / stats.attackSpeed}
                                       max={towerGlobalMaxAtkRate}
                                       color="green"
-                                      label="SPD"
+                                      label="속도"
                                       displayValue={`${(stats.attackSpeed / 1000).toFixed(1)}s`}
                                       icon={<Gauge size={12} />}
                                     />
@@ -2623,7 +2623,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                       value={pathStats.damage}
                                       max={towerGlobalMaxDmg}
                                       color="red"
-                                      label="DMG"
+                                      label="피해"
                                       displayValue={`${Math.floor(pathStats.damage)}`}
                                       icon={<Swords size={12} />}
                                     />
@@ -2633,7 +2633,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                       value={pathStats.range}
                                       max={towerGlobalMaxRange}
                                       color="blue"
-                                      label="RNG"
+                                      label="사거리"
                                       displayValue={`${Math.floor(pathStats.range)}`}
                                       icon={<Target size={12} />}
                                     />
@@ -2643,7 +2643,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                       value={1000 / pathStats.attackSpeed}
                                       max={towerGlobalMaxAtkRate}
                                       color="green"
-                                      label="SPD"
+                                      label="속도"
                                       displayValue={`${(pathStats.attackSpeed / 1000).toFixed(1)}s`}
                                       icon={<Gauge size={12} />}
                                     />
@@ -2881,7 +2881,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                               ? getTroopForLevel(4, path)
                               : null;
                             const pathLabel =
-                              path === "A" ? "Offensive" : "Utility";
+                              path === "A" ? "공격적" : "유틸리티";
 
                             return (
                               <div
@@ -3217,7 +3217,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                               value={hero.hp}
                               max={heroMaxHp}
                               color="red"
-                              label="HP"
+                              label="체력"
                               displayValue={`${hero.hp}`}
                               icon={<Heart size={12} />}
                             />
@@ -3225,7 +3225,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                               value={hero.damage}
                               max={heroMaxDmg}
                               color="orange"
-                              label="DMG"
+                              label="피해"
                               displayValue={`${hero.damage}`}
                               icon={<Swords size={12} />}
                             />
@@ -3233,7 +3233,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                               value={hero.range}
                               max={heroMaxRange}
                               color="blue"
-                              label="RNG"
+                              label="사거리"
                               displayValue={`${hero.range}`}
                               icon={<Target size={12} />}
                             />
@@ -3241,7 +3241,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                               value={hero.speed}
                               max={heroMaxSpeed}
                               color="cyan"
-                              label="SPD"
+                              label="속도"
                               displayValue={`${hero.speed}`}
                               icon={<Wind size={12} />}
                             />
@@ -3366,8 +3366,8 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "고 DPS 영웅과 시너지",
                     ],
                     weaknesses: [
-                      "Low personal DPS",
-                      "Slow movement",
+                      "낮은 개인 DPS",
+                      "이동 둔화",
                       "Melee range attacks",
                     ],
                   },
@@ -3393,7 +3393,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     ],
                     weaknesses: [
                       "Low damage output",
-                      "Slow movement",
+                      "이동 둔화",
                       "능력 재사용 대기시간이 김",
                     ],
                   },
@@ -3403,7 +3403,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "빠르게 푸른 파이어볼을 발사합니다 (각 35 데미지, 65 광역 반경)",
                       "공격 속도가 300ms로 떨어져 — 압도적인 DPS 폭발",
                     ],
-                    role: "Sky Guardian",
+                    role: "하늘 수호자",
                     roleColor: "orange",
                     roleIcon: <Bird size={16} />,
                     strategy:
@@ -3445,7 +3445,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "파이어스톤 도서관과 연계",
                     ],
                     weaknesses: [
-                      "Vulnerable in melee",
+                      "근접에서 취약",
                       "Slow attack speed",
                       "Ability has delay",
                     ],
@@ -3473,7 +3473,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     weaknesses: [
                       "직접 공격 능력 없음",
                       "Relies on towers",
-                      "Low personal DPS",
+                      "낮은 개인 DPS",
                     ],
                   },
                   tenor: {
@@ -3605,7 +3605,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                 value={hero.hp}
                                 max={heroMaxHp}
                                 color="red"
-                                label="HP"
+                                label="체력"
                                 displayValue={`${hero.hp}`}
                                 icon={<Heart size={12} />}
                               />
@@ -3613,7 +3613,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                 value={hero.damage}
                                 max={heroMaxDmg}
                                 color="orange"
-                                label="DMG"
+                                label="피해"
                                 displayValue={`${hero.damage}`}
                                 icon={<Swords size={12} />}
                               />
@@ -3621,7 +3621,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                 value={hero.range}
                                 max={heroMaxRange}
                                 color="blue"
-                                label="RNG"
+                                label="사거리"
                                 displayValue={`${hero.range}`}
                                 icon={<Target size={12} />}
                               />
@@ -3629,7 +3629,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                 value={1000 / hero.attackSpeed}
                                 max={heroMaxAtkRate}
                                 color="green"
-                                label="ATK"
+                                label="공격력"
                                 displayValue={`${(hero.attackSpeed / 1000).toFixed(1)}s`}
                                 icon={<Gauge size={12} />}
                               />
@@ -3637,7 +3637,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                 value={hero.speed}
                                 max={heroMaxSpeed}
                                 color="cyan"
-                                label="SPD"
+                                label="속도"
                                 displayValue={`${hero.speed}`}
                                 icon={<Wind size={12} />}
                               />
@@ -3893,7 +3893,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                 ? {
                                     color: "amber",
                                     icon: <Wind size={12} />,
-                                    label: "Mounted",
+                                    label: "기승",
                                   }
                                 : troop.isRanged
                                   ? {
@@ -3905,7 +3905,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     ? {
                                         color: "stone",
                                         icon: <Target size={12} />,
-                                        label: "Static",
+                                        label: "정적",
                                       }
                                     : {
                                         color: "blue",
@@ -4124,7 +4124,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     value={troop.hp}
                                     max={troopMaxHp}
                                     color="red"
-                                    label="HP"
+                                    label="체력"
                                     displayValue={`${troop.hp}`}
                                     icon={<Heart size={12} />}
                                   />
@@ -4132,7 +4132,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     value={troop.damage}
                                     max={troopMaxDmg}
                                     color="orange"
-                                    label="DMG"
+                                    label="피해"
                                     displayValue={`${troop.damage}`}
                                     icon={<Swords size={12} />}
                                   />
@@ -4140,7 +4140,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     value={1000 / troop.attackSpeed}
                                     max={troopMaxAtkRate}
                                     color="green"
-                                    label="SPD"
+                                    label="속도"
                                     displayValue={`${(troop.attackSpeed / 1000).toFixed(1)}s`}
                                     icon={<Gauge size={12} />}
                                   />
@@ -4149,7 +4149,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                       value={troop.range || 0}
                                       max={200}
                                       color="blue"
-                                      label="RNG"
+                                      label="사거리"
                                       displayValue={`${troop.range}`}
                                       icon={<Target size={12} />}
                                     />
@@ -4496,7 +4496,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     return {
                                       color: "red",
                                       icon: <Crown size={12} />,
-                                      level: "Region Boss",
+                                      level: "지역 보스",
                                     };
                                   }
                                   if (isBoss || hp >= 1000) {
@@ -4510,7 +4510,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     return {
                                       color: "orange",
                                       icon: <Star size={12} />,
-                                      level: "Elite",
+                                      level: "정예",
                                     };
                                   }
                                   if (hp >= 200) {
@@ -4523,7 +4523,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                   return {
                                     color: "green",
                                     icon: <Skull size={12} />,
-                                    level: "Minion",
+                                    level: "미니언",
                                   };
                                 };
                                 const threat = getThreatLevel(
@@ -4763,7 +4763,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                           value={enemy.speed}
                                           max={enemyMaxSpeed}
                                           color="green"
-                                          label="SPD"
+                                          label="속도"
                                           displayValue={`${enemy.speed}`}
                                           icon={<Gauge size={12} />}
                                         />
@@ -4772,7 +4772,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                             value={enemy.armor * 100}
                                             max={enemyMaxArmor}
                                             color="stone"
-                                            label="ARM"
+                                            label="방어력"
                                             displayValue={`${Math.round(enemy.armor * 100)}%`}
                                             icon={<Shield size={12} />}
                                           />
@@ -5838,7 +5838,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     >
                       <Image
                         src="/images/new/all_towers.png"
-                        alt="All campus towers"
+                        alt="모든 캠퍼스 타워"
                         fill
                         sizes="(max-width: 640px) 100vw, 500px"
                         className="object-cover object-center"

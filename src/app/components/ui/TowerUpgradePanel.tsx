@@ -138,7 +138,7 @@ function buildActionButtons(
       disabled: pawPoints < upgradeCost,
       glowColor: "rgba(34,197,94,0.3)",
       icon: <ChevronsUp size={22} className="text-green-200" />,
-      id: "upgrade",
+      id: "업그레이드",
       label: `Level ${tower.level + 1}`,
       onClick: () => upgradeTower(tower.id),
       subLabel: `${upgradeCost} PP`,
@@ -220,7 +220,7 @@ function buildActionButtons(
       glowColor: "rgba(52,211,153,0.3)",
       icon: <Flag size={18} className="text-emerald-200" />,
       id: "deploy",
-      label: "Deploy",
+      label: "배치",
       onClick: () => onRallyTroops?.(tower.id),
     });
   }
@@ -278,7 +278,7 @@ function ElaborateRing({
           <feGaussianBlur stdDeviation="4" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
+            <feMergeNode in="원본 그래픽" />
           </feMerge>
         </filter>
       </defs>
@@ -774,7 +774,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
       icon: <Fence size={14} />,
       isBoosted: hasRangeBuff,
       key: "deployRange",
-      label: "Deploy",
+      label: "배치",
       value: baseDeployRange,
     });
   }
@@ -792,7 +792,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
         debuffColorClass: "bg-rose-950/60 border-rose-500/70 text-rose-400",
         icon: <Radar size={14} />,
         key: "rangeBuff",
-        label: "Range Aura",
+        label: "사거리 오라",
         value: `+${Math.round(activeUpgradeStats.rangeBuff * 100)}%`,
       });
     }
@@ -1071,7 +1071,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                   borderClass: "border-cyan-500/60",
                   headerColor: "text-cyan-300",
                   icon: <Snowflake size={12} />,
-                  label: "FROZEN",
+                  label: "빙결",
                   tagClass: "bg-cyan-900/60 text-cyan-200 border-cyan-600/40",
                 },
                 hold: {
@@ -1080,7 +1080,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                   borderClass: "border-amber-500/60",
                   headerColor: "text-amber-300",
                   icon: <Lock size={12} />,
-                  label: "ON HOLD",
+                  label: "보류",
                   tagClass:
                     "bg-amber-900/60 text-amber-200 border-amber-600/40",
                 },
@@ -1090,7 +1090,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                   borderClass: "border-stone-400/60",
                   headerColor: "text-stone-300",
                   icon: <Mountain size={12} />,
-                  label: "PETRIFIED",
+                  label: "석화",
                   tagClass:
                     "bg-stone-800/60 text-stone-200 border-stone-600/40",
                 },
@@ -1101,7 +1101,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                   borderClass: "border-yellow-500/60",
                   headerColor: "text-yellow-300",
                   icon: <Zap size={12} />,
-                  label: "STUNNED",
+                  label: "기절",
                   tagClass:
                     "bg-yellow-900/60 text-yellow-200 border-yellow-600/40",
                 },
@@ -1475,10 +1475,10 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                     </span>
                     <span className="text-[7px] bg-stone-800 px-1 py-0.5 rounded text-stone-400 ml-auto">
                       {troop.isMounted
-                        ? "Mounted"
+                        ? "기승"
                         : troop.isRanged
                           ? "원거리"
-                          : "Infantry"}
+                          : "보병"}
                     </span>
                   </div>
                   <div className="grid grid-cols-4 gap-1 mb-1">
@@ -1552,7 +1552,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                       {isGatling ? "gatling" : "flamethrower"}
                     </span>
                     <span className="text-[7px] bg-stone-800 px-1 py-0.5 rounded text-stone-400 ml-auto">
-                      {isGatling ? "Rapid Fire" : "Continuous"}
+                      {isGatling ? "Rapid Fire" : "지속적"}
                     </span>
                   </div>
                   <div className="grid grid-cols-4 gap-1 mb-1">
@@ -1677,7 +1677,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                       {isFocusedBeam ? "집중 빔" : "체인 라이트닝"}
                     </span>
                     <span className="text-[7px] bg-cyan-900 px-1 py-0.5 rounded text-cyan-400 ml-auto">
-                      {isFocusedBeam ? "Lock" : "체인"}
+                      {isFocusedBeam ? "잠금" : "체인"}
                     </span>
                   </div>
                   <div className="grid grid-cols-4 gap-1 mb-1">
@@ -1886,7 +1886,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                       {isEQ ? "이쿼드 분쇄기" : "blizzard"}
                     </span>
                     <span className="text-[7px] bg-indigo-900 px-1 py-0.5 rounded text-indigo-400 ml-auto">
-                      {isEQ ? "AoE" : "빙결"}
+                      {isEQ ? "광역" : "빙결"}
                     </span>
                   </div>
                   <div className="grid grid-cols-4 gap-1 mb-1">

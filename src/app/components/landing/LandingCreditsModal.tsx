@@ -8,18 +8,18 @@ import { LANDING_THEME } from "./landingConstants";
 const T = LANDING_THEME;
 
 const GALLERY = [
-  { src: "/images/new/gameplay_grounds_ui.png", label: "Grasslands" },
-  { src: "/images/new/gameplay_desert_ui.png", label: "Desert Sands" },
+  { src: "/images/new/gameplay_grounds_ui.png", label: "초원" },
+  { src: "/images/new/gameplay_desert_ui.png", label: "사막" },
   { src: "/images/new/gameplay_swamp_ui.png", label: "음울한 늪" },
   { src: "/images/new/gameplay_winter_ui.png", label: "얼어붙은 변경" },
-  { src: "/images/new/gameplay_volcano_ui.png", label: "Volcanic Realm" },
+  { src: "/images/new/gameplay_volcano_ui.png", label: "화산 영역" },
   { src: "/images/new/gameplay_sandbox_ui.png", label: "샌드박스 전장" },
 ] as const;
 
 const SOCIAL_LINKS = [
   {
     href: "https://www.kevin-liu.tech/",
-    label: "Portfolio",
+    label: "포트폴리오",
     sub: "kevin-liu.tech",
     icon: (
       <svg
@@ -79,7 +79,7 @@ const SOCIAL_LINKS = [
   },
   {
     href: "mailto:k.bowen.liu@gmail.com",
-    label: "Email",
+    label: "이메일",
     sub: "k.bowen.liu@gmail.com",
     icon: (
       <svg
@@ -242,7 +242,7 @@ export function LandingCreditsModal({ onClose }: { onClose: () => void }) {
 
           {/* Developer card */}
           <div className="space-y-3">
-            <SectionLabel text="Developer" />
+            <SectionLabel text="개발자" />
             <div
               className="relative p-5 rounded-xl overflow-hidden"
               style={{
@@ -253,7 +253,7 @@ export function LandingCreditsModal({ onClose }: { onClose: () => void }) {
               <div className="flex items-start gap-4">
                 <img
                   src="/images/kevin.png"
-                  alt="Kevin Liu"
+                  alt="케빈 리우"
                   className="w-16 h-16 rounded-full object-cover flex-shrink-0"
                   style={{
                     border: `2.5px solid rgba(${T.accentRgb},0.35)`,
@@ -340,7 +340,7 @@ export function LandingCreditsModal({ onClose }: { onClose: () => void }) {
 
           {/* Screenshot gallery */}
           <div className="space-y-3">
-            <SectionLabel text="Every Region" />
+            <SectionLabel text="모든 지역" />
             <div className="grid grid-cols-3 gap-2">
               {GALLERY.map((shot, i) => (
                 <button
@@ -403,7 +403,7 @@ export function LandingCreditsModal({ onClose }: { onClose: () => void }) {
 
           {/* Tech Stack */}
           <div className="space-y-3">
-            <SectionLabel text="Built With" />
+            <SectionLabel text="기술 스택" />
             <div className="flex flex-wrap gap-2">
               {TECH_ITEMS.map((item) => (
                 <span
