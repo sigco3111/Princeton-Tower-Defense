@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     "mobile-web-app-capable": "yes",
     "msapplication-TileColor": "#E87722",
     "theme-color": "#E87722",
-    "twitter:domain": "www.ptd.quest",
+    "twitter:domain": "sigco3111.github.io",
   },
 
   publisher: SITE_AUTHOR,

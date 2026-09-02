@@ -1,4 +1,4 @@
-export const SITE_URL = "https://www.ptd.quest";
+export const SITE_URL = "https://sigco3111.github.io/Princeton-Tower-Defense";
 export const SITE_NAME = "프린스턴 타워 디펜스";
 export const SITE_NAME_EN = "Princeton Tower Defense";
 export const SITE_AUTHOR = "Kevin Liu";
