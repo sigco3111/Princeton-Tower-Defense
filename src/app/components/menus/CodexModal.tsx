@@ -254,10 +254,10 @@ const CATEGORY_ICONS: Record<EnemyCategory, React.ReactNode> = {
 };
 
 export type CodexTabId =
-  | "타워"
+  | "tower"
   | "heroes"
   | "troops"
-  | "적"
+  | "enemy"
   | "spells"
   | "special_towers"
   | "hazards"
@@ -370,7 +370,7 @@ type CodexHazardType =
   | "lava_geyser"
   | "volcano"
   | "swamp"
-  | "발사"
+  | "fire"
   | "lightning"
   | "void"
   | "lava";
@@ -386,7 +386,7 @@ const HAZARD_ORDER: CodexHazardType[] = [
   "lava_geyser",
   "volcano",
   "swamp",
-  "발사",
+  "fire",
   "lightning",
   "void",
   "lava",
@@ -581,7 +581,7 @@ const TROOP_DISPLAY_ORDER: TroopType[] = [
   "cavalry",
   "reinforcement",
   "turret",
-  "논문",
+  "thesis",
   "rowing",
   "hexling",
   "hexseer",
@@ -604,7 +604,7 @@ const TROOP_CATEGORY_MAP: Record<
   hex: {
     color: "text-fuchsia-300",
     label: "Hex Ward Spirits",
-    types: ["논문", "rowing", "hexling", "hexseer"],
+    types: ["thesis", "rowing", "hexling", "hexseer"],
   },
 };
 
@@ -875,7 +875,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
   defaultTab,
 }) => {
   const [activeTab, setActiveTab] = useState<CodexTabId>(
-    defaultTab ?? "타워"
+    defaultTab ?? "tower"
   );
   const [selectedTower, setSelectedTower] = useState<string | null>(null);
   const [selectedHeroDetail, setSelectedHeroDetail] = useState<string | null>(
@@ -1296,7 +1296,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
       case "fireball": {
         const stats = getFireballSpellStats(0);
         return {
-          category: "피해",
+          category: "damage",
           color: "orange",
           details: [
             `Impact radius: ${stats.impactRadius}`,
@@ -1312,7 +1312,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
             },
             {
               icon: <Swords size={12} />,
-              label: "피해",
+              label: "damage",
               value: `${stats.damagePerMeteor}`,
             },
             {
@@ -1613,8 +1613,8 @@ export const CodexModal: React.FC<CodexModalProps> = ({
               {
                 count: towerTypes.length,
                 icon: <ChessRook size={16} />,
-                id: "타워",
-                label: "타워",
+                id: "tower",
+                label: "tower",
               },
               {
                 count: heroTypes.length,
@@ -1631,7 +1631,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
               {
                 count: enemyTypes.length,
                 icon: <Skull size={16} />,
-                id: "적",
+                id: "enemy",
                 label: "적",
               },
               {
@@ -1708,7 +1708,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
 
           {/* Content area */}
           <div className="p-6 z-10 overflow-y-auto max-h-[calc(92dvh-140px)]">
-            {activeTab === "타워" && !selectedTower && (
+            {activeTab === "tower" && !selectedTower && (
               <div className="space-y-5">
                 <div
                   className="relative rounded-2xl overflow-hidden"
@@ -2016,7 +2016,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
               </div>
             )}
 
-            {activeTab === "타워" &&
+            {activeTab === "tower" &&
               selectedTower &&
               (() => {
                 const tower =
@@ -4191,7 +4191,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
               </div>
             )}
 
-            {activeTab === "적" &&
+            {activeTab === "enemy" &&
               (() => {
                 const groupedEnemies = groupEnemiesByCategory(enemyTypes);
                 const variantThemes = getRegionalVariantThemes();
@@ -4465,8 +4465,8 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                               >
                                 {categoryEnemies.length}{" "}
                                 {categoryEnemies.length === 1
-                                  ? "적"
-                                  : "적"}
+                                  ? "enemy"
+                                  : "enemy"}
                               </div>
                             </div>
 
@@ -5003,7 +5003,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                                         {ability.type ===
                                                           "slow" ||
                                                         ability.type.includes(
-                                                          "타워"
+                                                          "tower"
                                                         )
                                                           ? "Effect: "
                                                           : "DPS: "}
@@ -5011,7 +5011,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                                           {ability.type ===
                                                             "slow" ||
                                                           ability.type.includes(
-                                                            "타워"
+                                                            "tower"
                                                           )
                                                             ? `${Math.round(ability.intensity * 100)}%`
                                                             : ability.intensity}

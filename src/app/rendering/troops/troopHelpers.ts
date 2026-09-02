@@ -212,7 +212,7 @@ export const TROOP_MASTERWORK_STYLES: Record<
   | "elite"
   | "cavalry"
   | "centaur"
-  | "논문"
+  | "thesis"
   | "rowing"
   | "knight",
   TroopMasterworkStyle

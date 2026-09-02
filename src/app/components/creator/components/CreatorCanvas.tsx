@@ -511,18 +511,18 @@ export const CreatorCanvas: React.FC<CreatorCanvasProps> = ({
                 label="T"
                 fill="rgba(59, 130, 246, 0.98)"
                 stroke="rgba(15, 23, 42, 0.95)"
-                selected={targetMatches(selection, "타워", index)}
+                selected={targetMatches(selection, "tower", index)}
                 highlighted={targetMatches(
                   hoverSelectionTarget,
-                  "타워",
+                  "tower",
                   index
                 )}
                 danger={
                   hoverIsErase &&
-                  targetMatches(hoverSelectionTarget, "타워", index)
+                  targetMatches(hoverSelectionTarget, "tower", index)
                 }
                 onPointerDown={(event) =>
-                  startDragTarget({ index, kind: "타워" }, event)
+                  startDragTarget({ index, kind: "tower" }, event)
                 }
               />
             ))}

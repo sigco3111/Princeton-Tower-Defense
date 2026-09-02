@@ -757,7 +757,7 @@ export function updateGameTick(
       // Fire particles for lava damage
       hazardEffects.forEach((effect) => {
         if (effect.fireParticlePos) {
-          addParticles(effect.fireParticlePos, "발사", 6);
+          addParticles(effect.fireParticlePos, "fire", 6);
         }
       });
     }
@@ -786,7 +786,7 @@ export function updateGameTick(
 
       friendlyResult.troopEffects.forEach((effect) => {
         if (effect.fireParticlePos) {
-          addParticles(effect.fireParticlePos, "발사", 4);
+          addParticles(effect.fireParticlePos, "fire", 4);
         }
       });
     }
@@ -799,7 +799,7 @@ export function updateGameTick(
         return applyHazardEffectToHero(prev, friendlyResult.heroEffect!);
       });
       if (friendlyResult.heroEffect.fireParticlePos) {
-        addParticles(friendlyResult.heroEffect.fireParticlePos, "발사", 4);
+        addParticles(friendlyResult.heroEffect.fireParticlePos, "fire", 4);
       }
     }
 
@@ -1159,7 +1159,7 @@ export function updateGameTick(
           size: volleyRadius,
           type: "sunforge_impact",
         });
-        addParticles(targetPos, "발사", 16 - volleyIndex * 2);
+        addParticles(targetPos, "fire", 16 - volleyIndex * 2);
         addParticles(targetPos, "spark", 12 - volleyIndex);
         addParticles(targetPos, "light", 6);
 
@@ -1203,7 +1203,7 @@ export function updateGameTick(
             const enemyPos = getEnemyPosCached(enemy);
             const hp = enemy.hp - getEnemyDamageTaken(enemy, incoming.damage);
             if (hp <= 0) {
-              onEnemyKill(enemy, enemyPos, 12, "발사");
+              onEnemyKill(enemy, enemyPos, 12, "fire");
               return null;
             }
             return {
@@ -1705,7 +1705,7 @@ export function updateGameTick(
               setEffects((ef) => [
                 ...ef,
                 {
-                  attackerType: "적",
+                  attackerType: "enemy",
                   id: generateId("eff"),
                   pos: {
                     x: (enemyPos.x + nearbyHero.pos.x) / 2,
@@ -2263,11 +2263,11 @@ export function updateGameTick(
               enemy,
               ((enemy.burnDamage || DEFAULT_ENEMY_BURN_DAMAGE) * deltaTime) /
                 1000,
-              "발사"
+              "fire"
             );
             const newHp = enemy.hp - burnDmg;
             if (newHp <= 0) {
-              onEnemyKill(enemy, getEnemyPosCached(enemy), 8, "발사");
+              onEnemyKill(enemy, getEnemyPosCached(enemy), 8, "fire");
               return null;
             }
             enemy = { ...enemy, hp: newHp, lastDamageTaken: now };
@@ -3899,9 +3899,9 @@ export function updateGameTick(
                 : ability.name.toLowerCase().includes("gaze") ||
                     ability.name.toLowerCase().includes("stone")
                   ? ("petrify" as const)
-                  : ability.name.toLowerCase().includes("보류") ||
+                  : ability.name.toLowerCase().includes("pending") ||
                       ability.name.toLowerCase().includes("admin")
-                    ? ("보류" as const)
+                    ? ("pending" as const)
                     : ("stun" as const);
               updated.debuffs.push({
                 abilityName: ability.name,
@@ -4610,14 +4610,14 @@ export function updateGameTick(
           const damage = cannonStats.damage * finalDamageMult;
           queueTowerEnemyMutation(target.id, (enemy) => {
             const actualDmg = getEnemyDamageTaken(enemy, damage);
-            emitDamageNumber(targetPos, actualDmg, "타워");
+            emitDamageNumber(targetPos, actualDmg, "tower");
             const newHp = enemy.hp - actualDmg;
             if (newHp <= 0) {
               onEnemyKill(
                 enemy,
                 targetPos,
                 12,
-                isFlamethrower ? "발사" : "default"
+                isFlamethrower ? "fire" : "default"
               );
               return null;
             }
@@ -4726,7 +4726,7 @@ export function updateGameTick(
             chainTargets.forEach((chainTarget) => {
               queueTowerEnemyMutation(chainTarget.id, (enemy) => {
                 const actualDmg = getEnemyDamageTaken(enemy, chainDamage);
-                emitDamageNumber(getEnemyPosCached(enemy), actualDmg, "타워");
+                emitDamageNumber(getEnemyPosCached(enemy), actualDmg, "tower");
                 const newHp = enemy.hp - actualDmg;
                 if (newHp <= 0) {
                   onEnemyKill(enemy, getEnemyPosCached(enemy), 8, "lightning");
@@ -4895,7 +4895,7 @@ export function updateGameTick(
             queueTowerEnemyMutation(target.id, (enemy) => {
               const targetEnemyPos = getEnemyPosCached(enemy);
               const actualDmg = getEnemyDamageTaken(enemy, damage);
-              emitDamageNumber(targetEnemyPos, actualDmg, "타워");
+              emitDamageNumber(targetEnemyPos, actualDmg, "tower");
               const newHp = enemy.hp - actualDmg;
               if (newHp <= 0) {
                 onEnemyKill(enemy, targetEnemyPos, 10, "sonic");
@@ -5034,7 +5034,7 @@ export function updateGameTick(
                 rotation,
                 spawnDelay: i * podStaggerMs,
                 speed: 0.16 + i * 0.02,
-                targetType: "적",
+                targetType: "enemy",
                 to: targetPos,
                 trailColor: "#ffaa00",
                 type: "missile",
@@ -5095,7 +5095,7 @@ export function updateGameTick(
                   rotation,
                   spawnDelay: i * podStaggerMs,
                   speed: 0.16 + i * 0.02,
-                  targetType: "적",
+                  targetType: "enemy",
                   to: targetPos,
                   trailColor: "#ffaa00",
                   type: "missile",
@@ -5168,14 +5168,14 @@ export function updateGameTick(
                   progress: 0,
                   rotation,
                   speed: 0.22 + i * 0.03,
-                  targetType: "적",
+                  targetType: "enemy",
                   to: targetPos,
                   trailColor: "#ff8800",
                   type: "ember",
                 });
               }
               queueTowerPatch(tower.id, { lastAttack: now });
-              addParticles(emberBarrel.from, "발사", 5);
+              addParticles(emberBarrel.from, "fire", 5);
             } else {
               // Base mortar: single high-arc explosive shell
               const target = validEnemies[0];
@@ -5200,7 +5200,7 @@ export function updateGameTick(
                 progress: 0,
                 rotation,
                 speed: 0.3,
-                targetType: "적",
+                targetType: "enemy",
                 to: targetAimPos,
                 type: "mortarShell",
               });
@@ -5588,7 +5588,7 @@ export function updateGameTick(
               rotation,
               scale: blueActive ? 1 : 1.4,
               speed: blueActive ? 1.2 : 0.4,
-              targetType: "적",
+              targetType: "enemy",
               to: targetAimPos,
               trailColor: blueActive ? "#60a5fa" : "#ff6600",
               type: blueActive ? "phoenixFlameBlue" : "phoenixFlame",
@@ -6081,7 +6081,7 @@ export function updateGameTick(
 
         // AoE projectiles targeting enemies (mortars, hero fireballs) - batch processing
         if (
-          proj.targetType === "적" &&
+          proj.targetType === "enemy" &&
           proj.isAoE &&
           proj.aoeRadius &&
           proj.damage
@@ -6117,7 +6117,7 @@ export function updateGameTick(
             type: isPhoenixFireball
               ? "spark"
               : proj.type === "ember"
-                ? "발사"
+                ? "fire"
                 : "explosion",
           });
         }
@@ -6189,7 +6189,7 @@ export function updateGameTick(
             emitDamageNumber(enemyPos, totalDamage, "aoe");
             const newHp = enemy.hp - totalDamage;
             if (newHp <= 0) {
-              onEnemyKill(enemy, enemyPos, 12, shouldBurn ? "발사" : "default");
+              onEnemyKill(enemy, enemyPos, 12, shouldBurn ? "fire" : "default");
               continue;
             }
             const updates: Partial<Enemy> = {
@@ -6221,7 +6221,7 @@ export function updateGameTick(
 
       // Mortar impact particles (called from within updater for batching)
       for (const p of queuedImpactParticles) {
-        addParticles(p.pos, p.type as "발사" | "explosion", 8);
+        addParticles(p.pos, p.type as "fire" | "explosion", 8);
       }
 
       return nextProjectiles;

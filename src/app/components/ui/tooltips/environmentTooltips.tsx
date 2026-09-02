@@ -567,7 +567,7 @@ const HAZARD_INFO: Record<
     effect: "모든 유닛에게 초당 12의 피해",
     effectColor: "text-green-400",
     icon: <Wind className="text-green-400" size={16} />,
-    name: "독",
+    name: "poison",
   },
   poison_fog: {
     desc: "이 지역에 두꺼운 유독 가스가 짙게 깔려 있습니다.",

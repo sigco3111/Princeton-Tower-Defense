@@ -2,7 +2,7 @@ import type { MapTheme } from "../../types";
 import { getIdleSway } from "./animationHelpers";
 
 export type EnemyCategory =
-  | "학술"
+  | "academic"
   | "ranged"
   | "flying"
   | "undead"
@@ -45,19 +45,19 @@ const ENEMY_CATEGORY_MAP: Record<string, EnemyCategory> = {
   berserker: "undead",
   crossbowman: "ranged",
   cultist: "undead",
-  frosh: "학술",
-  gradstudent: "학술",
+  frosh: "academic",
+  gradstudent: "academic",
   harpy: "flying",
   hexer: "ranged",
   infernal: "elemental",
-  junior: "학술",
+  junior: "academic",
   mage: "ranged",
   mascot: "special",
   necromancer: "undead",
   plaguebearer: "undead",
-  senior: "학술",
+  senior: "academic",
   shadow_knight: "undead",
-  sophomore: "학술",
+  sophomore: "academic",
   specter: "undead",
   tiger_fan: "forest",
   warlock: "ranged",
@@ -238,7 +238,7 @@ function drawSwampOverlay(
   if (category === "ranged" || category === "undead") {
     drawSwampHood(ctx, bx, by, size, time, zoom);
   }
-  if (category === "학술" || category === "forest") {
+  if (category === "academic" || category === "forest") {
     drawFungalGrowths(ctx, bx, by, size, time, zoom);
   }
   if (category === "flying") {
@@ -532,7 +532,7 @@ function drawDesertOverlay(
   ) {
     drawDesertHeadWrap(ctx, bx, by, size, time, zoom);
   }
-  if (category === "학술" || category === "forest") {
+  if (category === "academic" || category === "forest") {
     drawDesertScarf(ctx, bx, by, size, time, zoom);
   }
   if (category === "flying") {
@@ -816,7 +816,7 @@ function drawWinterOverlay(
     drawFurLinedHood(ctx, bx, by, size, time, zoom);
   }
   if (
-    category === "학술" ||
+    category === "academic" ||
     category === "forest" ||
     category === "special"
   ) {
@@ -1137,7 +1137,7 @@ function drawVolcanicOverlay(
     drawCharredCowl(ctx, bx, by, size, time, zoom);
   }
   if (
-    category === "학술" ||
+    category === "academic" ||
     category === "forest" ||
     category === "special"
   ) {

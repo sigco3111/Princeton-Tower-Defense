@@ -32,7 +32,7 @@ import type { PaletteDragPayload, ToolMode } from "../types";
 import { formatAssetName } from "../utils/gridUtils";
 import { AssetChip } from "./AssetChip";
 
-type PaletteTab = "decoration" | "landmark" | "hazard" | "objective" | "타워";
+type PaletteTab = "decoration" | "landmark" | "hazard" | "objective" | "tower";
 
 interface PalettePanelProps {
   theme: MapTheme;
@@ -59,11 +59,11 @@ const TAB_CONFIG: {
   { color: "sky", icon: Landmark, key: "landmark", label: "Land" },
   { color: "red", icon: AlertTriangle, key: "hazard", label: "Hazard" },
   { color: "purple", icon: ChessRook, key: "objective", label: "Obj" },
-  { color: "blue", icon: Sword, key: "타워", label: "Tower" },
+  { color: "blue", icon: Sword, key: "tower", label: "Tower" },
 ];
 
 const getDisplayName = (tab: PaletteTab, value: string): string => {
-  if (tab === "타워") {
+  if (tab === "tower") {
     return TOWER_DISPLAY_NAMES[value as TowerType] ?? formatAssetName(value);
   }
   if (tab === "objective") {
@@ -143,7 +143,7 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
         source = [...SPECIAL_TOWER_TYPES];
         break;
       }
-      case "타워": {
+      case "tower": {
         source = [...TOWER_TYPE_OPTIONS];
         break;
       }
@@ -170,8 +170,8 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
     if (t === "objective") {
       return "special_tower";
     }
-    if (t === "타워") {
-      return "타워";
+    if (t === "tower") {
+      return "tower";
     }
     return t as ToolMode;
   };
@@ -195,7 +195,7 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
       case "objective": {
         return selectedObjectiveType === option;
       }
-      case "타워": {
+      case "tower": {
         return selectedTowerType === option;
       }
       default: {
@@ -226,9 +226,9 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
         onToolSelect("special_tower");
         break;
       }
-      case "타워": {
+      case "tower": {
         onSelectTower(option as TowerType);
-        onToolSelect("타워");
+        onToolSelect("tower");
         break;
       }
     }
@@ -238,8 +238,8 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
     if (tab === "objective") {
       return { kind: "objective", value: option };
     }
-    if (tab === "타워") {
-      return { kind: "타워", value: option };
+    if (tab === "tower") {
+      return { kind: "tower", value: option };
     }
     return { kind: tab as PaletteDragPayload["kind"], value: option };
   };

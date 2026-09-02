@@ -99,7 +99,7 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
 export interface EncounterInfo {
   name: string;
   description: string;
-  category: "special_tower" | "hazard" | "적";
+  category: "special_tower" | "hazard" | "enemy";
 }
 
 export const SPECIAL_TOWER_ENCOUNTERS: Record<SpecialTowerType, EncounterInfo> =
@@ -248,7 +248,7 @@ export function getHazardEncounter(type: HazardType): EncounterInfo | null {
 // =============================================================================
 
 type EnemyEncounterCategory =
-  | "학술"
+  | "academic"
   | "ranged"
   | "flying"
   | "boss"

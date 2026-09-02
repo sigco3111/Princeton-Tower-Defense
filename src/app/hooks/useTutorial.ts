@@ -103,7 +103,7 @@ export function useTutorial() {
 
       return [
         {
-          category: "적",
+          category: "enemy",
           description: "",
           key: `enemy-wave-${unseenTypes.join("-")}`,
           members: unseenTypes,

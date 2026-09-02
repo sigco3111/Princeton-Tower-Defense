@@ -38,7 +38,7 @@ export interface FeatureStat {
 
 export const LANDING_STATS: FeatureStat[] = [
   { icon: Map, label: "레벨", value: "26" },
-  { icon: Shield, label: "타워", value: "7" },
+  { icon: Shield, label: "tower", value: "7" },
   { icon: Crown, label: "영웅", value: "9" },
   { icon: Sparkles, label: "주문", value: "6" },
   { icon: Map, label: "Regions", value: "5" },

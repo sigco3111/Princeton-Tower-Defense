@@ -104,7 +104,7 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
     speed: 3.2,
   },
   tenor: {
-    ability: "고음",
+    ability: "high_note",
     abilityDesc:
       "Devastating sonic blast stuns enemies and heals nearby allies",
     attackSpeed: 450,

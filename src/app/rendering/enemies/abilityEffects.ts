@@ -18,7 +18,7 @@ const ABILITY_CONFIGS: Record<EnemyAbilityType, AbilityActivationConfig> = {
     particleCount: 8,
     primary: "255, 120, 30",
     secondary: "255, 60, 10",
-    symbol: "발사",
+    symbol: "fire",
   },
   poison: {
     glow: "120, 255, 80",

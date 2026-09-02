@@ -158,7 +158,7 @@ export function useCreatorBoard(
             ],
           };
         }
-        if (tool === "타워") {
+        if (tool === "tower") {
           if (!isInsideMap(point)) {
             return prev;
           }
@@ -241,12 +241,12 @@ export function useCreatorBoard(
         }
         return;
       }
-      if (tool === "타워") {
+      if (tool === "tower") {
         const currentDraft = draftRef.current;
         if (currentDraft) {
           setSelection({
             index: currentDraft.placedTowers.length - 1,
-            kind: "타워",
+            kind: "tower",
           });
         }
         return;
@@ -454,7 +454,7 @@ export function useCreatorBoard(
             ],
           };
         }
-        if (payload.kind === "타워") {
+        if (payload.kind === "tower") {
           return {
             ...prev,
             placedTowers: [
@@ -480,12 +480,12 @@ export function useCreatorBoard(
             kind: "special_tower",
           });
         }
-      } else if (payload.kind === "타워") {
+      } else if (payload.kind === "tower") {
         const currentDraft = draftRef.current;
         if (currentDraft) {
           setSelection({
             index: currentDraft.placedTowers.length - 1,
-            kind: "타워",
+            kind: "tower",
           });
         }
       }

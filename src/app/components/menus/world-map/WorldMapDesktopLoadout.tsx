@@ -57,8 +57,8 @@ const COMPACT_ACTIONS: {
     color: "#fcd34d",
     glow: "rgba(180,140,60,0.2)",
     icon: <ChessRook size={13} />,
-    label: "타워",
-    tab: "타워",
+    label: "tower",
+    tab: "tower",
   },
   {
     bg: "rgba(120,85,20,0.45)",
@@ -85,7 +85,7 @@ const COMPACT_ACTIONS: {
     glow: "rgba(180,60,60,0.2)",
     icon: <Skull size={13} />,
     label: "적",
-    tab: "적",
+    tab: "enemy",
   },
   {
     bg: "rgba(30,60,120,0.4)",

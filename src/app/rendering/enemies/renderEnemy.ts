@@ -1401,7 +1401,7 @@ export function renderEnemyInspectIndicator(
     renderPass,
     screenPos,
     unitSize: size,
-    unitType: "적",
+    unitType: "enemy",
     zoom,
   });
 }

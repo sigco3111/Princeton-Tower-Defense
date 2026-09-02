@@ -408,12 +408,12 @@ export function executeTargetedSpellImpl(
                 if (dist < impactRadius) {
                   const damageMultiplier = 1 - (dist / impactRadius) * 0.5;
                   const damage = Math.floor(damagePerMeteor * damageMultiplier);
-                  const actualDmg = getEnemyDamageTaken(e, damage, "발사");
+                  const actualDmg = getEnemyDamageTaken(e, damage, "fire");
                   emitDamageNumber(pos, actualDmg, "spell");
                   const newHp = e.hp - actualDmg;
                   if (newHp <= 0) {
-                    p.onEnemyKill(e, pos, 20, "발사");
-                    p.addParticles(pos, "발사", 15);
+                    p.onEnemyKill(e, pos, 20, "fire");
+                    p.addParticles(pos, "fire", 15);
                     return null;
                   }
                   return {
@@ -449,7 +449,7 @@ export function executeTargetedSpellImpl(
             },
           ]);
           p.addParticles(targetPos, "explosion", 40);
-          p.addParticles(targetPos, "발사", 35);
+          p.addParticles(targetPos, "fire", 35);
           p.addParticles(targetPos, "smoke", 25);
         }, fallDuration);
       }, staggerDelay);

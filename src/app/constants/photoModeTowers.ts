@@ -190,7 +190,7 @@ function scoreCandidatePositions(
 type TowerRole =
   | "blocker" // station — near chokepoints
   | "backline_aoe" // mortar — far from path
-  | "피해" // cannon — medium range
+  | "damage" // cannon — medium range
   | "cc" // library — near bends
   | "energy" // lab — spread out
   | "multitarget" // arch — spread out
@@ -284,13 +284,13 @@ function assignRole(
     if (r < 0.55) {
       return "energy";
     }
-    return "피해";
+    return "damage";
   }
 
   // Generic fallback — balanced distribution
   const roll = rng();
   if (roll < 0.22) {
-    return "피해";
+    return "damage";
   }
   if (roll < 0.44) {
     return "energy";
@@ -301,7 +301,7 @@ function assignRole(
   if (roll < 0.8) {
     return "multitarget";
   }
-  return "피해";
+  return "damage";
 }
 
 function assignLevel(
@@ -500,14 +500,14 @@ function buildPhotoModePlacementsForMap(mapKey: string): Tower[] {
       }
       const reverseMap: Partial<Record<TowerType, TowerRole>> = {
         arch: "multitarget",
-        cannon: "피해",
+        cannon: "damage",
         club: "economy",
         lab: "energy",
         library: "cc",
         mortar: "backline_aoe",
         station: "blocker",
       };
-      role = reverseMap[fallback] ?? "피해";
+      role = reverseMap[fallback] ?? "damage";
     }
 
     const levelInfo = assignLevel(role, rng, slots.length, targetCount);

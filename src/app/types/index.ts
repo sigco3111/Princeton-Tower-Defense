@@ -72,7 +72,7 @@ export interface TowerStats {
 }
 
 // Flavor of tower disable - determines visual treatment
-export type TowerDisableFlavor = "freeze" | "petrify" | "보류" | "stun";
+export type TowerDisableFlavor = "freeze" | "petrify" | "pending" | "stun";
 
 // Tower debuff state - applied by enemies
 export interface TowerDebuff {
@@ -294,7 +294,7 @@ export type EnemyType =
 // Enemy categories for organization
 export type EnemyCategory =
   | "region_boss" // End-of-region capstone mega bosses
-  | "학술" // Academic progression: writing sem, thesis, grad apps, etc.
+  | "academic" // Academic progression: writing sem, thesis, grad apps, etc.
   | "campus" // Campus life: athletes, tiger fans, recruiters, etc.
   | "ranged" // Ranged attackers
   | "dark_fantasy" // Undead, skeletal, and dark fantasy enemies
@@ -541,7 +541,7 @@ export type TroopType =
   | "reinforcement"
   | "centaur"
   | "cavalry"
-  | "논문"
+  | "thesis"
   | "rowing"
   | "hexling"
   | "hexseer"
@@ -717,7 +717,7 @@ export interface Projectile {
   elevation?: number;
   isFlamethrower?: boolean;
   damage?: number;
-  targetType?: "hero" | "troop" | "적";
+  targetType?: "hero" | "troop" | "enemy";
   targetId?: string;
   // AoE properties
   isAoE?: boolean;
@@ -740,7 +740,7 @@ export type EffectType =
   | "lightning"
   | "freeze"
   | "earthquake"
-  | "발사"
+  | "fire"
   | "beam"
   | "chain"
   | "sonic"
@@ -825,7 +825,7 @@ export type EffectType =
 // What killed the enemy - determines death animation style
 export type DeathCause =
   | "lightning"
-  | "발사"
+  | "fire"
   | "freeze"
   | "sonic"
   | "poison"
@@ -853,7 +853,7 @@ export interface Effect {
   sourceId?: string; // Who caused this effect
   damageDealt?: number; // Visual damage number
   isCritical?: boolean; // Critical hit indicator
-  attackerType?: "적" | "hero" | "troop" | "타워";
+  attackerType?: "enemy" | "hero" | "troop" | "tower";
   // Slash/melee effect properties
   slashAngle?: number; // Direction of slash
   slashWidth?: number; // Arc width of slash
@@ -875,7 +875,7 @@ export type ParticleType =
   | "light"
   | "magic"
   | "gold"
-  | "발사"
+  | "fire"
   | "ice"
   | "poison"
   | "water"
@@ -922,7 +922,7 @@ export type MapTheme = "grassland" | "desert" | "winter" | "volcanic" | "swamp";
 
 // Relative vertical class for depth sorting/occlusion behavior.
 export type DecorationHeightTag =
-  | "지상"
+  | "ground"
   | "short"
   | "medium"
   | "tall"
@@ -1107,7 +1107,7 @@ export type HazardType =
   | "swamp"
   | "ice"
   | "poison"
-  | "발사"
+  | "fire"
   | "lightning"
   | "void"
   | "volcano"
@@ -1201,8 +1201,8 @@ export type GameState =
 
 // Codex tabs
 export type CodexTab =
-  | "타워"
-  | "적"
+  | "tower"
+  | "enemy"
   | "heroes"
   | "spells"
   | "special_towers"
@@ -1232,8 +1232,8 @@ export interface DraggingTower {
 // Renderable for depth sorting
 export interface Renderable {
   type:
-    | "타워"
-    | "적"
+    | "tower"
+    | "enemy"
     | "hero"
     | "troop"
     | "projectile"
@@ -1260,7 +1260,7 @@ export type DecorationType =
   | "debris"
   | "cart"
   | "hut"
-  | "발사"
+  | "fire"
   | "sword"
   | "arrow"
   | "skeleton"

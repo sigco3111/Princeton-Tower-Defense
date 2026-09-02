@@ -152,7 +152,7 @@ function calculateSingleHazardEffect(
       if (Math.random() < 0.055) {
         effect.lavaDamage += 15;
         effect.fireParticlePos = unitPos;
-        particles.push({ count: 8, pos: unitPos, type: "발사" });
+        particles.push({ count: 8, pos: unitPos, type: "fire" });
       }
       break;
     }
@@ -185,7 +185,7 @@ function calculateSingleHazardEffect(
       }
       break;
     }
-    case "발사": {
+    case "fire": {
       effect.lavaDamage += (10 * deltaTime) / 1000;
       if (Math.random() < 0.1) {
         effect.fireParticlePos = unitPos;

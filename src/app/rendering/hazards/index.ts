@@ -207,7 +207,7 @@ function dispatchHazardDraw(
       drawPoisonPoolHazard(ctx, sRad, time, pos, isoRatio, zoom);
       break;
     }
-    case "발사": {
+    case "fire": {
       drawHellfireHazard(ctx, sRad, time, pos, isoRatio, zoom);
       break;
     }

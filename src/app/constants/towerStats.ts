@@ -183,7 +183,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
       A: {
         description: "빠르게 발사하는 기관총",
         effect: "8x attack speed, 0.4x damage per shot",
-        name: "기관총",
+        name: "gatling",
         stats: {
           damage: 50 * 2.2 * 0.4,
           range: 360, // 1.5x base range for level 4
@@ -194,7 +194,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
       B: {
         description: "지속적인 화염 사격",
         effect: "시간이 지남에 따라 적에게 화상 피해",
-        name: "화염방사기",
+        name: "flamethrower",
         stats: {
           damage: 50 * 2.2 * 0.3,
           range: 300, // Shorter range but burns
@@ -370,7 +370,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
       B: {
         description: "Freezes enemies completely",
         effect: "45% slow + 25% freeze chance every 2s",
-        name: "블리자드",
+        name: "blizzard",
         stats: {
           range: 385, // 1.75x base range - wide freeze area
           slowAmount: 0.45,

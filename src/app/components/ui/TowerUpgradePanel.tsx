@@ -561,8 +561,8 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
       icon: <Swords size={14} />,
       isBoosted: hasDamageBuff,
       isDebuffed: hasDamageDebuff,
-      key: "피해",
-      label: "피해",
+      key: "damage",
+      label: "damage",
       nextValue:
         nextStats && nextStats.damage > baseStats.damage
           ? Math.floor(nextStats.damage)
@@ -1549,7 +1549,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                       <Flame size={12} className="text-orange-400" />
                     )}
                     <span className="text-[9px] font-bold text-stone-300">
-                      {isGatling ? "기관총" : "화염방사기"}
+                      {isGatling ? "gatling" : "flamethrower"}
                     </span>
                     <span className="text-[7px] bg-stone-800 px-1 py-0.5 rounded text-stone-400 ml-auto">
                       {isGatling ? "Rapid Fire" : "Continuous"}
@@ -1883,7 +1883,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                       <Snowflake size={12} className="text-blue-400" />
                     )}
                     <span className="text-[9px] font-bold text-indigo-300">
-                      {isEQ ? "이쿼드 분쇄기" : "블리자드"}
+                      {isEQ ? "이쿼드 분쇄기" : "blizzard"}
                     </span>
                     <span className="text-[7px] bg-indigo-900 px-1 py-0.5 rounded text-indigo-400 ml-auto">
                       {isEQ ? "AoE" : "빙결"}

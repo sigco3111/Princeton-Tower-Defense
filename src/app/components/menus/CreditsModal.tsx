@@ -134,7 +134,7 @@ const ARCH_LAYERS = [
 ] as const;
 
 const TECH_STATS = [
-  { label: "타워", value: "7 Types" },
+  { label: "tower", value: "7 Types" },
   { label: "영웅", value: "9 Playable" },
   { label: "레벨", value: "26 Maps" },
   { label: "적", value: "100+" },

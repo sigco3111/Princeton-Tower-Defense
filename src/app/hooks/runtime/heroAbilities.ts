@@ -179,7 +179,7 @@ function triggerMatheyShield(p: HeroAbilityParams): void {
     ...ef,
     {
       duration,
-      id: generateId("방패"),
+      id: generateId("shield"),
       pos: { ...hero.pos },
       progress: 0,
       size: 80,

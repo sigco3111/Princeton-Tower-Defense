@@ -135,7 +135,7 @@ export const WORLD_LEVELS: LevelNode[] = [
     kind: "challenge",
     name: "Blight Basin",
     region: "swamp",
-    tags: ["독", "Crossfire"],
+    tags: ["poison", "Crossfire"],
     x: 540,
     y: 70,
   },

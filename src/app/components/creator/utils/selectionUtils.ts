@@ -23,7 +23,7 @@ export const getPointFromSelection = (
     case "special_tower": {
       return draft.specialTowers[selection.index]?.pos ?? null;
     }
-    case "타워": {
+    case "tower": {
       return draft.placedTowers[selection.index]?.pos ?? null;
     }
     case "decoration": {
@@ -70,7 +70,7 @@ export const findSelectionNearPoint = (
     tryCandidate({ index, kind: "special_tower" }, st.pos)
   );
   draft.placedTowers.forEach((t, index) =>
-    tryCandidate({ index, kind: "타워" }, t.pos)
+    tryCandidate({ index, kind: "tower" }, t.pos)
   );
   draft.decorations.forEach((deco, index) =>
     tryCandidate({ index, kind: "decoration" }, deco.pos)
@@ -133,7 +133,7 @@ export const applySelectionPointUpdate = (
     next[target.index] = { ...current, pos: nextPoint };
     return { ...draft, specialTowers: next };
   }
-  if (target.kind === "타워") {
+  if (target.kind === "tower") {
     const nextPoint = normalizeMapPoint(point);
     const current = draft.placedTowers[target.index];
     if (!current) {
@@ -208,7 +208,7 @@ export const removeSelection = (
       ),
     };
   }
-  if (target.kind === "타워") {
+  if (target.kind === "tower") {
     return {
       ...draft,
       placedTowers: draft.placedTowers.filter(

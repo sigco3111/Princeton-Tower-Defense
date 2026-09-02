@@ -268,7 +268,7 @@ export function getEnemyFlashProfile(
     return STONE_FLASH_PROFILE;
   }
 
-  if (category === "학술" || category === "campus") {
+  if (category === "academic" || category === "campus") {
     return RADIANT_FLASH_PROFILE;
   }
   if (category === "ranged") {

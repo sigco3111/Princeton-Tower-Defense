@@ -1229,7 +1229,7 @@ export function renderEnemyDeath(
       renderLightningDeath(params);
       break;
     }
-    case "발사": {
+    case "fire": {
       renderFireDeath(params);
       break;
     }

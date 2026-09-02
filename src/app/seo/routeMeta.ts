@@ -146,7 +146,7 @@ export function getRouteMetadata(slug: string[] | undefined): Metadata {
     }
 
     case "codex": {
-      const tab = route.tab ?? "타워";
+      const tab = route.tab ?? "tower";
       const meta = CODEX_TAB_META[tab];
       if (!meta) {
         return {};

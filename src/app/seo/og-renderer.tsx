@@ -324,7 +324,7 @@ export function renderOGImage(baseUrl: string): React.ReactElement {
     { l: "레벨", v: String(GAME_STATS.levels) },
     { l: "적", v: `${GAME_STATS.enemyTypes}+` },
     { l: "영웅", v: String(GAME_STATS.heroes) },
-    { l: "타워", v: String(GAME_STATS.towers) },
+    { l: "tower", v: String(GAME_STATS.towers) },
   ];
 
   return (

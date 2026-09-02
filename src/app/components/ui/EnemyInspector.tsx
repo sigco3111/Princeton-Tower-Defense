@@ -717,12 +717,12 @@ export const EnemyDetailTooltip: React.FC<EnemyDetailTooltipProps> = ({
                     {ability.intensity !== undefined && (
                       <span className="text-white/60">
                         {ability.type === "slow" ||
-                        ability.type.includes("타워")
+                        ability.type.includes("tower")
                           ? "Eff: "
                           : "DPS: "}
                         <span className="text-white">
                           {ability.type === "slow" ||
-                          ability.type.includes("타워")
+                          ability.type.includes("tower")
                             ? `${Math.round(ability.intensity * 100)}%`
                             : ability.intensity}
                         </span>

@@ -309,7 +309,7 @@ export const CreatorModal: React.FC<CreatorModalProps> = ({
               }}
               onSelectTower={(type) => {
                 setSelectedTowerType(type);
-                handleToolSelect("타워");
+                handleToolSelect("tower");
               }}
               onToolSelect={handleToolSelect}
             />

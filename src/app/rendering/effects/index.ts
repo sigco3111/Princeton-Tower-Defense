@@ -3343,7 +3343,7 @@ function _legacyRenderParticle(
       break;
     }
 
-    case "발사": {
+    case "fire": {
       const fireGrad = ctx.createRadialGradient(
         screenPos.x,
         screenPos.y,
@@ -3834,7 +3834,7 @@ export function renderTowerDebuffEffects(
           primaryColor = { b: 140, g: 150, r: 160 }; // Stone gray
           secondaryColor = { b: 88, g: 95, r: 100 };
           glowColor = { b: 115, g: 125, r: 130 };
-        } else if (flavor === "보류") {
+        } else if (flavor === "pending") {
           primaryColor = { b: 50, g: 170, r: 220 }; // Amber/bureaucratic
           secondaryColor = { b: 30, g: 120, r: 160 };
           glowColor = { b: 40, g: 150, r: 200 };
@@ -3938,7 +3938,7 @@ export function renderTowerDebuffEffects(
         );
         ctx.restore();
       }
-    } else if (disableFlavor === "보류") {
+    } else if (disableFlavor === "pending") {
       // Red tape / paper strips drifting
       for (let i = 0; i < 4; i++) {
         const stripPhase = (time * 0.35 + i * 0.25) % 1;
@@ -4121,7 +4121,7 @@ export function renderTowerDebuffEffects(
             primaryColor,
             alpha * iconPulse
           );
-        } else if (dFlavor === "보류") {
+        } else if (dFlavor === "pending") {
           drawHoldIcon(
             ctx,
             screenPos.x,

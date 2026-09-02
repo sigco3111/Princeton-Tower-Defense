@@ -1,7 +1,7 @@
 import type { Position } from "../../types";
 
-export type InspectUnitType = "적" | "troop" | "hero";
-export type InspectRenderPass = "지상" | "overlay" | "all";
+export type InspectUnitType = "enemy" | "troop" | "hero";
+export type InspectRenderPass = "ground" | "overlay" | "all";
 
 export interface InspectIndicatorConfig {
   screenPos: Position;
@@ -67,7 +67,7 @@ const HERO_THEME: ColorTheme = {
 
 function getTheme(unitType: InspectUnitType): ColorTheme {
   switch (unitType) {
-    case "적": {
+    case "enemy": {
       return ENEMY_THEME;
     }
     case "troop": {
@@ -363,7 +363,7 @@ export function renderInspectIndicator(
     unitSize,
     isSelected,
     isHovered,
-    unitType = "적",
+    unitType = "enemy",
     renderPass = "all",
   } = config;
   const theme = getTheme(unitType);
@@ -375,7 +375,7 @@ export function renderInspectIndicator(
   const markerY = drawY - size * 0.6;
 
   const time = Date.now() / 1000;
-  const doGround = renderPass === "지상" || renderPass === "all";
+  const doGround = renderPass === "ground" || renderPass === "all";
   const doOverlay = renderPass === "overlay" || renderPass === "all";
 
   ctx.save();

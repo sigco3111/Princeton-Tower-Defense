@@ -189,7 +189,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(127,29,29,0.2)",
           color: "text-red-300",
           icon: <Swords size={9} className="text-red-400" />,
-          label: "피해",
+          label: "damage",
           value: `${fireballStats.damagePerMeteor}×${fireballStats.meteorCount}`,
         },
         {

@@ -660,7 +660,7 @@ export function startWaveInnerImpl(params: StartWaveInnerParams): void {
           formationLane: spawnLaneIndex,
           frozen: false,
           hp: ENEMY_DATA[group.type].hp,
-          id: generateId("적"),
+          id: generateId("enemy"),
           inCombat: false,
           laneOffset,
           lastHeroAttack: 0,

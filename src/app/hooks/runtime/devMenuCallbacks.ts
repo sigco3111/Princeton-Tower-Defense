@@ -286,7 +286,7 @@ export function killAllEnemiesImpl(
     DevMenuCallbackParams,
     | "gameState"
     | "battleOutcome"
-    | "적"
+    | "enemy"
     | "selectedMap"
     | "onEnemyKill"
     | "clearEnemies"

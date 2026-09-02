@@ -2,7 +2,7 @@ import { ENEMY_DATA } from "../constants";
 import type { Enemy, Troop, Hero, Position } from "../types";
 import { getEnemyPosition, distance } from "../utils";
 
-export type InspectHitType = "적" | "troop" | "hero";
+export type InspectHitType = "enemy" | "troop" | "hero";
 
 export interface InspectHitResult {
   type: InspectHitType;
@@ -37,7 +37,7 @@ export function findClosestInspectUnit(
 
     if (dist < hitRadius + interactionRadius && dist < closestDist) {
       closestDist = dist;
-      result = { enemy, isHero: false, troop: null, type: "적" };
+      result = { enemy, isHero: false, troop: null, type: "enemy" };
     }
   }
 

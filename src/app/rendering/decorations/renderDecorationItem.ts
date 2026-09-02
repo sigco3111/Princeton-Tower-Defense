@@ -2330,7 +2330,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       }
       break;
     }
-    case "발사": {
+    case "fire": {
       const smokeOff = Math.sin(decorTime * 3) * 3 * s;
       ctx.fillStyle = "rgba(80,80,80,0.25)";
       ctx.beginPath();

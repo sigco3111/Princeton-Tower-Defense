@@ -66,13 +66,13 @@ export const TOWER_DATA: Record<
       A: {
         desc: "빠르게 발사하는 기관총",
         effect: "8x attack speed, 0.4x damage per shot",
-        name: "기관총",
+        name: "gatling",
         range: 360,
       },
       B: {
         desc: "지속적인 화염 사격",
         effect: "적에게 지속 화염 피해",
-        name: "화염방사기",
+        name: "flamethrower",
         range: 300,
       },
     },
@@ -157,7 +157,7 @@ export const TOWER_DATA: Record<
       B: {
         desc: "적을 완전히 빙결시킴",
         effect: "50% slow + 25% freeze chance/2s",
-        name: "블리자드",
+        name: "blizzard",
         range: 385,
       },
     },
@@ -306,7 +306,7 @@ export const TOWER_TAG_DEFS: Record<TowerTag, TowerTagDef> = {
   blocker: {
     bgClass: "bg-emerald-950/60",
     borderClass: "border-emerald-700/40",
-    icon: "방패",
+    icon: "shield",
     label: "차단형",
     textClass: "text-emerald-300",
   },

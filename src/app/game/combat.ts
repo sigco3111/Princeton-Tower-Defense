@@ -1,7 +1,7 @@
 import { ENEMY_DATA } from "../constants";
 import type { Enemy, EnemyType } from "../types";
 
-export type EnemyDamageType = "default" | "발사" | "poison";
+export type EnemyDamageType = "default" | "fire" | "poison";
 
 function getEnemyArmor(enemyType: EnemyType): number {
   return ENEMY_DATA[enemyType].armor || 0;
@@ -17,7 +17,7 @@ export function getEnemyDamageTaken(
     return 0;
   }
   const baseDamage =
-    damageType === "발사" || damageType === "poison"
+    damageType === "fire" || damageType === "poison"
       ? safeDamage
       : safeDamage * Math.max(0, 1 - getEnemyArmor(enemy.type));
 

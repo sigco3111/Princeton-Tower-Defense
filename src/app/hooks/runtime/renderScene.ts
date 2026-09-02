@@ -1415,7 +1415,7 @@ export function renderScene(params: RenderSceneParams): void {
                   "sword",
                   "arrow",
                   "skeleton",
-                  "발사",
+                  "fire",
                 ];
     const battleDebrisCount =
       BATTLE_DEBRIS_COUNT[landscapeSettings.battleDebrisDensity];
@@ -2149,7 +2149,7 @@ export function renderScene(params: RenderSceneParams): void {
     const DEPTH_LAYER_ROAD_DIST = TILE_SIZE * 7;
     const ANIMATED_DEPTH_TYPES: ReadonlySet<string> = new Set([
       "torch",
-      "발사",
+      "fire",
       "fire_pit",
       "campfire",
       "fountain",
@@ -2219,7 +2219,7 @@ export function renderScene(params: RenderSceneParams): void {
         alwaysDepth ||
         (isNearRoad &&
           (isDepthAnimated ||
-            (volume.heightTag !== "지상" && volume.heightTag !== "short")))
+            (volume.heightTag !== "ground" && volume.heightTag !== "short")))
       ) {
         depthSensitiveDecorations.push(resolvedEntry);
       } else if (renderLayer === "background" || isBgAnimated) {
@@ -2419,12 +2419,12 @@ export function renderScene(params: RenderSceneParams): void {
     renderables.push({
       data: tower,
       isoY: (worldPos.x + worldPos.y) * ISO_Y_FACTOR,
-      type: "타워",
+      type: "tower",
     });
   });
   // Collect range reticle data (rendered in consolidated reticle pass, not depth-sorted with entities)
   const pendingRangeReticles: {
-    kind: "station" | "타워";
+    kind: "station" | "tower";
     tower: Tower & { isHovered?: boolean };
   }[] = [];
   const uiSettings = getGameSettings().ui;
@@ -2443,14 +2443,14 @@ export function renderScene(params: RenderSceneParams): void {
     if (selectedTower) {
       const tower = towers.find((t) => t.id === selectedTower);
       if (tower && TOWER_DATA[tower.type].range > 0) {
-        pendingRangeReticles.push({ kind: "타워", tower });
+        pendingRangeReticles.push({ kind: "tower", tower });
       }
     }
     if (hoveredTower && hoveredTower !== selectedTower) {
       const tower = towers.find((t) => t.id === hoveredTower);
       if (tower && TOWER_DATA[tower.type].range > 0) {
         pendingRangeReticles.push({
-          kind: "타워",
+          kind: "tower",
           tower: { ...tower, isHovered: true },
         });
       }
@@ -2481,7 +2481,7 @@ export function renderScene(params: RenderSceneParams): void {
     renderables.push({
       data: enemy,
       isoY: (worldPos.x + worldPos.y) * ISO_Y_FACTOR + stableOffset,
-      type: "적",
+      type: "enemy",
     });
   });
   if (hero && !hero.dead) {
@@ -3136,7 +3136,7 @@ export function renderScene(params: RenderSceneParams): void {
 
   // Pre-pass: draw ALL tower ground transitions before any tower bodies
   for (const r of renderables) {
-    if (r.type === "타워") {
+    if (r.type === "tower") {
       renderTowerGroundTransition(
         ctx,
         r.data as Tower,
@@ -3339,7 +3339,7 @@ export function renderScene(params: RenderSceneParams): void {
         hoveredInspectEnemy === enemy.id,
         cameraOffset,
         cameraZoom,
-        "지상"
+        "ground"
       );
     });
     troops.forEach((troop) => {
@@ -3362,7 +3362,7 @@ export function renderScene(params: RenderSceneParams): void {
         selectedInspectTroop?.id === troop.id,
         hoveredInspectTroop === troop.id,
         "troop",
-        "지상"
+        "ground"
       );
     });
     if (hero && !hero.dead) {
@@ -3382,7 +3382,7 @@ export function renderScene(params: RenderSceneParams): void {
         selectedInspectHero,
         hoveredInspectHero,
         "hero",
-        "지상"
+        "ground"
       );
     }
   }
@@ -3477,7 +3477,7 @@ export function renderScene(params: RenderSceneParams): void {
         }
         break;
       }
-      case "타워": {
+      case "tower": {
         renderTower(
           ctx,
           r.data as Tower,
@@ -3518,7 +3518,7 @@ export function renderScene(params: RenderSceneParams): void {
         }
         break;
       }
-      case "적": {
+      case "enemy": {
         renderEnemy(
           ctx,
           r.data as Enemy,

@@ -533,7 +533,7 @@ export function drawTroopSprite(
       );
       break;
     }
-    case "논문": {
+    case "thesis": {
       drawThesisTroop(
         ctx,
         x,

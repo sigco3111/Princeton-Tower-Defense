@@ -622,7 +622,7 @@ const getSpellStatsForDisplay = (
           bg: "rgba(127,29,29,0.3)",
           border: "rgba(127,29,29,0.2)",
           color: "text-red-300",
-          label: "피해",
+          label: "damage",
           value: `${s.damagePerMeteor}×${s.meteorCount}`,
         },
         {

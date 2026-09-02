@@ -75,7 +75,7 @@ function getCategoryStyle(
         label: "Map Hazard",
       };
     }
-    case "적": {
+    case "enemy": {
       return {
         accentClass: "text-amber-200",
         borderColor: AMBER_CARD.border,
@@ -303,7 +303,7 @@ export const EncounterTooltip: React.FC<EncounterTooltipProps> = ({
             </div>
           </div>
 
-          {encounter.category === "적" &&
+          {encounter.category === "enemy" &&
           encounter.members &&
           encounter.members.length > 0 ? (
             <EnemyCardList members={encounter.members} />
@@ -536,7 +536,7 @@ export const InlineEncounterPanel: React.FC<InlineEncounterPanelProps> = ({
         className="flex-1 overflow-y-auto min-h-0"
         style={{ animation: "encounterContentSwap 250ms ease-out" }}
       >
-        {encounter.category === "적" &&
+        {encounter.category === "enemy" &&
         encounter.members &&
         encounter.members.length > 0 ? (
           <EnemyCardList members={encounter.members} />

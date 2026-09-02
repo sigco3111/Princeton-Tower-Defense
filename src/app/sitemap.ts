@@ -8,13 +8,13 @@ export const dynamic = "force-static";
 type OgImageKey = keyof typeof OG_IMAGES;
 
 const CODEX_TABS = [
-  "타워",
+  "tower",
   "heroes",
-  "적",
-  "spells",
-  "special_towers",
-  "hazards",
-  "guide",
+  "enemy",
+  "spell",
+  "special_tower",
+  "hazard",
+  "guides",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

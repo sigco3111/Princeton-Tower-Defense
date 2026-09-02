@@ -199,7 +199,7 @@ export function WorldMapTopBar({
               />
 
               <button
-                onClick={() => onOpenCodex("타워")}
+                onClick={() => onOpenCodex("tower")}
                 className="relative z-10 flex items-center gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 transition-all duration-200 hover:bg-amber-600/15 hover:shadow-[inset_0_0_12px_rgba(180,140,60,0.12)]"
               >
                 <Book

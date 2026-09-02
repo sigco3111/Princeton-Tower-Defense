@@ -18,9 +18,9 @@ const ALL_LEVEL_IDS: ReadonlySet<string> = new Set([
 ]);
 
 const CODEX_TABS: ReadonlySet<string> = new Set<CodexTabId>([
-  "타워",
+  "tower",
   "heroes",
-  "적",
+  "enemy",
   "spells",
   "special_towers",
   "hazards",

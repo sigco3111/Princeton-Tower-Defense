@@ -19,7 +19,7 @@ export interface DamageNumberEvent {
   worldPos: Position;
   amount: number;
   isCritical: boolean;
-  source: "타워" | "hero" | "troop" | "spell" | "burn" | "aoe";
+  source: "tower" | "hero" | "troop" | "spell" | "burn" | "aoe";
   spawnTime: number;
   duration: number;
 }

@@ -543,7 +543,7 @@ export function handleCanvasClickImpl(
     );
 
     const FRIENDLY_BIAS = 12;
-    let closestType: "적" | "troop" | "hero" | null = null;
+    let closestType: "enemy" | "troop" | "hero" | null = null;
     let closestDist = Infinity;
     let closestEnemy: Enemy | null = null;
     let closestTroop: Troop | null = null;
@@ -558,7 +558,7 @@ export function handleCanvasClickImpl(
       const hitRadius = (eData?.size || 20) * 1.5;
       if (dist < hitRadius + clickRadius && dist < closestDist) {
         closestDist = dist;
-        closestType = "적";
+        closestType = "enemy";
         closestEnemy = enemy;
         closestTroop = null;
       }
@@ -591,7 +591,7 @@ export function handleCanvasClickImpl(
     p.setSelectedInspectTroop(null);
     p.setSelectedInspectHero(false);
 
-    if (closestType === "적" && closestEnemy) {
+    if (closestType === "enemy" && closestEnemy) {
       p.setSelectedInspectEnemy(closestEnemy);
     } else if (closestType === "hero") {
       p.setSelectedInspectHero(true);
@@ -647,7 +647,7 @@ export function handleCanvasClickImpl(
             ? -Math.PI / 2
             : 0;
       const newTower: Tower = {
-        id: generateId("타워"),
+        id: generateId("tower"),
         lastAttack: 0,
         level: 1,
         occupiedSpawnSlots:
@@ -806,7 +806,7 @@ export function handleCanvasClickImpl(
       )
     );
     p.setMissileMortarTargetingId(null);
-    p.addParticles(targetPos, "발사", 10);
+    p.addParticles(targetPos, "fire", 10);
     p.addParticles(targetPos, "spark", 6);
     return;
   }

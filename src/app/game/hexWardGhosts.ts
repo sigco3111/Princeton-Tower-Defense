@@ -130,7 +130,7 @@ export function getHexWardGhostProfile(
         decayPerSecond: 30,
         hp: 640,
         lifetimeMs: 17_000,
-        troopType: "논문",
+        troopType: "thesis",
       };
     }
     case "strong": {

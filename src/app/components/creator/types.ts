@@ -47,7 +47,7 @@ export type ToolMode =
   | "path_secondary"
   | "hero_spawn"
   | "special_tower"
-  | "타워"
+  | "tower"
   | "decoration"
   | "landmark"
   | "hazard"
@@ -58,12 +58,12 @@ export type SelectionTarget =
   | { kind: "secondary_path"; index: number }
   | { kind: "hero_spawn" }
   | { kind: "special_tower"; index: number }
-  | { kind: "타워"; index: number }
+  | { kind: "tower"; index: number }
   | { kind: "decoration"; index: number }
   | { kind: "hazard"; index: number };
 
 export interface PaletteDragPayload {
-  kind: "decoration" | "landmark" | "hazard" | "objective" | "타워";
+  kind: "decoration" | "landmark" | "hazard" | "objective" | "tower";
   value: string;
 }
 

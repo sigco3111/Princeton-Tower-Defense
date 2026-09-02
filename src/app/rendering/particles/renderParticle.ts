@@ -61,7 +61,7 @@ export function renderParticle(
     particleDensityHint >= 96 || (particleDensityHint >= 48 && zoom >= 1.25);
 
   switch (particle.type) {
-    case "발사": {
+    case "fire": {
       renderFire(ctx, screenPos, size, particle.color, simplified);
       break;
     }

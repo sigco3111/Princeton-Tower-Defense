@@ -17,7 +17,7 @@ export interface InitialNavigation {
 
 function routeToInitialNav(target: RouteTarget): InitialNavigation {
   const base: InitialNavigation = {
-    codex: { open: false, tab: "타워" },
+    codex: { open: false, tab: "tower" },
     creator: false,
     credits: false,
     level: null,
@@ -29,7 +29,7 @@ function routeToInitialNav(target: RouteTarget): InitialNavigation {
       return { ...base, level: target.levelId };
     }
     case "codex": {
-      return { ...base, codex: { open: true, tab: target.tab ?? "타워" } };
+      return { ...base, codex: { open: true, tab: target.tab ?? "tower" } };
     }
     case "creator": {
       return { ...base, creator: true };

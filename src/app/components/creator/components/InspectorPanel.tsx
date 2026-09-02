@@ -85,7 +85,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
       ? draft.specialTowers[selection.index]
       : null;
   const selectedTower =
-    selection?.kind === "타워" ? draft.placedTowers[selection.index] : null;
+    selection?.kind === "tower" ? draft.placedTowers[selection.index] : null;
 
   const activeToolHint = TOOL_HINTS[tool] ?? "";
 
@@ -107,7 +107,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
         ? OBJECTIVE_TYPE_STATS[selectedObjective.type].title
         : "Objective";
     }
-    if (selection.kind === "타워") {
+    if (selection.kind === "tower") {
       return selectedTower
         ? (TOWER_DISPLAY_NAMES[selectedTower.type as TowerType] ??
             formatAssetName(selectedTower.type))
@@ -217,7 +217,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
               </div>
             )}
 
-            {selection.kind === "타워" && selectedTower && (
+            {selection.kind === "tower" && selectedTower && (
               <div className="text-[10px] text-amber-400/60 px-0.5 inline-flex items-center gap-1">
                 <Sword size={9} /> Pre-placed{" "}
                 {TOWER_DISPLAY_NAMES[selectedTower.type as TowerType] ??

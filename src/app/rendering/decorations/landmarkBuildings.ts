@@ -337,7 +337,7 @@ function drawRuinsBanner(
   poleH: number,
   bannerColor1: string,
   bannerColor2: string,
-  emblemStyle?: "cross" | "방패" | "star"
+  emblemStyle?: "cross" | "shield" | "star"
 ): void {
   // Pole with wood grain
   ctx.strokeStyle = "#5a4a3a";
@@ -424,7 +424,7 @@ function drawRuinsBanner(
       ctx.moveTo(ex, ey - 2.5 * s);
       ctx.lineTo(ex, ey + 2 * s);
       ctx.stroke();
-    } else if (emblemStyle === "방패") {
+    } else if (emblemStyle === "shield") {
       ctx.beginPath();
       ctx.moveTo(ex - 1.5 * s, ey - 2 * s);
       ctx.lineTo(ex + 1.5 * s, ey - 2 * s);
@@ -1485,7 +1485,7 @@ export function renderFortress(p: LandmarkParams): void {
       18,
       pal.bannerPrimary,
       pal.bannerSecondary,
-      "방패"
+      "shield"
     );
 
     // Right tower (shorter, more ruined, tilted feel from uneven jagging)
@@ -2093,7 +2093,7 @@ export function renderFortress(p: LandmarkParams): void {
       20,
       pal.bannerPrimary,
       pal.bannerSecondary,
-      "방패"
+      "shield"
     );
     drawRuinsBanner(
       ctx,
