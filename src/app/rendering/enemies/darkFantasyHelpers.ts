@@ -1029,7 +1029,7 @@ function renderGhostlyArm(
 
   // Ethereal claw fingers — each unique length and curve
   ctx.strokeStyle = handColor;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const clawSway = Math.sin(time * 3);
   const clawDefs = [
     { len: 2.8, phase: 0, spread: -0.6, thick: 0.2 },
@@ -1765,7 +1765,7 @@ export function drawShoulderOverlay(
   side: -1 | 1,
   color: string,
   colorDark: string,
-  type: "plate" | "라운드" | "tattered"
+  type: "plate" | "round" | "tattered"
 ): void {
   if (type === "plate") {
     // Multi-layered plate
@@ -1820,7 +1820,7 @@ export function drawShoulderOverlay(
     ctx.lineTo(x - side * size * 0.01, y - size * 0.08);
     ctx.lineTo(x + side * size * 0.01, y - size * 0.08);
     ctx.fill();
-  } else if (type === "라운드") {
+  } else if (type === "round") {
     const grad = ctx.createRadialGradient(
       x,
       y - size * 0.01,

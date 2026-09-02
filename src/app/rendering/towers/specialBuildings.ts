@@ -271,8 +271,8 @@ function drawFlushRuneOnFace(
   ctx.shadowColor = `rgba(${jadeRgb}, ${glowAlpha})`;
   ctx.strokeStyle = `rgba(${jadeBright}, ${glowAlpha})`;
   ctx.lineWidth = 0.9 * zoom;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   for (const polyline of rune) {
     ctx.beginPath();
@@ -5623,7 +5623,7 @@ export function renderSpecialBuilding(
 
         ctx.strokeStyle = `rgba(15, 10, 5, ${crAlpha})`;
         ctx.lineWidth = crW;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         // Main crack with branches
         let p = lWallPt(0.82, 0.18);
         ctx.beginPath();
@@ -5665,7 +5665,7 @@ export function renderSpecialBuilding(
           ctx.clip();
           ctx.strokeStyle = `rgba(15, 10, 5, ${crAlpha})`;
           ctx.lineWidth = crW;
-          ctx.lineCap = "라운드";
+          ctx.lineCap = "round";
           p = lWallPt(0.7, 0.62);
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
@@ -5699,7 +5699,7 @@ export function renderSpecialBuilding(
           ctx.clip();
           ctx.strokeStyle = `rgba(15, 10, 5, ${crAlpha * 0.8})`;
           ctx.lineWidth = crW * 0.9;
-          ctx.lineCap = "라운드";
+          ctx.lineCap = "round";
           let rp = rWallPt(0.4, 0.3);
           ctx.beginPath();
           ctx.moveTo(rp.x, rp.y);
@@ -5821,7 +5821,7 @@ export function renderSpecialBuilding(
           ctx.clip();
           ctx.strokeStyle = "rgba(30, 15, 0, 0.5)";
           ctx.lineWidth = 2.2 * s2;
-          ctx.lineCap = "라운드";
+          ctx.lineCap = "round";
           p = lWallPt(0.92, 0.05);
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
@@ -5908,7 +5908,7 @@ export function renderSpecialBuilding(
         ctx.shadowColor = "#FF5722";
         ctx.shadowBlur = 10 * s2;
         ctx.lineWidth = 2.5 * s2;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         let gp = lWallPt(0.92, 0.05);
         ctx.beginPath();
         ctx.moveTo(gp.x, gp.y);
@@ -6803,7 +6803,7 @@ export function renderSpecialBuilding(
         // Iron bracket arm
         ctx.strokeStyle = "#3E2723";
         ctx.lineWidth = 2 * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(0, 8 * s);
         ctx.lineTo(0, 3 * s);
@@ -6857,7 +6857,7 @@ export function renderSpecialBuilding(
       ctx.transform(1, -tanA, 0, 1, 0, 0);
       ctx.strokeStyle = "#5D4037";
       ctx.lineWidth = 1.8 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       // Spear shaft 1 (diagonal)
       ctx.beginPath();
       ctx.moveTo(-8 * s, 10 * s);
@@ -6897,7 +6897,7 @@ export function renderSpecialBuilding(
       // Rack frame (horizontal bar + 2 uprights)
       ctx.strokeStyle = "#5D4037";
       ctx.lineWidth = 2 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(-9 * s, 0);
       ctx.lineTo(9 * s, 0);
@@ -7408,7 +7408,7 @@ export function renderSpecialBuilding(
       // Ridge lines (visible edges)
       ctx.strokeStyle = "#4E342E";
       ctx.lineWidth = 3 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(rL.x, rL.y - eaveH);
       ctx.lineTo(peak.x, peak.y);
@@ -7737,7 +7737,7 @@ export function renderSpecialBuilding(
         // Cap ridge lines
         ctx.strokeStyle = "#4E342E";
         ctx.lineWidth = 2 * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(kcL.x, kcL.y);
         ctx.lineTo(kPk.x, kPk.y);
@@ -8318,7 +8318,7 @@ export function renderSpecialBuilding(
       // Crossed swords icon
       ctx.strokeStyle = "#1a1a2e";
       ctx.lineWidth = 1.8 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(-4 * s, -3 * s);
       ctx.lineTo(4 * s, 5 * s);

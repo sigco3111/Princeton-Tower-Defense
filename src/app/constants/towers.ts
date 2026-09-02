@@ -36,7 +36,7 @@ export const TOWER_DATA: Record<
     upgrades: {
       A: {
         desc: "기절 효과의 크레센도 공격",
-        effect: "35% stun chance, max 8 crescendo stacks",
+        effect: "35% 기절 확률, 최대 8 크레센도 중첩",
         name: "충격파 사이렌",
         range: 350,
       },
@@ -65,14 +65,14 @@ export const TOWER_DATA: Record<
     upgrades: {
       A: {
         desc: "빠르게 발사하는 기관총",
-        effect: "8x attack speed, 0.4x damage per shot",
-        name: "gatling",
+        effect: "공격 속도 8배, 발당 피해 0.4배",
+        name: "개틀링",
         range: 360,
       },
       B: {
         desc: "지속적인 화염 사격",
         effect: "적에게 지속 화염 피해",
-        name: "flamethrower",
+        name: "화염방사기",
         range: 300,
       },
     },
@@ -94,12 +94,12 @@ export const TOWER_DATA: Record<
     upgrades: {
       A: {
         desc: "최대 수동 수입",
-        effect: "40 PP every 5s + 15% range buff to nearby towers",
+        effect: "5초마다 40 PP + 주변 타워 사거리 15% 증가",
         name: "투자 은행",
       },
       B: {
         desc: "수익 + 타워 지원",
-        effect: "20 PP every 6s + 15% damage buff to nearby towers",
+        effect: "6초마다 20 PP + 주변 타워 피해 15% 증가",
         name: "모집 센터",
       },
     },
@@ -143,7 +143,7 @@ export const TOWER_DATA: Record<
       1: TOWER_STATS.library.levels[1].description,
       2: TOWER_STATS.library.levels[2].description,
       3: TOWER_STATS.library.levels[3].description,
-      4: "Choose: Earthquake or Blizzard",
+      4: "선택: 지진 또는 블리자드",
     },
     name: TOWER_STATS.library.name,
     range: TOWER_STATS.library.baseStats.range,
@@ -156,8 +156,8 @@ export const TOWER_DATA: Record<
       },
       B: {
         desc: "적을 완전히 빙결시킴",
-        effect: "50% slow + 25% freeze chance/2s",
-        name: "blizzard",
+        effect: "50% 감속 + 2초마다 25% 빙결 확률",
+        name: "블리자드",
         range: 385,
       },
     },
@@ -178,7 +178,7 @@ export const TOWER_DATA: Record<
     range: TOWER_STATS.mortar.baseStats.range,
     upgrades: {
       A: {
-        desc: "6-pod guided launcher rack",
+        desc: "6연장 유도 발사대",
         effect: "자동 조준 또는 수동 조준으로 파괴적인 포격",
         name: "미사일 배터리",
         range: 400,
@@ -250,7 +250,7 @@ export const TOWER_CATEGORIES: Record<TowerType, TowerCategory> = {
   club: { colorName: "amber", label: "경제" },
   lab: { colorName: "yellow", label: "에너지 피해" },
   library: { colorName: "cyan", label: "군중 제어" },
-  mortar: { colorName: "orange", label: "Siege AoE" },
+  mortar: { colorName: "orange", label: "공성 광역" },
   station: { colorName: "purple", label: "부대 소환" },
 };
 
@@ -328,7 +328,7 @@ export const TOWER_TAG_DEFS: Record<TowerTag, TowerTagDef> = {
     bgClass: "bg-red-950/60",
     borderClass: "border-red-700/40",
     icon: "flame",
-    label: "DPS",
+    label: "화력",
     textClass: "text-red-400",
   },
   economy: {
@@ -363,7 +363,7 @@ export const TOWER_TAG_DEFS: Record<TowerTag, TowerTagDef> = {
     bgClass: "bg-fuchsia-950/60",
     borderClass: "border-fuchsia-700/40",
     icon: "users",
-    label: "Spawner",
+    label: "소환",
     textClass: "text-fuchsia-300",
   },
   support: {
@@ -421,7 +421,7 @@ export const TOWER_ROLE_STYLES: Record<TowerType, TowerRoleStyle> = {
     accent: "rgba(239,68,68,0.7)",
     bg: "rgba(127,29,29,0.35)",
     border: "rgba(153,27,27,0.3)",
-    label: "DPS",
+    label: "화력",
     statColor: "rgb(252,165,165)",
     text: "rgb(252,165,165)",
   },
@@ -429,7 +429,7 @@ export const TOWER_ROLE_STYLES: Record<TowerType, TowerRoleStyle> = {
     accent: "rgba(250,204,21,0.7)",
     bg: "rgba(113,63,18,0.35)",
     border: "rgba(133,77,14,0.3)",
-    label: "Econ",
+    label: "경제",
     statColor: "rgb(253,224,71)",
     text: "rgb(253,224,71)",
   },

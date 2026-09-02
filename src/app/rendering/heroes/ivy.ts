@@ -28,7 +28,7 @@ interface IvyPalette {
   shadowHex: string;
   eyePupil: string;
   canopy: [string, string, string, string];
-  canopyStyle: "라운드" | "flat" | "conical" | "ember" | "weeping";
+  canopyStyle: "round" | "flat" | "conical" | "ember" | "weeping";
 }
 
 const IVY_PALETTES: Record<string, IvyPalette> = {
@@ -51,7 +51,7 @@ const IVY_PALETTES: Record<string, IvyPalette> = {
   },
   grassland: {
     canopy: ["#15803d", "#16a34a", "#22c55e", "#4ade80"],
-    canopyStyle: "라운드",
+    canopyStyle: "round",
     eyePupil: "#064e3b",
     flower: "236,72,153",
     glow: "52,211,153",
@@ -161,7 +161,7 @@ function drawMorphTransition(
 
     ctx.strokeStyle = `rgba(${P.vine},${0.2 + coverage * 0.5})`;
     ctx.lineWidth = (1.5 + coverage * 2) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(ox, oy);
     ctx.quadraticCurveTo((ox + ix) / 2 + sway, (oy + iy) / 2 + sway, ix, iy);
@@ -540,7 +540,7 @@ function drawColossusGroundEffect(
     const midY = groundY + Math.sin(a) * len * 0.5 * isoY + s * 0.006;
     ctx.strokeStyle = `rgba(0,0,0,${0.12 + pulse * 0.04})`;
     ctx.lineWidth = (2.8 + Math.sin(i * 1.5) * 0.8) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(x, groundY);
     ctx.quadraticCurveTo(midX, midY, tipX, tipY);
@@ -848,7 +848,7 @@ function drawColossusRootLegs(
       const subTipY = footY + Math.sin(subA) * subLen * isoY + s * 0.003;
       ctx.strokeStyle = "rgba(45,30,14,0.55)";
       ctx.lineWidth = (1.5 - sr * 0.2) * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(footX, footY);
       ctx.quadraticCurveTo(
@@ -1695,7 +1695,7 @@ function drawColossusBranchArms(
 
       ctx.strokeStyle = "#4a3018";
       ctx.lineWidth = (1.8 - b * 0.15) * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(bBaseX, bBaseY);
       ctx.quadraticCurveTo(
@@ -1801,7 +1801,7 @@ function drawColossusFace(
   // Carved brow ridge with highlight top / shadow bottom
   ctx.strokeStyle = "#2a1a08";
   ctx.lineWidth = 3.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(x - s * 0.13, faceY - s * 0.015);
   ctx.bezierCurveTo(
@@ -2002,7 +2002,7 @@ function drawColossusCanopy(
     brGrad.addColorStop(1, "#3a2510");
     ctx.strokeStyle = brGrad;
     ctx.lineWidth = (2.8 - i * 0.12) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(x, y - s * 0.3);
     ctx.quadraticCurveTo(
@@ -2335,7 +2335,7 @@ function drawColossusCanopy(
 
       ctx.strokeStyle = `rgba(${P.vine},${0.38 + pulse * 0.12})`;
       ctx.lineWidth = (1.6 + Math.sin(i) * 0.4) * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(hangX, hangTopY);
       ctx.quadraticCurveTo(
@@ -3253,7 +3253,7 @@ function drawRootSystem(
       const subTipY = footY + Math.sin(subA) * subLen * isoY + s * 0.002;
       ctx.strokeStyle = `rgba(${P.rootVine},${0.35 + naturePulse * 0.1})`;
       ctx.lineWidth = (1.2 - sr * 0.2) * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(footX, footY);
       ctx.quadraticCurveTo(
@@ -3458,7 +3458,7 @@ function drawSegmentedTentacle(
   if (showGlow) {
     ctx.strokeStyle = `rgba(${P.glow},${0.12 + naturePulse * 0.08 + atkBurst * 0.1})`;
     ctx.lineWidth = (0.7 + atkBurst * 0.4) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(pts[0].x, pts[0].y);
     for (let i = 1; i <= segCount; i++) {
@@ -3743,7 +3743,7 @@ function drawBranchSegments(
   // Glowing vein
   ctx.strokeStyle = `rgba(${P.glow},${0.12 + naturePulse * 0.08 + atkBurst * 0.1})`;
   ctx.lineWidth = (0.7 + atkBurst * 0.3) * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(pts[0].x, pts[0].y);
   for (let seg = 1; seg <= segCount; seg++) {
@@ -4677,7 +4677,7 @@ function drawBranchCorset(
       bGrad.addColorStop(1, `rgba(50,32,16,${0.45 + b * 0.04})`);
       ctx.strokeStyle = bGrad;
       ctx.lineWidth = (3.2 - b * 0.15 + atkBurst * 0.6) * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(x + side * s * 0.02, bY + breathShift);
       ctx.bezierCurveTo(
@@ -5179,7 +5179,7 @@ function drawArms(
     armGrad.addColorStop(1, "#123820");
     ctx.strokeStyle = armGrad;
     ctx.lineWidth = (5 + atkBurst * 0.6) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(shX, shY);
     ctx.bezierCurveTo(
@@ -5336,7 +5336,7 @@ function drawArms(
         const fLen = s * 0.018;
         ctx.strokeStyle = "#1a4530";
         ctx.lineWidth = 1.5 * zoom;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(
           handX + Math.cos(fAngle) * s * 0.015,
@@ -5498,7 +5498,7 @@ function drawCrookedStaff(
 
     ctx.strokeStyle = "#4a3418";
     ctx.lineWidth = (2 - br.at * 0.6) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(bp.x, bp.y);
     ctx.quadraticCurveTo(
@@ -5555,7 +5555,7 @@ function drawCrookedStaff(
   ];
   ctx.strokeStyle = "#4a3018";
   ctx.lineWidth = 2 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (const p of prongs) {
     const pA = topA + p.da;
     const tipPx = topPt.x + Math.cos(pA) * s * p.len;
@@ -6214,7 +6214,7 @@ function drawHair(
 
     ctx.strokeStyle = hGrad;
     ctx.lineWidth = (2.2 - i * 0.06 + atkBurst * 0.4) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(startX, startY);
     ctx.bezierCurveTo(
@@ -6318,7 +6318,7 @@ function drawCrown(
     const tip1Y = crownBase - s * 0.26;
     ctx.strokeStyle = "#5a3e20";
     ctx.lineWidth = (3.5 + atkBurst * 0.3) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(baseX, crownBase);
     ctx.bezierCurveTo(

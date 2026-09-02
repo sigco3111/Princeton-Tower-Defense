@@ -66,7 +66,7 @@ export const FullscreenButton: React.FC = () => {
           border: `1.5px solid ${GOLD.border25}`,
           boxShadow: `0 0 12px ${GOLD.glow07}, inset 0 0 6px ${GOLD.glow04}`,
         }}
-        title={isFullscreen ? "Exit fullscreen" : "Fullscreen"}
+        title={isFullscreen ? "전체화면 종료" : "전체화면"}
       >
         {isFullscreen ? (
           <Minimize size={13} className="text-amber-400/80" />

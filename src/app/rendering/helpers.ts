@@ -809,7 +809,7 @@ export function drawEnergyTube(
   // Tube outline
   ctx.strokeStyle = darkenColor(color, 50);
   ctx.lineWidth = radius * 2;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(x1, y1);
   ctx.lineTo(x2, y2);
@@ -1109,8 +1109,8 @@ export function drawLightningBolt(
   }
   pts.push({ x: x2, y: y2 });
 
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   const c = LIGHTNING_COLORS[colorScheme];
 

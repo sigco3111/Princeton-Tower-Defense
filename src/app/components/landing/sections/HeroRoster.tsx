@@ -183,7 +183,7 @@ export function HeroRoster() {
       <div className="relative z-10">
         <SectionFlourish />
         <MapSectionHeader
-          subtitle="9 Unique Champions"
+          subtitle="9명의 고유 챔피언"
           title="영웅 선택"
         />
 
@@ -301,8 +301,8 @@ export function HeroRoster() {
                         d="M10 3L5 8L10 13"
                         stroke={data.color}
                         strokeWidth="2"
-                        strokeLinecap="라운드"
-                        strokeLinejoin="라운드"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>
@@ -320,8 +320,8 @@ export function HeroRoster() {
                         d="M6 3L11 8L6 13"
                         stroke={data.color}
                         strokeWidth="2"
-                        strokeLinecap="라운드"
-                        strokeLinejoin="라운드"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>
@@ -360,7 +360,7 @@ export function HeroRoster() {
                           className="text-[8px] font-semibold uppercase tracking-wider"
                           style={{ color: "rgba(255,255,255,0.3)" }}
                         >
-                          Ranged
+                          원거리
                         </span>
                       )}
                       {data.isFlying && (
@@ -368,7 +368,7 @@ export function HeroRoster() {
                           className="text-[8px] font-semibold uppercase tracking-wider"
                           style={{ color: "rgba(255,255,255,0.3)" }}
                         >
-                          Flying
+                          비행
                         </span>
                       )}
                     </div>
@@ -416,7 +416,7 @@ export function HeroRoster() {
                       className="text-[9px] font-bold uppercase tracking-[0.2em] mb-1.5"
                       style={{ color: `${data.color}50` }}
                     >
-                      Special Ability
+                      특수 능력
                     </p>
                     <h4
                       className="text-sm sm:text-base font-bold"
@@ -449,7 +449,7 @@ export function HeroRoster() {
         <div className="mt-24 sm:mt-28">
           <SectionFlourish />
           <MapSectionHeader
-            subtitle="6 Arcane Abilities"
+            subtitle="6가지 비전 능력"
             title="주문서"
           />
 

@@ -20,7 +20,7 @@ export const ENEMY_LANE_SHIFT_MS = 180;
 
 export const HEAVY_WEDGE_TYPES = new Set<EnemyType>([
   "trustee",
-  "학장",
+  "dean",
   "golem",
   "necromancer",
   "shadow_knight",
@@ -31,7 +31,7 @@ export const HEAVY_WEDGE_TYPES = new Set<EnemyType>([
 
 export const FAST_VEE_TYPES = new Set<EnemyType>([
   "harpy",
-  "마스코트",
+  "mascot",
   "wyvern",
   "specter",
   "berserker",

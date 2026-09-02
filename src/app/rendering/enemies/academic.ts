@@ -2761,7 +2761,7 @@ export function drawJuniorEnemy(
   }
 
   // Quills stuck through hat at angles
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let qi = 0; qi < 3; qi++) {
     const qAng = -0.85 + qi * 0.55 + Math.sin(time * 0.9 + qi) * 0.08;
     const qx0 = headX + Math.sin(qi * 1.7) * size * 0.08;
@@ -3773,7 +3773,7 @@ export function drawSeniorEnemy(
   // Thin crack (one side)
   ctx.strokeStyle = `rgba(55, 50, 52, ${0.55 + haloPulse * 0.15})`;
   ctx.lineWidth = 0.85 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(headX + size * 0.07, headY - size * 0.09);
   ctx.lineTo(headX + size * 0.035, headY - size * 0.01);

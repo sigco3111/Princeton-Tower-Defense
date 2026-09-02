@@ -42,8 +42,8 @@ const SOCIAL_LINKS = [
         fill="none"
         stroke="currentColor"
         strokeWidth={2}
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <circle cx="12" cy="12" r="10" />
         <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
@@ -97,7 +97,7 @@ const ARCH_LAYERS = [
       "Shadow & Lighting",
       "Particle Effects",
     ],
-    label: "Rendering Engine",
+    label: "렌더링 엔진",
   },
   {
     accentColor: "rgba(251,146,60,0.9)",
@@ -113,7 +113,7 @@ const ARCH_LAYERS = [
       "Projectile Physics",
       "Hero & Spell Logic",
     ],
-    label: "Game Systems",
+    label: "게임 시스템",
   },
   {
     accentColor: "rgba(248,113,113,0.9)",
@@ -129,7 +129,7 @@ const ARCH_LAYERS = [
       "Object Pooling",
       "Frame Budgeting",
     ],
-    label: "Performance Layer",
+    label: "성능 레이어",
   },
 ] as const;
 
@@ -167,10 +167,10 @@ export const CreditsModal: React.FC<CreditsModalProps> = ({ onClose }) => {
           >
             <div>
               <h2 className="text-xl font-bold text-amber-200 tracking-wide">
-                About This Project
+                프로젝트 소개
               </h2>
               <p className="text-xs text-amber-200/40 mt-0.5">
-                A Canvas API Technical Showcase
+                Canvas API 기술 쇼케이스
               </p>
             </div>
             <button
@@ -206,7 +206,7 @@ export const CreditsModal: React.FC<CreditsModalProps> = ({ onClose }) => {
                 }}
               />
               <span className="absolute bottom-2.5 left-3.5 text-[10px] font-bold uppercase tracking-[0.2em] text-amber-200/50">
-                Live Gameplay
+                실시간 게임플레이
               </span>
             </div>
 
@@ -322,7 +322,7 @@ export const CreditsModal: React.FC<CreditsModalProps> = ({ onClose }) => {
 
             {/* Architecture Diagram */}
             <div className="space-y-3">
-              <SectionLabel text="Architecture" />
+              <SectionLabel text="아키텍처" />
               <div className="relative flex flex-col items-stretch">
                 <ArchBookend
                   icon={<Monitor size={16} />}

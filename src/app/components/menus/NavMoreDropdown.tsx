@@ -107,7 +107,7 @@ export const NavMoreDropdown: React.FC<NavMoreDropdownProps> = ({
     {
       href: SHARE_URL,
       icon: Share2,
-      label: "Share on X",
+      label: "X에서 공유",
     },
     {
       href: `${GITHUB_URL}/issues`,
@@ -118,7 +118,7 @@ export const NavMoreDropdown: React.FC<NavMoreDropdownProps> = ({
     {
       href: AUTHOR_URL,
       icon: Gamepad2,
-      label: "More Games",
+      label: "다른 게임",
     },
   ];
 
@@ -216,11 +216,11 @@ export const NavMoreDropdown: React.FC<NavMoreDropdownProps> = ({
             ? `inset 0 1px 0 ${OVERLAY.white06}, inset 0 0 16px ${GOLD.glow04}, 0 0 8px ${GOLD.glow04}`
             : `inset 0 1px 0 ${OVERLAY.white06}, inset 0 0 16px ${GOLD.glow04}`,
         }}
-        title="More options"
+        title="더보기"
       >
         <MoreHorizontal size={15} className="text-amber-300/70 shrink-0" />
         <span className="hidden md:inline text-xs text-amber-200/70 font-bold tracking-wider uppercase">
-          More
+          더보기
         </span>
       </button>
       {menu}

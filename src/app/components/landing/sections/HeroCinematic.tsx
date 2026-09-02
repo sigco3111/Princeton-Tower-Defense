@@ -140,7 +140,7 @@ export function HeroCinematic() {
 
       <div className="relative z-10">
         <SectionFlourish />
-        <MapSectionHeader title="9 Legendary Heroes" />
+        <MapSectionHeader title="9명의 전설적인 영웅" />
 
         {/* Carousel — absolute-positioned items, world-map style */}
         <div className="relative mt-4 flex justify-center">

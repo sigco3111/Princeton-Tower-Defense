@@ -109,8 +109,8 @@ export const PRESET_SECTION_LABELS: Record<PresetSection, string> = {
   decorations: "장식",
   hazards: "위험요소",
   objectives: "목표",
-  paths: "Paths",
-  theme: "Theme & Settings",
+  paths: "경로",
+  theme: "테마 및 설정",
   waves: "웨이브",
 };
 

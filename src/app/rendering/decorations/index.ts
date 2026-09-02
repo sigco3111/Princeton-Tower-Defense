@@ -590,7 +590,7 @@ function drawPalmFrond(
   // Rib stroke
   ctx.strokeStyle = colors.rib;
   ctx.lineWidth = 3.5 * s;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(baseX, baseY);
   ctx.quadraticCurveTo(ctrlX, ctrlY, tipX, tipY);

@@ -1439,7 +1439,7 @@ function drawEpaulets(
       // Fringe strand
       ctx.strokeStyle = "#c9a227";
       ctx.lineWidth = 1.8 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(fx, fringeY);
       ctx.quadraticCurveTo(
@@ -1624,7 +1624,7 @@ function drawSingleArm(
   // Finger details — always visible for conductor expressiveness
   ctx.strokeStyle = "#f5d0a8";
   ctx.lineWidth = (isAttacking ? 3 : 2.2) * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
 
   if (isBatonHand) {
     drawBatonHandFingers(ctx, s, side, time, isAttacking);
@@ -1687,7 +1687,7 @@ function drawBaton(
   // Baton shaft
   ctx.strokeStyle = "#f8f0e0";
   ctx.lineWidth = 2.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(baseX, baseY);
   ctx.lineTo(
@@ -2473,7 +2473,7 @@ function drawHair(
   // Fine individual hair wisps at the crown (flyaway detail)
   ctx.strokeStyle = "rgba(50, 30, 10, 0.3)";
   ctx.lineWidth = 0.8 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const wisps = [
     { endX: -0.08, endY: -0.46, x: -0.05 },
     { endX: 0, endY: -0.47, x: 0.02 },
@@ -2719,7 +2719,7 @@ function drawEyes(
       // Upper eyelid — thick defined crease
       ctx.strokeStyle = "#1a0a00";
       ctx.lineWidth = 2 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.arc(eyeX, eyeY, s * 0.058, 1.05 * Math.PI, 1.95 * Math.PI);
       ctx.stroke();
@@ -2769,7 +2769,7 @@ function drawEyebrows(
 ) {
   ctx.strokeStyle = "#1a0a00";
   ctx.lineWidth = 2.2 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const raise = isAttacking ? s * 0.02 : 0;
   ctx.beginPath();
   ctx.moveTo(x - s * 0.16, headY - s * 0.06);

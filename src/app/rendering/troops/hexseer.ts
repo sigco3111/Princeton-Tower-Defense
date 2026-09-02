@@ -683,7 +683,7 @@ export function drawHexseerTroop(
 
     ctx.strokeStyle = ribbonGrad;
     ctx.lineWidth = (2.2 - (i % 3) * 0.4) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(ribbonX, y + size * 0.18 + hover);
     ctx.quadraticCurveTo(

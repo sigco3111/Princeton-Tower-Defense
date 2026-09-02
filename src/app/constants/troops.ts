@@ -8,7 +8,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     damage: 25,
     desc: "판금 갑옷을 입은 파수꾼이 플랜지 메이스와 히터 실드를 들고 있다. 약한 병사를 쓰러뜨릴 만한 공격을 흡수하도록 만들어졌다.",
     hp: 1100,
-    name: "Armored Soldier",
+    name: "장갑병",
   },
   cavalry: {
     attackSpeed: 1100,
@@ -37,7 +37,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     damage: 35,
     desc: "프린스턴 문장을 단 금빛 갑옷의 베테랑 할버디어. 단련된 사거리와 정밀함으로 공격한다.",
     hp: 1400,
-    name: "Elite Guard",
+    name: "정예 근위대",
   },
   footsoldier: {
     attackSpeed: 1100,
@@ -45,7 +45,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     damage: 20,
     desc: "글라디우스와 스쿠툼 방패를 든 불량한 수비대 신병. 낡은 장비에도 라인을 지키겠다는 결의.",
     hp: 700,
-    name: "Foot Soldier",
+    name: "보병",
   },
   hexling: {
     attackSpeed: 880,
@@ -55,7 +55,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     desc: "원거리에서 비술 화살을 던지는 악의의 깜박이는 영혼. 지상과 공중의 적 모두를 공격할 수 있다.",
     hp: 1050,
     isRanged: true,
-    name: "Hexling",
+    name: "저주 정령",
     range: 240,
   },
   hexseer: {
@@ -66,7 +66,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     desc: "강력한 영혼으로 엮어진 승천한 저주 시전자. 그 비술 연사 사격은 어떤 하급 영혼보다도 멀리, 강하게 도달한다.",
     hp: 1500,
     isRanged: true,
-    name: "Hexseer",
+    name: "저주 예언자",
     range: 290,
   },
   knight: {
@@ -91,7 +91,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     damage: 45,
     desc: "보라색 저주에 의해 다시 끌려온 거대한 유령. 거의 아무도 감당할 수 없는, 거세고 뼈를 으스러뜨리는 힘으로 휘두른다.",
     hp: 1700,
-    name: "Hexrower",
+    name: "저주 노잡이",
   },
   thesis: {
     attackSpeed: 750,
@@ -99,7 +99,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     damage: 55,
     desc: "저주 마법에 묶이고 정예 영혼으로 만들어진 되살아난 학자. 금단의 지식을 파괴적인 공격으로 끌어낸다.",
     hp: 1400,
-    name: "Hexthesis",
+    name: "저주 학자",
   },
   turret: {
     attackSpeed: 800,
@@ -109,7 +109,7 @@ export const TROOP_DATA: Record<TroopType, TroopData> = {
     hp: 800,
     isRanged: true,
     isStationary: true,
-    name: "Defense Turret",
+    name: "방어 포탑",
     range: 140,
   },
 };

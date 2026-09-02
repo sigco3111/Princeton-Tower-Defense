@@ -179,8 +179,8 @@ export function drawGoldenPath(
   time?: number
 ): void {
   ctx.save();
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // 1. Wide diffuse halo — grounds the road into the terrain.
   traceCatmullRom(ctx, pts, 3, 5);
@@ -290,8 +290,8 @@ export function drawLockedPath(
   lineWidth: number
 ): void {
   ctx.save();
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // Soft drop shadow (slightly blurred by stacking two offset strokes).
   traceCatmullRom(ctx, pts, 1.5, 2.5);

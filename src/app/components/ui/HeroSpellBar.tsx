@@ -173,7 +173,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
       activeBg: "from-orange-700/90 to-orange-900/90",
       bg: "from-orange-800/90 to-orange-950/90",
       border: "border-orange-600",
-      effect: `Rains ${fireballStats.meteorCount} meteors in an area. Each deals ${fireballStats.damagePerMeteor} AoE damage with falloff and sets enemies ablaze for ${(fireballStats.burnDurationMs / 1000).toFixed(1)} seconds.${spellUpgradeLevels.fireball >= 2 ? " Click to choose target location." : ""}`,
+      effect: `일정 지역에 운석 ${fireballStats.meteorCount}개를 떨어뜨립니다. 각각 감쇠 효과가 있는 광역 피해 ${fireballStats.damagePerMeteor}를 입히고 ${(fireballStats.burnDurationMs / 1000).toFixed(1)}초간 적을 불태웁니다.${spellUpgradeLevels.fireball >= 2 ? " 클릭하여 목표 위치를 선택하세요." : ""}`,
       effectBg: "rgba(124,45,18,0.15)",
       effectLabel: "text-orange-500/80",
       effectText: "text-orange-200/90",
@@ -189,7 +189,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(127,29,29,0.2)",
           color: "text-red-300",
           icon: <Swords size={9} className="text-red-400" />,
-          label: "damage",
+          label: "피해",
           value: `${fireballStats.damagePerMeteor}×${fireballStats.meteorCount}`,
         },
         {
@@ -216,8 +216,8 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
       bg: "from-cyan-800/90 to-cyan-950/90",
       border: "border-cyan-600",
       effect: freezeStats.isGlobal
-        ? `Expanding ice wave freezes ALL enemies on the map for ${(freezeStats.freezeDurationMs / 1000).toFixed(1)} seconds. Great for emergencies.`
-        : `Expanding ice wave freezes up to ${freezeStats.maxTargets} enemies for ${(freezeStats.freezeDurationMs / 1000).toFixed(1)} seconds, prioritizing the most advanced threats.`,
+        ? `팽창하는 얼음 파동이 맵의 모든 적을 ${(freezeStats.freezeDurationMs / 1000).toFixed(1)}초간 동결시킵니다. 긴급 상황에 효과적입니다.`
+        : `팽창하는 얼음 파동이 최대 ${freezeStats.maxTargets}명의 적을 ${(freezeStats.freezeDurationMs / 1000).toFixed(1)}초간 동결시키며, 가장 위협적인 적을 우선합니다.`,
       effectBg: "rgba(22,78,99,0.15)",
       effectLabel: "text-cyan-500/80",
       effectText: "text-cyan-200/90",
@@ -259,7 +259,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
       activeBg: "from-fuchsia-700/90 to-purple-900/90",
       bg: "from-fuchsia-800/90 to-purple-950/90",
       border: "border-fuchsia-600",
-      effect: `Marks ${hexWardStats.maxTargets} dangerous enemies for ${(hexWardStats.durationMs / 1000).toFixed(0)} seconds and can reanimate up to ${hexWardStats.maxReanimations} fallen units as controllable ghosts.${hexWardStats.damageAmp > 0 ? ` Hexed enemies also take +${Math.round(hexWardStats.damageAmp * 100)}% damage.` : ""}${hexWardStats.blocksHealing ? " Hexed enemies also cannot heal." : ""}`,
+      effect: `위험한 적 ${hexWardStats.maxTargets}명을 ${(hexWardStats.durationMs / 1000).toFixed(0)}초간 표시하고, 쓰러진 유닛 최대 ${hexWardStats.maxReanimations}명을 조종 가능한 유령으로 되살릴 수 있습니다.${hexWardStats.damageAmp > 0 ? ` 저주받은 적은 추가로 +${Math.round(hexWardStats.damageAmp * 100)}%의 피해를 받습니다.` : ""}${hexWardStats.blocksHealing ? " 저주받은 적은 치유할 수 없습니다." : ""}`,
       effectBg: "rgba(88,28,135,0.15)",
       effectLabel: "text-fuchsia-500/80",
       effectText: "text-fuchsia-200/90",
@@ -302,7 +302,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
       activeBg: "from-yellow-700/90 to-yellow-900/90",
       bg: "from-yellow-800/90 to-yellow-950/90",
       border: "border-yellow-600",
-      effect: `Lightning chains between up to ${lightningStats.chainCount} enemies, splitting ${lightningStats.totalDamage} total damage. Each hit stuns for ${(lightningStats.stunDurationMs / 1000).toFixed(2)} seconds.${spellUpgradeLevels.lightning >= 2 ? " Click to choose target location." : ""}`,
+      effect: `번개가 최대 ${lightningStats.chainCount}명의 적 사이를 연쇄하며 총 피해 ${lightningStats.totalDamage}를 나눕니다. 적중 시 ${(lightningStats.stunDurationMs / 1000).toFixed(2)}초간 기절시킵니다.${spellUpgradeLevels.lightning >= 2 ? " 클릭하여 목표 위치를 선택하세요." : ""}`,
       effectBg: "rgba(113,63,18,0.15)",
       effectLabel: "text-yellow-500/80",
       effectText: "text-yellow-200/90",
@@ -344,7 +344,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
       activeBg: "from-amber-700/90 to-amber-900/90",
       bg: "from-amber-800/90 to-amber-950/90",
       border: "border-amber-600",
-      effect: `Grants ${paydayStats.basePayout} PP plus ${paydayStats.bonusPerEnemy} PP per enemy on the map (max +${paydayStats.maxBonus} bonus). Aura lasts ${(paydayStats.auraDurationMs / 1000).toFixed(0)} seconds.`,
+      effect: `기본 ${paydayStats.basePayout} PP에 맵의 적 하나당 ${paydayStats.bonusPerEnemy} PP를 추가 지급합니다 (최대 +${paydayStats.maxBonus} 보너스). 오라는 ${(paydayStats.auraDurationMs / 1000).toFixed(0)}초간 지속됩니다.`,
       effectBg: "rgba(120,53,15,0.15)",
       effectLabel: "text-amber-500/80",
       effectText: "text-amber-200/90",
@@ -387,8 +387,8 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
       bg: "from-emerald-800/90 to-emerald-950/90",
       border: "border-emerald-600",
       effect: reinforcementStats.rangedUnlocked
-        ? `Summons ${reinforcementStats.knightCount} veteran reinforcements with tier-${reinforcementStats.visualTier} armor. They fight in melee and fire ranged volleys.`
-        : `Summons ${reinforcementStats.knightCount} armored reinforcements at a chosen location. They block and fight enemies until defeated.`,
+        ? `티어 ${reinforcementStats.visualTier} 방어구를 갖춘 베테랑 증원군 ${reinforcementStats.knightCount}명을 소환합니다. 근접 전투와 원거리 일제 사격을 수행합니다.`
+        : `선택한 위치에 중무장 증원군 ${reinforcementStats.knightCount}명을 소환합니다. 쓰러질 때까지 길을 막고 적과 싸웁니다.`,
       effectBg: "rgba(6,78,59,0.15)",
       effectLabel: "text-emerald-500/80",
       effectText: "text-emerald-200/90",
@@ -404,7 +404,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
           border: "rgba(6,78,59,0.2)",
           color: "text-emerald-300",
           icon: <Users size={9} className="text-emerald-400" />,
-          label: "Units",
+          label: "유닛",
           value: `${reinforcementStats.knightCount}`,
         },
         {
@@ -479,9 +479,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                   <div className="flex flex-col items-center">
                     <HudTooltip
                       label={
-                        hero.selected
-                          ? "Click map to move hero"
-                          : "Click to select hero"
+                        hero.selected ? "맵을 클릭해 영웅 이동" : "클릭하여 영웅 선택"
                       }
                       position="top"
                     >
@@ -521,7 +519,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                               />
                               <feMerge>
                                 <feMergeNode in="blur" />
-                                <feMergeNode in="원본 그래픽" />
+                                <feMergeNode in="SourceGraphic" />
                               </feMerge>
                             </filter>
                           </defs>
@@ -556,7 +554,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                               strokeDashoffset={
                                 HERO_ORNATE_MID_CIRCUM * (1 - hpPercent / 100)
                               }
-                              strokeLinecap="라운드"
+                              strokeLinecap="round"
                               transform={`rotate(-90 ${HERO_ORNATE_CX} ${HERO_ORNATE_CX})`}
                               className="transition-all duration-300"
                               opacity={0.4}
@@ -625,7 +623,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                                 strokeWidth={4}
                                 strokeDasharray={DESKTOP_HERO_RING_C}
                                 strokeDashoffset={hpStrokeOffset}
-                                strokeLinecap="라운드"
+                                strokeLinecap="round"
                                 className="transition-all duration-300"
                                 style={{
                                   filter: `drop-shadow(0 0 5px ${hpRingColor})`,
@@ -804,10 +802,10 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                     <HudTooltip
                       label={
                         isReady
-                          ? `${heroData.ability} — Ready! Click to activate`
+                          ? `${heroData.ability} — 준비 완료! 클릭하여 발동`
                           : hero.dead
-                            ? `${heroData.ability} — Hero is dead`
-                            : `${heroData.ability} — ${Math.ceil(hero.abilityCooldown / 1000)}s cooldown`
+                            ? `${heroData.ability} — 영웅 사망`
+                            : `${heroData.ability} — ${Math.ceil(hero.abilityCooldown / 1000)}초 재사용 대기시간`
                       }
                       position="top"
                     >
@@ -845,7 +843,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                               <feGaussianBlur stdDeviation="2" result="blur" />
                               <feMerge>
                                 <feMergeNode in="blur" />
-                                <feMergeNode in="원본 그래픽" />
+                                <feMergeNode in="SourceGraphic" />
                               </feMerge>
                             </filter>
                             <linearGradient
@@ -926,7 +924,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                                 y2={ORNATE_CX + ORNATE_TICK_OUTER * sin}
                                 stroke="url(#ornateTickGrad)"
                                 strokeWidth={isCard ? 2.5 : 1}
-                                strokeLinecap="라운드"
+                                strokeLinecap="round"
                               />
                             );
                           })}
@@ -1000,7 +998,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                               strokeWidth={2}
                               strokeDasharray={ORNATE_RING_CIRCUM}
                               strokeDashoffset={ORNATE_RING_CIRCUM * cdFrac}
-                              strokeLinecap="라운드"
+                              strokeLinecap="round"
                               transform={`rotate(-90 ${ORNATE_CX} ${ORNATE_CX})`}
                               className="transition-all duration-300"
                             />
@@ -1028,7 +1026,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                               fill="none"
                               stroke="rgba(250,204,21,0.3)"
                               strokeWidth={2}
-                              strokeLinecap="라운드"
+                              strokeLinecap="round"
                               filter="url(#abilityGemGlow)"
                             />
                           )}
@@ -1346,7 +1344,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                         <feGaussianBlur stdDeviation="2" result="blur" />
                         <feMerge>
                           <feMergeNode in="blur" />
-                          <feMergeNode in="원본 그래픽" />
+                          <feMergeNode in="SourceGraphic" />
                         </feMerge>
                       </filter>
                     </defs>
@@ -1390,7 +1388,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                           SPELL_ORNATE_RING_CIRCUM *
                           (spell.cooldown / spell.maxCooldown)
                         }
-                        strokeLinecap="라운드"
+                        strokeLinecap="round"
                         transform={`rotate(-90 ${SPELL_ORNATE_CX} ${SPELL_ORNATE_CX})`}
                         className="transition-all duration-300"
                       />
@@ -1681,12 +1679,12 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                             }}
                           >
                             <div className="text-[8px] text-amber-500/70 font-semibold uppercase tracking-wider">
-                              Cost
+                              비용
                             </div>
                             <div className="text-amber-200 font-black text-sm mt-0.5">
                               {spellData.cost > 0
                                 ? `${spellData.cost} PP`
-                                : "FREE"}
+                                : "무료"}
                             </div>
                           </div>
                           <div
@@ -1697,7 +1695,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                             }}
                           >
                             <div className="text-[8px] text-blue-400/70 font-semibold uppercase tracking-wider">
-                              Cooldown
+                              재사용 대기시간
                             </div>
                             <div className="text-blue-200 font-black text-sm mt-0.5">
                               {spellData.cooldown / 1000}s
@@ -1748,7 +1746,7 @@ export const HeroSpellBar: React.FC<HeroSpellBarProps> = ({
                             className={`${theme.effectLabel} uppercase text-[8px] font-bold mb-1.5 tracking-wider flex items-center gap-1`}
                           >
                             <Sparkles size={9} className="opacity-70" />
-                            How it works
+                            작동 방식
                           </div>
                           <p
                             className={`text-[11px] ${theme.effectText} leading-relaxed`}

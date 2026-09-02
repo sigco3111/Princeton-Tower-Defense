@@ -103,7 +103,7 @@ export function InspectRing({
           <feGaussianBlur stdDeviation="3" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
-            <feMergeNode in="원본 그래픽" />
+            <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>

@@ -2490,7 +2490,7 @@ function drawThroneBase(
   }
 
   // Scattered bones woven between skulls
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const scatteredBones: [number, number, number][] = [
     [-15, 4, 0.8],
     [15, 4, 1.2],
@@ -3070,7 +3070,7 @@ function drawThroneChains(
   s: number,
   time: number
 ): void {
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (const xOff of [-18, -8, 0, 8, 18]) {
     const chainTop = bkTop + bkTD + 4 * s;
     const chainLen = 12 + Math.abs(xOff) * 0.3;
@@ -3370,7 +3370,7 @@ export function renderWarMonument(p: LandmarkParams): void {
   bladeGrad.addColorStop(1, "#7a7a8a");
   ctx.strokeStyle = bladeGrad;
   ctx.lineWidth = 2 * s;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(cx - 12 * s, swordY + 7 * s);
   ctx.lineTo(cx + 12 * s, swordY - 7 * s);
@@ -3680,7 +3680,7 @@ export function renderBoneAltar(p: LandmarkParams): void {
   ctx.fill();
 
   // Corruption cracks radiating outward
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < 8; i++) {
     const angle = (i / 8) * Math.PI * 2 + seedX * 0.1;
     const vLen = (20 + Math.sin(seedX + i * 3.1) * 10) * s;
@@ -3807,7 +3807,7 @@ function drawScatteredBones(
   boneSh: string,
   boneDk: string
 ): void {
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const outerBones: { a: number; d: number; len: number }[] = [
     { a: 0.2, d: 32, len: 5 },
     { a: 0.9, d: 30, len: 4 },
@@ -3940,7 +3940,7 @@ function drawBonePileMound(
   ctx.fill();
 
   // Layered bone texture lines across the mound surface
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let row = 0; row < 5; row++) {
     const rowY = cy + (row - 1) * 3 * s;
     const rowRx = moundRx * (1 - Math.abs(row - 2) * 0.15);
@@ -4039,7 +4039,7 @@ function drawBonePileMiddle(
   ctx.fill();
 
   // Cross-bones detail on middle tier
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < 3; i++) {
     const bx = cx + (i - 1) * 8 * s;
     const by = midY + Math.sin(i * 1.5) * 2 * s;
@@ -5176,7 +5176,7 @@ function drawInfernalGround(
   ctx.fill();
 
   // Dark energy cracks
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < 7; i++) {
     const ang = (i / 7) * Math.PI * 2 + 0.4;
     const crackLen = (22 + Math.sin(i * 2.7) * 8) * s;
@@ -5588,7 +5588,7 @@ function drawInfernalVines(
   time: number,
   seedX: number
 ): void {
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
 
   // Vine configs: start from pillar positions, crawl upward
   const vineSeeds: {
@@ -7451,7 +7451,7 @@ export function renderNassauHall(p: LandmarkParams): void {
     // Tail (curved, coming from the back)
     ctx.strokeStyle = "#8D7565";
     ctx.lineWidth = 1.2 * s;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     const tw = Math.sin(time * 1.2 + facing) * 1.2 * s;
     ctx.beginPath();
     ctx.moveTo(tx - facing * 3 * s, bodyY);

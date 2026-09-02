@@ -104,7 +104,7 @@ function drawTigerFurEdge(
   time: number,
   zoom: number
 ) {
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < count; i++) {
     const angle = (i / count) * Math.PI * 2;
     const wobble = Math.sin(time * 1.5 + i * 2.3) * tuftLength * 0.15;
@@ -160,7 +160,7 @@ function drawTigerNeckRuff(
   ctx.fill();
 
   const tuftCount = 24;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < tuftCount; i++) {
     const angle = (i / tuftCount) * Math.PI * 2;
     const wb = Math.sin(time * 1.2 + i * 1.9) * size * 0.005;
@@ -192,7 +192,7 @@ function drawTigerWhiskerLines(
   zoom: number
 ) {
   const whiskBaseY = y - size * 0.45;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
 
   for (let side = -1; side <= 1; side += 2) {
     for (let w = 0; w < 4; w++) {
@@ -262,7 +262,7 @@ function drawTigerChinFur(
   ctx.ellipse(x, chinY, chinHW, size * 0.06, 0, 0, Math.PI * 2);
   ctx.fill();
 
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < 8; i++) {
     const t = (i / 7) * 2 - 1;
     const tx = x + t * chinHW * 0.8;
@@ -329,7 +329,7 @@ function drawTigerBodyStripePattern(
   breathe: number
 ) {
   ctx.strokeStyle = "#050202";
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
 
   for (let i = 0; i < 6; i++) {
     const stripeY = y - size * 0.25 + i * size * 0.11 + breathe * 0.2;
@@ -386,7 +386,7 @@ function drawTigerMuscleDef(
 ) {
   ctx.strokeStyle = "rgba(170, 80, 0, 0.35)";
   ctx.lineWidth = 1.2 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
 
   ctx.beginPath();
   ctx.moveTo(
@@ -734,7 +734,7 @@ function drawTigerCenterBanner(
   ctx.lineWidth = 2 * zoom;
   ctx.shadowColor = "#daa050";
   ctx.shadowBlur = 4 * zoom * gemPulse;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(x - size * 0.02, emblemY - size * 0.02);
   ctx.lineTo(x + size * 0.025, emblemY + size * 0.02);
@@ -1797,7 +1797,7 @@ export function drawTigerHero(
 
         ctx.strokeStyle = slashGrad;
         ctx.lineWidth = (7 - s * 1.2) * zoom;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(
           slashStartX + slashOffset * side,
@@ -2436,7 +2436,7 @@ export function drawTigerHero(
   // === HEAD STRIPES (matching sprite: center + curved side stripes) ===
   ctx.strokeStyle = "#0a0505";
   ctx.lineWidth = 3 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
 
   // Center forehead stripe (prominent in sprite)
   ctx.beginPath();
@@ -2843,7 +2843,7 @@ export function drawTigerHero(
   // Predatory V-shaped brow ridges (outer ends high, sloping down to center)
   ctx.strokeStyle = "#0a0505";
   ctx.lineWidth = 2 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(x - size * 0.26, y - size * 0.71);
   ctx.quadraticCurveTo(

@@ -536,7 +536,7 @@ export function renderOGImage(baseUrl: string): React.ReactElement {
   );
 }
 
-const REGION_BG: Record<LevelNode["지역"], string> = {
+const REGION_BG: Record<LevelNode["region"], string> = {
   desert: "/images/new/gameplay_desert.png",
   grassland: "/images/new/gameplay_grounds.png",
   swamp: "/images/new/gameplay_swamp.png",
@@ -544,7 +544,7 @@ const REGION_BG: Record<LevelNode["지역"], string> = {
   winter: "/images/new/gameplay_winter.png",
 };
 
-const REGION_LABEL: Record<LevelNode["지역"], string> = {
+const REGION_LABEL: Record<LevelNode["region"], string> = {
   desert: "사하라 모래",
   grassland: "프린스턴 캠퍼스",
   swamp: "음울한 습지",
@@ -552,7 +552,7 @@ const REGION_LABEL: Record<LevelNode["지역"], string> = {
   winter: "얼어붙은 변경",
 };
 
-const REGION_ACCENT: Record<LevelNode["지역"], string> = {
+const REGION_ACCENT: Record<LevelNode["region"], string> = {
   desert: "#f4b942",
   grassland: "#7bc96f",
   swamp: "#a3c44b",

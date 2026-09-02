@@ -1790,7 +1790,7 @@ function drawAiguillette(
 
     ctx.strokeStyle = `rgba(218, 175, 55, ${alpha})`;
     ctx.lineWidth = (2 - loop * 0.3) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(startX, startY + loop * size * 0.03);
     ctx.quadraticCurveTo(
@@ -2135,7 +2135,7 @@ function drawArms(
   ctx.fill();
   ctx.strokeStyle = "#f5d0a8";
   ctx.lineWidth = 2.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.arc(
     size * 0.01,
@@ -2177,7 +2177,7 @@ function drawArms(
   ctx.fill();
   ctx.strokeStyle = "#f5d0a8";
   ctx.lineWidth = 2.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(hx - size * 0.015, hy - size * 0.015);
   ctx.quadraticCurveTo(
@@ -2581,7 +2581,7 @@ function drawHair(
   // Side-swept wave strands (slicked texture)
   ctx.strokeStyle = "#1a0e08";
   ctx.lineWidth = 1.4 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < 6; i++) {
     const t = i / 5;
     const startX = x - size * (0.22 - t * 0.12);
@@ -2884,7 +2884,7 @@ function drawEyes(
   // Eyebrows (above the glasses)
   ctx.strokeStyle = "#2a1810";
   ctx.lineWidth = 2.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(x - size * 0.18, headY - size * 0.1);
   ctx.bezierCurveTo(
@@ -2919,7 +2919,7 @@ function drawNoseAndMouth(
   // Nose bridge
   ctx.strokeStyle = "#c8a888";
   ctx.lineWidth = 1.2;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(x, headY - size * 0.01);
   ctx.bezierCurveTo(
@@ -3172,7 +3172,7 @@ function drawBook(
   // Emerald green ribbon bookmark hanging out bottom
   ctx.strokeStyle = "#22c55e";
   ctx.lineWidth = 1.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(bW * 0.15, bH * 0.48);
   ctx.quadraticCurveTo(bW * 0.18, bH * 0.62, bW * 0.12, bH * 0.7);

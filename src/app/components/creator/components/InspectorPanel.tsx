@@ -135,7 +135,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
       <div className="rounded-xl border border-amber-800/25 bg-stone-900/50 p-2.5 text-xs">
         <div className="text-amber-200/90 font-medium mb-2 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider">
           <Settings2 size={13} />
-          Inspector
+          인스펙터
         </div>
 
         {/* Current tool + cursor */}
@@ -158,14 +158,14 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
               </div>
               {selectedPoint && (
                 <div className="text-amber-400/60 text-[10px] mt-0.5">
-                  Position: {selectedPoint.x}, {selectedPoint.y}
+                  위치: {selectedPoint.x}, {selectedPoint.y}
                 </div>
               )}
             </div>
 
             {selection.kind === "decoration" && selectedDecoration && (
               <label className="flex items-center gap-2 px-0.5">
-                <span className="text-amber-300/70 text-[11px] w-8">Size</span>
+                <span className="text-amber-300/70 text-[11px] w-8">크기</span>
                 <input
                   type="사거리"
                   min={0.5}
@@ -189,7 +189,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
             {selection.kind === "hazard" && selectedHazard && (
               <label className="flex items-center gap-2 px-0.5">
                 <span className="text-amber-300/70 text-[11px] w-10">
-                  Radius
+                  반경
                 </span>
                 <input
                   type="사거리"
@@ -219,7 +219,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
 
             {selection.kind === "tower" && selectedTower && (
               <div className="text-[10px] text-amber-400/60 px-0.5 inline-flex items-center gap-1">
-                <Sword size={9} /> Pre-placed{" "}
+                <Sword size={9} /> 사전 배치{" "}
                 {TOWER_DISPLAY_NAMES[selectedTower.type as TowerType] ??
                   selectedTower.type}
               </div>
@@ -230,13 +230,13 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
               className="inline-flex items-center gap-1.5 rounded-lg border border-red-700/40 bg-red-900/15 px-2.5 py-1.5 text-[11px] text-red-300/90 hover:bg-red-800/25 transition-colors font-medium"
             >
               <Trash2 size={11} />
-              Remove
+              제거
             </button>
           </div>
         ) : (
           <div className="text-amber-500/40 inline-flex items-center gap-1.5 text-[11px]">
             <MousePointer2 size={11} />
-            Nothing selected
+            선택된 항목 없음
           </div>
         )}
       </div>
@@ -248,7 +248,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
             <div className="rounded-lg border border-red-700/40 bg-red-950/30 p-2.5 text-xs text-red-200/90">
               <div className="inline-flex items-center gap-1 mb-1 font-medium text-red-300">
                 <AlertTriangle size={12} />
-                Issues
+                문제점
               </div>
               <ul className="list-disc pl-4 space-y-0.5 text-[11px]">
                 {errors.map((error) => (
@@ -271,12 +271,12 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
         <div className="flex items-center justify-between mb-2">
           <span className="text-amber-200/90 font-medium inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider">
             <Swords size={13} />
-            Actions
+            액션
           </span>
           {validationStatus.length === 0 ? (
             <span className="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-medium">
               <CheckCircle2 size={10} />
-              Ready
+              준비 완료
             </span>
           ) : (
             <span className="inline-flex items-center gap-1 text-[10px] text-amber-400 font-medium">
@@ -291,7 +291,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
             className="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-500/40 bg-emerald-600/15 px-3 py-2 text-sm text-emerald-200 hover:bg-emerald-500/25 transition-colors font-medium"
           >
             <Save size={14} />
-            Save Map
+            맵 저장
           </button>
           <button
             onClick={onPlaytest}
@@ -299,7 +299,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
             className="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-blue-500/40 bg-blue-600/15 px-3 py-2 text-sm text-blue-200 hover:bg-blue-500/25 disabled:opacity-40 disabled:pointer-events-none transition-colors font-medium"
           >
             <Play size={14} />
-            Playtest
+            테스트 플레이
           </button>
           <div className="flex gap-1.5">
             <button
@@ -307,7 +307,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
               className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border border-amber-700/40 bg-amber-900/15 px-3 py-1.5 text-xs text-amber-200 hover:bg-amber-800/25 transition-colors"
             >
               <Plus size={12} />
-              New
+              새로 만들기
             </button>
             <button
               onClick={onDelete}
@@ -315,7 +315,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
               className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border border-red-700/40 bg-red-900/15 px-3 py-1.5 text-xs text-red-200 hover:bg-red-800/25 disabled:opacity-40 disabled:pointer-events-none transition-colors"
             >
               <Trash2 size={12} />
-              Delete
+              삭제
             </button>
           </div>
           <div className="flex gap-1.5">
@@ -325,7 +325,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
               title="이 맵을 .ptd.json 파일로 내보내기"
             >
               <Download size={12} />
-              Export
+              내보내기
             </button>
             <button
               onClick={onImportMap}
@@ -333,7 +333,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
               title=".ptd.json 파일에서 맵 가져오기"
             >
               <Upload size={12} />
-              Import
+              가져오기
             </button>
           </div>
         </div>

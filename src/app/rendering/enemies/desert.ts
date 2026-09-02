@@ -1384,7 +1384,7 @@ export function drawScorpionEnemy(
 
       ctx.strokeStyle = legGrad;
       ctx.lineWidth = 5 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(legBaseX, legBaseY);
       ctx.lineTo(legMidX, legMidY);
@@ -2268,7 +2268,7 @@ export function drawScarabEnemy(
       // Leg segments
       ctx.strokeStyle = bodyColorDark;
       ctx.lineWidth = 3 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(legBaseX, legBaseY);
       ctx.lineTo(legMidX, legMidY);

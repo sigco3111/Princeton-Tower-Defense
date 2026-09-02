@@ -77,7 +77,7 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
           </div>
           <div>
             <h2 className="text-sm font-bold tracking-wide text-amber-100 leading-tight">
-              Map Creator
+              맵 제작기
             </h2>
             <p className="text-[10px] text-amber-400/60 leading-tight">
               {formatAssetName(draft.theme)} &middot;{" "}
@@ -117,9 +117,9 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
             }
             className="rounded-lg border border-amber-700/50 bg-stone-900/80 px-2 py-1.5 text-xs text-amber-200 outline-none focus:border-amber-400/80"
           >
-            <option value={1}>Easy</option>
-            <option value={2}>Medium</option>
-            <option value={3}>Hard</option>
+            <option value={1}>쉬움</option>
+            <option value={2}>중간</option>
+            <option value={3}>어려움</option>
           </select>
 
           <div className="flex items-center gap-1 rounded-lg border border-amber-700/50 bg-stone-900/80 px-2 py-1 shrink-0">
@@ -151,7 +151,7 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
               ))}
             </select>
             <span className="text-[9px] text-violet-400/60 whitespace-nowrap">
-              Full Preset
+              전체 프리셋
             </span>
           </div>
         </div>
@@ -179,9 +179,9 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
         <div className="mt-2 pt-2 border-t border-amber-800/30 space-y-2">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             <label className="space-y-0.5">
-              <span className="text-[10px] uppercase tracking-wide text-amber-400/60 inline-flex items-center gap-1">
+                <span className="text-[10px] uppercase tracking-wide text-amber-400/60 inline-flex items-center gap-1">
                 <Compass size={9} />
-                Slug
+                슬러그
               </span>
               <input
                 value={draft.slug}
@@ -193,16 +193,16 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
               />
             </label>
             <label className="space-y-0.5 col-span-2 md:col-span-3">
-              <span className="text-[10px] uppercase tracking-wide text-amber-400/60 inline-flex items-center gap-1">
+                <span className="text-[10px] uppercase tracking-wide text-amber-400/60 inline-flex items-center gap-1">
                 <MapPin size={9} />
-                Description
+                설명
               </span>
               <input
                 value={draft.description}
                 onChange={(event) =>
                   onUpdateDraft({ description: event.target.value })
                 }
-                placeholder="Describe the map..."
+                placeholder="맵을 설명하세요..."
                 className="w-full rounded-md border border-amber-700/40 bg-stone-900/60 px-2 py-1 text-xs text-amber-200 outline-none focus:border-amber-400/70"
               />
             </label>
@@ -212,11 +212,11 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
           <div className="rounded-lg border border-cyan-700/30 bg-cyan-950/20 px-3 py-2">
             <div className="text-[10px] uppercase tracking-wide text-cyan-300/70 font-medium mb-1.5 inline-flex items-center gap-1.5">
               <Download size={10} />
-              Import from Preset
+              프리셋에서 가져오기
             </div>
             <div className="flex items-end gap-3">
               <label className="space-y-0.5">
-                <span className="text-[10px] text-cyan-400/60">Source</span>
+                <span className="text-[10px] text-cyan-400/60">원본</span>
                 <select
                   value={importPresetId}
                   onChange={(event) => setImportPresetId(event.target.value)}
@@ -256,7 +256,7 @@ export const CreatorHeader: React.FC<CreatorHeaderProps> = ({
                 disabled={importSections.size === 0}
                 className="shrink-0 rounded-md border border-cyan-600/50 bg-cyan-700/30 px-3 py-1 text-[11px] text-cyan-100 hover:bg-cyan-600/40 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
-                Import
+                가져오기
               </button>
             </div>
           </div>

@@ -632,7 +632,7 @@ export function drawSpecterEnemy(
 
   ctx.strokeStyle = armGrad;
   ctx.lineWidth = 4 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(x - size * 0.28, y - size * 0.08 + phase);
   ctx.bezierCurveTo(
@@ -4005,7 +4005,7 @@ export function drawNecromancerEnemy(
     setShadowBlur(ctx, 12 * zoom, `rgba(147, 51, 234, ${spectralAlpha * 0.6})`);
     ctx.strokeStyle = `rgba(147, 51, 234, ${spectralAlpha * 0.35})`;
     ctx.lineWidth = size * 0.06;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(spectralBaseX, spectralBaseY + spectralFloat);
     ctx.lineTo(elbowX, elbowY);
@@ -5610,7 +5610,7 @@ export function drawShadowKnightEnemy(
     const stAlpha = 0.2 + Math.sin(time * 2.5 + st * 0.6) * 0.15;
     ctx.strokeStyle = `rgba(24, 24, 27, ${stAlpha})`;
     ctx.lineWidth = (2.5 - st * 0.3) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(stStartX, stStartY);
     ctx.quadraticCurveTo(stMidX, stMidY, stEndX, stEndY);
@@ -6033,7 +6033,7 @@ export function drawShadowKnightEnemy(
     const slashR = size * 0.5;
     ctx.strokeStyle = `rgba(139, 92, 246, ${attackIntensity * 0.7})`;
     ctx.lineWidth = (3 + attackIntensity * 4) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     const slashStart = slashAngle - 0.6;
     const slashEnd = slashAngle + 0.6;
@@ -6571,8 +6571,8 @@ export function drawCultistEnemy(
     Math.sin(time * 2.5) * 0.1 +
     (isAttacking ? attackIntensity * 0.3 : 0);
   ctx.save();
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
   setShadowBlur(ctx, 3 * zoom, `rgba(${inkGlowRgb}, ${sigAlpha})`);
   ctx.strokeStyle = `rgba(${inkGlowRgb}, ${sigAlpha})`;
   ctx.lineWidth = Math.max(0.7 * zoom, 0.5);
@@ -7309,7 +7309,7 @@ export function drawPlaguebearerEnemy(
 
   // Mutated pustule tentacle growths from body (behind gown layer)
   ctx.save();
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const plagueTentacles = [
     { angle: -0.85, baseOff: -0.05, len: 0.3, phase: 0 },
     { angle: 0.7, baseOff: 0, len: 0.35, phase: 1.8 },

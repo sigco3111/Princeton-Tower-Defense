@@ -109,62 +109,62 @@ export const CustomLightningIcon: React.FC<IconProps> = (props) => {
         d="M13.5 1.5 9 10.5 15.5 11.5 10.5 22.5"
         stroke="#4488ff"
         strokeWidth="5"
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         opacity=".25"
       />
       <path
         d="M13.5 1.5 9 10.5 15.5 11.5 10.5 22.5"
         stroke="#7799ee"
         strokeWidth="3.5"
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         opacity=".6"
       />
       <path
         d="M13.5 1.5 9 10.5 15.5 11.5 10.5 22.5"
         stroke={`url(#${u}-b)`}
         strokeWidth="2.2"
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M13.5 1.5 9 10.5 15.5 11.5 10.5 22.5"
         stroke="#fff"
         strokeWidth=".8"
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M9 10.5 5 8 3.5 11.5"
         stroke="#88bbff"
         strokeWidth="1.6"
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         opacity=".65"
       />
       <path
         d="M9 10.5 5 8 3.5 11.5"
         stroke="#fff"
         strokeWidth=".5"
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         opacity=".45"
       />
       <path
         d="M15.5 11.5 19.5 14 20.5 10.5"
         stroke="#88bbff"
         strokeWidth="1.6"
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         opacity=".65"
       />
       <path
         d="M15.5 11.5 19.5 14 20.5 10.5"
         stroke="#fff"
         strokeWidth=".5"
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         opacity=".45"
       />
       <circle cx="13.5" cy="1.5" r="2.5" fill="#aaccff" opacity=".45" />
@@ -237,7 +237,7 @@ export const CustomFreezeIcon: React.FC<IconProps> = (props) => {
             y2="2.5"
             stroke="#66ddff"
             strokeWidth="1.8"
-            strokeLinecap="라운드"
+            strokeLinecap="round"
           />
           <line
             x1="12"
@@ -246,7 +246,7 @@ export const CustomFreezeIcon: React.FC<IconProps> = (props) => {
             y2="4.5"
             stroke="#88eeff"
             strokeWidth="1.2"
-            strokeLinecap="라운드"
+            strokeLinecap="round"
           />
           <line
             x1="12"
@@ -255,7 +255,7 @@ export const CustomFreezeIcon: React.FC<IconProps> = (props) => {
             y2="4.5"
             stroke="#88eeff"
             strokeWidth="1.2"
-            strokeLinecap="라운드"
+            strokeLinecap="round"
           />
           <line
             x1="12"
@@ -264,7 +264,7 @@ export const CustomFreezeIcon: React.FC<IconProps> = (props) => {
             y2="7.8"
             stroke="#aaf0ff"
             strokeWidth=".9"
-            strokeLinecap="라운드"
+            strokeLinecap="round"
           />
           <line
             x1="12"
@@ -273,7 +273,7 @@ export const CustomFreezeIcon: React.FC<IconProps> = (props) => {
             y2="7.8"
             stroke="#aaf0ff"
             strokeWidth=".9"
-            strokeLinecap="라운드"
+            strokeLinecap="round"
           />
           <path d="M12 1L11 2.5L12 4L13 2.5Z" fill="#ccffff" opacity=".85" />
         </g>
@@ -512,7 +512,7 @@ export const CustomReinforcementsIcon: React.FC<IconProps> = (props) => {
         y2="19"
         stroke={`url(#${u}-sw)`}
         strokeWidth="2"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <line
         x1="6"
@@ -521,7 +521,7 @@ export const CustomReinforcementsIcon: React.FC<IconProps> = (props) => {
         y2="19"
         stroke="#fff"
         strokeWidth=".5"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
         opacity=".4"
       />
       <line
@@ -531,7 +531,7 @@ export const CustomReinforcementsIcon: React.FC<IconProps> = (props) => {
         y2="15"
         stroke="#8b4513"
         strokeWidth="1.8"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       {/* Right sword */}
       <line
@@ -541,7 +541,7 @@ export const CustomReinforcementsIcon: React.FC<IconProps> = (props) => {
         y2="19"
         stroke={`url(#${u}-sw)`}
         strokeWidth="2"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <line
         x1="18"
@@ -550,7 +550,7 @@ export const CustomReinforcementsIcon: React.FC<IconProps> = (props) => {
         y2="19"
         stroke="#fff"
         strokeWidth=".5"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
         opacity=".4"
       />
       <line
@@ -560,7 +560,7 @@ export const CustomReinforcementsIcon: React.FC<IconProps> = (props) => {
         y2="15"
         stroke="#8b4513"
         strokeWidth="1.8"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       {/* Central shield */}
       <path
@@ -1002,7 +1002,7 @@ export const EnchantedAnvilIcon: React.FC<IconProps & { active?: boolean }> = ({
         strokeWidth=".5"
         fill="none"
         opacity={active ? ".35" : ".10"}
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <path
         d="M19.5 0.5Q21.5 2.5 21.5 5"
@@ -1010,7 +1010,7 @@ export const EnchantedAnvilIcon: React.FC<IconProps & { active?: boolean }> = ({
         strokeWidth=".45"
         fill="none"
         opacity={active ? ".30" : ".08"}
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <path
         d="M18.5 1Q20 2.5 20 4.5"
@@ -1018,7 +1018,7 @@ export const EnchantedAnvilIcon: React.FC<IconProps & { active?: boolean }> = ({
         strokeWidth=".4"
         fill="none"
         opacity={active ? ".25" : ".07"}
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
 
       {/* Sparks flying from impact — radiating outward */}
@@ -1074,7 +1074,7 @@ export const EnchantedAnvilIcon: React.FC<IconProps & { active?: boolean }> = ({
         stroke={active ? "#fde047" : "#7a5c12"}
         strokeWidth=".4"
         opacity={active ? ".42" : ".12"}
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <line
         x1="14"
@@ -1084,7 +1084,7 @@ export const EnchantedAnvilIcon: React.FC<IconProps & { active?: boolean }> = ({
         stroke={active ? "#fbbf24" : "#7a5c12"}
         strokeWidth=".4"
         opacity={active ? ".38" : ".10"}
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <line
         x1="11"
@@ -1094,7 +1094,7 @@ export const EnchantedAnvilIcon: React.FC<IconProps & { active?: boolean }> = ({
         stroke={active ? "#fcd34d" : "#8a7014"}
         strokeWidth=".35"
         opacity={active ? ".32" : ".09"}
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <line
         x1="13.5"
@@ -1104,7 +1104,7 @@ export const EnchantedAnvilIcon: React.FC<IconProps & { active?: boolean }> = ({
         stroke={active ? "#fcd34d" : "#8a7014"}
         strokeWidth=".35"
         opacity={active ? ".28" : ".08"}
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
 
       {/* 4-pointed sparkle accents */}
@@ -1553,7 +1553,7 @@ export const PrecisionIcon: React.FC<IconProps> = (p) => (
       y2="6"
       stroke="currentColor"
       strokeWidth="1.8"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="12"
@@ -1562,7 +1562,7 @@ export const PrecisionIcon: React.FC<IconProps> = (p) => (
       y2="22.5"
       stroke="currentColor"
       strokeWidth="1.8"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="1.5"
@@ -1571,7 +1571,7 @@ export const PrecisionIcon: React.FC<IconProps> = (p) => (
       y2="12"
       stroke="currentColor"
       strokeWidth="1.8"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="18"
@@ -1580,7 +1580,7 @@ export const PrecisionIcon: React.FC<IconProps> = (p) => (
       y2="12"
       stroke="currentColor"
       strokeWidth="1.8"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
   </Svg>
 );
@@ -1596,13 +1596,13 @@ export const DurationIcon: React.FC<IconProps> = (p) => (
       d="M7 2H17"
       stroke="currentColor"
       strokeWidth="2.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path
       d="M7 22H17"
       stroke="currentColor"
       strokeWidth="2.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path
       d="M8 3L8 7.5L12 12L8 16.5L8 21"
@@ -1708,14 +1708,14 @@ export const BranchIcon: React.FC<IconProps> = (p) => (
       stroke="currentColor"
       strokeWidth="2"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path
       d="M12 14Q12 18 17 20"
       stroke="currentColor"
       strokeWidth="2"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <circle cx="7" cy="20" r="1.8" fill="currentColor" opacity=".15" />
     <circle cx="7" cy="20" r="1.2" fill="currentColor" />
@@ -1731,14 +1731,14 @@ export const ChainLinkIcon: React.FC<IconProps> = (p) => (
       stroke="currentColor"
       strokeWidth="2.2"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path
       d="M14 7H10C7.2 7 5 9.2 5 12C5 14.8 7.2 17 10 17H14"
       stroke="currentColor"
       strokeWidth="2.2"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <circle cx="14.5" cy="12" r="1" fill="currentColor" opacity=".3" />
     <circle cx="9.5" cy="12" r="1" fill="currentColor" opacity=".3" />
@@ -1765,7 +1765,7 @@ export const FrostUpIcon: React.FC<IconProps> = (p) => (
           y2="3"
           stroke="currentColor"
           strokeWidth="1.8"
-          strokeLinecap="라운드"
+          strokeLinecap="round"
         />
         <line
           x1="12"
@@ -1774,7 +1774,7 @@ export const FrostUpIcon: React.FC<IconProps> = (p) => (
           y2="4"
           stroke="currentColor"
           strokeWidth="1.2"
-          strokeLinecap="라운드"
+          strokeLinecap="round"
         />
         <line
           x1="12"
@@ -1783,7 +1783,7 @@ export const FrostUpIcon: React.FC<IconProps> = (p) => (
           y2="4"
           stroke="currentColor"
           strokeWidth="1.2"
-          strokeLinecap="라운드"
+          strokeLinecap="round"
         />
       </g>
     ))}
@@ -1914,8 +1914,8 @@ export const GrowthIcon: React.FC<IconProps> = (p) => (
       d="M3 18L9 12L13 15L21 6"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="라운드"
-      strokeLinejoin="라운드"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       fill="none"
     />
     <path d="M3 18L9 12L13 15L21 6V18H3Z" fill="currentColor" opacity=".1" />
@@ -1923,8 +1923,8 @@ export const GrowthIcon: React.FC<IconProps> = (p) => (
       d="M16 6H21V11"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="라운드"
-      strokeLinejoin="라운드"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       fill="none"
     />
     <circle cx="21" cy="6" r="1.5" fill="currentColor" opacity=".4" />
@@ -1971,7 +1971,7 @@ export const CombatIcon: React.FC<IconProps> = (p) => (
       y2="17"
       stroke="currentColor"
       strokeWidth="2.2"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="14"
@@ -1980,7 +1980,7 @@ export const CombatIcon: React.FC<IconProps> = (p) => (
       y2="12"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="5"
@@ -1989,7 +1989,7 @@ export const CombatIcon: React.FC<IconProps> = (p) => (
       y2="3"
       stroke="currentColor"
       strokeWidth="1.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="5"
@@ -1998,7 +1998,7 @@ export const CombatIcon: React.FC<IconProps> = (p) => (
       y2="6"
       stroke="currentColor"
       strokeWidth="1.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="19"
@@ -2007,7 +2007,7 @@ export const CombatIcon: React.FC<IconProps> = (p) => (
       y2="17"
       stroke="currentColor"
       strokeWidth="2.2"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="10"
@@ -2016,7 +2016,7 @@ export const CombatIcon: React.FC<IconProps> = (p) => (
       y2="12"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="19"
@@ -2025,7 +2025,7 @@ export const CombatIcon: React.FC<IconProps> = (p) => (
       y2="3"
       stroke="currentColor"
       strokeWidth="1.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="19"
@@ -2034,7 +2034,7 @@ export const CombatIcon: React.FC<IconProps> = (p) => (
       y2="6"
       stroke="currentColor"
       strokeWidth="1.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <circle cx="12" cy="10" r="1.5" fill="currentColor" opacity=".25" />
   </Svg>
@@ -2057,8 +2057,8 @@ export const VitalityIcon: React.FC<IconProps> = (p) => (
       strokeWidth="1"
       opacity=".3"
       fill="none"
-      strokeLinecap="라운드"
-      strokeLinejoin="라운드"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M8 7C9 6 10 7 10 8C9 7 8 7 8 7Z"
@@ -2077,7 +2077,7 @@ export const RallyIcon: React.FC<IconProps> = (p) => (
       y2="22"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path d="M5 3H19L15 8.5L19 14H5V3Z" fill="currentColor" opacity=".12" />
     <path d="M5 3H19L15 8.5L19 14H5V3Z" fill="currentColor" />
@@ -2136,7 +2136,7 @@ export const BullseyeIcon: React.FC<IconProps> = (p) => (
       y2="10"
       stroke="currentColor"
       strokeWidth="1.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
       opacity=".6"
     />
     <path d="M17 3L19.5 1.5L20.5 4.5Z" fill="currentColor" opacity=".7" />
@@ -2174,14 +2174,14 @@ export const RapidFireIcon: React.FC<IconProps> = (p) => (
       stroke="currentColor"
       strokeWidth="2"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path
       d="M3 16C3 16 5 20 10 20H14C18 20 21 17 21 13"
       stroke="currentColor"
       strokeWidth="2"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path d="M21 8L23 5L19 5Z" fill="currentColor" />
     <path d="M3 16L1 19L5 19Z" fill="currentColor" />
@@ -2193,7 +2193,7 @@ export const RapidFireIcon: React.FC<IconProps> = (p) => (
       stroke="currentColor"
       strokeWidth="1"
       opacity=".3"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="10"
@@ -2203,7 +2203,7 @@ export const RapidFireIcon: React.FC<IconProps> = (p) => (
       stroke="currentColor"
       strokeWidth="1"
       opacity=".3"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
   </Svg>
 );
@@ -2215,7 +2215,7 @@ export const BowStrikeIcon: React.FC<IconProps> = (p) => (
       stroke="currentColor"
       strokeWidth="2"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="18"
@@ -2233,7 +2233,7 @@ export const BowStrikeIcon: React.FC<IconProps> = (p) => (
       y2="12"
       stroke="currentColor"
       strokeWidth="1.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path d="M21 12L18.5 10V14Z" fill="currentColor" />
     <path d="M9 12L7 10.5V13.5Z" fill="currentColor" opacity=".5" />
@@ -2263,14 +2263,14 @@ export const MelodyIcon: React.FC<IconProps> = (p) => (
       stroke="currentColor"
       strokeWidth="2"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path
       d="M9 8H17V6"
       stroke="currentColor"
       strokeWidth="1.5"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
       opacity=".5"
     />
     <ellipse
@@ -2307,29 +2307,29 @@ export const LaserFocusIcon: React.FC<IconProps> = (p) => (
       d="M3 8V3H8"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="라운드"
-      strokeLinejoin="라운드"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M21 8V3H16"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="라운드"
-      strokeLinejoin="라운드"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M3 16V21H8"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="라운드"
-      strokeLinejoin="라운드"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M21 16V21H16"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="라운드"
-      strokeLinejoin="라운드"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <line
       x1="12"
@@ -2477,7 +2477,7 @@ export const RecruitIcon: React.FC<IconProps> = (p) => (
       stroke="currentColor"
       strokeWidth="2"
       fill="none"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <path
       d="M4 20C4 17.5 6.5 15.5 10 15.5C13.5 15.5 16 17.5 16 20"
@@ -2491,7 +2491,7 @@ export const RecruitIcon: React.FC<IconProps> = (p) => (
       y2="16"
       stroke="currentColor"
       strokeWidth="2.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
     <line
       x1="15"
@@ -2500,7 +2500,7 @@ export const RecruitIcon: React.FC<IconProps> = (p) => (
       y2="12"
       stroke="currentColor"
       strokeWidth="2.5"
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />
   </Svg>
 );

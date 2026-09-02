@@ -1573,7 +1573,7 @@ export function drawYetiEnemy(
   ctx.fill();
 
   // Layered fur rendered as overlapping stroke groups
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let furLayer = 0; furLayer < 3; furLayer++) {
     const layerY = y - size * 0.35 + furLayer * size * 0.18;
     ctx.strokeStyle =
@@ -2892,7 +2892,7 @@ export function drawIceWitchEnemy(
   // Flowing hair strands emerging from hood
   ctx.strokeStyle = bodyColorLight;
   ctx.lineWidth = 1.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let hair = 0; hair < 4; hair++) {
     const hairX = x - size * 0.15 + hair * size * 0.1;
     const hairStartY = y - size * 0.25 + float;

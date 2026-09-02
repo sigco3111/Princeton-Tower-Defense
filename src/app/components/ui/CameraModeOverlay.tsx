@@ -38,7 +38,7 @@ export const CameraModeOverlay: React.FC<CameraModeOverlayProps> = ({
         e.preventDefault();
         handleCapture();
       }
-      if (e.key === "탈출" || e.key === "F2") {
+      if (e.key === "Escape" || e.key === "F2") {
         e.preventDefault();
         onExit();
       }

@@ -1431,7 +1431,7 @@ export function drawLevelNodes({
         // Shackle
         ctx.strokeStyle = "#808080";
         ctx.lineWidth = 3;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.arc(0, -2, 5, Math.PI, 0);
         ctx.stroke();

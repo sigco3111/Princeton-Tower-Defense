@@ -10,9 +10,9 @@ const HEAVY_GROUND_SLAM_TYPES = new Set<EnemyType>([
   "golem",
   "swamp_troll",
   "yeti",
-  "학장",
+  "dean",
   "trustee",
-  "4학년",
+  "senior",
   "gradstudent",
   "ember_guard",
   "bog_creature",
@@ -168,7 +168,7 @@ function getSlamStyle(type: EnemyType): SlamStyle {
         shockRgb: "180, 140, 80",
       };
     }
-    case "학장": {
+    case "dean": {
       return {
         crackRgb: "100, 40, 120",
         debrisRgb: "140, 60, 180",
@@ -988,7 +988,7 @@ function renderSlashAttack(
     // Outer glow (widest, most diffuse)
     ctx.strokeStyle = `rgba(${style.trailRgb}, ${slashPulse * 0.25})`;
     ctx.lineWidth = (8 - s * 2) * zoom * style.arcWidth;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.arc(arcCenterX, arcCenterY, offsetR * 1.05, arcStart, arcEnd);
     ctx.stroke();
@@ -1332,7 +1332,7 @@ function renderBiteAttack(
   // Upper jaw
   ctx.strokeStyle = `rgba(${style.jawRgb}, ${pulse * 0.8})`;
   ctx.lineWidth = 3.5 * zoom * style.jawScale;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.arc(
     biteX,
@@ -1482,13 +1482,13 @@ function renderDefaultMelee(
   let sparkRgb = "255, 250, 220";
   switch (type) {
     case "frosh":
-    case "2학년":
-    case "3학년": {
+    case "sophomore":
+    case "junior": {
       impactRgb = "100, 200, 255";
       sparkRgb = "180, 230, 255";
       break;
     }
-    case "마스코트": {
+    case "mascot": {
       impactRgb = "255, 160, 50";
       sparkRgb = "255, 200, 100";
       break;
@@ -1514,7 +1514,7 @@ function renderDefaultMelee(
       sparkRgb = "220, 200, 150";
       break;
     }
-    case "교수": {
+    case "professor": {
       impactRgb = "200, 80, 80";
       sparkRgb = "240, 150, 150";
       break;
@@ -1534,7 +1534,7 @@ function renderDefaultMelee(
   // Glow trail
   ctx.strokeStyle = `rgba(${impactRgb}, ${pulse * 0.3})`;
   ctx.lineWidth = 6 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.arc(hitX, hitY, arcRadius, arcStart - trailLen, arcStart);
   ctx.stroke();

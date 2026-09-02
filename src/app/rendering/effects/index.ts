@@ -120,8 +120,8 @@ export function renderEffect(
         const pulse = 0.8 + Math.sin(Date.now() / 25) * 0.2;
         const bi = intensity * pulse;
 
-        ctx.lineCap = "라운드";
-        ctx.lineJoin = "라운드";
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
 
         const tracePts = (p: typeof pts) => {
           ctx.beginPath();
@@ -613,7 +613,7 @@ export function renderEffect(
         const smokeStartY = meteorY - Math.sin(trailAngle) * smokeTrailLength;
         ctx.strokeStyle = `rgba(100, 50, 20, ${alpha * 0.2})`;
         ctx.lineWidth = 35 * zoom;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(smokeStartX, smokeStartY);
         ctx.lineTo(meteorX, meteorY);
@@ -1565,7 +1565,7 @@ export function renderEffect(
         // Outer glow
         ctx.strokeStyle = `rgba(255, 255, 255, ${layerAlpha * 0.3})`;
         ctx.lineWidth = (8 - layer * 2) * zoom;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.arc(0, 0, layerRadius, -slashWidth / 2, slashWidth / 2);
         ctx.stroke();
@@ -1694,7 +1694,7 @@ export function renderEffect(
 
         ctx.strokeStyle = clawGrad;
         ctx.lineWidth = 3 * zoom;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(-swipeLen * 0.5, clawOffset);
         ctx.lineTo(swipeLen * 0.5, clawOffset);
@@ -2400,7 +2400,7 @@ export function renderEffect(
         // Claw arc
         ctx.strokeStyle = `rgba(255, 200, 100, ${clawAlpha})`;
         ctx.lineWidth = 4 * zoom * (1 - clawProgress * 0.3);
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.arc(0, clawY, clawLen, -0.3, 0.3);
         ctx.stroke();
@@ -2439,7 +2439,7 @@ export function renderEffect(
       // Outer glow
       ctx.strokeStyle = `rgba(99, 102, 241, ${knightAlpha * 0.5})`;
       ctx.lineWidth = 12 * zoom * (1 - progress * 0.5);
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.arc(0, 0, arcRadius, -arcWidth / 2, arcWidth / 2);
       ctx.stroke();
@@ -2609,7 +2609,7 @@ export function renderEffect(
         setShadowBlur(ctx, 12 * zoom, "#ff6600");
         ctx.strokeStyle = `rgba(255, 140, 0, ${talonFade * 0.6})`;
         ctx.lineWidth = 6 * zoom * (1 - tp * 0.4);
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.arc(0, talonY, talonLen, -0.35, 0.35);
         ctx.stroke();
@@ -2743,7 +2743,7 @@ export function renderEffect(
         Math.sin(Date.now() / 200) * 4 * zoom;
       ctx.strokeStyle = `rgba(252, 165, 165, ${alpha * 0.8 * towerWeakenPulse})`;
       ctx.lineWidth = 2.5 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       for (let c = 0; c < 2; c++) {
         const cy = chevronY + c * 7 * zoom;
         const cAlpha = 1 - c * 0.3;
@@ -2797,7 +2797,7 @@ export function renderEffect(
       const xSize = 7 * zoom;
       ctx.strokeStyle = `rgba(216, 180, 254, ${alpha * 0.85})`;
       ctx.lineWidth = 2.5 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(screenPos.x - xSize, xY - xSize);
       ctx.lineTo(screenPos.x + xSize, xY + xSize);
@@ -3496,8 +3496,8 @@ function drawSlowIcon(
   ctx.translate(x, y);
   ctx.strokeStyle = rgba(color, alpha);
   ctx.lineWidth = size * 0.15;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // Clock circle
   ctx.beginPath();
@@ -3527,8 +3527,8 @@ function drawWeakenIcon(
   ctx.translate(x, y);
   ctx.strokeStyle = rgba(color, alpha);
   ctx.lineWidth = size * 0.15;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // Trending down arrow (Lucide trending-down style)
   ctx.beginPath();
@@ -3560,8 +3560,8 @@ function drawBlindIcon(
   ctx.translate(x, y);
   ctx.strokeStyle = rgba(color, alpha);
   ctx.lineWidth = size * 0.15;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // Eye shape (Lucide eye-off style)
   ctx.beginPath();
@@ -3596,8 +3596,8 @@ function drawDisableIcon(
   ctx.translate(x, y);
   ctx.strokeStyle = rgba(color, alpha);
   ctx.lineWidth = size * 0.15;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   ctx.beginPath();
   ctx.arc(0, 0, size * 0.65, 0, Math.PI * 2);
@@ -3624,7 +3624,7 @@ function drawFreezeIcon(
   ctx.strokeStyle = rgba(color, alpha);
   ctx.fillStyle = rgba(color, alpha * 0.3);
   ctx.lineWidth = size * 0.12;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
 
   // 6-pointed snowflake
   for (let i = 0; i < 6; i++) {
@@ -3670,8 +3670,8 @@ function drawPetrifyIcon(
   ctx.strokeStyle = rgba(color, alpha);
   ctx.fillStyle = rgba(color, alpha * 0.4);
   ctx.lineWidth = size * 0.12;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // Eye shape (petrifying gaze)
   const eyeW = size * 0.7;
@@ -3706,8 +3706,8 @@ function drawHoldIcon(
   ctx.strokeStyle = rgba(color, alpha);
   ctx.fillStyle = rgba(color, alpha * 0.3);
   ctx.lineWidth = size * 0.12;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // Padlock body
   const lockW = size * 0.5;
@@ -3747,8 +3747,8 @@ function drawStunIcon(
   ctx.strokeStyle = rgba(color, alpha);
   ctx.fillStyle = rgba(color, alpha * 0.5);
   ctx.lineWidth = size * 0.14;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // Lightning bolt
   ctx.beginPath();

@@ -3,7 +3,7 @@ import { resolveWeaponRotation, WEAPON_LIMITS } from "./helpers";
 
 // ─── DIVINE COMMAND ATTACK RINGS (split into back/front halves) ─────────────
 
-type RingHalf = "뒤로" | "front";
+type RingHalf = "back" | "front";
 
 function drawDivineCommandRings(
   ctx: CanvasRenderingContext2D,
@@ -16,8 +16,8 @@ function drawDivineCommandRings(
   commandPose: number
 ) {
   // back = top of ellipse (behind hero), front = bottom (in front of hero)
-  const startAngle = half === "뒤로" ? Math.PI : 0;
-  const endAngle = half === "뒤로" ? Math.PI * 2 : Math.PI;
+  const startAngle = half === "back" ? Math.PI : 0;
+  const endAngle = half === "back" ? Math.PI * 2 : Math.PI;
 
   for (let ring = 0; ring < 5; ring++) {
     const ringRadius = size * (0.6 + ring * 0.2 + commandPose * 0.3);
@@ -59,7 +59,7 @@ function drawDivineCommandRings(
   for (let spark = 0; spark < 16; spark++) {
     const sparkAngle = (time * 5 + (spark * Math.PI * 2) / 16) % (Math.PI * 2);
     const inBack = sparkAngle > Math.PI;
-    if ((half === "뒤로") !== inBack) {
+    if ((half === "back") !== inBack) {
       continue;
     }
 
@@ -87,7 +87,7 @@ function drawDivineCommandRings(
     const normalised =
       ((pillarAngle % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
     const inBack = normalised > Math.PI;
-    if ((half === "뒤로") !== inBack) {
+    if ((half === "back") !== inBack) {
       continue;
     }
 
@@ -827,7 +827,7 @@ export function drawCaptainHero(
   if (isAttacking) {
     drawDivineCommandRings(
       ctx,
-      "뒤로",
+      "back",
       x,
       y + size * 0.45,
       size,
@@ -5720,7 +5720,7 @@ export function drawCaptainHero(
     ctx.fill();
 
     // Animated flame tongues rising from the edges
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     const tongueColors = [
       "#ff8844",
       "#ff5522",

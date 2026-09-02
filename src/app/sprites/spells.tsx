@@ -261,8 +261,8 @@ export const SpellSprite: React.FC<{
           ctx.shadowBlur = 6 * scale * flickerIntensity;
           ctx.strokeStyle = `rgba(150, 180, 255, ${0.8 * flickerIntensity})`;
           ctx.lineWidth = 6 * scale;
-          ctx.lineCap = "라운드";
-          ctx.lineJoin = "라운드";
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
           ctx.beginPath();
           ctx.moveTo(cx + 2 * scale + boltOffset, cy - 16 * scale);
           ctx.lineTo(cx - 4 * scale + boltOffset * 0.5, cy - 4 * scale);
@@ -450,7 +450,7 @@ export const SpellSprite: React.FC<{
 
             ctx.strokeStyle = armGrad;
             ctx.lineWidth = 2.5 * scale;
-            ctx.lineCap = "라운드";
+            ctx.lineCap = "round";
 
             // Main arm stem
             ctx.beginPath();

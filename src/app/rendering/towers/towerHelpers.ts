@@ -290,7 +290,7 @@ export function drawIsometricRailing(
     frontPanel: string;
   },
   zoom: number,
-  half: "뒤로" | "front" | "both" = "both"
+  half: "back" | "front" | "both" = "both"
 ) {
   const drawHalf = (isBack: boolean) => {
     const arcStart = isBack ? Math.PI : 0;
@@ -345,7 +345,7 @@ export function drawIsometricRailing(
     }
   };
 
-  if (half === "뒤로" || half === "both") {
+  if (half === "back" || half === "both") {
     drawHalf(true);
   }
   if (half === "front" || half === "both") {
@@ -823,7 +823,7 @@ export function drawEnergyTube(
   // Tube body
   ctx.strokeStyle = "#2a2a32";
   ctx.lineWidth = radius * 2 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(startX, startY);
   ctx.lineTo(endX, endY);
@@ -1069,7 +1069,7 @@ export function draw3DAmmoBox(
   }
   const faces: Face[] = [];
   if (showBack) {
-    faces.push({ corners: [3, 2, 6, 7], lit: backLit, normal: "뒤로" });
+    faces.push({ corners: [3, 2, 6, 7], lit: backLit, normal: "back" });
   }
   if (showLeft) {
     faces.push({ corners: [0, 3, 7, 4], lit: leftLit, normal: "left" });
@@ -1678,8 +1678,8 @@ export function drawFuelFeedingTube(
   // Shadow underneath
   ctx.strokeStyle = "#12121a";
   ctx.lineWidth = tubeR * 2.4;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
   ctx.beginPath();
   ctx.moveTo(centers[0].x, centers[0].y + 1.5 * zoom);
   for (let i = 1; i <= N; i++) {
@@ -1714,7 +1714,7 @@ export function drawFuelFeedingTube(
   // Bottom edge line (dark crease)
   ctx.strokeStyle = "#1e1e25";
   ctx.lineWidth = 1 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(lowerEdge[0].x, lowerEdge[0].y);
   for (let i = 1; i <= N; i++) {
@@ -2146,7 +2146,7 @@ export function drawCannonAmmoBelt(
   ctx.stroke();
 
   // === BELT TRACK — layered 3D groove ===
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
 
   // Drop shadow underneath belt
   ctx.strokeStyle = "rgba(0, 0, 0, 0.25)";

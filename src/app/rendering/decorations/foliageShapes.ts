@@ -399,7 +399,7 @@ export function drawTree(
   // ── Isometric branch stubs ──
   const canopyCX = x + lean * 0.5 * s;
   const baseCanopyY = -trunkH + 4;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const branchDefs = [
     { ang: -0.6 + Math.sin(tSeed * 0.3) * 0.2, side: -1 },
     { ang: 0.5 + Math.cos(tSeed * 0.5) * 0.2, side: 1 },
@@ -1644,7 +1644,7 @@ export function drawCharredTree(
 
   // Broken branches — procedural angles and lengths
   ctx.strokeStyle = cp.dark;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const branches = [
     { angle: -2.5, len: 16, startFrac: 0.55, sub: true, width: 4 },
     { angle: 0.3, len: 13, startFrac: 0.4, sub: false, width: 3 },

@@ -2692,7 +2692,7 @@ export function drawMageEnemy(
   ctx.stroke();
   ctx.strokeStyle = "#9a9a9a";
   ctx.lineWidth = 1.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(mortarX + size * 0.008, mortarY - size * 0.005);
   ctx.lineTo(mortarX + size * 0.02, mortarY - size * 0.02);
@@ -3017,7 +3017,7 @@ export function drawMageEnemy(
         shaftGrad.addColorStop(1, "#2a2a2a");
         wCtx.strokeStyle = shaftGrad;
         wCtx.lineWidth = 4 * zoom;
-        wCtx.lineCap = "라운드";
+        wCtx.lineCap = "round";
         wCtx.beginPath();
         wCtx.moveTo(0, size * 0.08);
         wCtx.lineTo(0, -shaftH);
@@ -3051,7 +3051,7 @@ export function drawMageEnemy(
           const phaseOff = s * Math.PI;
           wCtx.strokeStyle = serpentColors[s];
           wCtx.lineWidth = 2.5 * zoom;
-          wCtx.lineCap = "라운드";
+          wCtx.lineCap = "round";
           wCtx.beginPath();
           let started = false;
           for (let t = 0; t <= 1; t += 0.02) {
@@ -4755,7 +4755,7 @@ export function drawWarlockEnemy(
         shaftGrad.addColorStop(1, "#1a1a2e");
         wCtx.strokeStyle = shaftGrad;
         wCtx.lineWidth = 4 * zoom;
-        wCtx.lineCap = "라운드";
+        wCtx.lineCap = "round";
         wCtx.beginPath();
         wCtx.moveTo(0, size * 0.06);
         wCtx.lineTo(0, -shaftH);
@@ -5716,7 +5716,7 @@ export function drawCrossbowmanEnemy(
         // Metal cocking hook (used to pull the string)
         wCtx.strokeStyle = metalLight;
         wCtx.lineWidth = 2 * zoom;
-        wCtx.lineCap = "라운드";
+        wCtx.lineCap = "round";
         wCtx.beginPath();
         wCtx.moveTo(-size * 0.015, gripH * 0.5);
         wCtx.quadraticCurveTo(-size * 0.02, gripH * 0.8, 0, gripH * 0.9);
@@ -5947,7 +5947,7 @@ export function drawCrossbowmanEnemy(
         // ── STIRRUP ──
         wCtx.strokeStyle = metalDark;
         wCtx.lineWidth = 2.5 * zoom;
-        wCtx.lineCap = "라운드";
+        wCtx.lineCap = "round";
         wCtx.beginPath();
         wCtx.moveTo(-size * 0.02, -tillerLen);
         wCtx.lineTo(-size * 0.025, -tillerLen - size * 0.015);
@@ -6014,7 +6014,7 @@ export function drawCrossbowmanEnemy(
         prodGrad.addColorStop(1, metalDark);
         wCtx.strokeStyle = prodGrad;
         wCtx.lineWidth = 3 * zoom;
-        wCtx.lineCap = "라운드";
+        wCtx.lineCap = "round";
 
         // Left limb with recurve
         wCtx.beginPath();
@@ -6586,7 +6586,7 @@ export function drawHexerEnemy(
         ? `rgba(180, 20, 60, ${0.5 + Math.sin(time * 2 + rs) * 0.15})`
         : `rgba(212, 175, 55, ${0.4 + Math.sin(time * 2 + rs) * 0.15})`;
     ctx.lineWidth = 1.2 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(rsX, rsY);
     ctx.quadraticCurveTo(
@@ -6660,7 +6660,7 @@ export function drawHexerEnemy(
         ? `rgba(180, 20, 60, ${ribbonAlpha})`
         : `rgba(212, 175, 55, ${ribbonAlpha * 0.8})`;
     ctx.lineWidth = (1.5 - rbIdx * 0.3) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(rbBaseX, rbBaseY);
     ctx.quadraticCurveTo(
@@ -6908,7 +6908,7 @@ export function drawHexerEnemy(
       ctx.strokeStyle =
         t === 0 ? "rgba(180, 20, 60, 0.7)" : "rgba(212, 175, 55, 0.6)";
       ctx.lineWidth = 1 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(tx, py + size * 0.025);
       ctx.quadraticCurveTo(
@@ -7081,7 +7081,7 @@ export function drawHexerEnemy(
         shaftGrad.addColorStop(1, "#2a0808");
         wCtx.strokeStyle = shaftGrad;
         wCtx.lineWidth = 3.5 * zoom;
-        wCtx.lineCap = "라운드";
+        wCtx.lineCap = "round";
         wCtx.beginPath();
         wCtx.moveTo(0, size * 0.07);
         wCtx.lineTo(0, -shaftH);
@@ -7108,7 +7108,7 @@ export function drawHexerEnemy(
           wCtx.strokeStyle =
             sr === 1 ? `rgba(212, 175, 55, 0.6)` : `rgba(180, 20, 60, 0.65)`;
           wCtx.lineWidth = 1.2 * zoom;
-          wCtx.lineCap = "라운드";
+          wCtx.lineCap = "round";
           wCtx.beginPath();
           wCtx.moveTo(srSide * size * 0.01, srBaseY);
           wCtx.quadraticCurveTo(
@@ -7539,7 +7539,7 @@ export function drawHexerEnemy(
     const spokeGlow = 0.6 + Math.sin(time * 2.5 + sp * 0.8) * 0.2;
     ctx.strokeStyle = `rgba(212, 175, 55, ${spokeGlow})`;
     ctx.lineWidth = (1.8 - Math.abs(sp - 3) * 0.15) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(spokeBaseX, spokeBaseY);
     ctx.lineTo(spokeTipX, spokeTipY);
@@ -7644,7 +7644,7 @@ export function drawHexerEnemy(
       const ftWind = Math.sin(windPhase * 1.5 + ft + side * 2) * size * 0.008;
       ctx.strokeStyle = `rgba(212, 175, 55, ${0.5 + Math.sin(time * 2 + ft) * 0.2})`;
       ctx.lineWidth = 0.8 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(ftBaseX, ftBaseY);
       ctx.quadraticCurveTo(
@@ -7668,7 +7668,7 @@ export function drawHexerEnemy(
     const rtTail = Math.sin(time * 3 + rt * 1.7) * size * 0.015;
     ctx.strokeStyle = `rgba(255, 100, 160, ${bladePulse * 0.45})`;
     ctx.lineWidth = 1.2 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(rtx, rty);
     ctx.quadraticCurveTo(

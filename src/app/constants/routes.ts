@@ -6,7 +6,7 @@ import {
 
 export type RouteTarget =
   | { type: "home" }
-  | { type: "레벨"; levelId: string }
+  | { type: "level"; levelId: string }
   | { type: "codex"; tab?: CodexTabId }
   | { type: "creator" }
   | { type: "credits" }
@@ -58,7 +58,7 @@ export function parseRoute(slug: string[] | undefined): RouteTarget | null {
   }
 
   if (slug.length === 1 && ALL_LEVEL_IDS.has(first)) {
-    return { levelId: first, type: "레벨" };
+    return { levelId: first, type: "level" };
   }
 
   return null;
@@ -73,7 +73,7 @@ export function routeToPath(target: RouteTarget): string {
     case "home": {
       return "/";
     }
-    case "레벨": {
+    case "level": {
       return `/${target.levelId}`;
     }
     case "codex": {

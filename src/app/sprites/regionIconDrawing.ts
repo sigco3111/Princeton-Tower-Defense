@@ -959,7 +959,7 @@ export function drawChallengeSigil(
   ctx.globalAlpha = 1;
 
   // Crossed blades — bold X
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
 
   // Blade shadows
   ctx.strokeStyle = "rgba(0,0,0,0.3)";

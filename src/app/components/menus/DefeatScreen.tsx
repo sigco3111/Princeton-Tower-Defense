@@ -76,8 +76,8 @@ const DefeatSprite: React.FC<{ size?: number }> = ({ size = 150 }) => {
     ctx.fillRect(0, 0, size, size);
 
     // --- Crossed Bones behind skull ---
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
 
     const drawBone = (x1: number, y1: number, x2: number, y2: number) => {
       const boneGrad = ctx.createLinearGradient(x1, y1, x2, y2);

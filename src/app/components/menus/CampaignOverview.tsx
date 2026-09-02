@@ -118,8 +118,8 @@ function CampaignConqueredBanner({
         <div className="relative px-3.5 py-3">
           <div className="flex items-center gap-1.5 mb-2">
             <Crown size={11} className="text-emerald-300/80" />
-            <span className="text-[9px] font-bold text-emerald-300/90 uppercase tracking-[0.15em]">
-              Campaign Conquered
+              <span className="text-[9px] font-bold text-emerald-300/90 uppercase tracking-[0.15em]">
+              캠페인 정복
             </span>
           </div>
           <div className="flex items-center justify-between gap-1.5">
@@ -147,7 +147,7 @@ function CampaignConqueredBanner({
                 </div>
                 <div className="text-[10px] text-emerald-400/60 mt-0.5">
                   {target
-                    ? `${REGION_META[target.region]?.displayName} \u00B7 Challenge`
+                    ? `${REGION_META[target.region]?.displayName} \u00B7 도전`
                     : "모든 도전 과제 완료"}
                 </div>
               </div>
@@ -426,7 +426,7 @@ export const CampaignOverview = memo(function CampaignOverview({
               filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.4))",
             }}
           >
-            Campaign
+            캠페인
           </h2>
           {onTogglePreview && (
             <button
@@ -447,10 +447,10 @@ export const CampaignOverview = memo(function CampaignOverview({
         <div className="mb-1.5 relative z-10">
           <div className="flex items-center justify-between mb-1">
             <span className="text-[10px] font-bold text-amber-500/70 uppercase tracking-widest">
-              Overall Progress
+              전체 진행도
             </span>
             <span className="text-[11px] font-semibold text-amber-300/90 tabular-nums">
-              {completedLevels}/{totalLevels} levels
+              {completedLevels}/{totalLevels} 레벨
             </span>
           </div>
           <div
@@ -492,7 +492,7 @@ export const CampaignOverview = memo(function CampaignOverview({
               <span className="text-[10px] text-amber-600">/{maxStars}</span>
             </div>
             <span className="text-[10px] text-amber-500 font-medium">
-              {Math.round(progressPct)}% complete
+              {Math.round(progressPct)}% 완료
             </span>
           </div>
         </div>
@@ -511,7 +511,7 @@ export const CampaignOverview = memo(function CampaignOverview({
               {campaignTotals.battles}
             </span>
             <span className="text-amber-600/70 text-[9px] uppercase tracking-wider">
-              Played
+              전투
             </span>
           </span>
           <span className="text-amber-700/40 text-[10px]">|</span>
@@ -521,7 +521,7 @@ export const CampaignOverview = memo(function CampaignOverview({
               {campaignTotals.wins}
             </span>
             <span className="text-amber-600/70 text-[9px] uppercase tracking-wider">
-              Wins
+              승리
             </span>
           </span>
           <span className="text-amber-700/40 text-[10px]">|</span>
@@ -531,7 +531,7 @@ export const CampaignOverview = memo(function CampaignOverview({
               {campaignTotals.hearts}
             </span>
             <span className="text-amber-600/70 text-[9px] uppercase tracking-wider">
-              Lives
+              생명
             </span>
           </span>
         </div>
@@ -592,7 +592,7 @@ export const CampaignOverview = memo(function CampaignOverview({
               <div className="flex items-center gap-1.5 mb-2">
                 <Crown size={11} className="text-amber-300/80" />
                 <span className="text-[9px] font-bold text-amber-300/90 uppercase tracking-[0.15em]">
-                  Continue Campaign
+                  캠페인 계속하기
                 </span>
               </div>
               <div className="flex items-center justify-between gap-1.5">
@@ -793,7 +793,7 @@ export const CampaignOverview = memo(function CampaignOverview({
                   {lastPlayed.stats.timesPlayed !== undefined && (
                     <span className="flex items-center gap-1 text-amber-400/60">
                       <Swords size={10} />
-                      {lastPlayed.stats.timesPlayed} plays
+                      {lastPlayed.stats.timesPlayed}회 플레이
                     </span>
                   )}
                 </div>

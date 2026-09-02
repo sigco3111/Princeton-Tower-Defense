@@ -25,7 +25,7 @@ function routeToInitialNav(target: RouteTarget): InitialNavigation {
   };
 
   switch (target.type) {
-    case "레벨": {
+    case "level": {
       return { ...base, level: target.levelId };
     }
     case "codex": {

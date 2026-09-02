@@ -96,7 +96,7 @@ function drawGrassWaves(p: BiomeDetailParams): void {
     ctx.globalAlpha = 0.03 + rng() * 0.04;
     ctx.strokeStyle = palette.highlight;
     ctx.lineWidth = 8 + rng() * 12;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(startX, startY);
     const segments = 4 + Math.floor(rng() * 3);
@@ -472,7 +472,7 @@ function drawAlgaeStreaks(p: BiomeDetailParams): void {
   const rng = createSeededRandom(mapSeed + 9012);
 
   const streakCount = 70;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < streakCount; i++) {
     const x = rng() * cssWidth;
     const y = rng() * cssHeight;
@@ -545,7 +545,7 @@ function drawRootPatterns(p: BiomeDetailParams): void {
     ctx.strokeStyle =
       palette.soilSpots[Math.floor(rng() * palette.soilSpots.length)];
     ctx.lineWidth = 0.5 + rng() * 1.5;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
 
     ctx.beginPath();
     ctx.moveTo(px, py);

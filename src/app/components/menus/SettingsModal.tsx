@@ -213,7 +213,7 @@ function SettingRow({
             {label}
             {tag === "coming-soon" && (
               <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-zinc-800/60 text-zinc-400/80 border border-zinc-600/30">
-                Soon
+                준비중
               </span>
             )}
           </div>
@@ -296,7 +296,7 @@ function DevModeSection({
             color: "rgba(74,222,128,0.8)",
           }}
         >
-          Enabled — Disable
+          활성화됨 — 비활성화
         </button>
       ) : (
         <div className="flex flex-col gap-1.5">
@@ -320,7 +320,7 @@ function DevModeSection({
           />
           {devPasswordError && (
             <span className="text-xs" style={{ color: "rgba(239,68,68,0.8)" }}>
-              Wrong password
+              잘못된 비밀번호
             </span>
           )}
         </div>
@@ -359,7 +359,7 @@ function GraphicsPanel({ settings, updateCategory }: CategoryPanelProps) {
           options={[
             { label: "끄기", value: "off" },
             { label: "낮음", value: "low" },
-            { label: "Med", value: "medium" },
+            { label: "중간", value: "medium" },
             { label: "높음", value: "high" },
           ]}
           onChange={(v) => update({ shadowQuality: v })}
@@ -536,7 +536,7 @@ function LandscapingPanel({ settings, updateCategory }: CategoryPanelProps) {
           options={[
             { label: "없음", value: "none" },
             { label: "낮음", value: "low" },
-            { label: "Med", value: "medium" },
+            { label: "중간", value: "medium" },
             { label: "높음", value: "high" },
           ]}
           onChange={(v) => update({ battleDebrisDensity: v })}
@@ -1318,7 +1318,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             <div className="flex items-center gap-2 sm:gap-3">
               <Monitor size={22} className="text-amber-400" />
               <h2 className="text-lg sm:text-xl font-bold text-amber-200 tracking-wide">
-                Settings
+                설정
               </h2>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">
@@ -1334,7 +1334,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   }}
                 >
                   <Zap size={14} />
-                  <span className="hidden sm:inline">Presets</span>
+                  <span className="hidden sm:inline">프리셋</span>
                   <ChevronDown
                     size={14}
                     className={`transition-transform ${showPresets ? "rotate-180" : ""}`}
@@ -1528,7 +1528,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   style={{ color: "rgba(253,230,138,0.4)" }}
                 >
                   <RotateCcw size={12} />
-                  Reset
+                  초기화
                 </button>
               </div>
 
@@ -1571,7 +1571,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               className="text-center text-[11px] sm:text-xs"
               style={{ color: "rgba(253,230,138,0.3)" }}
             >
-              All changes take effect immediately
+              모든 변경 사항은 즉시 적용됩니다
             </div>
           </div>
         </OrnateFrame>

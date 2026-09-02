@@ -147,28 +147,28 @@ export const SpecialBuildingTooltip: React.FC<SpecialBuildingTooltipProps> = ({
       icon: <Home className="text-red-400" size={16} />,
       label: "주둔군",
       name: "변경 병영",
-      stat: "3x Knights Cap",
+      stat: "기사 3명 상한",
     },
     beacon: {
       desc: "에너지 스파이크. 주변 모든 타워의 사거리와 병사 배치 사거리를 20% 증가시키는 공명 필드를 방출합니다.",
       icon: <Zap className="text-cyan-400" size={16} />,
-      label: "Aura Tower",
+      label: "오라 타워",
       name: "고대 비콘",
-      stat: "+20% Range & Deploy Buff",
+      stat: "+20% 사거리 & 배치 버프",
     },
     chrono_relay: {
       desc: "시간의 수정 격자. 근처 타워가 이 박자에 맞춰 더 빠르게 발사합니다.",
       icon: <Timer className="text-indigo-300" size={16} />,
-      label: "Temporal Aura",
+      label: "시간 오라",
       name: "비전 시간 수정",
-      stat: "+Attack Speed Aura",
+      stat: "+공격 속도 오라",
     },
     sentinel_nexus: (() => {
       const sp = getSentinelPalette(mapTheme);
       return {
         desc: "고대의 레이저 유도 타격 코어. 주기적으로 지정한 맵 좌표에 번개를 소환합니다.",
         icon: <Activity style={{ color: `rgb(${sp.hotRgb})` }} size={16} />,
-        label: "Strike Beacon",
+        label: "타격 신호기",
         name: getSentinelName(mapTheme),
         stat: "재조준 가능 타격 비콘",
       };
@@ -176,7 +176,7 @@ export const SpecialBuildingTooltip: React.FC<SpecialBuildingTooltipProps> = ({
     shrine: {
       desc: "회복의 거점. 주기적으로 신비한 펄스를 방출하여 영웅과 근처 병사를 치유합니다.",
       icon: <Sparkles className="text-green-400" size={16} />,
-      label: "Healing Structure",
+      label: "치유 구조물",
       name: "고대 사당",
       stat: "치유 오라",
     },
@@ -192,7 +192,7 @@ export const SpecialBuildingTooltip: React.FC<SpecialBuildingTooltipProps> = ({
       icon: <Lock className="text-yellow-400" size={16} />,
       label: "목표",
       name: "보물 금고",
-      stat: "Protect at all costs",
+      stat: "무슨 수를 써서라도 보호",
     },
   }[type];
 
@@ -333,7 +333,7 @@ export const SpecialBuildingTooltip: React.FC<SpecialBuildingTooltipProps> = ({
             <div>
               <div className="flex justify-between text-[10px] mb-1.5 font-mono">
                 <span className={theme.labelClass.replace("/60", "/80")}>
-                  INTEGRITY
+                  내구도
                 </span>
                 <span className="text-white/90">
                   {Math.ceil(hp)} / {maxHp}

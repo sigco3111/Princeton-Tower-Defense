@@ -147,7 +147,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
 
   const handleSetStars = () => {
     if (!selectedLevelId) {
-      setFeedback({ isError: true, message: "Pick a level first." });
+      setFeedback({ isError: true, message: "먼저 레벨을 선택하세요." });
       return;
     }
 
@@ -161,7 +161,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
     onSetLevelStars(selectedLevelId, normalizedStars);
     setFeedback({
       isError: false,
-      message: `Set ${selectedLevelId} to ${normalizedStars} star${normalizedStars === 1 ? "" : "s"}.`,
+                    message: `${selectedLevelId} 레벨을 별 ${normalizedStars}개로 설정했습니다.`,
     });
   };
 
@@ -171,7 +171,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
     try {
       parsed = JSON.parse(progressDraft);
     } catch {
-      setFeedback({ isError: true, message: "Invalid JSON format." });
+      setFeedback({ isError: true, message: "JSON 형식이 올바르지 않습니다." });
       return;
     }
 
@@ -187,7 +187,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
     }
 
     onGrantPawPoints(parsed);
-    setFeedback({ isError: false, message: `Granted ${parsed} PawPoints.` });
+    setFeedback({ isError: false, message: `${parsed} PawPoints를 지급했습니다.` });
   };
 
   return (
@@ -209,7 +209,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
             <div className="mb-3 flex items-center justify-between">
               <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-amber-200">
                 <Wrench size={14} />
-                Dev Config
+                개발자 설정
               </div>
               <button
                 type="button"
@@ -217,7 +217,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                 className="inline-flex items-center gap-1 rounded border border-amber-300/40 px-2 py-1 font-semibold text-amber-200 hover:bg-amber-950/60"
                 title="개발자 설정 닫기"
               >
-                Close
+                닫기
                 <ChevronUp size={14} />
               </button>
             </div>
@@ -226,7 +226,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
               <section className="rounded border border-emerald-300/30 bg-emerald-950/30 p-2">
                 <div className="mb-2 flex items-center justify-between">
                   <span className="font-semibold uppercase tracking-wide text-emerald-200">
-                    Perf HUD
+                    성능 HUD
                   </span>
                   <button
                     type="button"
@@ -268,7 +268,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
               <section className="rounded border border-fuchsia-300/30 bg-fuchsia-950/30 p-2">
                 <div className="mb-2 flex items-center justify-between">
                   <span className="font-semibold uppercase tracking-wide text-fuchsia-200">
-                    Photo Mode
+                    포토 모드
                   </span>
                   <button
                     type="button"
@@ -283,25 +283,25 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                   </button>
                 </div>
                 <div className="text-[10px] leading-snug text-fuchsia-200/60">
-                  Places strategic towers on every level for screenshots.
-                  Re-enter a level after toggling.
+                  모든 레벨에 전략 타워를 배치하여 스크린샷을 촬영합니다.
+                  전환 후 레벨에 다시 입장하세요.
                 </div>
               </section>
 
               {gameState === "playing" ? (
                 <section className="rounded border border-blue-300/30 bg-blue-950/30 p-2">
                   <div className="mb-2 font-semibold uppercase tracking-wide text-blue-200">
-                    In-Game Cheats
+                    인게임 치트
                   </div>
 
                   <div className="mb-2 flex items-center justify-between rounded border border-blue-300/20 bg-blue-900/20 px-2 py-1">
                     <span className="font-mono text-[11px] text-blue-100">
-                      Wave {Math.min(currentWave + 1, totalWaves)}/{totalWaves}
+                      웨이브 {Math.min(currentWave + 1, totalWaves)}/{totalWaves}
                       {waveInProgress
-                        ? " (spawning)"
+                        ? " (소환 중)"
                         : currentWave >= totalWaves
-                          ? " (done)"
-                          : " (idle)"}
+                          ? " (완료)"
+                          : " (대기)"}
                     </span>
                     <button
                       type="button"
@@ -310,12 +310,12 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                         onSkipWave();
                         setFeedback({
                           isError: false,
-                          message: `Skipped to wave ${Math.min(currentWave + 2, totalWaves)}/${totalWaves}.`,
+                          message: `웨이브 ${Math.min(currentWave + 2, totalWaves)}/${totalWaves}로 건너뛰었습니다.`,
                         });
                       }}
                       className="rounded border border-cyan-300/40 bg-cyan-900/40 px-2 py-0.5 text-[11px] font-semibold text-cyan-100 hover:bg-cyan-800/50 disabled:opacity-40 disabled:cursor-not-allowed"
                     >
-                      Skip Wave
+                      웨이브 건너뛰기
                     </button>
                   </div>
 
@@ -331,7 +331,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                         ) : (
                           <ChevronRight size={12} />
                         )}
-                        Wave Browser ({levelWaves.length} waves)
+                        웨이브 탐색기 ({levelWaves.length}개 웨이브)
                       </button>
                       {waveBrowserOpen && (
                         <div className="max-h-48 overflow-y-auto border-t border-violet-300/15 px-1 py-1">
@@ -360,12 +360,12 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                                       onSkipToWave(idx);
                                       setFeedback({
                                         isError: false,
-                                        message: `Jumped to wave ${idx + 1}/${totalWaves}.`,
+                                        message: `웨이브 ${idx + 1}/${totalWaves}로 이동했습니다.`,
                                       });
                                     }}
                                     className="rounded border border-violet-400/40 bg-violet-900/40 px-1.5 py-0.5 text-[9px] font-semibold text-violet-100 hover:bg-violet-800/60 disabled:cursor-not-allowed disabled:opacity-30"
                                   >
-                                    Jump
+                                    이동
                                   </button>
                                 </div>
                                 <div className="min-w-0 flex-1 text-[10px] leading-snug text-violet-100/80">
@@ -376,7 +376,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                                       (sum, g) => sum + g.count,
                                       0
                                     )}{" "}
-                                    total)
+                                    개)
                                   </span>
                                 </div>
                               </div>
@@ -398,7 +398,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                     }}
                     className="mb-2 w-full rounded border border-rose-300/40 bg-rose-900/40 px-2 py-1 font-semibold text-rose-100 hover:bg-rose-800/50"
                   >
-                    Kill All Enemies
+                    모든 적 제거
                   </button>
 
                   <button
@@ -412,7 +412,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                     }}
                     className="mb-2 w-full rounded border border-blue-300/40 bg-blue-900/40 px-2 py-1 font-semibold hover:bg-blue-800/50"
                   >
-                    Instant Victory
+                    즉시 승리
                   </button>
 
                   <button
@@ -426,7 +426,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                     }}
                     className="mb-2 w-full rounded border border-red-300/40 bg-red-900/40 px-2 py-1 font-semibold text-red-200 hover:bg-red-800/50"
                   >
-                    Instant Lose
+                    즉시 패배
                   </button>
 
                   <div className="mb-2 grid grid-cols-[90px_auto] gap-2">
@@ -445,7 +445,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                       onClick={handleGrantPawPoints}
                       className="rounded border border-blue-300/40 bg-blue-900/40 px-2 py-1 font-semibold hover:bg-blue-800/50"
                     >
-                      Grant PawPoints
+                      PawPoints 지급
                     </button>
                   </div>
 
@@ -455,28 +455,28 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                       onClick={() => onAdjustLives(1)}
                       className="rounded border border-blue-300/40 bg-blue-900/40 px-2 py-1 font-semibold hover:bg-blue-800/50"
                     >
-                      +1 Life
+                      +1 생명
                     </button>
                     <button
                       type="button"
                       onClick={() => onAdjustLives(5)}
                       className="rounded border border-blue-300/40 bg-blue-900/40 px-2 py-1 font-semibold hover:bg-blue-800/50"
                     >
-                      +5 Lives
+                      +5 생명
                     </button>
                     <button
                       type="button"
                       onClick={() => onAdjustLives(-1)}
                       className="rounded border border-blue-300/40 bg-blue-900/40 px-2 py-1 font-semibold hover:bg-blue-800/50"
                     >
-                      -1 Life
+                      -1 생명
                     </button>
                     <button
                       type="button"
                       onClick={() => onAdjustLives(-5)}
                       className="rounded border border-blue-300/40 bg-blue-900/40 px-2 py-1 font-semibold hover:bg-blue-800/50"
                     >
-                      -5 Lives
+                      -5 생명
                     </button>
                   </div>
                 </section>
@@ -484,7 +484,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
 
               <section className="rounded border border-amber-300/30 bg-amber-950/30 p-2">
                 <div className="mb-2 font-semibold uppercase tracking-wide text-amber-200">
-                  Save &amp; Progress
+                  저장 및 진행도
                 </div>
 
                 <div className="mb-2 grid grid-cols-[1fr_auto_auto] gap-2">
@@ -508,12 +508,12 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                       onUnlockLevel(selectedLevelId);
                       setFeedback({
                         isError: false,
-                        message: `Unlocked ${selectedLevelId}.`,
+                        message: `${selectedLevelId} 레벨을 잠금 해제했습니다.`,
                       });
                     }}
                     className="rounded border border-amber-300/40 bg-amber-900/40 px-2 py-1 font-semibold hover:bg-amber-800/50"
                   >
-                    Unlock
+                    잠금 해제
                   </button>
                   <button
                     type="button"
@@ -524,12 +524,12 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                       onLockLevel(selectedLevelId);
                       setFeedback({
                         isError: false,
-                        message: `Locked ${selectedLevelId}.`,
+                        message: `${selectedLevelId} 레벨을 잠갔습니다.`,
                       });
                     }}
                     className="rounded border border-red-300/40 bg-red-900/35 px-2 py-1 font-semibold text-red-200 hover:bg-red-800/45"
                   >
-                    Lock
+                    잠금
                   </button>
                 </div>
 
@@ -548,16 +548,16 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                     onClick={handleSetStars}
                     className="rounded border border-amber-300/40 bg-amber-900/40 px-2 py-1 font-semibold hover:bg-amber-800/50"
                   >
-                    Set Stars
+                    별 설정
                   </button>
                 </div>
 
                 <div className="mb-2 text-[11px] text-amber-200/90">
-                  Level:{" "}
+                  레벨:{" "}
                   <span className="font-mono">
-                    {selectedLevelId || "(none)"}
+                    {selectedLevelId || "(없음)"}
                   </span>{" "}
-                  | unlocked {levelIsUnlocked ? "yes" : "아니오"} | stars{" "}
+                  | 잠금 해제 {levelIsUnlocked ? "예" : "아니오"} | 별{" "}
                   {currentStars}
                 </div>
 
@@ -567,21 +567,20 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                     onUnlockAllLevels();
                     setFeedback({
                       isError: false,
-                      message: "Unlocked all levels.",
+                      message: "모든 레벨을 잠금 해제했습니다.",
                     });
                   }}
                   className="mb-2 w-full rounded border border-amber-300/40 bg-amber-900/35 px-2 py-1 font-semibold hover:bg-amber-800/50"
                 >
-                  Unlock All Levels
+                  모든 레벨 잠금 해제
                 </button>
 
                 <div className="mb-2 text-[11px] text-amber-300/85">
-                  Unlocked {progress.unlockedMaps.length}/{levelOptions.length}{" "}
-                  levels
+                  {progress.unlockedMaps.length}/{levelOptions.length} 레벨 잠금 해제됨
                 </div>
 
                 <div className="mb-1 flex items-center justify-between text-[11px] text-amber-200">
-                  <span className="font-semibold">Data JSON</span>
+                    <span className="font-semibold">데이터 JSON</span>
                   <button
                     type="button"
                     onClick={() =>
@@ -589,7 +588,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                     }
                     className="rounded border border-amber-300/40 px-2 py-0.5 font-semibold hover:bg-amber-900/50"
                   >
-                    Reload
+                    다시 불러오기
                   </button>
                 </div>
                 <textarea
@@ -603,7 +602,7 @@ export const DevConfigMenu: React.FC<DevConfigMenuProps> = ({
                   onClick={handleApplyProgressJson}
                   className="mt-2 w-full rounded border border-amber-300/40 bg-amber-900/40 px-2 py-1 font-semibold hover:bg-amber-800/50"
                 >
-                  Apply Data
+                  데이터 적용
                 </button>
               </section>
 

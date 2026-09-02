@@ -616,7 +616,7 @@ export const TutorialOverlay: React.FC<TutorialOverlayProps> = ({
       if (e.key === "입력" || e.key === " " || e.key === "ArrowRight") {
         e.preventDefault();
         handleNext();
-      } else if (e.key === "탈출") {
+      } else if (e.key === "Escape") {
         e.preventDefault();
         handleSkip();
       }

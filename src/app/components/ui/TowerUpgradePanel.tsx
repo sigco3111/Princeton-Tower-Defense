@@ -193,7 +193,7 @@ function buildActionButtons(
           />
         ),
         id: "autoaim",
-        label: isAutoAim ? "수동" : "Auto-Aim",
+        label: isAutoAim ? "수동" : "자동 조준",
         onClick: () => onToggleMissileAutoAim(tower.id),
       });
     }
@@ -205,7 +205,7 @@ function buildActionButtons(
         glowColor: "rgba(255,100,0,0.3)",
         icon: <Crosshair size={18} className="text-orange-300" />,
         id: "retarget",
-        label: "Retarget",
+        label: "재조준",
         onClick: () => onRetargetMissile!(tower.id),
       });
     }
@@ -278,7 +278,7 @@ function ElaborateRing({
           <feGaussianBlur stdDeviation="4" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
-            <feMergeNode in="원본 그래픽" />
+            <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
@@ -368,7 +368,7 @@ function ElaborateRing({
             y2={c + Math.sin(rad) * outer}
             stroke="rgba(255,215,0,0.4)"
             strokeWidth="2"
-            strokeLinecap="라운드"
+            strokeLinecap="round"
           />
         );
       })}
@@ -562,7 +562,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
       isBoosted: hasDamageBuff,
       isDebuffed: hasDamageDebuff,
       key: "damage",
-      label: "damage",
+      label: "피해",
       nextValue:
         nextStats && nextStats.damage > baseStats.damage
           ? Math.floor(nextStats.damage)
@@ -803,7 +803,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
         debuffColorClass: "bg-rose-950/60 border-rose-500/70 text-rose-400",
         icon: <TrendingUp size={14} />,
         key: "damageBuff",
-        label: "DMG Aura",
+        label: "피해 오라",
         value: `+${Math.round(activeUpgradeStats.damageBuff * 100)}%`,
       });
     }
@@ -1013,7 +1013,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
             <div className="mb-1.5 p-1 bg-gradient-to-r from-cyan-950/70 to-orange-950/70 rounded-md border border-yellow-600/40 flex items-center justify-center gap-1.5 flex-wrap">
               <Sparkles size={10} className="text-yellow-400" />
               <span className="text-[8px] text-yellow-300 font-bold">
-                BUFFED
+                버프
               </span>
               {hasRangeBuff && tower.type !== "station" && (
                 <span className="flex items-center gap-0.5 px-1 py-0.5 bg-cyan-900/60 rounded text-cyan-300 text-[8px]">
@@ -1164,7 +1164,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                             className={`flex items-center justify-center gap-1 text-[8px] px-1.5 py-0.5 rounded border ${theme.tagClass}`}
                           >
                             <Ban size={8} />
-                            <span className="font-medium">Tower disabled</span>
+                            <span className="font-medium">타워 비활성화</span>
                           </div>
                         </div>
                       );
@@ -1178,7 +1178,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                           className="text-red-400 animate-pulse"
                         />
                         <span className="text-[8px] text-red-300 font-bold">
-                          DEBUFFED
+                          디버프
                         </span>
                       </div>
                       <div className="flex flex-wrap justify-center gap-1">
@@ -1198,21 +1198,21 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                             blind: {
                               color:
                                 "bg-purple-900/60 text-purple-300 border-purple-700/50",
-                              desc: `-${Math.round(debuff.intensity * 100)}% Range`,
+                              desc: `-${Math.round(debuff.intensity * 100)}% 사거리`,
                               icon: <EyeOff size={9} />,
-                              label: "Blinded",
+                              label: "실명",
                             },
                             slow: {
                               color:
                                 "bg-blue-900/60 text-blue-300 border-blue-700/50",
-                              desc: `-${Math.round(debuff.intensity * 100)}% Atk Spd`,
+                              desc: `-${Math.round(debuff.intensity * 100)}% 공격 속도`,
                               icon: <Timer size={9} />,
                               label: "감속됨",
                             },
                             weaken: {
                               color:
                                 "bg-red-900/60 text-red-300 border-red-700/50",
-                              desc: `-${Math.round(debuff.intensity * 100)}% Damage`,
+                              desc: `-${Math.round(debuff.intensity * 100)}% 피해`,
                               icon: <TrendingDown size={9} />,
                               label: "약화",
                             },
@@ -1343,7 +1343,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
               <div className="flex items-center gap-1 mb-1">
                 <CoinsIcon size={12} className="text-amber-400" />
                 <span className="text-[9px] font-bold text-amber-300">
-                  Paw Points Generation
+                  PP 생성
                 </span>
               </div>
               <div className="grid grid-cols-4 gap-1.5 mb-1">
@@ -1363,7 +1363,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                 </div>
                 <div className="bg-amber-900/40 p-1 rounded border border-amber-700/40 text-center">
                   <Timer size={10} className="mx-auto text-amber-400" />
-                  <div className="text-[7px] text-amber-500">Interval</div>
+                  <div className="text-[7px] text-amber-500">간격</div>
                   <div className="text-amber-300 font-bold text-[10px]">
                     {(baseStats.incomeInterval || 8000) / 1000}s
                   </div>
@@ -1388,14 +1388,14 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                 </div>
               </div>
               <div className="text-[7px] text-amber-400/80 text-center mb-1">
-                Earns{" "}
-                <span className="font-bold text-amber-300">
-                  +{baseStats.income || 8} PP
-                </span>{" "}
-                every{" "}
                 <span className="font-bold text-amber-300">
                   {(baseStats.incomeInterval || 8000) / 1000}s
                 </span>
+                마다{" "}
+                <span className="font-bold text-amber-300">
+                  +{baseStats.income || 8} PP
+                </span>{" "}
+                획득
               </div>
 
               {tower.level === 4 &&
@@ -1410,7 +1410,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                           <div className="flex items-center justify-center gap-0.5">
                             <Radar size={10} className="text-cyan-400" />
                             <span className="text-[7px] text-cyan-500">
-                              Range Aura
+                              사거리 오라
                             </span>
                           </div>
                           <div className="text-cyan-300 font-bold text-xs">
@@ -1423,7 +1423,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                           <div className="flex items-center justify-center gap-0.5">
                             <TrendingUp size={10} className="text-orange-400" />
                             <span className="text-[7px] text-orange-500">
-                              Damage Aura
+                              피해 오라
                             </span>
                           </div>
                           <div className="text-orange-300 font-bold text-xs">
@@ -1471,7 +1471,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                   <div className="flex items-center gap-1 mb-1">
                     <Users size={12} className="text-amber-400" />
                     <span className="text-[9px] font-bold text-amber-300">
-                      Garrison: {troop.name}
+                      주둔군: {troop.name}
                     </span>
                     <span className="text-[7px] bg-stone-800 px-1 py-0.5 rounded text-stone-400 ml-auto">
                       {troop.isMounted
@@ -1549,10 +1549,10 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                       <Flame size={12} className="text-orange-400" />
                     )}
                     <span className="text-[9px] font-bold text-stone-300">
-                      {isGatling ? "gatling" : "flamethrower"}
+                      {isGatling ? "개틀링" : "화염방사기"}
                     </span>
                     <span className="text-[7px] bg-stone-800 px-1 py-0.5 rounded text-stone-400 ml-auto">
-                      {isGatling ? "Rapid Fire" : "지속적"}
+                      {isGatling ? "고속 연사" : "지속적"}
                     </span>
                   </div>
                   <div className="grid grid-cols-4 gap-1 mb-1">
@@ -1883,7 +1883,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                       <Snowflake size={12} className="text-blue-400" />
                     )}
                     <span className="text-[9px] font-bold text-indigo-300">
-                      {isEQ ? "이쿼드 분쇄기" : "blizzard"}
+                      {isEQ ? "이쿼드 분쇄기" : "블리자드"}
                     </span>
                     <span className="text-[7px] bg-indigo-900 px-1 py-0.5 rounded text-indigo-400 ml-auto">
                       {isEQ ? "광역" : "빙결"}
@@ -2005,7 +2005,7 @@ export const TowerUpgradePanel: React.FC<TowerUpgradePanelProps> = ({
                       {isMissileBattery ? "미사일 배터리" : "잿불 용광로"}
                     </span>
                     <span className="text-[7px] bg-red-900 px-1 py-0.5 rounded text-red-400 ml-auto">
-                      {isMissileBattery ? "Guided" : "Incendiary"}
+                      {isMissileBattery ? "유도" : "소이"}
                     </span>
                   </div>
                   <div className="grid grid-cols-4 gap-1 mb-1">

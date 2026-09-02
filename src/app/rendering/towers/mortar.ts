@@ -1323,7 +1323,7 @@ export function renderMortarTower(
       const cylShade = Math.floor(60 + bright * 30);
       ctx.strokeStyle = `rgb(${cylShade},${cylShade},${cylShade + 8})`;
       ctx.lineWidth = 3.2 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(footX, footY);
       ctx.lineTo(midX, midY);
@@ -1419,7 +1419,7 @@ export function renderMortarTower(
       const cableShade = Math.floor(40 + bright * 18);
       ctx.strokeStyle = `rgb(${cableShade},${cableShade},${cableShade + 4})`;
       ctx.lineWidth = 1.2 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(startX, startY);
       ctx.quadraticCurveTo(ctrlX, ctrlY, endX, endY);
@@ -2024,7 +2024,7 @@ export function renderMortarTower(
       // Arm body (thicker with gradient)
       ctx.strokeStyle = "#6a5a4a";
       ctx.lineWidth = 2.5 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(pivotX, pivotY);
       ctx.lineTo(armEndX, armEndY);
@@ -2075,7 +2075,7 @@ export function renderMortarTower(
     // Feed tray channel (U-shaped guide rail)
     ctx.strokeStyle = level >= 3 ? "#4a4a52" : "#4a3e32";
     ctx.lineWidth = feedW + 1.2 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(convStartX, convStartY);
     ctx.quadraticCurveTo(ctrlX, ctrlY, convEndX, convEndY);
@@ -5070,7 +5070,7 @@ export function renderMortarStandardBarrel(
       feedY + feedDirY * trayLen + (shellCount - 1) * 1.2 * zoom + 2 * zoom;
     ctx.strokeStyle = level >= 3 ? "#4e4e58" : "#3e3e44";
     ctx.lineWidth = (level >= 3 ? 2.2 : 1.8) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(trayStartX, trayStartY);
     ctx.lineTo(trayEndX, trayEndY);
@@ -5227,7 +5227,7 @@ export function renderMortarStandardBarrel(
     const bracketW = (level >= 3 ? 2.2 : 1.8) * zoom;
     ctx.strokeStyle = level >= 3 ? "#5a5a64" : "#4a4a54";
     ctx.lineWidth = bracketW;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(scopeAnchor.x, scopeAnchor.y);
     ctx.lineTo(mountX, mountY);
@@ -5625,7 +5625,7 @@ export function renderMortarStandardBarrel(
       // Cylinder shadow
       ctx.strokeStyle = "rgba(0,0,0,0.12)";
       ctx.lineWidth = cylDia + 2 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(cylStartX + 0.5 * zoom, cylStartY + 1 * zoom);
       ctx.lineTo(cylEndX + 0.5 * zoom, cylEndY + 1 * zoom);
@@ -7350,7 +7350,7 @@ export function renderMortarEmberTurret(
       const py = basePt.y + Math.sin(pa) * 3.5 * zoom;
       ctx.strokeStyle = "#5a3a22";
       ctx.lineWidth = 2 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(
         basePt.x + Math.cos(pa) * tiers[0].r,
@@ -7379,7 +7379,7 @@ export function renderMortarEmberTurret(
       const armMidY = (spindleTop.y + by - barrelTotalH * 0.5) * 0.5 + 1 * zoom;
       ctx.strokeStyle = "#4a3220";
       ctx.lineWidth = 4 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(spindleTop.x, spindleTop.y);
       ctx.lineTo(armMidX, armMidY);

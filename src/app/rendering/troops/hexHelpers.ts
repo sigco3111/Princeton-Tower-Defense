@@ -222,7 +222,7 @@ export function drawGhostlyWisps(
     ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
     ctx.strokeStyle = wispGrad;
     ctx.lineWidth = (config.baseWidth - (i % 3) * 0.3) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(wispX, baseY);
     ctx.quadraticCurveTo(
@@ -293,7 +293,7 @@ export function drawHexEnergyVeins(
   ctx.save();
   ctx.strokeStyle = color;
   ctx.lineWidth = 0.8 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.globalAlpha = 0.3 + pulse * 0.2;
 
   for (let i = 0; i < count; i++) {

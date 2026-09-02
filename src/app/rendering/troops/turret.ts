@@ -968,7 +968,7 @@ export function drawTurretTroop(
 
     ctx.strokeStyle = "#3a3a3a";
     ctx.lineWidth = s * 0.02;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(gripL.x, gripL.y);
     ctx.lineTo(gripLend.x, gripLend.y);
@@ -980,7 +980,7 @@ export function drawTurretTroop(
 
     ctx.strokeStyle = "#2a2a2a";
     ctx.lineWidth = s * 0.025;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(gripLend.x, gripLend.y);
     ctx.lineTo(gripLend.x + cosR * s * 0.005, gripLend.y + sinR * s * 0.003);
@@ -1067,7 +1067,7 @@ export function drawTurretTroop(
 
   ctx.strokeStyle = "#555d6c";
   ctx.lineWidth = s * 0.015;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < 3; i++) {
     const j = (i + 1) % 3;
     ctx.beginPath();
@@ -1239,7 +1239,7 @@ export function drawTurretTroop(
     const latchB = proj(abMidF + s * 0.02, abMidR, abUT + s * 0.003);
     ctx.strokeStyle = "#5a5a5a";
     ctx.lineWidth = s * 0.008;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(latchA.x, latchA.y);
     ctx.lineTo(latchB.x, latchB.y);

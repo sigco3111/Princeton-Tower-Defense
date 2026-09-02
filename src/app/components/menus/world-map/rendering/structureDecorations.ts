@@ -80,7 +80,7 @@ export const drawBridge = (
 
   // Rope railings
   ctx.lineWidth = 2;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   // Top rope with sag
   ctx.strokeStyle = "#6a5a40";
   ctx.beginPath();

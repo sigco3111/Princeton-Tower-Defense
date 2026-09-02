@@ -23,14 +23,14 @@ export interface TutorialStep {
 export const TUTORIAL_STEPS: TutorialStep[] = [
   {
     description:
-      "Build towers, command your hero, and cast spells to stop enemy waves from reaching campus.",
+      "타워를 건설하고 영웅을 지휘하며 주문을 시전해 캠퍼스에 도달하려는 적 웨이브를 막아내세요.",
     id: "welcome",
     position: "center",
     title: "프린스턴 타워 디펜스에 오신 것을 환영합니다!",
   },
   {
     description:
-      "Drag a tower onto any open build spot. Each tower has unique tags showing what it does — look for Attacker, Spawner, Hits Air, and more.",
+      "빈 건설 지점에 타워를 드래그해 배치하세요. 각 타워는 고유한 태그로 역할을 표시합니다 — 공격형, 소환형, 대공 등 태그를 확인하세요.",
     highlight: "build-menu",
     id: "build-towers",
     position: "bottom-left",
@@ -38,14 +38,14 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
   },
   {
     description:
-      "Tap a placed tower to upgrade it. Three stat upgrades, then choose one of two Lv.4 specializations.",
+      "배치된 타워를 탭해 업그레이드하세요. 스탯을 세 단계 강화한 뒤 4레벨에서 두 가지 전문화 중 하나를 선택합니다.",
     id: "upgrade-towers",
     position: "center",
     title: "타워 업그레이드",
   },
   {
     description:
-      "Click the map to move your hero. They auto-attack and have a special ability. Pick one before each battle:",
+      "맵을 클릭해 영웅을 이동시키세요. 영웅은 자동으로 공격하며 특수 능력을 보유합니다. 전투 전에 하나를 선택하세요.",
     highlight: "hero-spell-bar",
     id: "move-hero",
     position: "bottom-center",
@@ -53,7 +53,7 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
   },
   {
     description:
-      "Equip up to 3 spells. They cost Paw Points and recharge on cooldown. Use the spell bar at the bottom of screen.",
+      "주문은 최대 3개까지 장착할 수 있습니다. 발동에는 발톱 포인트가 필요하며 재사용 대기시간이 있습니다. 화면 하단의 주문 바를 활용하세요.",
     highlight: "hero-spell-bar",
     id: "use-spells",
     position: "bottom-center",
@@ -61,34 +61,34 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
   },
   {
     description:
-      "Tap the glowing bubble on the path to send the next wave early, or wait for the countdown.",
+      "경로 위 빛나는 버블을 탭하면 다음 웨이브를 즉시 소환할 수 있고, 카운트다운이 끝날 때까지 기다릴 수도 있습니다.",
     highlight: "canvas-center",
     id: "send-waves",
     position: "center",
-    title: "Sending Waves",
+    title: "웨이브 보내기",
   },
   {
     description:
-      "Gear icon (top-right) for game speed, graphics, audio, and controls.",
+      "우측 상단 톱니바퀴 아이콘에서 게임 속도, 그래픽, 오디오 및 조작 설정을 변경할 수 있습니다.",
     highlight: "top-hud",
     id: "settings",
     position: "top-right",
-    title: "Settings & Controls",
+    title: "설정 및 조작",
   },
   {
     description:
-      "F2 to pause and scout the map freely. Space for screenshots, Esc to exit.",
+      "F2로 게임을 일시정지하고 맵을 자유롭게 둘러보세요. 스페이스바로 스크린샷, Esc로 종료합니다.",
     highlight: "top-hud",
     id: "camera-mode",
     position: "top-right",
-    title: "Camera Mode",
+    title: "카메라 모드",
   },
   {
     description:
-      "Mix tower combos, position your hero, and time your spells. Every map plays differently — good luck!",
+      "타워 조합을 섞고 영웅을 배치하며 주문 타이밍을 맞춰보세요. 맵마다 전혀 다른 공략이 필요합니다 — 행운을 빕니다!",
     id: "good-luck",
     position: "center",
-    title: "You're Ready!",
+    title: "준비 완료!",
   },
 ];
 
@@ -107,50 +107,50 @@ export const SPECIAL_TOWER_ENCOUNTERS: Record<SpecialTowerType, EncounterInfo> =
     barracks: {
       category: "special_tower",
       description:
-        "Pre-built Barracks that automatically spawn troops to block enemy paths. " +
-        "These soldiers fight for free — support them with nearby towers!",
+        "경로를 차단하도록 병력을 자동으로 소환하는 사전 배치된 병영입니다. " +
+        "병사들은 비용 없이 싸웁니다 — 주변 타워로 지원하세요!",
       name: "병영",
     },
     beacon: {
       category: "special_tower",
       description:
         "비콘 타워는 근처 모든 타워의 사거리를 증가시킵니다. " +
-        "Build your towers close to it to take advantage of the buff!",
+        "버프를 활용하려면 타워를 근처에 배치하세요!",
       name: "비콘 타워",
     },
     chrono_relay: {
       category: "special_tower",
       description:
         "크로노 릴레이는 근처 타워의 공격 속도를 높입니다. " +
-        "Cluster your damage towers near it for devastating fire rates!",
+        "화력 타워를 근처에 모아 압도적인 연사 속도를 노리세요!",
       name: "크로노 릴레이",
     },
     sentinel_nexus: {
       category: "special_tower",
       description:
-        "The Sentinel Nexus fires lightning bolts at passing enemies on its own. " +
-        "It's a powerful ally — build towers nearby to create a kill zone.",
-      name: "Sentinel Nexus",
+        "센티넬 넥서스는 지나가는 적에게 자체적으로 번개 광선을 발사합니다. " +
+        "강력한 아군이니 근처에 타워를 배치해 섬멸 구역을 만들세요.",
+      name: "파수 넥서스",
     },
     shrine: {
       category: "special_tower",
       description:
         "방어에 패시브 보너스를 제공하는 신비한 사당입니다. " +
-        "Keep it in mind when planning your tower layout.",
+        "타워 배치를 계획할 때 위치를 고려하세요.",
       name: "사당",
     },
     sunforge_orrery: {
       category: "special_tower",
       description:
-        "The Sunforge Orrery fires a devastating beam that deals AoE damage. " +
-        "Enemies caught in its path take heavy sustained damage.",
+        "선포지 오러리는 광역 피해를 주는 파괴적인 광선을 발사합니다. " +
+        "경로에 걸린 적은 지속적인 큰 피해를 입습니다.",
       name: "태양 용광로",
     },
     vault: {
       category: "special_tower",
       description:
-        "This level has a Vault you must protect! Enemies will attack it directly. " +
-        "If the Vault's HP reaches zero, you lose. Position towers to intercept enemies before they reach it.",
+        "이 레벨에는 반드시 지켜야 할 금고가 있습니다! 적이 금고를 직접 공격합니다. " +
+        "금고 체력이 0이 되면 패배합니다. 적이 금고에 도달하기 전에 타워로 요격하세요.",
       name: "금고",
     },
   };
@@ -163,78 +163,78 @@ const HAZARD_ENCOUNTER_DATA: Partial<Record<HazardType, EncounterInfo>> = {
   deep_water: {
     category: "hazard",
     description:
-      "Deep water zones slow ground movement significantly. " +
-      "Flying enemies are unaffected — prepare anti-air defenses!",
+      "깊은 물 지대는 지상 이동 속도를 크게 늦춥니다. " +
+      "비행 적은 영향을 받지 않습니다 — 대공 방어를 준비하세요!",
     name: "깊은 물",
   },
   ice_sheet: {
     category: "hazard",
     description:
-      "Slippery ice speeds up enemies as they slide across. " +
-      "Place your strongest towers near the ice to catch fast-moving foes.",
+      "미끄러운 얼음 위에서는 적이 미끄러지며 빨라집니다. " +
+      "빠르게 이동하는 적을 잡기 위해 얼음 근처에 가장 강력한 타워를 배치하세요.",
     name: "얼음판",
   },
   ice_spikes: {
     category: "hazard",
     description:
-      "Jagged ice spikes damage and slow enemies that pass through. " +
-      "A natural chokepoint — reinforce it with towers!",
+      "날카로운 얼음 가시가 통과하는 적에게 피해를 주고 둔화시킵니다. " +
+      "천연 요충지입니다 — 타워로 보강하세요!",
     name: "얼음 가시",
   },
   lava: {
     category: "hazard",
     description:
-      "Molten lava deals continuous damage to anything that crosses it. " +
-      "Keep your hero and troops away from these deadly flows!",
+      "녹아내린 용암이 지나가는 모든 것에 지속적인 피해를 줍니다. " +
+      "영웅과 병력을 위험한 용암 흐름에서 멀리 떨어뜨리세요!",
     name: "용암",
   },
   lava_geyser: {
     category: "hazard",
     description:
-      "Periodic lava eruptions deal heavy damage to anything nearby — enemies and your troops alike. " +
-      "Time your troop placement carefully around eruptions.",
+      "주기적인 용암 분출이 주변의 적과 아군 모두에게 큰 피해를 줍니다. " +
+      "분출 타이밍에 맞춰 병력 배치를 신중하게 조절하세요.",
     name: "용암 간헐천",
   },
   maelstrom: {
     category: "hazard",
     description:
       "반경 안의 모든 것을 끌어당기고 감속시키는 소용돌이입니다. " +
-      "Dangerous for troops but great for keeping enemies in tower range.",
+      "병력에게는 위험하지만 적을 타워 사거리 안에 묶어두기엔 좋습니다.",
     name: "소용돌이",
   },
   poison_fog: {
     category: "hazard",
     description:
-      "Toxic clouds deal damage over time to your troops and hero if they linger in the area. " +
-      "Move your hero through quickly or avoid the fog entirely!",
+      "독성 구름이 영역 안에 오래 머무는 병력과 영웅에게 지속 피해를 줍니다. " +
+      "영웅을 빠르게 통과시키거나 안개를 완전히 피하세요!",
     name: "독 안개",
   },
   quicksand: {
     category: "hazard",
     description:
-      "Quicksand zones slow down enemies passing through — but also your troops! " +
-      "Use towers to take advantage of slowed enemies, but keep your hero clear.",
+      "유사 지대는 통과하는 적을 둔화시키지만 병력도 느려집니다! " +
+      "둔화된 적을 타워로 공략하되 영웅은 멀리 떨어뜨리세요.",
     name: "유사트",
   },
   storm_field: {
     category: "hazard",
     description:
-      "Crackling storm energy that periodically damages and disrupts units in the area. " +
+      "주기적으로 영역 내 유닛에게 피해와 방해를 주는 갈라지는 폭풍 에너지입니다. " +
       "적과 아군 모두 영향을 받습니다!",
     name: "폭풍 지대",
   },
   swamp: {
     category: "hazard",
     description:
-      "Murky swamp terrain slows ground movement for both enemies and troops. " +
-      "Use ranged towers to capitalize on the slow.",
+      "흐릿한 늪 지형이 적과 병력 모두의 지상 이동을 늦춥니다. " +
+      "원거리 타워로 둔화 효과를 활용하세요.",
     name: "늪지",
   },
   volcano: {
     category: "hazard",
     description:
       "주기적으로 분출하여 넓은 지역에 불을 내리는 활화산입니다. " +
-      "Watch for eruption warnings and reposition your hero!",
+      "분출 경고에 주의하고 영웅을 재배치하세요!",
     name: "화산",
   },
 };
@@ -271,64 +271,64 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
   {
     category: "ranged",
     description:
-      "These enemies attack your towers and troops from a distance! " +
-      "They hang back and chip away at your defenses. Use fast-attacking towers or spells to eliminate them quickly.",
+      "이 적들은 원거리에서 타워와 병력을 공격합니다! " +
+      "뒤에 머물며 방어를 갉아먹습니다. 빠른 공격의 타워나 주문으로 신속히 제거하세요.",
     members: ["archer", "mage", "catapult", "warlock", "crossbowman", "hexer"],
-    title: "Ranged Attackers",
+    title: "원거리 공격자",
   },
   {
     category: "flying",
     description:
-      "Flying enemies soar over the battlefield, ignoring ground troops entirely. " +
-      "Only certain towers (Arch, Lab) and spells can target them. Make sure you have anti-air coverage!",
+      "비행 적은 전장을 날아다니며 지상 병력을 완전히 무시합니다. " +
+      "특정 타워(아치, 연구소)와 주문만 대응할 수 있습니다. 대공 화력을 반드시 확보하세요!",
     members: ["harpy", "wyvern", "specter", "banshee"],
-    title: "Flying Enemies",
+    title: "비행 적",
   },
   {
     category: "special",
     description:
       "버서커는 흉포한 근접 전사로, 병사들에게 막대한 피해를 입힙니다. " +
-      "They move fast and hit hard — overwhelm them with tower fire before they reach your barracks.",
+      "빠르게 이동하고 강하게 공격하니 병영에 도달하기 전에 타워 화력으로 압도하세요.",
     members: ["berserker"],
     title: "광전사",
   },
   {
     category: "boss",
     description:
-      "Golems are massive, heavily armored enemies with enormous HP. " +
-      "They're incredibly slow but nearly unstoppable. Focus all your firepower to bring them down!",
+      "골렘은 엄청난 체력과 두꺼운 장갑을 가진 거대 적입니다. " +
+      "매우 느리지만 거의 막을 수 없습니다. 모든 화력을 집중해 쓰러뜨리세요!",
     members: ["golem"],
     title: "골렘",
   },
   {
     category: "special",
     description:
-      "Necromancers raise fallen enemies as undead minions! " +
-      "Kill them quickly before they build an unstoppable zombie horde.",
+      "강령술사는 쓰러진 적을 언데드 하수인으로 되살립니다! " +
+      "멈출 수 없는 좀비 군단이 모이기 전에 빠르게 처치하세요.",
     members: ["necromancer"],
     title: "강령술사",
   },
   {
     category: "special",
     description:
-      "Shadow Knights are elite warriors with heavy armor and devastating attacks. " +
-      "They can disable your towers temporarily — spread your defenses to avoid losing too many at once.",
+      "그림자 기사는 두꺼운 장갑과 파괴적인 공격을 가진 정예 전사입니다. " +
+      "일시적으로 타워를 무력화할 수 있으니 한 번에 너무 많은 타워를 잃지 않도록 방어를 분산하세요.",
     members: ["shadow_knight"],
     title: "그림자 기사",
   },
   {
     category: "special",
     description:
-      "Cultists buff nearby enemies, making them stronger and faster. " +
-      "Prioritize taking them out before they supercharge the rest of the wave!",
+      "광신도는 주변 적을 강화해 더 강하고 빠르게 만듭니다. " +
+      "나머지 웨이브를 강화하기 전에 우선적으로 제거하세요!",
     members: ["cultist"],
     title: "광인",
   },
   {
     category: "special",
     description:
-      "Plaguebearers spread poison that damages your troops over time. " +
-      "Keep your hero and barracks troops at a safe distance when possible.",
+      "역병 운반자는 시간이 지남에 따라 병력에 피해를 주는 독을 퍼뜨립니다. " +
+      "가능하면 영웅과 병영 병력을 안전한 거리에 두세요.",
     members: ["plaguebearer"],
     title: "역병 운반자",
   },
@@ -336,7 +336,7 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
     category: "special",
     description:
       "암살자는 빠르고 은밀하여 방어선을 빠져나갈 수 있습니다. " +
-      "They deal critical damage and can be hard to catch — use slowing towers!",
+      "치명적인 피해를 주고 잡기 어렵습니다 — 둔화 타워를 활용하세요!",
     members: ["assassin"],
     title: "암살자",
   },
@@ -344,30 +344,30 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
     category: "boss",
     description:
       "드래곤이 접근 중! 이 비행 보스는 엄청난 체력을 가지고 있으며, 광역 화염 피해를 입히고, " +
-      "and is resistant to most attacks. Bring your best spells and upgraded towers!",
+      "대부분의 공격에 저항력을 가집니다. 최고의 주문과 업그레이드된 타워를 준비하세요!",
     members: ["dragon"],
     title: "드래곤",
   },
   {
     category: "boss",
     description:
-      "The Juggernaut is an unstoppable siege engine with the highest HP in the game. " +
-      "It crushes everything in its path. Layer your defenses deep!",
+      "파괴자는 게임 내 체력이 가장 높은 멈출 수 없는 공성 병기입니다. " +
+      "경로의 모든 것을 짓뭉갭니다. 방어를 깊게 겹겹이 쌓으세요!",
     members: ["juggernaut"],
     title: "파괴자",
   },
   {
     category: "nature_swamp",
     description:
-      "Creatures of the swamp emerge! Bog Creatures, Will-o'-Wisps, and Swamp Trolls " +
-      "thrive in wetland terrain. Watch for their unique abilities in murky areas.",
+      "늪의 생물들이 출현했습니다! 늪 괴물, 도깨비불, 늪 트롤이 " +
+      "습지 지형에서 활개칩니다. 탁한 지역에서 발동하는 고유 능력에 주의하세요.",
     members: ["bog_creature", "will_o_wisp", "swamp_troll"],
-    title: "Swamp Creatures",
+    title: "늪지 생물",
   },
   {
     category: "nature_desert",
     description:
-      "Desert enemies approach! Nomads are swift, Scorpions are venomous, and Scarabs swarm in numbers. " +
+      "사막의 적들이 다가옵니다! 유목민은 빠르고, 전갈은 맹독을 가졌으며, 풍뎅이는 떼로 몰려옵니다. " +
       "광역 타워는 무리에게 효과적입니다.",
     members: ["nomad", "scorpion", "scarab"],
     title: "사막 약탈자",
@@ -375,48 +375,48 @@ export const ENEMY_ENCOUNTER_GROUPS: EnemyEncounterGroup[] = [
   {
     category: "nature_winter",
     description:
-      "Frost enemies have arrived! Snow Goblins are quick, Yetis are tanky, " +
-      "and Ice Witches can freeze your towers. Fire-based attacks are especially effective!",
+      "한파의 적들이 도착했습니다! 눈 고블린은 빠르고, 예티는 맷집이 좋으며, " +
+      "얼음 마녀는 타워를 얼릴 수 있습니다. 화염 공격이 특히 효과적입니다!",
     members: ["snow_goblin", "yeti", "ice_witch"],
     title: "겨울 군대",
   },
   {
     category: "nature_volcanic",
     description:
-      "Volcanic enemies are here! Magma Spawns leave burning trails, Fire Imps are fast and explosive, " +
-      "and Ember Guards are heavily armored. Use slowing effects to control them.",
+      "화산의 적들이 왔습니다! 마그마 스폰은 불타는 궤적을 남기고, 화염 임프는 빠르고 폭발적이며, " +
+      "잿가루 수호자는 중장갑을 둘렀습니다. 둔화 효과로 제압하세요.",
     members: ["magma_spawn", "fire_imp", "ember_guard"],
     title: "화산 마귀들",
   },
   {
     category: "special",
     description:
-      "Thornwalkers regenerate HP over time and damage troops that attack them in melee. " +
-      "Use ranged towers and spells to take them down safely.",
+      "가시걷이는 시간이 지나며 체력을 재생하고 근접 공격하는 병력에게 피해를 줍니다. " +
+      "원거리 타워와 주문으로 안전하게 처치하세요.",
     members: ["thornwalker"],
     title: "가시걷이",
   },
   {
     category: "special",
     description:
-      "Sandworms burrow underground and surface near your towers! " +
-      "They bypass part of the path — position your defenses further back.",
+      "모래벌레는 땅속으로 파고들어 타워 근처에서 솟아오릅니다! " +
+      "경로 일부를 우회하니 방어를 더 뒤쪽에 배치하세요.",
     members: ["sandworm"],
     title: "모래벌레",
   },
   {
     category: "special",
     description:
-      "Frostlings freeze nearby towers on death, creating a temporary dead zone. " +
-      "Spread your towers out to avoid chain-freezes!",
+      "서리 정령은 죽을 때 근처 타워를 얼려 일시적으로 공백을 만듭니다. " +
+      "연쇄 동결을 피하려면 타워를 분산 배치하세요!",
     members: ["frostling"],
     title: "서리 정령",
   },
   {
     category: "special",
     description:
-      "Infernals are demons wreathed in flame that burn everything nearby. " +
-      "They deal AoE damage to troops and have fire resistance. Use ice spells!",
+      "지옥의 적들은 주변 모든 것을 불태우는 화염에 휩싸인 악마입니다. " +
+      "병력에게 광역 피해를 주고 화염 저항을 가집니다. 얼음 주문을 사용하세요!",
     members: ["infernal"],
     title: "지옥의",
   },

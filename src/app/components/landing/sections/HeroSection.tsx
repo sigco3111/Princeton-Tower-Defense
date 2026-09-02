@@ -85,7 +85,7 @@ const HERO_TOWER_SPRITE_TWEAKS: Record<
 
 const HERO_COUNTS = [
   { value: "26", label: "지도" },
-  { value: "7", label: "tower" },
+  { value: "7", label: "타워" },
   { value: "9", label: "영웅" },
   { value: "6", label: "주문" },
   { value: "100+", label: "적" },

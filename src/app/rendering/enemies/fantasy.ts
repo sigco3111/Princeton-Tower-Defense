@@ -6763,7 +6763,7 @@ export function drawSwampHydraEnemy(
     neckGrad.addColorStop(1, bodyColorLight);
     ctx.strokeStyle = neckGrad;
     ctx.lineWidth = size * 0.07;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(x, y - size * 0.05);
     ctx.quadraticCurveTo(neckMidX, neckMidY, neckEndX, neckEndY);
@@ -7628,7 +7628,7 @@ export function drawGiantToadEnemy(
       const toeTipY = toeBaseY + Math.sin(toeAngle) * size * 0.022;
       ctx.strokeStyle = bodyColorDark;
       ctx.lineWidth = size * 0.008;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(toeBaseX, toeBaseY);
       ctx.lineTo(toeMidX, toeMidY);
@@ -8301,7 +8301,7 @@ export function drawGiantToadEnemy(
     tongueGrad.addColorStop(1, "#ee5566");
     ctx.strokeStyle = tongueGrad;
     ctx.lineWidth = 5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(x, y + size * 0.12 - hop);
     ctx.bezierCurveTo(
@@ -8571,7 +8571,7 @@ export function drawVineSerpentEnemy(
     rootGrad.addColorStop(1, "rgba(80,50,20,0.3)");
     ctx.strokeStyle = rootGrad;
     ctx.lineWidth = size * 0.01 * (1 - rt * 0.08);
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(x + Math.cos(rtAngle) * size * 0.03, y + size * 0.3);
     ctx.quadraticCurveTo(
@@ -9334,7 +9334,7 @@ export function drawVineSerpentEnemy(
       tendrilGrad.addColorStop(1, `rgba(22,101,52,${vAlpha * 0.2})`);
       ctx.strokeStyle = tendrilGrad;
       ctx.lineWidth = vThickness;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(x, y);
       const midX =
@@ -9619,7 +9619,7 @@ export function drawMarshTrollEnemy(
     const lWave = Math.sin(time * 4 + leech * 2) * size * 0.005;
     ctx.strokeStyle = "rgba(40,30,20,0.35)";
     ctx.lineWidth = size * 0.006;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(llx, lly);
     ctx.quadraticCurveTo(
@@ -12191,7 +12191,7 @@ export function drawBasiliskEnemy(
       connGrad.addColorStop(1, bodyColorDark);
       ctx.strokeStyle = connGrad;
       ctx.lineWidth = p.r * 1.9 * bulge;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(p.x, p.y);
       ctx.lineTo(np.x, np.y);
@@ -14121,7 +14121,7 @@ export function drawManticoreEnemy(
     chitGrad.addColorStop(1, "#4a2a1a");
     ctx.strokeStyle = chitGrad;
     ctx.lineWidth = segThick;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(prevTX, prevTY);
     ctx.lineTo(tx, ty);
@@ -14260,7 +14260,7 @@ export function drawManticoreEnemy(
     const blurAlpha = (tailStrike - 0.5) * 0.15;
     ctx.strokeStyle = `rgba(100,50,30,${blurAlpha})`;
     ctx.lineWidth = size * 0.03;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(prevTX + size * 0.02, prevTY + size * 0.02);
     ctx.quadraticCurveTo(
@@ -14353,7 +14353,7 @@ export function drawManticoreEnemy(
     // Arm bone — thick line from shoulder through elbow to wrist
     ctx.strokeStyle = "rgba(60,30,16,0.8)";
     ctx.lineWidth = 3 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(elbowX, elbowY);
@@ -19468,7 +19468,7 @@ export function drawMammothEnemy(
     // Helmet plume — bright red feather crest
     ctx.strokeStyle = "#c03030";
     ctx.lineWidth = 1.2 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     for (let p = 0; p < 3; p++) {
       const plumeBase = ay - size * 0.098 + drawPhase;
       const px = ax - size * 0.006 + p * size * 0.006;
@@ -19514,7 +19514,7 @@ export function drawMammothEnemy(
     bowWoodGrad.addColorStop(1, "#35210f");
     ctx.strokeStyle = bowWoodGrad;
     ctx.lineWidth = 1.2 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(0, -bowR * 0.18);
     ctx.bezierCurveTo(
@@ -19879,7 +19879,7 @@ export function drawMammothEnemy(
   }
 
   // --- Trunk (armored segments) ---
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const trunkSegs = 5;
   let prevTX = headX + size * 0.12;
   let prevTY = headY + size * 0.05;
@@ -19919,7 +19919,7 @@ export function drawMammothEnemy(
   ctx.lineCap = "butt";
 
   // --- Iron-tipped tusks ---
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (const side of [-1, 1]) {
     const tuskStartX = headX + size * 0.1;
     const tuskStartY = headY + size * 0.02 + side * size * 0.045;
@@ -21194,7 +21194,7 @@ export function drawVolcanicDrakeEnemy(
   const tailSegments = 12;
   let prevTailX = x - size * 0.2;
   let prevTailY = y + size * 0.1 - bodyBob;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let t = 0; t < tailSegments; t++) {
     const tFrac = (t + 1) / tailSegments;
     const tailWave = Math.sin(time * 3 + t * 0.7) * size * 0.035 * tFrac;
@@ -22516,7 +22516,7 @@ export function drawSalamanderEnemy(
   const tailSegs = 12;
   let ptx = x - size * 0.15 + dart * 0.5;
   let pty = y + size * 0.05;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let t = 0; t < tailSegs; t++) {
     const tFrac = (t + 1) / tailSegs;
     const tailWave = Math.sin(time * 5 + t * 0.7) * size * 0.035 * tFrac;

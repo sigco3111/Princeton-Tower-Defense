@@ -946,7 +946,7 @@ function drawLavaGeyserFlows(
 
     ctx.strokeStyle = `rgba(255, 250, 160, ${flowPulse * 0.45})`;
     ctx.lineWidth = Math.max(1, halfW * 0.35);
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(pts[0].x, pts[0].y);
     for (let i = 1; i <= N; i++) {
@@ -2250,7 +2250,7 @@ function drawVolcanoLavaFlows(
           ? `rgba(200, 50, 0, ${alpha * 0.35})`
           : `rgba(255, 150, 30, ${alpha * 0.8})`;
       ctx.lineWidth = w;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(points[0].x, points[0].y);
       for (let p = 1; p < points.length; p++) {
@@ -3460,7 +3460,7 @@ function drawDeepWaterHazard(
     const sway = Math.sin(time * 0.9 + reed * 1.4) * 5 * cameraZoom;
     ctx.strokeStyle = `rgba(50, 115, 92, ${0.18 + seededNoise(rSeed + 3) * 0.12})`;
     ctx.lineWidth = (1 + seededNoise(rSeed + 4) * 0.8) * cameraZoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(rx, ry + 2 * cameraZoom);
     ctx.quadraticCurveTo(
@@ -3869,8 +3869,8 @@ function drawStormFieldHazard(
       ctx.shadowBlur = 16 * cameraZoom;
       ctx.strokeStyle = pass.color;
       ctx.lineWidth = pass.width * cameraZoom;
-      ctx.lineCap = "라운드";
-      ctx.lineJoin = "라운드";
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
       ctx.beginPath();
       ctx.moveTo(startX, startY);
       const segs = 8;
@@ -4419,7 +4419,7 @@ function drawSwampHazard(
 
     ctx.strokeStyle = `rgba(30, 45, 15, ${0.5 + seededNoise(twigSeed + 3) * 0.25})`;
     ctx.lineWidth = (1.2 + seededNoise(twigSeed + 4) * 1) * cameraZoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(tx, ty);
     ctx.quadraticCurveTo(
@@ -4475,7 +4475,7 @@ function drawSwampHazard(
       ctx.strokeStyle = `rgba(58, 92, 24, ${0.45 + seededNoise(cSeed + stalk * 7.7) * 0.2})`;
       ctx.lineWidth =
         (1.1 + seededNoise(cSeed + stalk * 9.1) * 0.9) * cameraZoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(cx + offset, cy + 1 * cameraZoom);
       ctx.quadraticCurveTo(
@@ -4611,7 +4611,7 @@ function drawSwampHazard(
 
     ctx.strokeStyle = `rgba(70, 160, 35, ${wAlpha})`;
     ctx.lineWidth = (2 - wPhase * 0.4) * cameraZoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     for (let seg = 0; seg <= 8; seg++) {
       const t = seg / 8;
@@ -5309,7 +5309,7 @@ function drawPoisonPoolHazard(
 
     ctx.strokeStyle = `rgba(90, 185, 45, ${tAlpha})`;
     ctx.lineWidth = (2.2 - tPhase * 0.35) * cameraZoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     for (let seg = 0; seg <= 8; seg++) {
       const progress = seg / 8;
@@ -6389,7 +6389,7 @@ function drawVoidRiftHazard(
     ctx.shadowBlur = 4 * cameraZoom;
     ctx.strokeStyle = `rgba(200, 150, 255, ${sAlpha})`;
     ctx.lineWidth = 1.5 * cameraZoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(sx1, sy1);
     ctx.quadraticCurveTo(
@@ -6477,7 +6477,7 @@ function drawVoidRiftHazard(
     ctx.shadowBlur = (pass === 2 ? 18 : 8) * cameraZoom;
     ctx.strokeStyle = colors[pass];
     ctx.lineWidth = widths[pass] * cameraZoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(tearWobble * 0.5, tearCenterY - tearH * 0.5);
     ctx.quadraticCurveTo(

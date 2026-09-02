@@ -26,7 +26,7 @@ export const SavedMapsPanel: React.FC<SavedMapsPanelProps> = ({
   <div className="rounded-xl border border-amber-800/30 bg-gradient-to-b from-stone-900/80 to-stone-950/80 p-3 text-xs">
     <div className="text-[11px] uppercase tracking-wider text-amber-200/90 font-medium mb-2 inline-flex items-center gap-1.5">
       <FolderOpen size={13} />
-      Saved Maps
+      저장된 맵
       {customLevels.length > 0 && (
         <span className="text-amber-400/40 normal-case tracking-normal font-normal">
           ({customLevels.length})
@@ -36,7 +36,7 @@ export const SavedMapsPanel: React.FC<SavedMapsPanelProps> = ({
     <div className="space-y-1 max-h-52 overflow-y-auto pr-0.5">
       {customLevels.length === 0 ? (
         <div className="rounded-lg border border-amber-800/20 bg-stone-950/40 p-3 text-[11px] text-amber-500/40 text-center">
-          No custom maps yet.
+          저장된 커스텀 맵이 없습니다.
         </div>
       ) : (
         customLevels.map((level) => {

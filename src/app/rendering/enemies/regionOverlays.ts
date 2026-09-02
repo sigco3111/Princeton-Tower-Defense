@@ -12,9 +12,9 @@ export type EnemyCategory =
 
 const SHARED_ENEMY_TYPES = new Set([
   "frosh",
-  "2학년",
-  "3학년",
-  "4학년",
+  "sophomore",
+  "junior",
+  "senior",
   "gradstudent",
   "archer",
   "mage",
@@ -34,7 +34,7 @@ const SHARED_ENEMY_TYPES = new Set([
   "infernal",
   "athlete",
   "tiger_fan",
-  "마스코트",
+  "mascot",
 ]);
 
 const ENEMY_CATEGORY_MAP: Record<string, EnemyCategory> = {

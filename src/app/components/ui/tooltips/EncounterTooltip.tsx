@@ -63,7 +63,7 @@ function getCategoryStyle(
         borderColor: PURPLE_CARD.border,
         icon: <Shield size={18} className="text-purple-300" />,
         iconBg: `linear-gradient(135deg, ${PURPLE_CARD.bgLight}, ${PURPLE_CARD.bgDark})`,
-        label: "Special Structure",
+        label: "특수 구조물",
       };
     }
     case "hazard": {
@@ -72,7 +72,7 @@ function getCategoryStyle(
         borderColor: RED_CARD.border,
         icon: <AlertTriangle size={18} className="text-red-300" />,
         iconBg: `linear-gradient(135deg, ${RED_CARD.bgLight}, ${RED_CARD.bgDark})`,
-        label: "Map Hazard",
+        label: "맵 위험요소",
       };
     }
     case "enemy": {
@@ -81,7 +81,7 @@ function getCategoryStyle(
         borderColor: AMBER_CARD.border,
         icon: <Skull size={18} className="text-amber-300" />,
         iconBg: `linear-gradient(135deg, ${AMBER_CARD.bgBase}, ${AMBER_CARD.bgDark})`,
-        label: "New Enemy",
+        label: "새로운 적",
       };
     }
   }
@@ -358,7 +358,7 @@ export const EncounterTooltip: React.FC<EncounterTooltipProps> = ({
               }}
             >
               <Check size={14} />
-              Got it
+              확인
             </button>
           </div>
         </OrnateFrame>
@@ -506,7 +506,7 @@ export const InlineEncounterPanel: React.FC<InlineEncounterPanelProps> = ({
             }}
           >
             <Check size={12} />
-            {remaining > 0 ? "다음" : "Got it"}
+            {remaining > 0 ? "다음" : "확인"}
           </button>
         </div>
       </div>

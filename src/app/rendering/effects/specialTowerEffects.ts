@@ -225,8 +225,8 @@ export function renderSunforgeBeam(
   const ty = targetY + py * wobble;
 
   ctx.save();
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // Outer glow beam
   ctx.shadowColor = "rgba(255, 160, 40, 0.9)";

@@ -1115,7 +1115,7 @@ export const LEVEL_DATA: Record<
     name: "카네기 호수",
     position: { x: 300, y: 120 },
     description:
-      "Strategic lakeside defense. The gleaming waters hide ancient secrets.",
+      "전략적인 호숫가 방어선. 반짝이는 수면 아래 고대의 비밀이 잠들어 있다.",
     camera: { offset: { x: 0, y: -270 }, zoom: 0.85 },
     region: "grassland",
     theme: "grassland",
@@ -1269,7 +1269,7 @@ export const LEVEL_DATA: Record<
     name: "나소 홀",
     position: { x: 480, y: 200 },
     description:
-      "The final stand at the heart of campus. Defend the iconic building at all costs!",
+      "캠퍼스 중심에서의 최후 방어선. 상징적인 건물을 반드시 사수하라!",
     camera: { offset: { x: -120, y: -250 }, zoom: 0.8 },
     region: "grassland",
     theme: "grassland",
@@ -1417,7 +1417,7 @@ export const LEVEL_DATA: Record<
     name: "음울한 소택지",
     position: { x: 120, y: 200 },
     description:
-      "Treacherous wetlands filled with mist and mystery. Watch your step!",
+      "안개와 신비로 가득한 험난한 습지대. 발밑을 조심하라!",
     camera: { offset: { x: -150, y: -330 }, zoom: 0.9 },
     region: "swamp",
     theme: "swamp",
@@ -1637,7 +1637,7 @@ export const LEVEL_DATA: Record<
     name: "가라앉은 신전",
     position: { x: 480, y: 200 },
     description:
-      "Ancient ruins half-submerged in fetid waters. Something stirs in the depths below.",
+      "악취 나는 물에 반쯤 잠긴 고대 유적. 깊은 곳에서 무언가가 꿈틀댄다.",
     camera: { offset: { x: -20, y: -420 }, zoom: 0.85 },
     region: "swamp",
     theme: "swamp",
@@ -1883,7 +1883,7 @@ export const LEVEL_DATA: Record<
     name: "피라미드 고개",
     position: { x: 300, y: 120 },
     description:
-      "Navigate the ancient canyon beneath the great pyramid. Beware of ambushes!",
+      "거대 피라미드 아래 고대 협곡을 헤쳐 나가라. 매복을 조심하라!",
     camera: { offset: { x: -140, y: -340 }, zoom: 0.85 },
     region: "desert",
     theme: "desert",
@@ -2019,7 +2019,7 @@ export const LEVEL_DATA: Record<
     name: "스핑크스 문",
     position: { x: 480, y: 200 },
     description:
-      "The ancient guardian's domain. The Sphinx watches all who dare to pass.",
+      "고대 수호자의 영역. 스핑크스가 지나가는 모든 도전자들을 지켜본다.",
     camera: { offset: { x: -90, y: -290 }, zoom: 0.85 },
     region: "desert",
     theme: "desert",
@@ -2155,7 +2155,7 @@ export const LEVEL_DATA: Record<
     name: "빙하 길",
     position: { x: 120, y: 200 },
     description:
-      "Ice-covered mountain pass. Freezing winds howl through the peaks.",
+      "얼음으로 뒤덮인 산악 고개. 봉우리 사이로 매서운 바람이 몰아친다.",
     camera: { offset: { x: -90, y: -420 }, zoom: 0.9 },
     region: "winter",
     theme: "winter",
@@ -2298,7 +2298,7 @@ export const LEVEL_DATA: Record<
     name: "서리 요새",
     position: { x: 300, y: 120 },
     description:
-      "An abandoned stronghold of ice and stone. What dark forces drove out its defenders?",
+      "얼음과 돌로 된 버려진 요새. 어떤 어둠의 힘이 수비대를 몰아냈는가?",
     camera: { offset: { x: -150, y: -335 }, zoom: 0.85 },
     region: "winter",
     theme: "winter",
@@ -2435,7 +2435,7 @@ export const LEVEL_DATA: Record<
     name: "봉우리 정상",
     position: { x: 480, y: 200 },
     description:
-      "The highest point of defense. A frozen throne awaits at the mountain's apex.",
+      "방어의 최고 지점. 산 정상에 얼어붙은 왕좌가 기다린다.",
     camera: { offset: { x: -200, y: -400 }, zoom: 0.85 },
     region: "winter",
     theme: "winter",
@@ -2734,7 +2734,7 @@ export const LEVEL_DATA: Record<
     name: "칼데라 분지",
     position: { x: 300, y: 200 },
     description:
-      "Inside the volcano's heart. The ground trembles with each eruption.",
+      "화산 심장부 깊숙한 곳. 분출 때마다 대지가 뒤흔들린다.",
     camera: { offset: { x: -90, y: -320 }, zoom: 0.8 },
     region: "volcanic",
     theme: "volcanic",
@@ -2870,7 +2870,7 @@ export const LEVEL_DATA: Record<
     name: "흑요석 왕좌",
     position: { x: 480, y: 200 },
     description:
-      "The ultimate challenge. An ancient dark lord's seat of power, guarded by his legions.",
+      "최종 도전. 고대 암흑 군주의 권좌, 군단이 그곳을 수호한다.",
     camera: { offset: { x: -140, y: -350 }, zoom: 0.85 },
     region: "volcanic",
     theme: "volcanic",
@@ -3111,7 +3111,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 27, y: 15 }, type: "campfire", variant: 0 },
     ],
     description:
-      "Dual lanes cross through ivy chokepoints.\nStack buffs and split your defense.",
+      "담쟁이 요충지를 가로지르는 이중 경로.\n버프를 중첩하고 방어를 양분하라.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -3215,7 +3215,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 16, y: 23 }, type: "fog_patch", variant: 0 },
     ],
     description:
-      "Layered poison zones punish slow setups.\nAnswer synchronized side-lane swarms.",
+      "겹겹이 쌓인 독성 지대가 느린 배치를 응징한다.\n양 측면에 동시 출현하는 무리를 막아내라.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -3339,7 +3339,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 2, y: 20 }, type: "pottery", variant: 1 },
     ],
     description:
-      "Mirrored mazes split your formation.\nSurvive overlapping hazard rings.",
+      "거울처럼 대칭된 미로가 진형을 가르른다.\n겹치는 위험 지대를 버텨내라.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -3448,7 +3448,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 27, y: 27 }, type: "fence", variant: 0 },
     ],
     description:
-      "Blinding ice lanes chain heavy slows.\nOutlast burst freeze traps.",
+      "눈부신 얼음 경로가 강력한 둔화를 연쇄시킨다.\n폭발적인 동결 함정을 버텨내라.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -3563,7 +3563,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 22, y: 25 }, type: "glowing_runes", variant: 0 },
     ],
     description:
-      "Converging inferno lanes crush weak lines.\nEndure stacked geysers while the Sunforge Orrery incinerates clustered elites.",
+      "수렴하는 화염 경로가 허술한 방어선을 짓누른다.\n겹쳐진 간헐천을 버티며 선포지 오러리로 뭉친 정예를 불태워라.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -3690,7 +3690,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 18, y: 26 }, type: "fence", variant: 0 },
     ],
     description:
-      "Only Nassau Cannons can be built.\nLock both lanes and fire with precision.",
+      "나소 대포만 건설할 수 있다.\n두 경로를 고정하고 정밀하게 포격하라.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -3795,7 +3795,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 26, y: 21 }, type: "glowing_runes", variant: 0 },
     ],
     description:
-      "Build only Dinky, Library, and Club.\nStall, support, and out-economy the waves.",
+      "딩키, 도서관, 클럽만 건설 가능.\n지연과 지원으로 경제를 굴려 웨이브를 압도하라.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -3923,7 +3923,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 14, y: 24 }, size: 1, type: "snow_lantern", variant: 0 },
     ],
     description:
-      "Only Dinky Station can be built.\nFrontier Barracks must hold the line.",
+      "딩키 스테이션만 건설 가능.\n프론티어 병영이 방어선을 지켜야 한다.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -4041,7 +4041,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 12, y: 24 }, type: "torch", variant: 0 },
     ],
     description:
-      "Ancient solar monuments amplify desert heat.\nSplit your force across scorched dual lanes.",
+      "고대 태양 기념비가 사막의 열기를 증폭시킨다.\n그을린 이중 경로에 병력을 분산하라.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -4128,7 +4128,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 8, y: 30 }, type: "statue", variant: 0 },
     ],
     description:
-      "The sky darkens with wings; every enemy flies. Sadly, only mortars are at your disposal.",
+      "하늘이 날개로 뒤덮인다. 모든 적이 비행한다. 안타깝게도 박격포만 쓸 수 있다.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -4245,7 +4245,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 21, y: 15 }, type: "obsidian_pillar", variant: 1 },
     ],
     description:
-      "Demonic portals flood both lanes with fire.\nHold the bone altar while geysers erupt.",
+      "악마의 차원문이 양쪽 경로를 화염으로 가득 채운다.\n간헐천이 분출하는 동안 해골 제단을 사수하라.",
     difficulty: 3,
     dualPath: true,
     hazards: [
@@ -4350,7 +4350,7 @@ export const LEVEL_DATA: Record<
       { pos: { x: 18, y: 7 }, size: 1.2, type: "tentacle", variant: 0 },
     ],
     description:
-      "A mountaintop colosseum above the clouds. Unlimited resources. Build anything, test everything.",
+      "구름 위 산 정상의 콜로세움. 무제한 자원. 무엇이든 건설하고 모든 것을 시험하라.",
     difficulty: 1,
     dualPath: true,
     heroSpawn: { x: 29, y: 16 },

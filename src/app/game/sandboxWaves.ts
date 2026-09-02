@@ -64,7 +64,7 @@ const SANDBOX_THEMES: SandboxTheme[] = [
       "frost_tick",
       "silk_moth",
     ],
-    name: "Bug Swarm",
+    name: "벌레 떼",
   },
   {
     bosses: ["ancient_ent", "swamp_hydra", "mammoth", "wendigo", "lava_golem"],
@@ -80,7 +80,7 @@ const SANDBOX_THEMES: SandboxTheme[] = [
       "volcanic_drake",
     ],
     grunts: ["timber_wolf", "dire_wolf", "bog_creature", "salamander"],
-    name: "Beast Horde",
+    name: "야수 무리",
   },
   {
     bosses: ["lich", "banshee", "djinn"],
@@ -94,7 +94,7 @@ const SANDBOX_THEMES: SandboxTheme[] = [
       "specter",
     ],
     grunts: ["cultist", "dark_priest", "plaguebearer", "will_o_wisp"],
-    name: "Arcane Coven",
+    name: "비전 집회",
   },
   {
     bosses: ["phoenix", "sphinx_guardian", "djinn"],
@@ -106,7 +106,7 @@ const SANDBOX_THEMES: SandboxTheme[] = [
     bosses: ["wendigo", "mammoth", "frost_colossus"],
     elites: ["yeti", "ice_witch", "ice_beetle", "frost_troll", "dire_wolf"],
     grunts: ["snow_goblin", "frostling", "frost_tick", "snow_moth"],
-    name: "Frost Legion",
+    name: "서릿발 군단",
   },
   {
     bosses: ["lava_golem", "inferno_wyrm"],
@@ -131,7 +131,7 @@ const SANDBOX_THEMES: SandboxTheme[] = [
       "dragonfly",
     ],
     grunts: ["bog_creature", "will_o_wisp", "mosquito", "silk_moth"],
-    name: "Swamp Horrors",
+    name: "늪지 공포",
   },
   {
     bosses: ["professor", "dean", "trustee", "mascot"],

@@ -111,7 +111,7 @@ function drawFireMorphTransition(
 
     ctx.strokeStyle = `rgba(${mixed},${intensity * 0.4})`;
     ctx.lineWidth = (1.5 + intensity * 2) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(ox, oy);
     ctx.quadraticCurveTo((ox + ix) / 2 + sway, (oy + iy) / 2 + sway, ix, iy);
@@ -301,7 +301,7 @@ function drawNassauForm(
     wingFlap,
     isAttacking,
     attackIntensity,
-    "뒤로",
+    "back",
     blue
   );
   drawWings(
@@ -821,7 +821,7 @@ function drawWings(
   wingFlap: number,
   isAttacking: boolean,
   attackIntensity: number,
-  layer: "뒤로" | "front",
+  layer: "back" | "front",
   blue: boolean = false
 ) {
   const atkBurst = isAttacking ? Math.sin(attackIntensity * Math.PI) : 0;
@@ -829,7 +829,7 @@ function drawWings(
   const flapAngle = wingFlap + (isAttacking ? smoothWingAtk * 0.25 : 0);
   const wingSpread =
     s * (1.3 + flapAngle * flapAngle * 0.64 + smoothWingAtk * 0.15);
-  const side = layer === "뒤로" ? 1 : -1;
+  const side = layer === "back" ? 1 : -1;
 
   ctx.save();
 
@@ -1240,7 +1240,7 @@ function drawWings(
       ? `rgba(180, 215, 255, ${hlAlphaBase + atkBurst * 0.06})`
       : `rgba(255, 235, 160, ${hlAlphaBase + atkBurst * 0.06})`;
     ctx.lineWidth = (2 + atkBurst * 0.5) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(outerStartX, outerStartTopY);
     ctx.bezierCurveTo(
@@ -1283,7 +1283,7 @@ function drawWings(
     ? `rgba(30, 64, 175, ${0.6 + atkBurst * 0.15})`
     : `rgba(160, 70, 10, ${0.6 + atkBurst * 0.15})`;
   ctx.lineWidth = (3.2 + atkBurst * 0.8) * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(shoulderX, shoulderY);
   ctx.quadraticCurveTo(
@@ -1483,7 +1483,7 @@ function drawWings(
       ? `rgba(15, 35, 120, ${0.35 - fT * 0.06})`
       : `rgba(90, 35, 5, ${0.38 - fT * 0.06})`;
     ctx.lineWidth = (1 - fT * 0.2) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(aX, aY);
     ctx.quadraticCurveTo(
@@ -1723,7 +1723,7 @@ function drawWings(
       ? `rgba(15, 35, 120, ${0.35 - featherT * 0.06})`
       : `rgba(90, 35, 5, ${0.38 - featherT * 0.06})`;
     ctx.lineWidth = (1.2 - featherT * 0.25) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(attachX, attachY);
     ctx.quadraticCurveTo(
@@ -2054,7 +2054,7 @@ function drawWingFireCascade(
     }
     ctx.strokeStyle = trailGrad;
     ctx.lineWidth = (3 + flamePulse * 2) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(wingTipX, wingTipY - s * 0.02);
     ctx.bezierCurveTo(
@@ -2226,7 +2226,7 @@ function drawSingleTailFeather(
     ? `rgba(12, 30, 80, ${0.3 - absNorm * 0.06})`
     : `rgba(80, 30, 5, ${0.28 - absNorm * 0.06})`;
   ctx.lineWidth = (0.9 + atkBurst * 0.2 - absNorm * 0.25) * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(baseX, baseY);
   ctx.bezierCurveTo(cp1X, cp1Y, cp2X, cp2Y, tipX, tipY);
@@ -2503,7 +2503,7 @@ function drawCapeStraps(
 
     ctx.strokeStyle = strapGrad;
     ctx.lineWidth = 2.5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(strapX, strapTopY);
     ctx.quadraticCurveTo(
@@ -3231,7 +3231,7 @@ function drawHarness(
 
     ctx.strokeStyle = strapBase;
     ctx.lineWidth = 2.8 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(topX, topY);
     ctx.lineTo(botX, botY);
@@ -3687,7 +3687,7 @@ function drawHelmet(
       ? `rgba(37, 99, 235, ${0.4 - i * 0.04})`
       : `rgba(180, 90, 15, ${0.4 - i * 0.04})`;
     ctx.lineWidth = (2.8 - i * 0.3) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(
       hx + Math.cos(angle) * hs * 0.06,
@@ -3855,7 +3855,7 @@ function drawHelmet(
   // Central helmet ridge / crest
   ctx.strokeStyle = "#daa520";
   ctx.lineWidth = 2.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(hx, helmTop);
   ctx.lineTo(hx, helmBot);
@@ -4133,7 +4133,7 @@ function drawHelmet(
   // Brow ridge — heavier
   ctx.strokeStyle = `rgba(120, 50, 5, 0.5)`;
   ctx.lineWidth = 2 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(eyeX - eyeW * 1.3, eyeY - eyeH * 1.1);
   ctx.quadraticCurveTo(
@@ -4284,7 +4284,7 @@ function drawHelmet(
       ? `rgba(59, 130, 246, ${0.35 - i * 0.03})`
       : `rgba(200, 100, 20, ${0.35 - i * 0.03})`;
     ctx.lineWidth = (2 - i * 0.2) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(hx + headW * 0.5, headY + headH * 0.3);
     ctx.quadraticCurveTo(
@@ -4511,7 +4511,7 @@ function drawTalons(
     thighGrad.addColorStop(1, "#775000");
     ctx.strokeStyle = thighGrad;
     ctx.lineWidth = 5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(legTopX, legTopY);
     ctx.quadraticCurveTo(
@@ -4654,7 +4654,7 @@ function drawTalons(
       toeGrad.addColorStop(1, "#775010");
       ctx.strokeStyle = toeGrad;
       ctx.lineWidth = 2.8 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(talonX, talonY);
       ctx.lineTo(
@@ -4727,7 +4727,7 @@ function drawTalons(
     const rearLen = s * 0.04;
     ctx.strokeStyle = "#886020";
     ctx.lineWidth = 2.2 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(talonX, talonY);
     ctx.lineTo(

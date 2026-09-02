@@ -349,7 +349,7 @@ function drawHighlightStripe(
   const segments = pts.length - 1;
   ctx.strokeStyle = pal.highlight;
   ctx.lineWidth = 3.5 * s;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   for (let i = 1; i < segments - 2; i++) {
     const p = pts[i];

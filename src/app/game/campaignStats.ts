@@ -21,11 +21,11 @@ export interface CumulativeCampaignStats {
 }
 
 const REGION_DISPLAY_NAMES: Record<RegionKey, string> = {
-  desert: "사하라 모래",
+  desert: "스타디움 사막",
   grassland: "프린스턴 캠퍼스",
-  swamp: "음울한 습지",
-  volcanic: "화산 심연",
-  winter: "얼어붙은 변경",
+  swamp: "매시 습지",
+  volcanic: "기숙사 심연",
+  winter: "프리스트 프론티어",
 };
 
 export function computeCumulativeCampaignStats(

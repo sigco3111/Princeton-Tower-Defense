@@ -976,8 +976,8 @@ export function renderTeslaCoil(
     ctx.shadowBlur = 10 * zoom;
     ctx.strokeStyle = `rgba(0, 180, 255, ${0.18 + attackIntensity * 0.15})`;
     ctx.lineWidth = 4 * zoom;
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(boltPts[0].x, boltPts[0].y);
     for (let p = 1; p < boltPts.length; p++) {
@@ -989,8 +989,8 @@ export function renderTeslaCoil(
     // Layer 2: bright cyan core
     ctx.strokeStyle = `rgba(0, 255, 255, ${0.5 + attackIntensity * 0.3})`;
     ctx.lineWidth = 1.8 * zoom;
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(boltPts[0].x, boltPts[0].y);
     for (let p = 1; p < boltPts.length; p++) {
@@ -1073,7 +1073,7 @@ export function renderTeslaCoil(
       ctx.shadowBlur = 6 * zoom;
       ctx.strokeStyle = `rgba(0, 200, 255, ${0.15 * attackIntensity})`;
       ctx.lineWidth = 3 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(screenPos.x, topY);
       ctx.lineTo(gmx, gmy);
@@ -1377,8 +1377,8 @@ export function renderFocusedBeam(
     ctx.shadowBlur = 8 * zoom;
     ctx.strokeStyle = `rgba(255, 180, 80, ${0.18 + attackPulse * 0.15})`;
     ctx.lineWidth = 3.5 * zoom;
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(ampBoltPts[0].x, ampBoltPts[0].y);
     for (let p = 1; p < ampBoltPts.length; p++) {
@@ -1388,7 +1388,7 @@ export function renderFocusedBeam(
     ctx.restore();
     ctx.strokeStyle = `rgba(255, 220, 130, ${0.45 + attackPulse * 0.35})`;
     ctx.lineWidth = 1.5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(ampBoltPts[0].x, ampBoltPts[0].y);
     for (let p = 1; p < ampBoltPts.length; p++) {
@@ -1715,8 +1715,8 @@ export function renderFocusedBeam(
     ctx.shadowBlur = 8 * zoom;
     ctx.strokeStyle = `rgba(255, 180, 80, ${0.18 + attackPulse * 0.15})`;
     ctx.lineWidth = 3.5 * zoom;
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(ampBoltPts[0].x, ampBoltPts[0].y);
     for (let p = 1; p < ampBoltPts.length; p++) {
@@ -1726,7 +1726,7 @@ export function renderFocusedBeam(
     ctx.restore();
     ctx.strokeStyle = `rgba(255, 220, 130, ${0.45 + attackPulse * 0.35})`;
     ctx.lineWidth = 1.5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(ampBoltPts[0].x, ampBoltPts[0].y);
     for (let p = 1; p < ampBoltPts.length; p++) {
@@ -2033,8 +2033,8 @@ export function renderFocusedBeam(
     ctx.shadowBlur = 8 * zoom;
     ctx.strokeStyle = `rgba(255, 180, 80, ${0.15 + attackPulse * 0.12})`;
     ctx.lineWidth = 3 * zoom;
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(crackPts[0].x, crackPts[0].y);
     for (let p = 1; p < crackPts.length; p++) {
@@ -2044,7 +2044,7 @@ export function renderFocusedBeam(
     ctx.restore();
     ctx.strokeStyle = `rgba(255, 220, 130, ${0.4 + attackPulse * 0.3})`;
     ctx.lineWidth = (1.2 + attackPulse * 0.5) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(crackPts[0].x, crackPts[0].y);
     for (let p = 1; p < crackPts.length; p++) {
@@ -2739,8 +2739,8 @@ export function renderChainLightning(
       ctx.shadowBlur = 6 * zoom;
       ctx.strokeStyle = `rgba(150, 128, 255, ${0.15 + attackPulse * 0.12})`;
       ctx.lineWidth = 3 * zoom * coilSize;
-      ctx.lineCap = "라운드";
-      ctx.lineJoin = "라운드";
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
       ctx.beginPath();
       ctx.moveTo(miniPts[0].x, miniPts[0].y);
       for (let p = 1; p < miniPts.length; p++) {
@@ -2750,7 +2750,7 @@ export function renderChainLightning(
       ctx.restore();
       ctx.strokeStyle = `rgba(180, 160, 255, ${0.45 + attackPulse * 0.25})`;
       ctx.lineWidth = 1.2 * zoom * coilSize;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(miniPts[0].x, miniPts[0].y);
       for (let p = 1; p < miniPts.length; p++) {
@@ -2985,8 +2985,8 @@ export function renderChainLightning(
     ctx.shadowBlur = 10 * zoom;
     ctx.strokeStyle = `rgba(150, 128, 255, ${0.2 + attackPulse * 0.18})`;
     ctx.lineWidth = 4.5 * zoom;
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(boltPts[0].x, boltPts[0].y);
     for (let p = 1; p < boltPts.length; p++) {
@@ -2996,8 +2996,8 @@ export function renderChainLightning(
     ctx.restore();
     ctx.strokeStyle = `rgba(185, 165, 255, ${0.55 + attackPulse * 0.3})`;
     ctx.lineWidth = 2 * zoom;
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(boltPts[0].x, boltPts[0].y);
     for (let p = 1; p < boltPts.length; p++) {
@@ -3084,8 +3084,8 @@ export function renderChainLightning(
     ctx.shadowBlur = 8 * zoom;
     ctx.strokeStyle = `rgba(150, 128, 255, ${0.15 + attackPulse * 0.15})`;
     ctx.lineWidth = 4 * zoom;
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(connPts[0].x, connPts[0].y);
     for (let p = 1; p < connPts.length; p++) {
@@ -3095,7 +3095,7 @@ export function renderChainLightning(
     ctx.restore();
     ctx.strokeStyle = `rgba(185, 165, 255, ${0.45 + attackPulse * 0.3})`;
     ctx.lineWidth = 1.5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(connPts[0].x, connPts[0].y);
     for (let p = 1; p < connPts.length; p++) {

@@ -322,7 +322,7 @@ function TowerProfile({ type }: { type: TowerType }) {
                     y2={stackH / 2}
                     stroke={sel.level === 4 ? litLine : lineColor}
                     strokeWidth="2"
-                    strokeLinecap="라운드"
+                    strokeLinecap="round"
                   />
                   <line
                     x1="10"
@@ -331,7 +331,7 @@ function TowerProfile({ type }: { type: TowerType }) {
                     y2={pathBCenter}
                     stroke={sel.level === 4 ? litLine : lineColor}
                     strokeWidth="2"
-                    strokeLinecap="라운드"
+                    strokeLinecap="round"
                   />
                   <line
                     x1="10"
@@ -344,7 +344,7 @@ function TowerProfile({ type }: { type: TowerType }) {
                         : lineColor
                     }
                     strokeWidth="2"
-                    strokeLinecap="라운드"
+                    strokeLinecap="round"
                   />
                   <line
                     x1="10"
@@ -357,7 +357,7 @@ function TowerProfile({ type }: { type: TowerType }) {
                         : lineColor
                     }
                     strokeWidth="2"
-                    strokeLinecap="라운드"
+                    strokeLinecap="round"
                   />
                 </svg>
 

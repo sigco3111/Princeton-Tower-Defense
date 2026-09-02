@@ -1014,7 +1014,7 @@ function drawClockFace(
   const clockAngle = (time * 0.1) % (Math.PI * 2);
   ctx.strokeStyle = "#1A100A";
   ctx.lineWidth = 0.8 * s;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(0, 0);
   ctx.lineTo(

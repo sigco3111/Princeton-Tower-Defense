@@ -64,7 +64,7 @@ export function IsoPlatform({
       height={svgHeight}
       viewBox={`0 0 ${svgWidth} ${svgHeight}`}
       className={className}
-      style={{ display: "차단" }}
+      style={{ display: "block" }}
     >
       <defs>
         <filter
@@ -77,7 +77,7 @@ export function IsoPlatform({
           <feGaussianBlur stdDeviation="3" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
-            <feMergeNode in="원본 그래픽" />
+            <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>

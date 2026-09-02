@@ -651,9 +651,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
           style={{ border: "1px solid rgba(90,110,40,0.08)" }}
         />
 
-        <HudTooltip
-          label={pauseLocked ? "속도 고정됨" : "Decrease speed (−0.5)"}
-        >
+        <HudTooltip label={pauseLocked ? "속도 고정됨" : "속도 감소 (-0.5)"}>
           <button
             onClick={() => {
               if (pauseLocked) {
@@ -684,7 +682,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
             return (
               <HudTooltip
                 key={speed}
-                label={pauseLocked ? "속도 고정됨" : `${speed}× speed`}
+                label={pauseLocked ? "속도 고정됨" : `${speed}× 속도`}
               >
                 <button
                   onClick={() => {
@@ -720,9 +718,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
           })}
         </div>
 
-        <HudTooltip
-          label={pauseLocked ? "속도 고정됨" : "Increase speed (+0.5)"}
-        >
+        <HudTooltip label={pauseLocked ? "속도 고정됨" : "속도 증가 (+0.5)"}>
           <button
             onClick={() => {
               if (pauseLocked) {
@@ -788,9 +784,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
         className="absolute inset-[2px] rounded-[6px] pointer-events-none"
         style={{ border: `1px solid ${GOLD.innerBorder08}` }}
       />
-      <HudTooltip
-        label={`Performance mode: ${performanceMode ? "켜기" : "끄기"} · ${currentFps} FPS`}
-      >
+      <HudTooltip label={`성능 모드: ${performanceMode ? "켜기" : "끄기"} · ${currentFps} FPS`}>
         <button
           onClick={togglePerformanceMode}
           className={`${CIRCLE_BTN} ${currentFps < 45 && !performanceMode ? "animate-pulse" : ""}`}
@@ -833,7 +827,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
           )}
         </button>
       </HudTooltip>
-      <HudTooltip label="Game settings">
+      <HudTooltip label="게임 설정">
         <button
           onClick={() => setShowSettings(true)}
           className={CIRCLE_BTN}
@@ -849,7 +843,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
       </HudTooltip>
       {onTogglePhotoMode && (
         <HudTooltip
-          label={cameraModeActive ? "Exit photo mode (F2)" : "Photo mode (F2)"}
+          label={cameraModeActive ? "포토 모드 종료 (F2)" : "포토 모드 (F2)"}
         >
           <button
             onClick={onTogglePhotoMode}
@@ -876,7 +870,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
         </HudTooltip>
       )}
       {onToggleDevMenu && (
-        <HudTooltip label={devMenuOpen ? "Close event log" : "Event log"}>
+        <HudTooltip label={devMenuOpen ? "이벤트 로그 닫기" : "이벤트 로그"}>
           <button
             onClick={onToggleDevMenu}
             className={CIRCLE_BTN}
@@ -922,8 +916,8 @@ export const TopHUD: React.FC<TopHUDProps> = ({
           pauseLocked
             ? "잠김 — 먼저 사진/관찰 모드를 종료하세요"
             : gameSpeed === 0
-              ? "Resume game (Space)"
-              : "Pause game (Space)"
+              ? "게임 계속 (Space)"
+              : "게임 일시정지 (Space)"
         }
       >
         <button
@@ -955,7 +949,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
           )}
         </button>
       </HudTooltip>
-      <HudTooltip label="Restart level">
+      <HudTooltip label="레벨 재시작">
         <button
           onClick={() => setConfirmAction("restart")}
           className={CIRCLE_BTN}
@@ -969,7 +963,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
           <RefreshCcw size={14} className="text-emerald-300" />
         </button>
       </HudTooltip>
-      <HudTooltip label="Quit to world map">
+      <HudTooltip label="월드로가 나가기">
         <button
           onClick={() => setConfirmAction("quit")}
           className={CIRCLE_BTN}
@@ -1444,7 +1438,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
         isOpen={confirmAction === "restart"}
         onClose={() => setConfirmAction(null)}
         onConfirm={retryLevel}
-        title="Restart Level?"
+        title="레벨 재시작?"
         description="이 레벨의 진행 상황이 모두 사라집니다. 정말로 다시 시작하시겠습니까?"
         confirmLabel="재시작"
         cancelLabel="취소"
@@ -1458,7 +1452,7 @@ export const TopHUD: React.FC<TopHUDProps> = ({
         isOpen={confirmAction === "quit"}
         onClose={() => setConfirmAction(null)}
         onConfirm={quitLevel}
-        title="Quit to World Map?"
+        title="월드 맵으로 나가기?"
         description="이 레벨의 진행 상황을 모두 잃고 월드 맵으로 돌아가게 됩니다."
         confirmLabel="종료"
         cancelLabel="계속"

@@ -1142,7 +1142,7 @@ export function drawSwampLeviathanEnemy(
   ctx.save();
   const tailSegments = 16;
   ctx.lineWidth = size * 0.14;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let pass = 0; pass < 2; pass++) {
     ctx.beginPath();
     for (let seg = 0; seg <= tailSegments; seg++) {
@@ -1443,12 +1443,12 @@ export function drawSwampLeviathanEnemy(
       if (pass === 0) {
         ctx.strokeStyle = bodyColorDark;
         ctx.lineWidth = size * (0.1 * hs);
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.stroke();
       } else {
         ctx.strokeStyle = bodyColor;
         ctx.lineWidth = size * (0.07 * hs);
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.stroke();
       }
     }

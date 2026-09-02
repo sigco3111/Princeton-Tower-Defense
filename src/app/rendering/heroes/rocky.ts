@@ -2018,7 +2018,7 @@ function drawStoneArms(
     // Claws (sharper)
     ctx.strokeStyle = "#3a2a1a";
     ctx.lineWidth = 1.2 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     for (let c = 0; c < 5; c++) {
       const ca = -0.9 + c * 0.35;
       ctx.beginPath();
@@ -2363,7 +2363,7 @@ function drawHead(
   );
 
   // Eyebrows (thicker, angrier)
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const browAnger = isAttacking ? s * 0.045 : s * 0.018;
   ctx.strokeStyle = "#4a3008";
   ctx.lineWidth = 2.8 * zoom;
@@ -2445,7 +2445,7 @@ function drawHead(
   // Whiskers (both sides — long, animated)
   ctx.strokeStyle = "#4a3a20";
   ctx.lineWidth = 0.9 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.globalAlpha = 0.55;
   for (let side = -1; side <= 1; side += 2) {
     for (let w = 0; w < 3; w++) {

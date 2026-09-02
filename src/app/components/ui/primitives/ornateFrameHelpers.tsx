@@ -73,8 +73,8 @@ export function heroFrameElements(options: FrameOpts): React.ReactElement[] {
         fill="none"
         stroke={color}
         strokeWidth={chevronWidth}
-        strokeLinejoin="라운드"
-        strokeLinecap="라운드"
+        strokeLinejoin="round"
+        strokeLinecap="round"
         filter={glowFilter}
       />
     );
@@ -116,7 +116,7 @@ export function spellFrameElements(options: FrameOpts): React.ReactElement[] {
       stroke={color}
       strokeWidth={dotWidth}
       strokeDasharray={`0 ${dotGap.toFixed(1)}`}
-      strokeLinecap="라운드"
+      strokeLinecap="round"
     />,
   ];
 
@@ -133,7 +133,7 @@ export function spellFrameElements(options: FrameOpts): React.ReactElement[] {
         y2={fix(cx + whiskerOuter * sin)}
         stroke={dimColor}
         strokeWidth={0.4}
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
     );
   }
@@ -151,7 +151,7 @@ export function spellFrameElements(options: FrameOpts): React.ReactElement[] {
           y2={fix(pointY)}
           stroke={color}
           strokeWidth={starWidth}
-          strokeLinecap="라운드"
+          strokeLinecap="round"
         />
         <line
           x1={fix(pointX)}
@@ -160,7 +160,7 @@ export function spellFrameElements(options: FrameOpts): React.ReactElement[] {
           y2={fix(pointY + starArm)}
           stroke={color}
           strokeWidth={starWidth}
-          strokeLinecap="라운드"
+          strokeLinecap="round"
         />
       </g>
     );

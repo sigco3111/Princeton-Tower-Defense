@@ -57,7 +57,7 @@ const COMPACT_ACTIONS: {
     color: "#fcd34d",
     glow: "rgba(180,140,60,0.2)",
     icon: <ChessRook size={13} />,
-    label: "tower",
+    label: "타워",
     tab: "tower",
   },
   {

@@ -299,7 +299,7 @@ const TrophySprite: React.FC<{ size?: number }> = ({ size = 150 }) => {
 
     // --- Ornate Handles with curled tips ---
     ctx.lineWidth = 5 * s;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
 
     // Left handle
     const lhGrad = ctx.createLinearGradient(
@@ -609,7 +609,7 @@ const CATEGORY_CONFIG: {
     emptyClass: "text-blue-900/40",
     fillClass: "text-blue-400 fill-blue-400",
     icon: Clock,
-    key: "속도",
+    key: "speed",
     label: "속도",
   },
   {

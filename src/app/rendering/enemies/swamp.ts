@@ -309,7 +309,7 @@ export function drawBogCreatureEnemy(
       tentGrad.addColorStop(0.8, "#2a4a18");
       tentGrad.addColorStop(1, "#84cc16");
       wCtx.strokeStyle = tentGrad;
-      wCtx.lineCap = "라운드";
+      wCtx.lineCap = "round";
       wCtx.lineWidth = s * 0.05;
       wCtx.beginPath();
       wCtx.moveTo(0, 0);
@@ -428,7 +428,7 @@ export function drawBogCreatureEnemy(
       tentGrad.addColorStop(0.8, "#2a4a18");
       tentGrad.addColorStop(1, "#84cc16");
       wCtx.strokeStyle = tentGrad;
-      wCtx.lineCap = "라운드";
+      wCtx.lineCap = "round";
       wCtx.lineWidth = s * 0.05;
       wCtx.beginPath();
       wCtx.moveTo(0, 0);
@@ -548,7 +548,7 @@ export function drawBogCreatureEnemy(
 
   // Slimy tentacles emerging from lower body base (behind body)
   ctx.save();
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const tentacleDefs = [
     { angle: -0.9, len: 0.38, phase: 0, width: 0.024 },
     { angle: -0.35, len: 0.44, phase: 1.2, width: 0.022 },
@@ -702,7 +702,7 @@ export function drawBogCreatureEnemy(
 
   // Thick muck strands hanging from body as bezier drips
   ctx.strokeStyle = bodyColorDark;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let ms = 0; ms < 6; ms++) {
     const msX = x - size * 0.35 + ms * size * 0.14;
     const msTopY = y + size * 0.08;
@@ -1307,7 +1307,7 @@ export function drawBogCreatureEnemy(
     oozeGrad.addColorStop(1, `rgba(34, 197, 94, 0)`);
     ctx.strokeStyle = oozeGrad;
     ctx.lineWidth = (2 + Math.sin(ooze) * 1) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(oozeX, y + size * 0.1);
     ctx.lineTo(
@@ -1797,7 +1797,7 @@ export function drawWillOWispEnemy(
   ctx.fill();
 
   // Wispy trailing tendrils below body as bezier curves
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let wt = 0; wt < 5; wt++) {
     const wtX = x + (wt - 2) * size * 0.1;
     const wtStartY = y + size * 0.3 + float;
@@ -2436,7 +2436,7 @@ export function drawSwampTrollEnemy(
         const clawWave = Math.sin(time * 3 + ci) * 0.15;
         wCtx.strokeStyle = "#1a1a0a";
         wCtx.lineWidth = s * 0.012;
-        wCtx.lineCap = "라운드";
+        wCtx.lineCap = "round";
         wCtx.beginPath();
         wCtx.moveTo(Math.cos(ca) * s * 0.02, -s * 0.01);
         wCtx.quadraticCurveTo(
@@ -2471,7 +2471,7 @@ export function drawSwampTrollEnemy(
         const clawWave = Math.sin(time * 3 + ci + 1.5) * 0.15;
         wCtx.strokeStyle = "#1a1a0a";
         wCtx.lineWidth = s * 0.012;
-        wCtx.lineCap = "라운드";
+        wCtx.lineCap = "round";
         wCtx.beginPath();
         wCtx.moveTo(Math.cos(ca) * s * 0.02, -s * 0.01);
         wCtx.quadraticCurveTo(

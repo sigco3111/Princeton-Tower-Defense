@@ -251,8 +251,8 @@ export function renderEffect(
         }
         beamPts.push({ x: targetScreen.x, y: targetScreen.y });
 
-        ctx.lineCap = "라운드";
-        ctx.lineJoin = "라운드";
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
 
         const pulse = 0.8 + Math.sin(Date.now() / 25) * 0.2;
         const bi = intensity * pulse;
@@ -634,8 +634,8 @@ export function renderEffect(
         }
         mainPts.push({ x: targetScreen.x, y: targetScreen.y });
 
-        ctx.lineCap = "라운드";
-        ctx.lineJoin = "라운드";
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
         ctx.shadowBlur = 0;
 
         // Layer 1: wide outer glow (no shadowBlur — just a wide translucent stroke)
@@ -1085,7 +1085,7 @@ export function renderEffect(
             streakGrad.addColorStop(1, `rgba(255, 230, 140, ${alpha * 0.6})`);
             ctx.strokeStyle = streakGrad;
             ctx.lineWidth = 3 * zoom;
-            ctx.lineCap = "라운드";
+            ctx.lineCap = "round";
             ctx.beginPath();
             ctx.moveTo(streakX, streakY);
             ctx.lineTo(projX, projY);
@@ -1263,7 +1263,7 @@ export function renderEffect(
               );
               ctx.strokeStyle = trailGrad;
               ctx.lineWidth = 4 * zoom;
-              ctx.lineCap = "라운드";
+              ctx.lineCap = "round";
               ctx.beginPath();
               ctx.moveTo(trailStartX, trailStartY);
               ctx.lineTo(bulletX, bulletY);
@@ -1757,7 +1757,7 @@ export function renderEffect(
       const smokeStartY = meteorY - Math.sin(trailAngle) * smokeTrailLength;
       ctx.strokeStyle = `rgba(100, 50, 20, ${alpha * 0.2})`;
       ctx.lineWidth = 35 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(smokeStartX, smokeStartY);
       ctx.lineTo(meteorX, meteorY);
@@ -2321,8 +2321,8 @@ export function renderEffect(
       }
 
       ctx.save();
-      ctx.lineCap = "라운드";
-      ctx.lineJoin = "라운드";
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
 
       const boltSeed = hashString32(effect.id);
       const skyY = ts.y - 800 * zoom;
@@ -3051,7 +3051,7 @@ export function renderEffect(
       // Radial crack lines — charred fractures
       ctx.strokeStyle = `rgba(15, 8, 3, ${fa * 0.35})`;
       ctx.lineWidth = 1.5 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       for (let c = 0; c < 6; c++) {
         const cA = seededNoise(fSeed + c * 71) * Math.PI * 2;
         const cLen = scorchR * (0.35 + seededNoise(fSeed + c * 73) * 0.5);
@@ -3128,7 +3128,7 @@ export function renderEffect(
       ctx.fill();
 
       // Lichtenberg figure veins — branching fractal lightning scars
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       for (let v = 0; v < 8; v++) {
         const vA = seededNoise(lSeed + v * 7) * Math.PI * 2;
         const vLen = lR * (0.5 + seededNoise(lSeed + v * 13) * 0.45);

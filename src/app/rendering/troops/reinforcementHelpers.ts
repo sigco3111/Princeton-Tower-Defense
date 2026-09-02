@@ -692,7 +692,7 @@ export function drawPauldrons(
     const pY = y - size * 0.1 + breathe * 0.4;
 
     switch (shape) {
-      case "라운드": {
+      case "round": {
         const pauldGrad = ctx.createRadialGradient(
           pX - side * size * 0.02,
           pY - size * 0.02,

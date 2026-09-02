@@ -253,7 +253,7 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
     // Winding battle path
     ctx.strokeStyle = "#3a3020";
     ctx.lineWidth = 25;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(-20, groundY + 40);
     ctx.bezierCurveTo(
@@ -1822,7 +1822,7 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
       // Dark tiger stripes (on exposed fur)
       ctx.strokeStyle = "#050202";
       ctx.lineWidth = 2;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       for (let i = 0; i < 4; i++) {
         const stripeY = -8 + i * 7 + breathe * 0.3;
         // Left side stripes
@@ -1975,7 +1975,7 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
       // Animated tail
       ctx.strokeStyle = "#ff8822";
       ctx.lineWidth = 6;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(-28, 5);
       const tailWave = Math.sin(t * 5) * 12;
@@ -5585,8 +5585,8 @@ export const BattlefieldPreviewCanvas: React.FC<{ animTime: number }> = ({
       // Main bolt
       ctx.strokeStyle = `rgba(150, 200, 255, ${lightningAlpha})`;
       ctx.lineWidth = 4;
-      ctx.lineCap = "라운드";
-      ctx.lineJoin = "라운드";
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
 
       const startX = width * 0.54;
       const startY = groundY - 85;

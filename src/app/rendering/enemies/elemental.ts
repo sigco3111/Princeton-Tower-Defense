@@ -2911,7 +2911,7 @@ export function drawInfernalEnemy(
   const tailWave = Math.sin(time * 3) * size * 0.08;
   ctx.strokeStyle = bodyColorDark;
   ctx.lineWidth = size * 0.05;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(x + rageShake, y + size * 0.35 + heatWave);
   ctx.quadraticCurveTo(
@@ -3116,7 +3116,7 @@ export function drawInfernalEnemy(
     // Cloven hoof: toe outlines and central split groove
     ctx.strokeStyle = "#0c0a09";
     ctx.lineWidth = 0.85 * zoom;
-    ctx.lineJoin = "라운드";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(hoofX - size * 0.028, hoofY - size * 0.024);
     ctx.quadraticCurveTo(
@@ -3773,7 +3773,7 @@ export function drawInfernalEnemy(
       const dripY = y + size * 0.35 + heatWave;
       ctx.strokeStyle = `rgba(80, 160, 20, ${0.5 + Math.sin(time * 2 + ds) * 0.2})`;
       ctx.lineWidth = 2 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(dripX, dripY);
       ctx.quadraticCurveTo(
@@ -4246,7 +4246,7 @@ export function drawBansheeEnemy(
 
               wCtx.strokeStyle = tGrad;
               wCtx.lineWidth = 2 * zoom;
-              wCtx.lineCap = "라운드";
+              wCtx.lineCap = "round";
               wCtx.beginPath();
               wCtx.moveTo(0, 0);
               wCtx.quadraticCurveTo(
@@ -7467,8 +7467,8 @@ export function drawDragonEnemy(
     // Primary wing arm / leading strut (bone from shoulder into wing)
     ctx.strokeStyle = bodyColorDark;
     ctx.lineWidth = 3.2 * zoom;
-    ctx.lineCap = "라운드";
-    ctx.lineJoin = "라운드";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.quadraticCurveTo(

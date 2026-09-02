@@ -33,12 +33,12 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
   ivy: {
     ability: "자연의 변환",
     abilityDesc:
-      "Shifts between Ivy Warden and Verdant Colossus form. Warden heals troops; Colossus crushes enemies.",
+      "아이비 수호자와 거대 수호자 형태로 변신. 수호자는 아군을 치유하고 거대체는 적을 짓밟음.",
     attackSpeed: 600,
     color: "#059669",
     damage: 25,
     description:
-      "An ancient guardian spirit that embodies the ivy covering Princeton's Gothic towers. Commands living vines to entangle and crush enemies with nature's wrath.",
+      "프린스턴 고딕 탑을 덮은 담쟁이를 구현한 고대 수호 정령. 살아있는 덩굴로 적을 얽어매고 자연의 분노로 짓누른다.",
     hp: 4800,
     isRanged: true,
     name: "아이비 수호자",
@@ -52,7 +52,7 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
     color: "#6366f1",
     damage: 70,
     description:
-      "An elite defender from Mathey College, clad in enchanted armor. Draws enemy aggression and protects allies.",
+      "매시 칼리지의 정예 수호자. 마법 갑옷을 두르고 적의 공격을 끌어내 아군을 보호한다.",
     hp: 5600,
     isRanged: false,
     name: "매시 기사",
@@ -62,12 +62,12 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
   nassau: {
     ability: "푸른 지옥불",
     abilityDesc:
-      "Transforms into a blazing blue phoenix for 6s, shooting rapid-fire blue fireballs",
+      "6초간 푸른 불꽃의 불사조로 변신해 푸른 화염구를 연사",
     attackSpeed: 2000,
     color: "#e67e22",
     damage: 18,
     description:
-      "A mythical phoenix reborn from the flames of Nassau Hall. Soars above the battlefield raining fire, and is the only hero who can engage flying enemies in aerial combat.",
+      "나소 홀의 불꽃에서 다시 태어난 신화 속 불사조. 전장 위를 날며 불을 뿌리고, 비행 적과 공중전을 펼칠 수 있는 유일한 영웅이다.",
     hp: 3500,
     isFlying: true,
     isRanged: true,
@@ -82,7 +82,7 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
     color: "#8a7020",
     damage: 90,
     description:
-      "A campus squirrel fused with an ancient gargoyle. Half fur, half stone — all fury. Hurls boulders with terrifying force.",
+      "고대 가고일과 융합된 캠퍼스 다람쥐. 절반은 털, 절반은 돌 — 분노만큼은 온전하다. 바위를 집어던져 적을 압도한다.",
     hp: 2750,
     isRanged: true,
     name: "로키 라쿤",
@@ -96,7 +96,7 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
     color: "#14b8a6",
     damage: 50,
     description:
-      "The ghost of F. Scott Fitzgerald inspires defenders with literary brilliance, boosting their combat effectiveness.",
+      "F. 스콧 피츠제럴드의 유령이 문학적 영감으로 수호자들을 고무해 전투력을 끌어올린다.",
     hp: 3000,
     isRanged: true,
     name: "F. 스콧",
@@ -104,14 +104,14 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
     speed: 3.2,
   },
   tenor: {
-    ability: "high_note",
+    ability: "고음",
     abilityDesc:
-      "Devastating sonic blast stuns enemies and heals nearby allies",
+      "파괴적인 음파 폭발로 적을 기절시키고 주변 아군을 치유",
     attackSpeed: 450,
     color: "#8b5cf6",
     damage: 60,
     description:
-      "목소리가 무기인 virtuosity 보컬리스트. 그의 음향 공격은 가장 단단한 갑옷도 뚫는다.",
+      "목소리가 무기인 명품 보컬리스트. 그의 음향 공격은 가장 단단한 갑옷도 뚫는다.",
     hp: 3200,
     isRanged: true,
     name: "아카펠라 테너",
@@ -125,7 +125,7 @@ export const HERO_DATA: Record<HeroType, HeroData> = {
     color: "#f97316",
     damage: 80,
     description:
-      "The fearsome Princeton Tiger, an apex predator with a terrifying roar that freezes enemies in fear.",
+      "공포의 프린스턴 호랑이. 적을 얼어붙게 만드는 무서운 포효를 지닌 최상위 포식자.",
     hp: 4250,
     isRanged: false,
     name: "프린스턴 호랑이",

@@ -250,7 +250,7 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
     <div className="rounded-xl border border-amber-800/30 bg-gradient-to-b from-stone-900/80 to-stone-950/80 p-3">
       <div className="text-[11px] uppercase tracking-wider text-amber-200/90 font-medium mb-2.5 inline-flex items-center gap-1.5">
         <Wand2 size={13} />
-        Asset Palette
+        에셋 팔레트
       </div>
 
       {/* Tab row */}
@@ -285,7 +285,7 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
           <input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            placeholder={`Search ${TAB_CONFIG.find((t) => t.key === tab)?.label ?? ""}...`}
+            placeholder={`${TAB_CONFIG.find((t) => t.key === tab)?.label ?? ""} 검색...`}
             className="w-full rounded-lg border border-amber-800/30 bg-stone-950/70 pl-7 pr-2 py-1.5 text-xs text-amber-200 outline-none focus:border-amber-500/50 placeholder:text-amber-500/30 transition-colors"
           />
         </label>
@@ -313,7 +313,7 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
         <div className="grid grid-cols-2 gap-1">
           {paletteOptions.length === 0 ? (
             <div className="col-span-2 rounded-lg border border-amber-900/40 bg-black/20 p-3 text-[11px] text-amber-400/50 text-center">
-              No matches for &ldquo;{search}&rdquo;
+              &ldquo;{search}&rdquo;에 대한 검색 결과 없음
             </div>
           ) : (
             paletteOptions.map((option) => (
@@ -331,8 +331,8 @@ export const PalettePanel: React.FC<PalettePanelProps> = ({
       </div>
 
       <div className="mt-2 text-[10px] text-amber-400/40 flex items-center justify-between">
-        <span>{paletteOptions.length} items</span>
-        <span>click or drag to place</span>
+        <span>{paletteOptions.length}개 항목</span>
+        <span>클릭하거나 드래그하여 배치</span>
       </div>
     </div>
   );

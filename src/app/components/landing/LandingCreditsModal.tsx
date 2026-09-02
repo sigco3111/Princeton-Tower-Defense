@@ -29,8 +29,8 @@ const SOCIAL_LINKS = [
         fill="none"
         stroke="currentColor"
         strokeWidth={2}
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <circle cx="12" cy="12" r="10" />
         <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
@@ -89,8 +89,8 @@ const SOCIAL_LINKS = [
         fill="none"
         stroke="currentColor"
         strokeWidth={2}
-        strokeLinecap="라운드"
-        strokeLinejoin="라운드"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <rect width="20" height="16" x="2" y="4" rx="2" />
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -147,7 +147,7 @@ export function LandingCreditsModal({ onClose }: { onClose: () => void }) {
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "탈출") {
+      if (e.key === "Escape") {
         if (lightboxIdx !== null) {
           setLightboxIdx(null);
         } else {

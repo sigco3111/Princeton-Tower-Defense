@@ -867,7 +867,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
 
       ctx.strokeStyle = woodMid;
       ctx.lineWidth = 1.5 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(ctX - bedL * 0.5, bedTop + 2 * s);
       ctx.lineTo(handleEndX, handleEndY);
@@ -2883,7 +2883,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         // Shaft shadow
         ctx.strokeStyle = shaftTone.dark;
         ctx.lineWidth = 2 * sc * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(0, 2 * sc * s);
         ctx.lineTo(0, -visLen * sc * s);
@@ -3203,7 +3203,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       ) => {
         ctx.strokeStyle = shd;
         ctx.lineWidth = w * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(x1 * s, y1 * s);
         ctx.lineTo(x2 * s, y2 * s);
@@ -3229,7 +3229,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       ) => {
         ctx.strokeStyle = shd;
         ctx.lineWidth = w * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(x1 * s, y1 * s);
         ctx.quadraticCurveTo(cpx * s, cpy * s, x2 * s, y2 * s);
@@ -3374,7 +3374,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         // Top rib
         ctx.strokeStyle = bS;
         ctx.lineWidth = 1.5 * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(rx * s, 0);
         ctx.quadraticCurveTo(
@@ -4452,7 +4452,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         // Iron bracket (L-shape extending right)
         ctx.strokeStyle = "#37474F";
         ctx.lineWidth = 2 * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(sx + 2 * s, sy - pH2 + 3 * s);
         ctx.lineTo(sx + 12 * s, sy - pH2 + 3 * s);
@@ -4884,8 +4884,8 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         // --- Glowing Elder Futhark runes ---
         const wsRnGlow = 0.45 + Math.sin(decorTime * 2) * 0.25;
         ctx.lineWidth = 1.3 * s;
-        ctx.lineCap = "라운드";
-        ctx.lineJoin = "라운드";
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
         ctx.strokeStyle = `rgba(220,180,80,${wsRnGlow})`;
 
         const wsRuneSlots = [
@@ -6573,7 +6573,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         // Main stalk (thicker at base, tapering)
         ctx.strokeStyle = stalkHue;
         ctx.lineWidth = thick;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(rx, rBase);
         ctx.quadraticCurveTo(
@@ -7589,7 +7589,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       setShadowBlur(ctx, 4 * s, "rgba(255,230,150,0.35)");
       ctx.strokeStyle = "rgba(245,225,140,0.7)";
       ctx.lineWidth = 1.5 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(duneBaseX - 25 * s, duneBaseY - 6 * s);
       ctx.bezierCurveTo(
@@ -9790,7 +9790,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       // Kohl liner (Egyptian eye-line)
       ctx.strokeStyle = "#1a1008";
       ctx.lineWidth = 1.2 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(headCenterX - 8 * s, headCenterY + 0.5 * s);
       ctx.quadraticCurveTo(
@@ -10258,7 +10258,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       // === TAIL (behind body) ===
       ctx.strokeStyle = p.mid;
       ctx.lineWidth = 3 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(sx - hw + 4 * s, bt - bodyH * 0.5);
       ctx.bezierCurveTo(
@@ -10590,7 +10590,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       // Kohl liner
       ctx.strokeStyle = "#1a1008";
       ctx.lineWidth = 0.8 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(hx - 6 * s, hy + 4 * s);
       ctx.quadraticCurveTo(hx - 3.5 * s, hy + 2.8 * s, hx - 1 * s, hy + 4 * s);
@@ -12350,8 +12350,8 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         type: number,
         sz: number
       ) => {
-        ctx.lineCap = "라운드";
-        ctx.lineJoin = "라운드";
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
 
         const drawSymbol = (ox: number, oy: number) => {
           const sx = gx + ox;
@@ -14065,7 +14065,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       setShadowBlur(ctx, 3 * s, "rgba(255,255,255,0.3)");
       ctx.strokeStyle = "rgba(255,255,255,0.85)";
       ctx.lineWidth = 2 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(snowBaseX - 18 * s, snowBaseY - 10 * s);
       ctx.bezierCurveTo(
@@ -23134,7 +23134,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
           flowGrad.addColorStop(1, "rgba(100,221,23,0.1)");
           ctx.strokeStyle = flowGrad;
           ctx.lineWidth = flowW;
-          ctx.lineCap = "라운드";
+          ctx.lineCap = "round";
           ctx.beginPath();
           ctx.moveTo(startX, startY);
           ctx.quadraticCurveTo(
@@ -26368,7 +26368,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         // === IVY VINES ===
         ctx.strokeStyle = vineColor;
         ctx.lineWidth = 1.5 * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(w1X + 10 * s, w1TopY + 6 * s);
         ctx.quadraticCurveTo(
@@ -27645,7 +27645,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
 
         ctx.strokeStyle = vineColor;
         ctx.lineWidth = 1.5 * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(lWallX + 8 * s, screenPos.y - lWallH + 10 * s);
         ctx.quadraticCurveTo(
@@ -27851,7 +27851,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         // === GROUND EROSION MARKS ===
         ctx.strokeStyle = "rgba(15, 15, 10, 0.2)";
         ctx.lineWidth = 1.2 * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         [
           { x1: -24, x2: -16, y1: 16, y2: 18 },
           { x1: 10, x2: 20, y1: 18, y2: 17 },
@@ -27953,7 +27953,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         // === ADDITIONAL VINES (more overgrowth) ===
         ctx.strokeStyle = vineColor;
         ctx.lineWidth = 1.2 * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(rWallX + 14 * s, screenPos.y - rWallH + 10 * s);
         ctx.quadraticCurveTo(
@@ -29374,7 +29374,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         // === HANGING VINES with leaves ===
         ctx.strokeStyle = vineColor;
         ctx.lineWidth = 1.5 * s;
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(wallX + 12 * s, wallTopY + 12 * s);
         ctx.quadraticCurveTo(
@@ -29529,7 +29529,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       // Shadow stroke
       ctx.strokeStyle = bnShd;
       ctx.lineWidth = 2.8 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(-10 * s, 5 * s);
       ctx.lineTo(10 * s, -1 * s);
@@ -29856,7 +29856,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
       const brY = tcY - 33 * s;
       ctx.strokeStyle = "#3a3535";
       ctx.lineWidth = 1.5 * s;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       // Bracket arms
       ctx.beginPath();
       ctx.moveTo(tcX - 5 * s, brY + 2 * s);
@@ -31432,7 +31432,7 @@ export function renderDecorationItem(params: DecorationRenderParams): void {
         const tB = figureBase - 2 * s;
 
         // Tail with gradient thickness
-        ctx.lineCap = "라운드";
+        ctx.lineCap = "round";
         ctx.strokeStyle = figureMid;
         ctx.lineWidth = 3 * s;
         ctx.beginPath();
@@ -34853,7 +34853,7 @@ function _drawPalmFrondItem(
 
   ctx.strokeStyle = colors.rib;
   ctx.lineWidth = 3.5 * s;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(baseX, baseY);
   ctx.quadraticCurveTo(ctrlX, ctrlY, tipX, tipY);

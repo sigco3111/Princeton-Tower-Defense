@@ -188,7 +188,7 @@ export function FreeplayDisclaimer({
                     className="text-[11px] font-semibold uppercase tracking-wider"
                     style={{ color: "rgba(196,64,88,0.85)" }}
                   >
-                    Challenge
+                    도전
                   </span>
                 </>
               )}

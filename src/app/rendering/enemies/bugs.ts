@@ -27,7 +27,7 @@ function drawBugLeg(
   femurGrad.addColorStop(1, colorDark);
   ctx.strokeStyle = femurGrad;
   ctx.lineWidth = width * zoom * 1.15;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(baseX, baseY);
   const femNx = -(midY - baseY);
@@ -311,7 +311,7 @@ export function drawOrbWeaverEnemy(
 
       ctx.strokeStyle = bodyColor;
       ctx.lineWidth = 4.5 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(cx0, cy0);
       ctx.lineTo(fx, fy);
@@ -548,7 +548,7 @@ export function drawOrbWeaverEnemy(
   // Pedipalps (small feeler appendages flanking the mouth)
   ctx.strokeStyle = bodyColorDark;
   ctx.lineWidth = 2.5 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let side = -1; side <= 1; side += 2) {
     ctx.beginPath();
     ctx.moveTo(x + side * size * 0.08, y - size * 0.22);
@@ -2106,7 +2106,7 @@ export function drawCentipedeEnemy(
   }
 
   // Draw all scuttling legs FIRST so body segments overlap the bases
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 1; i < segments; i++) {
     const sp = segPositions[i];
     const segW = size * (0.1 - i * 0.003);
@@ -2790,7 +2790,7 @@ export function drawDragonflyEnemy(
     const footY = ly + size * 0.12;
     ctx.strokeStyle = bodyColorDark;
     ctx.lineWidth = 1.8 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(lx, ly);
     ctx.quadraticCurveTo(lx + dangle * 0.2, ly + size * 0.025, kneeX, kneeY);
@@ -3925,7 +3925,7 @@ export function drawLocustEnemy(
     // Tibia (thinner, with tibial spurs)
     ctx.strokeStyle = bodyColor;
     ctx.lineWidth = 2 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(kneeX, kneeY);
     ctx.quadraticCurveTo(
@@ -4348,7 +4348,7 @@ export function drawTrapdoorSpiderEnemy(
 
       ctx.strokeStyle = bodyColor;
       ctx.lineWidth = (isFront ? 7 : 5.5) * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(cx0, cy0);
       ctx.lineTo(fx, fy);
@@ -7560,7 +7560,7 @@ export function drawBroodMotherEnemy(
       upperGrad.addColorStop(1, bodyColorDark);
       ctx.strokeStyle = upperGrad;
       ctx.lineWidth = 7 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(bx, by);
       ctx.lineTo(mx, my);
@@ -7645,7 +7645,7 @@ export function drawBroodMotherEnemy(
 
       ctx.strokeStyle = bodyColorDark;
       ctx.lineWidth = 3 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(sBx, sBy);
       ctx.lineTo(sMx, sMy);

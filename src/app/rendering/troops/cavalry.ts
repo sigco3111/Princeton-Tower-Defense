@@ -2898,7 +2898,7 @@ export function drawCavalryTroop(
   // Filled border band — outer rim (dark edge for depth)
   ctx.strokeStyle = "#2a1a08";
   ctx.lineWidth = 3.5 * zoom;
-  ctx.lineJoin = "라운드";
+  ctx.lineJoin = "round";
   ctx.beginPath();
   ctx.moveTo(0, -size * 0.26);
   ctx.lineTo(-size * 0.15, -size * 0.14);
@@ -2925,7 +2925,7 @@ export function drawCavalryTroop(
   borderGradOuter.addColorStop(1, "#c4a240");
   ctx.strokeStyle = borderGradOuter;
   ctx.lineWidth = 2.2 * zoom;
-  ctx.lineJoin = "라운드";
+  ctx.lineJoin = "round";
   ctx.beginPath();
   ctx.moveTo(0, -size * 0.26);
   ctx.lineTo(-size * 0.15, -size * 0.14);
@@ -2939,7 +2939,7 @@ export function drawCavalryTroop(
   // Inner highlight line — bright specular along left/top edge
   ctx.strokeStyle = "rgba(255, 245, 210, 0.55)";
   ctx.lineWidth = 0.8 * zoom;
-  ctx.lineJoin = "라운드";
+  ctx.lineJoin = "round";
   ctx.beginPath();
   ctx.moveTo(0, -size * 0.255);
   ctx.lineTo(-size * 0.145, -size * 0.135);
@@ -2969,7 +2969,7 @@ export function drawCavalryTroop(
   borderGradInner.addColorStop(1, "#8a6e28");
   ctx.strokeStyle = borderGradInner;
   ctx.lineWidth = 0.9 * zoom;
-  ctx.lineJoin = "라운드";
+  ctx.lineJoin = "round";
   ctx.beginPath();
   ctx.moveTo(0, -size * 0.205);
   ctx.lineTo(-size * 0.113, -size * 0.094);

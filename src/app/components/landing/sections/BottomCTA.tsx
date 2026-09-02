@@ -53,7 +53,7 @@ export function BottomCTA({ onPlay, exiting }: BottomCTAProps) {
 
       {/* Overlaid content */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-between px-4">
-        {/* Top: Defend the Realm */}
+        {/* Top: 왕국을 수호하라 */}
         <div className="pt-6 sm:pt-16 flex flex-col items-center gap-2 sm:gap-4">
           <SectionFlourish />
           <div className="text-center px-4 sm:px-8 flex flex-col items-center">
@@ -64,7 +64,7 @@ export function BottomCTA({ onPlay, exiting }: BottomCTAProps) {
                 textShadow: `0 0 70px rgba(${T.accentRgb},0.5), 0 0 140px rgba(${T.accentRgb},0.2), 0 4px 16px rgba(0,0,0,0.8)`,
               }}
             >
-              Defend the Realm
+              왕국을 수호하라
             </h2>
           </div>
         </div>
@@ -89,7 +89,7 @@ export function BottomCTA({ onPlay, exiting }: BottomCTAProps) {
                 className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-semibold text-center"
                 style={{ color: `rgba(${T.accentRgb},0.45)` }}
               >
-                Jump straight into battle!
+                바로 전투에 뛰어드세요!
               </span>
             </div>
           </CardFrame>
@@ -98,11 +98,11 @@ export function BottomCTA({ onPlay, exiting }: BottomCTAProps) {
             className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 text-[9px] sm:text-[11px] text-center"
             style={{ color: `rgba(${T.accentRgb},0.25)` }}
           >
-            <span>Free to Play</span>
+            <span>무료 플레이</span>
             <span style={{ color: `rgba(${T.accentRgb},0.12)` }}>&middot;</span>
-            <span>Browser-Based</span>
+            <span>브라우저 기반</span>
             <span style={{ color: `rgba(${T.accentRgb},0.12)` }}>&middot;</span>
-            <span>No Download Required</span>
+            <span>다운로드 불필요</span>
             <span
               className="mx-1 sm:mx-2 hidden sm:inline"
               style={{ color: `rgba(${T.accentRgb},0.08)` }}

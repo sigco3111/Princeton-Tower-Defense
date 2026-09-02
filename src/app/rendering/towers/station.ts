@@ -2575,7 +2575,7 @@ export function renderStationTower(
       [screenPos.x, fBaseY - fD, screenPos.x - fW, fBaseY],
     ];
 
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
 
     for (const [x0, y0, x1, y1] of backFenceEdges) {
       for (let p = 0; p <= postCount; p++) {
@@ -3008,7 +3008,7 @@ export function renderStationTower(
     // Hour hand
     ctx.strokeStyle = "#1a1a1a";
     ctx.lineWidth = 2.5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(cx, cy);
     ctx.lineTo(
@@ -9625,7 +9625,7 @@ export function renderStationTower(
       [screenPos.x - fW, fBaseY, screenPos.x, fBaseY + fD],
     ];
 
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
 
     for (const [x0, y0, x1, y1] of frontFenceEdges) {
       // Horizontal rails

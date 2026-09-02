@@ -49,7 +49,7 @@ export function drawAshTree(
   trunkGrad.addColorStop(1, "#0a0808");
   ctx.strokeStyle = trunkGrad;
   ctx.lineWidth = trunkW;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(ax, ay);
   ctx.quadraticCurveTo(trunkMidX, trunkMidY, trunkTopX, trunkTopY);
@@ -96,7 +96,7 @@ export function drawAshTree(
     const bWidth = (2.2 - bFrac * 1.2) * scale;
     ctx.strokeStyle = "#1a1210";
     ctx.lineWidth = bWidth;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(bStartX, bStartY);
     ctx.quadraticCurveTo(bCpX, bCpY, bEndX, bEndY);
@@ -434,8 +434,8 @@ export function drawVolcano(
   }
 
   // --- LAVA FLOWS (winding rivers with branching tributaries) ---
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
   for (let f = 0; f < 3; f++) {
     const fSeed = seededRandom(vx + f * 17);
     const flowStartX = vx - hw * 0.08 + f * hw * 0.08;
@@ -976,8 +976,8 @@ export function drawLavaRiver(
 ) {
   const { ctx, getY, time, seededRandom } = dc;
   ctx.save();
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
   const rw = riverWidth || 7;
   const seed = points[0][0] * 1.7 + points[0][1] * 3.3;
 

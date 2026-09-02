@@ -473,8 +473,8 @@ function renderLightningOrb(
   ctx.fill();
 
   // Lightning arcs
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
   for (let i = 0; i < arcCount; i++) {
     const baseAngle = (i / arcCount) * Math.PI * 2 + time * 8;
     const arcLen = (7 + Math.sin(time * 14 + i * 4.3) * 2.4) * zoom;
@@ -1540,7 +1540,7 @@ function renderVineBarb(
 
   ctx.strokeStyle = vineGrad;
   ctx.lineWidth = thickness;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(-len * 0.5, 0);
   ctx.bezierCurveTo(

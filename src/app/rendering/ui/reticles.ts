@@ -16,7 +16,7 @@ export type ReticleCategory =
   | "relocation" // Troop/hero move destination
   | "spell" // Spell cast area
   | "selection" // Selected unit ring
-  | "사거리" // Tower/station/building range ellipse
+  | "range" // Tower/station/building range ellipse
   | "aesthetic"; // Decorative crosshairs (scope, turret sight)
 
 export interface ReticleColor {
@@ -370,7 +370,7 @@ export function renderTargetingReticle(
       : 0.35 + cooldownProgress * 0.35;
     ctx.strokeStyle = rgba(cdColor, arcAlpha);
     ctx.lineWidth = 3.5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.stroke();
     ctx.restore();
 

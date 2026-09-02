@@ -185,7 +185,7 @@ const normalizeHazards = (hazards: MapHazard[] | undefined): MapHazard[] => {
 };
 
 const buildLevelId = (slugOrName: string): string => {
-  const fallback = sanitizeSlug(slugOrName) || "레벨";
+  const fallback = sanitizeSlug(slugOrName) || "level";
   return `${CUSTOM_LEVEL_PREFIX}${fallback}`;
 };
 

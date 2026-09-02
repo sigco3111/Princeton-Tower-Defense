@@ -114,7 +114,7 @@ interface SelectableLevel {
   id: string;
   name: string;
   description: string;
-  region: (typeof WORLD_LEVELS)[number]["지역"];
+  region: (typeof WORLD_LEVELS)[number]["region"];
   difficulty: 1 | 2 | 3;
   kind?: "campaign" | "challenge" | "custom" | "sandbox";
   tags: string[];
@@ -1092,7 +1092,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                               className="text-[9px] font-bold px-2 py-0.5 rounded-md tracking-wider uppercase"
                               style={challengeBadgeStyle}
                             >
-                              Challenge
+                              도전
                             </span>
                           )}
                           {currentLevel.tags.map((tag) => (
@@ -1780,7 +1780,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                   >
                     <canvas
                       ref={canvasRef}
-                      className="차단"
+                      className="block"
                       style={{ cursor: dragCursor ? "grabbing" : "grab" }}
                       onMouseMove={handleMouseMove}
                       onMouseLeave={() => setHoveredLevel(null)}

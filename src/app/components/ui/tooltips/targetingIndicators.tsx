@@ -59,7 +59,7 @@ const SPELL_TARGET_CONFIG: Record<
     color: "text-orange-100",
     glowColor: "0 0 20px rgba(234,88,12,0.4)",
     icon: <Flame size={16} className="text-orange-400" />,
-    label: "Click to Target Meteor Shower",
+    label: "운석 소나기 목표를 클릭하세요",
   },
   lightning: {
     bgGrad:
@@ -118,9 +118,9 @@ export const MissileTargetingIndicator: React.FC<{
   >
     <div className="text-sm font-bold flex items-center gap-2 tracking-wide">
       <Rocket size={16} className="text-orange-400" />
-      <span className="text-orange-100">Select Strike Zone</span>
+      <span className="text-orange-100">타격 구역 선택</span>
       <span className="text-orange-400/70 text-[10px] font-medium ml-1">
-        Click to confirm target
+        클릭하여 목표 확정
       </span>
       <Crosshair size={14} className="text-orange-500/60" />
     </div>
@@ -157,9 +157,9 @@ export const SentinelTargetingIndicator: React.FC<{
     >
       <div className="text-sm font-bold flex items-center gap-2 tracking-wide">
         <Target size={16} style={iconColor} />
-        <span style={textColor}>Lock Sentinel Strike Point</span>
+        <span style={textColor}>센티넬 타격 지점 고정</span>
         <span className="text-[10px] font-medium ml-1" style={subtextColor}>
-          Click to set coordinates
+          클릭하여 좌표 설정
         </span>
         <Crosshair size={14} style={crosshairColor} />
       </div>

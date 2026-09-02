@@ -1189,7 +1189,7 @@ export function drawTigerFanEnemy(
         pGrad.addColorStop(1, "#4a3728");
         wCtx.strokeStyle = pGrad;
         wCtx.lineWidth = 4 * zoom;
-        wCtx.lineCap = "라운드";
+        wCtx.lineCap = "round";
         wCtx.beginPath();
         wCtx.moveTo(0, size * 0.1);
         wCtx.lineTo(bannerSwing * size * 2, -poleLen);

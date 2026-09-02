@@ -665,7 +665,7 @@ export function drawSphinx(
   // Tail curling over haunch
   ctx.strokeStyle = "#a88a5a";
   ctx.lineWidth = 2 * scale;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(sx + 20 * scale, sy + 3 * scale);
   ctx.bezierCurveTo(
@@ -1184,7 +1184,7 @@ export function drawPalmTree(
   trunkGrad.addColorStop(1, "#4a3518");
   ctx.strokeStyle = trunkGrad;
   ctx.lineWidth = 6 * scale;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(tx, ty);
   ctx.bezierCurveTo(
@@ -1262,7 +1262,7 @@ export function drawPalmTree(
     // Draw midrib stroke
     ctx.strokeStyle = "#1a5020";
     ctx.lineWidth = 1.3 * scale;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(0, 0);
     for (let s = 1; s <= segments; s++) {

@@ -301,7 +301,7 @@ const SPECIAL_TOWER_INFO: Record<
     effect: "주변 타워와 정거장 부대 배치 거리를 강화합니다.",
     icon: <Zap size={16} />,
     name: "고대 비콘",
-    numbers: "+20% range/deploy in 250 radius",
+    numbers: "반경 250 내 +20% 사거리/배치",
     panelClass: "bg-cyan-950/35 border-cyan-800/40",
     role: "사거리 오라",
     tip: "광역 타워를 겹쳐 배치해 하나의 신호탑이 여러 라인을 강화하도록 하세요.",
@@ -311,7 +311,7 @@ const SPECIAL_TOWER_INFO: Record<
     effect: "주변 타워들의 더 빠른 발사 주기를 동기화합니다.",
     icon: <Clock size={16} />,
     name: "비전 시간 수정",
-    numbers: "+25% attack speed in 220 radius",
+    numbers: "반경 220 내 +25% 공격 속도",
     panelClass: "bg-indigo-950/35 border-indigo-800/40",
     role: "공격 속도 오라",
     tip: "기본 DPS가 높은 타워와 특히 잘 어울리며, 체인형과 광역 빌드에 효과적입니다.",
@@ -321,9 +321,9 @@ const SPECIAL_TOWER_INFO: Record<
     effect: "지정된 좌표에 주기적인 번개 공격을 내리꿉니다.",
     icon: <Target size={16} />,
     name: "제국 감시병",
-    numbers: `Every ${SENTINEL_NEXUS_STATS.strikeIntervalMs / 1000}s: up to ${SENTINEL_NEXUS_STATS.damage} damage in ${SENTINEL_NEXUS_STATS.radius} radius + short stun`,
+    numbers: `${SENTINEL_NEXUS_STATS.strikeIntervalMs / 1000}초마다: 반경 ${SENTINEL_NEXUS_STATS.radius} 내 최대 피해 ${SENTINEL_NEXUS_STATS.damage} + 짧은 기절`,
     panelClass: "bg-rose-950/35 border-rose-800/40",
-    role: "Retargetable Strike",
+    role: "재조준 타격",
     tip: "스폰 출구나 보스의 경로 코너를 재타겟팅해 효율을 극대화하세요.",
   },
   shrine: {
@@ -331,9 +331,9 @@ const SPECIAL_TOWER_INFO: Record<
     effect: "영웅과 주변 부대에 치유 펄스를 부여합니다.",
     icon: <Sparkles size={16} />,
     name: "고대 사당",
-    numbers: "+50 HP every 5s in 200 radius",
+    numbers: "반경 200 내 5초마다 체력 +50",
     panelClass: "bg-green-950/35 border-green-800/40",
-    role: "Sustain Aura",
+    role: "지속 오라",
     tip: "전선을 신전 범위 안에 고정해 소모전을 버텨내세요.",
   },
   sunforge_orrery: {
@@ -341,7 +341,7 @@ const SPECIAL_TOWER_INFO: Record<
     effect: "밀집된 적 군집을 탐지해 삼중 플라즈마 포격을 발사합니다.",
     icon: <Flame size={16} />,
     name: "태양 용광로",
-    numbers: `Every ${SUNFORGE_ORRERY_STATS.barrageIntervalMs / 1000}s: up to ${SUNFORGE_ORRERY_STATS.directDamage} direct damage + ${SUNFORGE_ORRERY_STATS.burnDps} DPS burn (${(SUNFORGE_ORRERY_STATS.burnDurationMs / 1000).toFixed(1)}s) per volley`,
+    numbers: `${SUNFORGE_ORRERY_STATS.barrageIntervalMs / 1000}초마다: 일제사격당 최대 ${SUNFORGE_ORRERY_STATS.directDamage} 직접 피해 + 초당 ${SUNFORGE_ORRERY_STATS.burnDps} 화상 피해 (${(SUNFORGE_ORRERY_STATS.burnDurationMs / 1000).toFixed(1)}초)`,
     panelClass: "bg-orange-950/35 border-orange-800/40",
     role: "군집 소거",
     tip: "슬로우와 경로 교차점과 함께 사용해 적 밀집도를 극대화하세요.",
@@ -411,7 +411,7 @@ const HAZARD_INFO: Record<
     effect: "물을 이동하는 모든 유닛을 끌어당겨 익사시킵니다.",
     icon: <Droplets size={16} />,
     name: "깊은 물",
-    numbers: "4-9 DPS and up to 38% slow",
+    numbers: "초당 4-9 피해 및 최대 38% 감속",
     panelClass: "bg-blue-950/35 border-blue-800/40",
   },
   fire: {
@@ -421,7 +421,7 @@ const HAZARD_INFO: Record<
     effect: "끊임없이 타오르는 화염이 영역 안의 모든 것을 태웁니다.",
     icon: <Flame size={16} />,
     name: "지옥불 구역",
-    numbers: "10 fire DPS to all units",
+    numbers: "모든 유닛에 초당 10 화염 피해",
     panelClass: "bg-orange-950/35 border-orange-700/40",
   },
   ice_sheet: {
@@ -431,7 +431,7 @@ const HAZARD_INFO: Record<
     effect: "미끄러운 지형으로 모든 유닛의 이동이 가속됩니다.",
     icon: <Snowflake size={16} />,
     name: "얼음판",
-    numbers: "+60% movement speed",
+    numbers: "+60% 이동 속도",
     panelClass: "bg-cyan-950/35 border-cyan-800/40",
   },
   ice_spikes: {
@@ -452,7 +452,7 @@ const HAZARD_INFO: Record<
     effect: "끊임없이 끓어오르는 마그마가 주기적으로 주변 모든 유닛에게 튀깁니다.",
     icon: <Flame size={16} />,
     name: "용암 웅덩이",
-    numbers: "4 fire damage per splash tick",
+    numbers: "튀김 틱당 화염 피해 4",
     panelClass: "bg-red-950/35 border-red-700/40",
   },
   lava_geyser: {
@@ -462,7 +462,7 @@ const HAZARD_INFO: Record<
     effect: "무작위 분출이 영역 내 모든 유닛에게 폭발 화염 데미지를 입힙니다.",
     icon: <Flame size={16} />,
     name: "용암 간헐천",
-    numbers: "5 fire damage per eruption tick",
+    numbers: "분출 틱당 화염 피해 5",
     panelClass: "bg-orange-950/35 border-orange-800/40",
   },
   lightning: {
@@ -472,7 +472,7 @@ const HAZARD_INFO: Record<
     effect: "산발적인 고압 전기 공격이 영역 내 모든 유닛을 강타합니다.",
     icon: <Zap size={16} />,
     name: "번개 필드",
-    numbers: "18 burst damage per lightning strike",
+    numbers: "낙뢰당 18 폭발 피해",
     panelClass: "bg-yellow-950/35 border-yellow-700/40",
   },
   maelstrom: {
@@ -483,7 +483,7 @@ const HAZARD_INFO: Record<
       "강력한 압축 데미지와 모든 유닛의 이동력 감소를 가진 거대한 소용돌이입니다.",
     icon: <Wind size={16} />,
     name: "소용돌이",
-    numbers: "8-20 DPS and up to 55% slow",
+    numbers: "초당 8-20 피해 및 최대 55% 감속",
     panelClass: "bg-cyan-950/35 border-cyan-800/40",
   },
   poison_fog: {
@@ -493,7 +493,7 @@ const HAZARD_INFO: Record<
     effect: "모든 유닛에게 지속적으로 지속 데미지를 주는 영역입니다.",
     icon: <Droplets size={16} />,
     name: "독 안개",
-    numbers: "15 DPS while inside",
+    numbers: "내부에서 초당 15 피해",
     panelClass: "bg-green-950/35 border-green-800/40",
   },
   quicksand: {
@@ -502,7 +502,7 @@ const HAZARD_INFO: Record<
     effect: "모든 유닛의 이동을 억제하는 영역입니다.",
     icon: <TrendingDown size={16} />,
     name: "유사트",
-    numbers: "50% movement slow",
+    numbers: "50% 이동 감속",
     panelClass: "bg-yellow-950/35 border-yellow-800/40",
   },
   storm_field: {
@@ -512,7 +512,7 @@ const HAZARD_INFO: Record<
     effect: "전기 충전된 공기가 이동을 빠르게 하지만 모든 유닛에게 감전을 입힙니다.",
     icon: <Zap size={16} />,
     name: "폭풍 지대",
-    numbers: "+15% move speed and 6 DPS",
+    numbers: "+15% 이동 속도 및 초당 6 피해",
     panelClass: "bg-sky-950/35 border-sky-800/40",
   },
   swamp: {
@@ -522,7 +522,7 @@ const HAZARD_INFO: Record<
     effect: "부식성 진흙탕이 모든 유닛을 중독시키고 속도를 늦춥니다.",
     icon: <Droplets size={16} />,
     name: "독성 늪",
-    numbers: "6 DPS poison + 35% movement slow",
+    numbers: "초당 6 독 피해 + 35% 이동 감속",
     panelClass: "bg-lime-950/35 border-lime-800/40",
   },
   void: {
@@ -532,7 +532,7 @@ const HAZARD_INFO: Record<
     effect: "차원의 균열이 생명을 흡수하고 모든 유닛을 느리게 합니다.",
     icon: <CircleOff size={16} />,
     name: "공허 균열",
-    numbers: "8 DPS + 30% movement slow",
+    numbers: "초당 8 피해 + 30% 이동 감속",
     panelClass: "bg-purple-950/35 border-purple-800/40",
   },
   volcano: {
@@ -542,7 +542,7 @@ const HAZARD_INFO: Record<
     effect: "파괴적인 분출이 주변 모든 유닛에게 용암암을 던집니다.",
     icon: <Flame size={16} />,
     name: "화산",
-    numbers: "15 fire damage per eruption burst",
+    numbers: "분출당 화염 피해 15",
     panelClass: "bg-red-950/35 border-red-800/40",
   },
 };
@@ -593,12 +593,12 @@ const TROOP_CATEGORY_MAP: Record<
 > = {
   station: {
     color: "text-amber-300",
-    label: "Station Garrison",
+    label: "역 주둔군",
     types: ["footsoldier", "armored", "elite", "knight", "centaur", "cavalry"],
   },
   summoned: {
     color: "text-purple-300",
-    label: "Summoned Units",
+    label: "소환 유닛",
     types: ["reinforcement", "turret"],
   },
   hex: {
@@ -1296,12 +1296,12 @@ export const CodexModal: React.FC<CodexModalProps> = ({
       case "fireball": {
         const stats = getFireballSpellStats(0);
         return {
-          category: "damage",
+          category: "피해",
           color: "orange",
           details: [
-            `Impact radius: ${stats.impactRadius}`,
-            `Burn duration: ${(stats.burnDurationMs / 1000).toFixed(1)}s`,
-            `Cast delay: ${(stats.fallDurationMs / 1000).toFixed(1)}s`,
+            `충격 반경: ${stats.impactRadius}`,
+            `화상 지속: ${(stats.burnDurationMs / 1000).toFixed(1)}초`,
+            `시전 지연: ${(stats.fallDurationMs / 1000).toFixed(1)}초`,
           ],
           icon: <Flame size={14} />,
           stats: [
@@ -1312,13 +1312,13 @@ export const CodexModal: React.FC<CodexModalProps> = ({
             },
             {
               icon: <Swords size={12} />,
-              label: "damage",
+              label: "피해",
               value: `${stats.damagePerMeteor}`,
             },
             {
               icon: <Flame size={12} />,
               label: "화상",
-              value: `${stats.burnDamagePerSecond}/s`,
+              value: `${stats.burnDamagePerSecond}/초`,
             },
           ],
           tip: "병목 지점 근처에 밀집된 정예 적에게 사용하세요.",
@@ -1384,11 +1384,11 @@ export const CodexModal: React.FC<CodexModalProps> = ({
       case "hex_ward": {
         const stats = getHexWardSpellStats(0);
         return {
-          category: "Necromancy",
+          category: "강령",
           color: "purple",
           details: [
             "가장 멀리 진행된 적에게 오래 지속되는 수확 인을 부여합니다.",
-            `Can reanimate up to ${stats.maxReanimations} fallen enemies, troops, or heroes as ghost allies during the ward.`,
+            `수호 지속 동안 쓰러진 적·병사·영웅을 최대 ${stats.maxReanimations}기까지 유령 아군으로 되살릴 수 있습니다.`,
             "상위 업그레이드는 피해 증폭과 치유 차단 같은 저주 효과를 추가합니다.",
           ],
           icon: <Eye size={14} />,
@@ -1418,7 +1418,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
           category: "경제",
           color: "amber",
           details: [
-            `Aura duration: ${(stats.auraDurationMs / 1000).toFixed(1)}s`,
+            `오라 지속: ${(stats.auraDurationMs / 1000).toFixed(1)}초`,
             "맵에 적이 이미 많을 때 가치가 급상승합니다.",
             "긴 웨이브에서 4단계 타이밍을 앞당길 수 있습니다.",
           ],
@@ -1449,7 +1449,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
           category: "소환",
           color: "green",
           details: [
-            `Move radius: ${stats.moveRadius}`,
+            `이동 반경: ${stats.moveRadius}`,
             "갑작스러운 적 유출을 막기 위해 즉시 사용할 수 있습니다.",
             "쿨다운이 긴 타워가 재충전되는 동안 시간을 벌기에 좋습니다.",
           ],
@@ -1457,7 +1457,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
           stats: [
             {
               icon: <Users size={12} />,
-              label: "Units",
+              label: "유닛",
               value: `${stats.knightCount}`,
             },
             {
@@ -1614,7 +1614,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                 count: towerTypes.length,
                 icon: <ChessRook size={16} />,
                 id: "tower",
-                label: "tower",
+                label: "타워",
               },
               {
                 count: heroTypes.length,
@@ -1644,7 +1644,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                 count: specialTowerTypesInUse.length,
                 icon: <Sparkles size={16} />,
                 id: "special_towers",
-                label: "Structures",
+                label: "구조물",
               },
               {
                 count: hazardTypesInUse.length,
@@ -3325,7 +3325,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "포탑이 자동으로 파괴되지 않음",
                       "여러 포탑을 소환 가능",
                     ],
-                    role: "Tactical Builder",
+                    role: "전술 건설가",
                     roleColor: "amber",
                     roleIcon: <CircleDot size={16} />,
                     strategy:
@@ -3340,8 +3340,8 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "긴급 방어에 유용",
                     ],
                     weaknesses: [
-                      "Turret is fragile",
-                      "Needs good placement",
+                      "포탑이 취약함",
+                      "배치가 중요함",
                       "중간 스탯",
                     ],
                   },
@@ -3430,7 +3430,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "타격 중심에서 바깥으로 갈수록 데미지가 감소합니다",
                       "먼지 구름 효과가 있는 지면 분화구",
                     ],
-                    role: "Ranged Artillery",
+                    role: "원거리 포병",
                     roleColor: "green",
                     roleIcon: <Target size={16} />,
                     strategy:
@@ -3438,7 +3438,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     strengths: [
                       "막대한 원거리 피해",
                       "광역",
-                      "Safe positioning",
+                      "안전한 위치 선정",
                     ],
                     synergies: [
                       "딩키 스태이션 병력과 함께 사용",
@@ -3446,7 +3446,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     ],
                     weaknesses: [
                       "근접에서 취약",
-                      "Slow attack speed",
+                      "느린 공격 속도",
                       "능력에 지연 있음",
                     ],
                   },
@@ -3456,7 +3456,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "영웅에게서 황금빛 광선이 발산됩니다",
                       "맵의 모든 타워에 영향",
                     ],
-                    role: "Support Buffer",
+                    role: "지원 강화",
                     roleColor: "cyan",
                     roleIcon: <TrendingUp size={16} />,
                     strategy:
@@ -3472,7 +3472,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     ],
                     weaknesses: [
                       "직접 공격 능력 없음",
-                      "Relies on towers",
+                      "타워에 의존",
                       "낮은 개인 DPS",
                     ],
                   },
@@ -3499,7 +3499,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     weaknesses: [
                       "단일 대상 화력은 낮음",
                       "중간 체력",
-                      "Needs positioning",
+                      "위치 선정 필요",
                     ],
                   },
                   tiger: {
@@ -3516,7 +3516,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     strengths: [
                       "높은 근접 피해",
                       "강력한 군중 제어",
-                      "Good survivability",
+                      "높은 생존력",
                     ],
                     synergies: [
                       "광역 타워와 궁합이 좋음",
@@ -4167,7 +4167,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                       ? "Stationary"
                                       : troop.isMounted
                                         ? "이동식 방어"
-                                        : "Path Blocker"}
+                                        : "경로 차단"}
                                   </div>
                                 </div>
                                 <div className="px-2.5 py-2 bg-stone-950/40 rounded-lg border border-stone-700/25">

@@ -456,7 +456,7 @@ export const SpellSelector: React.FC<SpellSelectorProps> = ({
                         stroke="url(#spellbookSlotGrad)"
                         strokeWidth={STROKE}
                         strokeDasharray={`${C * fillFrac} ${C * (1 - fillFrac)}`}
-                        strokeLinecap="라운드"
+                        strokeLinecap="round"
                         className="transition-all duration-500"
                       />
                       <defs>

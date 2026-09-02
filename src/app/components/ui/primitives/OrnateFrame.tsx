@@ -69,7 +69,7 @@ const OrnateCorner: React.FC<OrnateCornerProps> = ({
           fill="none"
           stroke={glowColor}
           strokeWidth="1.5"
-          strokeLinecap="라운드"
+          strokeLinecap="round"
           opacity="0.8"
         />
         <path
@@ -77,7 +77,7 @@ const OrnateCorner: React.FC<OrnateCornerProps> = ({
           fill="none"
           stroke={glowColor}
           strokeWidth="1.5"
-          strokeLinecap="라운드"
+          strokeLinecap="round"
           opacity="0.8"
         />
         <path
@@ -85,7 +85,7 @@ const OrnateCorner: React.FC<OrnateCornerProps> = ({
           fill="none"
           stroke={glowColor}
           strokeWidth="1"
-          strokeLinecap="라운드"
+          strokeLinecap="round"
           opacity="0.5"
         />
         <path
@@ -93,7 +93,7 @@ const OrnateCorner: React.FC<OrnateCornerProps> = ({
           fill="none"
           stroke={glowColor}
           strokeWidth="1"
-          strokeLinecap="라운드"
+          strokeLinecap="round"
           opacity="0.5"
         />
         <path d="M9 9 L14 3 L19 9 L14 15 Z" fill={glowColor} opacity="0.9" />
@@ -203,7 +203,7 @@ const OrnateCornerCompact: React.FC<OrnateCornerCompactProps> = ({
           fill="none"
           stroke={glowColor}
           strokeWidth="1"
-          strokeLinecap="라운드"
+          strokeLinecap="round"
           opacity="0.6"
         />
         <path
@@ -211,7 +211,7 @@ const OrnateCornerCompact: React.FC<OrnateCornerCompactProps> = ({
           fill="none"
           stroke={glowColor}
           strokeWidth="1"
-          strokeLinecap="라운드"
+          strokeLinecap="round"
           opacity="0.6"
         />
         <circle cx="20" cy="6" r="1" fill={glowColor} opacity="0.6" />
@@ -287,7 +287,7 @@ const OrnateBorder: React.FC<OrnateBorderProps> = ({
             fill="none"
             stroke={glowColor}
             strokeWidth="1.5"
-            strokeLinejoin="라운드"
+            strokeLinejoin="round"
           />
           <path
             d="M15 14 L22 8 L30 16 L38 8 L45 14"
@@ -404,7 +404,7 @@ const OrnateBorder: React.FC<OrnateBorderProps> = ({
           fill="none"
           stroke={glowColor}
           strokeWidth="1.5"
-          strokeLinejoin="라운드"
+          strokeLinejoin="round"
         />
         <path
           d="M14 15 L8 22 L16 30 L8 38 L14 45"

@@ -1469,7 +1469,7 @@ export function drawEnemySprite(
       );
       break;
     }
-    case "2학년": {
+    case "sophomore": {
       drawSophomoreEnemy(
         ctx,
         x,
@@ -1485,7 +1485,7 @@ export function drawEnemySprite(
       );
       break;
     }
-    case "3학년": {
+    case "junior": {
       drawJuniorEnemy(
         ctx,
         x,
@@ -1501,7 +1501,7 @@ export function drawEnemySprite(
       );
       break;
     }
-    case "4학년": {
+    case "senior": {
       drawSeniorEnemy(
         ctx,
         x,
@@ -1548,7 +1548,7 @@ export function drawEnemySprite(
       );
       break;
     }
-    case "학장": {
+    case "dean": {
       drawDeanEnemy(
         ctx,
         x,
@@ -1578,7 +1578,7 @@ export function drawEnemySprite(
       );
       break;
     }
-    case "마스코트": {
+    case "mascot": {
       drawMascotEnemy(
         ctx,
         x,

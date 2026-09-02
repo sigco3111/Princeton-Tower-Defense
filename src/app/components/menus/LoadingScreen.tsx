@@ -433,7 +433,7 @@ function AccentFlourish({ theme }: { theme: LoadingTheme }) {
         stroke={theme.frameGlow}
         strokeWidth="0.8"
         opacity="0.4"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <path
         d="M200 10 Q195 5 188 8"
@@ -441,7 +441,7 @@ function AccentFlourish({ theme }: { theme: LoadingTheme }) {
         stroke={theme.frameGlow}
         strokeWidth="0.8"
         opacity="0.4"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <path
         d="M120 10 Q125 15 132 12"
@@ -449,7 +449,7 @@ function AccentFlourish({ theme }: { theme: LoadingTheme }) {
         stroke={theme.frameGlow}
         strokeWidth="0.8"
         opacity="0.4"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <path
         d="M200 10 Q195 15 188 12"
@@ -457,7 +457,7 @@ function AccentFlourish({ theme }: { theme: LoadingTheme }) {
         stroke={theme.frameGlow}
         strokeWidth="0.8"
         opacity="0.4"
-        strokeLinecap="라운드"
+        strokeLinecap="round"
       />
       <circle cx="45" cy="10" r="1.2" fill={theme.frameGlow} opacity="0.45" />
       <circle cx="80" cy="10" r="0.9" fill={theme.frameGlow} opacity="0.35" />
@@ -1046,7 +1046,7 @@ function BattleLevelContent({
                 className="text-[11px] font-semibold uppercase tracking-wider"
                 style={{ color: "rgba(196,64,88,0.85)" }}
               >
-                Challenge
+                도전
               </span>
             </>
           )}

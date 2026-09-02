@@ -49,7 +49,7 @@ export const MobileBottomSheet: React.FC<MobileBottomSheetProps> = ({
       return;
     }
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "탈출") {
+      if (e.key === "Escape") {
         handleClose();
       }
     };

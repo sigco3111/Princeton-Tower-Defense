@@ -69,7 +69,7 @@ export function WorldMapShoutOut({ visible = true }: WorldMapShoutOutProps) {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Enjoying the game?
+              게임이 재미있나요?
             </span>
 
             <div className="flex items-center gap-2">
@@ -88,7 +88,7 @@ export function WorldMapShoutOut({ visible = true }: WorldMapShoutOutProps) {
                   textShadow: "0 0 10px rgba(252,211,77,0.15)",
                 }}
               >
-                Shout Me Out!
+                응원해 주세요!
               </span>
               <ExternalLink
                 size={12}
@@ -97,7 +97,7 @@ export function WorldMapShoutOut({ visible = true }: WorldMapShoutOutProps) {
             </div>
 
             <span className="text-[8px] font-medium tracking-wide text-amber-500/50">
-              Share on X / Twitter
+              X / 트위터에서 공유하기
             </span>
           </div>
 

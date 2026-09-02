@@ -1358,7 +1358,7 @@ function drawLeftArmDetailed(
   // Forearm - thicker
   ctx.strokeStyle = "#4a5a36";
   ctx.lineWidth = s * 0.14;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(elbowX, elbowY);
   ctx.lineTo(handguardX, handguardY);
@@ -1616,7 +1616,7 @@ function drawRightArmDetailed(
   // Forearm - thicker
   ctx.strokeStyle = "#4a5a36";
   ctx.lineWidth = s * 0.14;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(elbowX, elbowY);
   ctx.lineTo(gripX, gripY);

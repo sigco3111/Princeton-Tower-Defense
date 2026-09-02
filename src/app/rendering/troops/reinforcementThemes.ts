@@ -21,7 +21,7 @@ export interface ReinforcementHelmetStyle {
 export interface ReinforcementArmorStyle {
   name: string;
   chestMotif: "diamond" | "cross" | "scales" | "fluted" | "runic";
-  pauldronShape: "라운드" | "ridged" | "spiked" | "layered" | "winged";
+  pauldronShape: "round" | "ridged" | "spiked" | "layered" | "winged";
   beltDetail: "buckle" | "sash" | "chain" | "medallion";
   greaveStyle: "smooth" | "ridged" | "plated";
 }
@@ -105,7 +105,7 @@ export const ARMOR_STYLES: readonly ReinforcementArmorStyle[] = [
     chestMotif: "diamond",
     greaveStyle: "smooth",
     name: "royal",
-    pauldronShape: "라운드",
+    pauldronShape: "round",
   },
   {
     beltDetail: "buckle",

@@ -36,7 +36,7 @@ export const ENEMY_TAG_DEFS: EnemyTagDef[] = [
   { color: "#fb923c", id: "aoe", label: "광역" },
   { color: "#f43f5e", id: "saboteur", label: "방해공작원" },
   { color: "#ef4444", id: "burn", label: "화상" },
-  { color: "#a3e635", id: "venom", label: "poison" },
+  { color: "#a3e635", id: "venom", label: "독" },
   { color: "#eab308", id: "stun", label: "기절" },
   { color: "#d1d5db", id: "undead", label: "언데드" },
   { color: "#bef264", id: "insect", label: "곤충" },

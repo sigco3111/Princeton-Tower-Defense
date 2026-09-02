@@ -5,7 +5,7 @@ import type { LevelStars } from "../../../types";
 import { WORLD_LEVELS, DEV_LEVEL_IDS } from "../world-map/worldMapData";
 import type { LevelNode } from "../world-map/worldMapData";
 
-type Region = LevelNode["지역"];
+type Region = LevelNode["region"];
 
 export interface RegionMeta {
   displayName: string;
@@ -44,7 +44,7 @@ export const REGION_META: Record<Region, RegionMeta> = {
     bgDark: "rgba(40,28,12,0.65)",
     bgLight: "rgba(55,40,18,0.8)",
     border: "rgba(180,140,50,0.45)",
-    displayName: "Stadium Sands",
+    displayName: "스타디움 사막",
     glow: "rgba(180,140,50,0.08)",
     textClass: "text-amber-400",
   },
@@ -64,7 +64,7 @@ export const REGION_META: Record<Region, RegionMeta> = {
     bgDark: "rgba(15,30,28,0.65)",
     bgLight: "rgba(20,40,38,0.8)",
     border: "rgba(60,140,130,0.45)",
-    displayName: "Mathey Marshes",
+    displayName: "매시 습지",
     glow: "rgba(60,140,130,0.08)",
     textClass: "text-teal-400",
   },
@@ -74,7 +74,7 @@ export const REGION_META: Record<Region, RegionMeta> = {
     bgDark: "rgba(35,18,15,0.65)",
     bgLight: "rgba(50,25,20,0.8)",
     border: "rgba(180,70,50,0.45)",
-    displayName: "Dormitory Depths",
+    displayName: "기숙사 심연",
     glow: "rgba(180,70,50,0.08)",
     textClass: "text-red-400",
   },
@@ -84,7 +84,7 @@ export const REGION_META: Record<Region, RegionMeta> = {
     bgDark: "rgba(18,25,40,0.65)",
     bgLight: "rgba(25,35,50,0.8)",
     border: "rgba(80,130,200,0.45)",
-    displayName: "Frist Frontier",
+    displayName: "프리스트 프론티어",
     glow: "rgba(80,130,200,0.08)",
     textClass: "text-blue-400",
   },

@@ -141,7 +141,7 @@ export function getRouteMetadata(slug: string[] | undefined): Metadata {
       return {};
     }
 
-    case "레벨": {
+    case "level": {
       return getLevelMeta(route.levelId) ?? {};
     }
 

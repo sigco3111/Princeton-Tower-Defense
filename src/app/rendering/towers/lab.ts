@@ -493,7 +493,7 @@ export function renderLabTower(
     // Pipe shadow
     ctx.strokeStyle = "rgba(0, 0, 0, 0.2)";
     ctx.lineWidth = 4.5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(pipeStartX + 0.5 * zoom, pipeStartY + 0.8 * zoom);
     ctx.lineTo(pipeEndX + 0.5 * zoom, pipeEndY + 0.8 * zoom);
@@ -1847,7 +1847,7 @@ export function renderLabTower(
     16,
     labTopRailColors,
     zoom,
-    "뒤로"
+    "back"
   );
 
   if (tower.level === 4 && tower.upgrade === "A") {

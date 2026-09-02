@@ -1552,7 +1552,7 @@ export function drawFireImpEnemy(
   // Pointed tail curving behind
   ctx.strokeStyle = bodyColorDark;
   ctx.lineWidth = 3 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const tailWag = Math.sin(time * 5) * size * 0.05;
   ctx.beginPath();
   ctx.moveTo(x, y + size * 0.15 - hop);

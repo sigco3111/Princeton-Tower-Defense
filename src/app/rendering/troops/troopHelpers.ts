@@ -449,7 +449,7 @@ export function drawMuscularHorseBody(
   // --- Spine ridge — sharp angular arch ---
   ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
   ctx.lineWidth = 1.8 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(centerX - rx * 0.55, centerY - ry * 0.45);
   ctx.bezierCurveTo(
@@ -1291,7 +1291,7 @@ export function drawHorseTail(
 
   // Flowing hair strands fanning from root to tip
   ctx.save();
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   const strandCount = 14;
   for (let i = 0; i < strandCount; i++) {
     const t = i / (strandCount - 1);
@@ -1339,7 +1339,7 @@ export function drawHorseTail(
 
   // Bright highlight strands for backlit silky look
   ctx.save();
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let i = 0; i < 5; i++) {
     const t = (i + 0.5) / 5;
     const offset = (t - 0.5) * 1.6;
@@ -1572,8 +1572,8 @@ export function drawTroopMasterworkFinish(
   const runeY = y + size * (isMounted ? 0.12 : 0.08) + breathShift;
 
   ctx.save();
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // === Shoulder rim accents (glowing filigree along pauldron edges) ===
   for (let side = -1; side <= 1; side += 2) {

@@ -62,42 +62,42 @@ export const ToolbeltPanel: React.FC<ToolbeltPanelProps> = ({
     <div className="rounded-xl border border-amber-800/30 bg-gradient-to-b from-stone-900/80 to-stone-950/80 p-3">
       <div className="text-[11px] uppercase tracking-wider text-amber-200/90 font-medium mb-2.5 inline-flex items-center gap-1.5">
         <Compass size={13} />
-        Tools & Setup
+        도구 및 설정
       </div>
 
       {/* Map checklist */}
       <div className="mb-3 rounded-lg border border-amber-800/25 bg-stone-950/50 p-2 space-y-1">
         <div className="text-[10px] uppercase tracking-wide text-amber-400/50 mb-1">
-          Map Checklist
+          맵 체크리스트
         </div>
         <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px]">
           <span className="inline-flex items-center gap-1.5 text-amber-300/80">
-            <StatusDot ok={hasName} /> Name
+            <StatusDot ok={hasName} /> 이름
           </span>
           <span className="inline-flex items-center gap-1.5 text-amber-300/80">
-            <StatusDot ok={hasHero} /> Hero Spawn
+            <StatusDot ok={hasHero} /> 영웅 생성지점
           </span>
           <span className="inline-flex items-center gap-1.5 text-amber-300/80">
             <StatusDot ok={primaryReady} count={draft.primaryPath.length} />{" "}
-            Path A
+            경로 A
           </span>
           <span className="inline-flex items-center gap-1.5 text-amber-300/80">
             <StatusDot ok={secondaryReady} count={draft.secondaryPath.length} />{" "}
-            Path B
+            경로 B
           </span>
         </div>
         <div className="grid grid-cols-3 gap-x-2 gap-y-0.5 text-[10px] text-amber-400/60 pt-1 border-t border-amber-800/20 mt-1">
           <span className="inline-flex items-center gap-1">
-            <Paintbrush size={9} /> {draft.decorations.length} deco
+            <Paintbrush size={9} /> {draft.decorations.length} 장식
           </span>
           <span className="inline-flex items-center gap-1">
-            <AlertTriangle size={9} /> {draft.hazards.length} hazard
+            <AlertTriangle size={9} /> {draft.hazards.length} 위험
           </span>
           <span className="inline-flex items-center gap-1">
-            <ChessRook size={9} /> {draft.specialTowers.length} obj
+            <ChessRook size={9} /> {draft.specialTowers.length} 목표
           </span>
           <span className="inline-flex items-center gap-1">
-            <Sword size={9} /> {draft.placedTowers.length} tower
+            <Sword size={9} /> {draft.placedTowers.length} 타워
           </span>
         </div>
       </div>
@@ -128,7 +128,7 @@ export const ToolbeltPanel: React.FC<ToolbeltPanelProps> = ({
       <div className="rounded-lg border border-amber-800/25 bg-stone-950/50 p-2">
         <div className="text-[10px] uppercase tracking-wide text-amber-400/50 mb-1.5 inline-flex items-center gap-1">
           <Shield size={9} />
-          Allowed Towers
+          허용 타워
           <span className="text-amber-500/40 normal-case tracking-normal ml-0.5">
             {draft.allowedTowers.length === 0
               ? "(all)"
@@ -162,7 +162,7 @@ export const ToolbeltPanel: React.FC<ToolbeltPanelProps> = ({
           })}
         </div>
         <div className="text-[9px] text-amber-500/35 mt-1">
-          Empty = all allowed. Click to restrict.
+          비어있으면 모두 허용. 클릭하여 제한.
         </div>
       </div>
     </div>

@@ -73,7 +73,7 @@ function getTowerStats(
   }
   if ((stats.slowAmount ?? 0) > 0) {
     out.push({
-      label: "SLOW",
+      label: "둔화",
       value: `${Math.round(stats.slowAmount! * 100)}%`,
     });
   }
@@ -94,7 +94,7 @@ function getTowerStats(
     });
   } else if ((stats.spawnInterval ?? 0) > 0) {
     out.push({
-      label: "SPAWN",
+      label: "소환",
       value: `${(stats.spawnInterval! / 1000).toFixed(0)}s`,
     });
   } else if ((stats.incomeInterval ?? 0) > 0) {
@@ -108,7 +108,7 @@ function getTowerStats(
     out.push({ label: "광역", value: `${Math.round(stats.splashRadius!)}` });
   }
   if ((stats.chainTargets ?? 0) > 1) {
-    out.push({ label: "CHAIN", value: `×${stats.chainTargets}` });
+    out.push({ label: "연쇄", value: `×${stats.chainTargets}` });
   }
 
   return out;
@@ -419,8 +419,8 @@ export function TowerShowcase() {
                         d="M10 3L5 8L10 13"
                         stroke={accent}
                         strokeWidth="2"
-                        strokeLinecap="라운드"
-                        strokeLinejoin="라운드"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>
@@ -438,8 +438,8 @@ export function TowerShowcase() {
                         d="M6 3L11 8L6 13"
                         stroke={accent}
                         strokeWidth="2"
-                        strokeLinecap="라운드"
-                        strokeLinejoin="라운드"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>
@@ -512,7 +512,7 @@ export function TowerShowcase() {
                       className="text-[8px] font-bold uppercase tracking-[0.3em] mb-5"
                       style={{ color: `${accent}35` }}
                     >
-                      Evolution Path
+                      진화 경로
                     </p>
 
                     <div className="flex items-center justify-center">

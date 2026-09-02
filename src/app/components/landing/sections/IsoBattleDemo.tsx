@@ -57,7 +57,7 @@ const ENEMY_TYPES: EnemyType[] = [
   "dark_knight",
   "mage",
   "dire_bear",
-  "4학년",
+  "senior",
   "yeti",
 ];
 
@@ -358,7 +358,7 @@ export function IsoBattleDemo() {
             className="w-full"
             style={{
               aspectRatio: "16 / 9",
-              display: "차단",
+              display: "block",
               transform: "rotateX(2deg)",
               transformOrigin: "center 60%",
             }}

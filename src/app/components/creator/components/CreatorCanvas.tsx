@@ -307,16 +307,16 @@ export const CreatorCanvas: React.FC<CreatorCanvasProps> = ({
                   fill="none"
                   stroke="rgba(251, 191, 36, 0.25)"
                   strokeWidth={primaryPathEmphasized ? 10 : 7.5}
-                  strokeLinecap="라운드"
-                  strokeLinejoin="라운드"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <polyline
                   points={pathToIsoPoints(draft.primaryPath)}
                   fill="none"
                   stroke="rgba(251, 191, 36, 0.96)"
                   strokeWidth={primaryPathEmphasized ? 6.4 : 5}
-                  strokeLinecap="라운드"
-                  strokeLinejoin="라운드"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </>
             )}
@@ -329,16 +329,16 @@ export const CreatorCanvas: React.FC<CreatorCanvasProps> = ({
                   fill="none"
                   stroke="rgba(34, 211, 238, 0.24)"
                   strokeWidth={secondaryPathEmphasized ? 10 : 7.5}
-                  strokeLinecap="라운드"
-                  strokeLinejoin="라운드"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <polyline
                   points={pathToIsoPoints(draft.secondaryPath)}
                   fill="none"
                   stroke="rgba(34, 211, 238, 0.96)"
                   strokeWidth={secondaryPathEmphasized ? 6.4 : 5}
-                  strokeLinecap="라운드"
-                  strokeLinejoin="라운드"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </>
             )}

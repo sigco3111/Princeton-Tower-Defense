@@ -2388,7 +2388,7 @@ export function drawCentaurTroop(
   // Dark outer edge
   ctx.strokeStyle = "#2e1a0a";
   ctx.lineWidth = 3 * zoom;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.arc(0, 0, bowRadius, arcStart, arcEnd);
   ctx.stroke();
@@ -2514,7 +2514,7 @@ export function drawCentaurTroop(
 
   // --- Bowstring - straight lines ---
   const stringPull = -size * (0.2 + (isAttacking ? bowDraw * 0.24 : 0));
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   if (isAttacking) {
     ctx.shadowColor = "rgba(255, 215, 120, 0.6)";
     ctx.shadowBlur = 4 * zoom * bowDraw;

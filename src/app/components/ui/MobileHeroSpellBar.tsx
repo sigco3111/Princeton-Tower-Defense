@@ -135,7 +135,7 @@ function MobileHeroCircle({
             <feGaussianBlur stdDeviation="2" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
-              <feMergeNode in="원본 그래픽" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
@@ -161,7 +161,7 @@ function MobileHeroCircle({
             strokeWidth={2}
             strokeDasharray={M_HERO_MID_CIRCUM}
             strokeDashoffset={M_HERO_MID_CIRCUM * (1 - hpPercent / 100)}
-            strokeLinecap="라운드"
+            strokeLinecap="round"
             transform={`rotate(-90 ${M_HERO_CX} ${M_HERO_CX})`}
             className="transition-all duration-300"
             opacity={0.35}
@@ -210,7 +210,7 @@ function MobileHeroCircle({
               strokeWidth={3}
               strokeDasharray={HP_RING_CIRCUMFERENCE}
               strokeDashoffset={strokeOffset}
-              strokeLinecap="라운드"
+              strokeLinecap="round"
               className="transition-all duration-300"
               style={{ filter: `drop-shadow(0 0 3px ${hpColor})` }}
             />
@@ -336,7 +336,7 @@ function MobileAbilityCircle({
             <feGaussianBlur stdDeviation="1.5" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
-              <feMergeNode in="원본 그래픽" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
@@ -375,7 +375,7 @@ function MobileAbilityCircle({
                 isReady ? "rgba(250,204,21,0.28)" : "rgba(110,110,110,0.1)"
               }
               strokeWidth={isCard ? 1.8 : 0.6}
-              strokeLinecap="라운드"
+              strokeLinecap="round"
             />
           );
         })}
@@ -426,7 +426,7 @@ function MobileAbilityCircle({
             strokeWidth={1.5}
             strokeDasharray={M_ORB_MID_CIRCUM}
             strokeDashoffset={M_ORB_MID_CIRCUM * cdFrac}
-            strokeLinecap="라운드"
+            strokeLinecap="round"
             transform={`rotate(-90 ${M_ORB_CX} ${M_ORB_CX})`}
             className="transition-all duration-300"
           />
@@ -614,7 +614,7 @@ function MobileSpellCircle({
             <feGaussianBlur stdDeviation="1.5" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
-              <feMergeNode in="원본 그래픽" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
@@ -643,7 +643,7 @@ function MobileSpellCircle({
             strokeWidth={1.5}
             strokeDasharray={M_ORB_MID_CIRCUM}
             strokeDashoffset={M_ORB_MID_CIRCUM * cdFrac}
-            strokeLinecap="라운드"
+            strokeLinecap="round"
             transform={`rotate(-90 ${M_ORB_CX} ${M_ORB_CX})`}
             className="transition-all duration-300"
           />

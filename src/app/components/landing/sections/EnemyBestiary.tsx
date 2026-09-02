@@ -287,7 +287,7 @@ export function EnemyBestiary() {
 
       <div className="relative z-10">
         <SectionFlourish />
-        <MapSectionHeader title="100+ Enemies to Defeat" />
+        <MapSectionHeader title="100명 이상의 적을 처치하세요" />
 
         {/* Marquee rows */}
         <div className="relative space-y-5 sm:space-y-6 py-3">

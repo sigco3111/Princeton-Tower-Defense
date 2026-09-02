@@ -207,7 +207,7 @@ export function WorldMapTopBar({
                   className="text-amber-400 shrink-0 transition-transform duration-200 group-hover:scale-110"
                 />
                 <span className="hidden sm:inline text-xs text-amber-200/80 font-bold tracking-wider uppercase">
-                  Codex
+                  도감
                 </span>
               </button>
 
@@ -222,7 +222,7 @@ export function WorldMapTopBar({
               >
                 <Hammer size={14} className="text-amber-400 shrink-0" />
                 <span className="hidden sm:inline text-xs text-amber-200/80 font-bold tracking-wider uppercase">
-                  Creator
+                  제작기
                 </span>
               </button>
 
@@ -237,7 +237,7 @@ export function WorldMapTopBar({
               >
                 <Settings size={14} className="text-amber-400 shrink-0" />
                 <span className="hidden sm:inline text-xs text-amber-200/80 font-bold tracking-wider uppercase">
-                  Settings
+                  설정
                 </span>
               </button>
             </div>
@@ -253,7 +253,7 @@ export function WorldMapTopBar({
                 border: `1.5px solid ${GOLD.border30}`,
                 boxShadow: `inset 0 1px 0 ${OVERLAY.white06}, inset 0 0 16px ${GOLD.glow04}`,
               }}
-              title="Toggle Fullscreen"
+              title="전체화면 전환"
             >
               {isFullscreen ? (
                 <Minimize size={15} className="text-amber-300/70 shrink-0" />

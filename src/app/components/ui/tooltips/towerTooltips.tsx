@@ -254,7 +254,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                           className={`flex items-center gap-1 text-[9px] px-1.5 py-0.5 rounded border w-fit ${theme.tagClass}`}
                         >
                           <Ban size={9} />
-                          <span>Cannot attack</span>
+                          <span>공격 불가</span>
                         </div>
                       </div>
                     );
@@ -264,8 +264,8 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                   <div className="mb-2 p-1.5 bg-red-950/60 rounded border border-red-800/50">
                     <div className="flex items-center gap-1 mb-1">
                       <AlertTriangle size={10} className="text-red-400" />
-                      <span className="text-[9px] font-bold text-red-300">
-                        DEBUFFED
+                        <span className="text-[9px] font-bold text-red-300">
+                        디버프
                       </span>
                     </div>
                     <div className="flex flex-wrap gap-1">
@@ -284,17 +284,17 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                           > = {
                             blind: {
                               color: "text-purple-400",
-                              desc: `-${Math.round(debuff.intensity * 100)}% Range`,
+                              desc: `-${Math.round(debuff.intensity * 100)}% 사거리`,
                               icon: <EyeOff size={10} />,
                             },
                             slow: {
                               color: "text-blue-400",
-                              desc: `-${Math.round(debuff.intensity * 100)}% Atk Spd`,
+                              desc: `-${Math.round(debuff.intensity * 100)}% 공격 속도`,
                               icon: <Timer size={10} />,
                             },
                             weaken: {
                               color: "text-red-400",
-                              desc: `-${Math.round(debuff.intensity * 100)}% DMG`,
+                              desc: `-${Math.round(debuff.intensity * 100)}% 피해`,
                               icon: <TrendingDown size={10} />,
                             },
                           };
@@ -328,7 +328,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
             <div className="flex items-center gap-1 mb-1">
               <Sparkles size={10} className="text-emerald-400" />
               <span className="text-[9px] font-bold text-emerald-300">
-                BUFFED
+                버프
               </span>
             </div>
             <div className="flex flex-wrap gap-1">
@@ -336,7 +336,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                 <div className="flex items-center gap-1 text-[9px] px-1.5 py-0.5 rounded bg-black/30 text-cyan-400">
                   <Target size={10} />
                   <span>
-                    +{Math.round(((tower.rangeBoost || 1) - 1) * 100)}% Range
+                    +{Math.round(((tower.rangeBoost || 1) - 1) * 100)}% 사거리
                   </span>
                 </div>
               )}
@@ -344,7 +344,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                 <div className="flex items-center gap-1 text-[9px] px-1.5 py-0.5 rounded bg-black/30 text-cyan-400">
                   <Fence size={10} />
                   <span>
-                    +{Math.round(((tower.rangeBoost || 1) - 1) * 100)}% Deploy
+                    +{Math.round(((tower.rangeBoost || 1) - 1) * 100)}% 배치
                   </span>
                 </div>
               )}
@@ -352,7 +352,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                 <div className="flex items-center gap-1 text-[9px] px-1.5 py-0.5 rounded bg-black/30 text-orange-400">
                   <Swords size={10} />
                   <span>
-                    +{Math.round(((tower.damageBoost || 1) - 1) * 100)}% DMG
+                    +{Math.round(((tower.damageBoost || 1) - 1) * 100)}% 피해
                   </span>
                 </div>
               )}
@@ -361,7 +361,7 @@ export const TowerHoverTooltip: React.FC<TowerHoverTooltipProps> = ({
                   <Timer size={10} />
                   <span>
                     +{Math.round(((tower.attackSpeedBoost || 1) - 1) * 100)}%
-                    Atk Spd
+                    공격 속도
                   </span>
                 </div>
               )}

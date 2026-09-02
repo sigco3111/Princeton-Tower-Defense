@@ -515,7 +515,7 @@ export function drawAnimatedTendril(
 
   ctx.strokeStyle = opts.color;
   ctx.lineWidth = width;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(points[0].x, points[0].y);
   for (let i = 1; i < points.length; i++) {
@@ -878,7 +878,7 @@ export function drawShadowWisps(
     ctx.globalAlpha = maxAlpha * (0.5 + Math.sin(time * 2 + seed) * 0.3);
     ctx.strokeStyle = opts.color;
     ctx.lineWidth = (2 + Math.sin(time * 3 + seed) * 1) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(sx, sy);
 
@@ -1071,7 +1071,7 @@ export function drawWindGusts(
     ctx.globalAlpha = alpha;
     ctx.strokeStyle = opts.color;
     ctx.lineWidth = (1.5 + Math.sin(time * 2 + seed) * 0.5) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(gx - len * 0.5, gy);
     ctx.quadraticCurveTo(

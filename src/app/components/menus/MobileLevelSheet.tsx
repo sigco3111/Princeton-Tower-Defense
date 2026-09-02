@@ -42,7 +42,7 @@ interface LevelInfo {
   id: string;
   name: string;
   description: string;
-  region: LevelNode["지역"];
+  region: LevelNode["region"];
   difficulty: 1 | 2 | 3;
   kind?: "campaign" | "challenge" | "custom" | "sandbox";
   tags: string[];
@@ -205,7 +205,7 @@ export const MobileLevelSheet = memo(function MobileLevelSheet({
                 className="text-[9px] font-bold px-2 py-0.5 rounded-md tracking-wider uppercase"
                 style={REGION_CHALLENGE_BADGE_STYLES[level.region]}
               >
-                Challenge
+                도전
               </span>
             )}
             {level.tags.map((tag) => (

@@ -82,7 +82,7 @@ export const MobileCampaignBar = memo(function MobileCampaignBar({
       <div className="flex items-center gap-2 mb-1.5">
         <MapIcon size={13} className="text-amber-400 shrink-0" />
         <span className="text-[10px] font-bold text-amber-100 tracking-wider uppercase">
-          Campaign
+          캠페인
         </span>
 
         {/* Inline progress bar */}

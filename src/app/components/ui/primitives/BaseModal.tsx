@@ -51,7 +51,7 @@ export const BaseModal: React.FC<BaseModalProps> = ({
     }
 
     const handleKey = (event: KeyboardEvent) => {
-      if (event.key === "탈출") {
+      if (event.key === "Escape") {
         onClose();
       }
     };

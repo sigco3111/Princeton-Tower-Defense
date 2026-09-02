@@ -240,7 +240,7 @@ export function drawSkeletonFootmanEnemy(
       ribGrad.addColorStop(1, boneDark);
       ctx.strokeStyle = ribGrad as unknown as string;
       ctx.lineWidth = ribThick;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(cx0 + rattle, ry);
       ctx.quadraticCurveTo(
@@ -281,7 +281,7 @@ export function drawSkeletonFootmanEnemy(
   for (const side of [-1, 1]) {
     ctx.strokeStyle = boneMid;
     ctx.lineWidth = size * 0.018;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(cx0 + rattle, torsoY - size * 0.17);
     ctx.quadraticCurveTo(
@@ -945,7 +945,7 @@ export function drawSkeletonFootmanEnemy(
     const arcR = size * 0.35;
     ctx.strokeStyle = `rgba(200, 180, 140, ${attackPhase * 0.6})`;
     ctx.lineWidth = (2 + attackPhase * 3) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.arc(
       cx0 + size * 0.1,
@@ -1818,7 +1818,7 @@ export function drawSkeletonKnightEnemy(
     const sweepR = size * 0.4;
     ctx.strokeStyle = `rgba(200, 40, 60, ${attackPhase * 0.7})`;
     ctx.lineWidth = (3 + attackPhase * 5) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.arc(
       cx0,
@@ -2145,7 +2145,7 @@ export function drawSkeletonArcherEnemy(
       upperGrad.addColorStop(1, "#5a4030");
       wCtx.strokeStyle = upperGrad;
       wCtx.lineWidth = limbW;
-      wCtx.lineCap = "라운드";
+      wCtx.lineCap = "round";
       wCtx.beginPath();
       wCtx.moveTo(size * 0.015, -bowH * 0.5);
       wCtx.bezierCurveTo(
@@ -3892,7 +3892,7 @@ export function drawZombieShamblerEnemy(
   // Exposed ribs — curved bone segments
   ctx.strokeStyle = "#d0c8b0";
   ctx.lineWidth = size * 0.012;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let r = 0; r < 3; r++) {
     const ry = torsoY - size * 0.04 + r * size * 0.035;
     ctx.beginPath();
@@ -4705,7 +4705,7 @@ export function drawZombieBruteEnemy(
       side,
       "#5a5a60",
       "#3a3a40",
-      "라운드"
+      "round"
     );
   }
   drawBeltOverlay(
@@ -5485,7 +5485,7 @@ export function drawZombieSpitterEnemy(
     const streamAlpha = 0.5 * attackIntensity;
     ctx.strokeStyle = `rgba(120, 200, 60, ${streamAlpha})`;
     ctx.lineWidth = size * 0.015 * (0.35 + 0.65 * attackIntensity);
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     const streamEndX = headX + size * (0.25 + 0.1 * attackIntensity);
     const streamMidY = headY + size * (0.2 + 0.04 * attackIntensity);
     ctx.beginPath();
@@ -6128,7 +6128,7 @@ export function drawGhoulEnemy(
     (0.15 + Math.sin(time * 4) * 0.05) * (1 + attackIntensity * 0.75);
   ctx.strokeStyle = `rgba(160, 130, 180, ${0.5 * (1 + attackIntensity * 0.6)})`;
   ctx.lineWidth = size * 0.005 * (1 + attackIntensity * 0.4);
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   for (let cs = 0; cs < 3; cs++) {
     const csAngle = -0.4 + cs * 0.25 + Math.sin(time * 5) * 0.1;
     const csStartX = cx0 + size * 0.15;
@@ -8134,7 +8134,7 @@ export function drawDeathKnightEnemy(
 
     ctx.strokeStyle = `rgba(180, 60, 160, ${attackPhase * 0.8})`;
     ctx.lineWidth = (4 + attackPhase * 6) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.arc(
       cx0,

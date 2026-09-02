@@ -101,7 +101,7 @@ function ClashEffect() {
               stroke={T.accentBright}
               strokeWidth="1.5"
               opacity="0.6"
-              strokeLinecap="라운드"
+              strokeLinecap="round"
             />
           ))}
           <circle cx="30" cy="30" r="6" fill={T.accent} opacity="0.5" />
@@ -139,14 +139,14 @@ function ClashEffect() {
             d="M6 6 L22 22 M18 6 L22 10 M6 22 L10 18"
             stroke={T.accentBright}
             strokeWidth="2"
-            strokeLinecap="라운드"
+            strokeLinecap="round"
             opacity="0.9"
           />
           <path
             d="M26 6 L10 22 M6 6 L10 10 M26 22 L22 18"
             stroke={T.accent}
             strokeWidth="2"
-            strokeLinecap="라운드"
+            strokeLinecap="round"
             opacity="0.7"
           />
         </svg>

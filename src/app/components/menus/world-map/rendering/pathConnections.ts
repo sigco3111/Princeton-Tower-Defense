@@ -115,8 +115,8 @@ export function drawPathConnections({
   height,
   time,
 }: PathConnectionsParams): void {
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   allLevels.forEach((level) => {
     const fromX = level.x;

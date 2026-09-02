@@ -3157,7 +3157,7 @@ export function drawBoneMageEnemy(
     -1,
     boneMid,
     boneDark,
-    "라운드"
+    "round"
   );
   drawShoulderOverlay(
     ctx,
@@ -3167,7 +3167,7 @@ export function drawBoneMageEnemy(
     1,
     boneMid,
     boneDark,
-    "라운드"
+    "round"
   );
   drawBeltOverlay(
     ctx,
@@ -4620,7 +4620,7 @@ export function drawRevenantEnemy(
     const swingR = size * 0.45;
     ctx.strokeStyle = `rgba(255, 140, 40, ${attackPhase * 0.7})`;
     ctx.lineWidth = (3 + attackPhase * 5) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.arc(
       cx0 + size * 0.1,
@@ -5100,7 +5100,7 @@ export function drawAbominationEnemy(
     -1,
     bodyColor,
     bodyColorDark,
-    "라운드"
+    "round"
   );
   drawShoulderOverlay(
     ctx,
@@ -5110,7 +5110,7 @@ export function drawAbominationEnemy(
     1,
     bodyColor,
     bodyColorDark,
-    "라운드"
+    "round"
   );
   drawBeltOverlay(
     ctx,
@@ -5564,7 +5564,7 @@ export function drawHellhoundEnemy(
   ctx.fill();
   ctx.strokeStyle = bodyColor;
   ctx.lineWidth = size * 0.025;
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(0, 0);
   ctx.quadraticCurveTo(-size * 0.1, -size * 0.12, -size * 0.2, -size * 0.2);

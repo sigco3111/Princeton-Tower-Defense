@@ -678,7 +678,7 @@ export function renderClubTower(
   ) => {
     ctx.strokeStyle = dark;
     ctx.lineWidth = (thick + 1.2) * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(x1, y1 + 0.5 * zoom);
     ctx.lineTo(x2, y2 + 0.5 * zoom);
@@ -1461,7 +1461,7 @@ export function renderClubTower(
     16,
     clubTopRailColors,
     zoom,
-    "뒤로"
+    "back"
   );
 
   // ========== WAVING CLUB BANNER (behind roof, on right side) ==========

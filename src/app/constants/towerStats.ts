@@ -121,7 +121,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
     upgrades: {
       A: {
         description: "기절 효과의 크레센도 공격",
-        effect: "35% stun chance, max 8 crescendo stacks",
+        effect: "35% 기절 확률, 최대 8 크레센도 중첩",
         name: "충격파 사이렌",
         stats: {
           crescendoDamageMult: 0.05,
@@ -130,7 +130,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
           crescendoSpeedMult: 0.92,
           damage: 22 * 1.8 * 1.25,
           range: 350,
-          specialEffect: "Stunning crescendo",
+          specialEffect: "기절 크레센도",
           stunChance: 0.35,
           stunDuration: 1200,
         },
@@ -146,7 +146,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
           crescendoSpeedMult: 0.9,
           damage: 22 * 1.8 * 1.1,
           range: 370,
-          specialEffect: "Ultimate crescendo",
+          specialEffect: "궁극의 크레센도",
         },
       },
     },
@@ -182,26 +182,26 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
     upgrades: {
       A: {
         description: "빠르게 발사하는 기관총",
-        effect: "8x attack speed, 0.4x damage per shot",
-        name: "gatling",
+        effect: "공격 속도 8배, 발당 피해 0.4배",
+        name: "개틀링",
         stats: {
           damage: 50 * 2.2 * 0.4,
           range: 360, // 1.5x base range for level 4
           attackSpeed: 150,
-          specialEffect: "Rapid-fire suppression",
+          specialEffect: "속사 제압",
         },
       },
       B: {
         description: "지속적인 화염 사격",
         effect: "시간이 지남에 따라 적에게 화상 피해",
-        name: "flamethrower",
+        name: "화염방사기",
         stats: {
           damage: 50 * 2.2 * 0.3,
           range: 300, // Shorter range but burns
           attackSpeed: 100,
           burnDamage: 15,
           burnDuration: 3000,
-          specialEffect: "Sets enemies on fire",
+          specialEffect: "적에게 화상 부여",
         },
       },
     },
@@ -214,7 +214,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
       income: 8,
       incomeInterval: 8000,
       range: 0,
-      specialEffect: "Generates Paw Points over time",
+      specialEffect: "시간이 지남에 따라 발자국 포인트 생성",
     },
     level4Cost: 550,
     levels: {
@@ -239,8 +239,8 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
     name: "이팅 클럽",
     upgrades: {
       A: {
-        description: "Maximum passive income",
-        effect: "40 PP every 5s + 10% bonus income + 15% range aura",
+        description: "최대 수동 수입",
+        effect: "5초마다 40 PP + 추가 수입 10% + 사거리 오라 15%",
         name: "투자 은행",
         stats: {
           bonusIncomeMultiplier: 0.1,
@@ -252,15 +252,15 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
         },
       },
       B: {
-        description: "Income + tower support",
-        effect: "20 PP every 6s + 15% damage buff to nearby towers",
+        description: "수입 + 타워 지원",
+        effect: "6초마다 20 PP + 주변 타워 피해 15% 증가",
         name: "모집 센터",
         stats: {
           damageBuff: 0.15,
           income: 20,
           incomeInterval: 6000,
           range: 200,
-          specialEffect: "Damage aura",
+          specialEffect: "피해 오라",
         },
       },
     },
@@ -297,7 +297,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
     name: "이쿼드 연구소",
     upgrades: {
       A: {
-        description: "Concentrated laser attack",
+        description: "집중 레이저 공격",
         effect: "연속 락온, 시간이 지날수록 피해 증가",
         name: "집중 빔",
         stats: {
@@ -308,19 +308,19 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
           lockOnDecayTime: 600,
           lockOnMaxStacks: 120,
           range: 320,
-          specialEffect: "Lock-on damage ramp",
+          specialEffect: "락온 피해 증가",
         },
       },
       B: {
-        description: "Multi-target electricity",
-        effect: "Chains to up to 8 enemies",
+        description: "다중 대상 전기 공격",
+        effect: "최대 8명의 적에게 연쇄",
         name: "체인 라이트닝",
         stats: {
           chainRange: 180,
           chainTargets: 8,
           damage: 35 * 2 * 1.3 * 0.7,
           range: 300,
-          specialEffect: "Bouncing lightning",
+          specialEffect: "튕기는 번개",
         },
       },
     },
@@ -339,7 +339,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
     levels: {
       1: {
         cost: 150,
-        description: "Basic Slowing - 20% slow field",
+        description: "기본 감속 - 20% 감속 필드",
       },
       2: {
         cost: 175,
@@ -355,8 +355,8 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
     name: "파이어스톤 도서관",
     upgrades: {
       A: {
-        description: "Seismic waves damage and slow",
-        effect: "Deals 35 AoE damage + 45% slow",
+        description: "지진파로 피해와 감속",
+        effect: "광역 피해 35 + 45% 감속",
         name: "이쿼드 분쇄기",
         stats: {
           damage: 35,
@@ -364,20 +364,20 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
           slowAmount: 0.45,
           attackSpeed: 500,
           splashRadius: 80,
-          specialEffect: "Ground-shaking AoE attacks",
+          specialEffect: "대지를 뒤흔드는 광역 공격",
         },
       },
       B: {
-        description: "Freezes enemies completely",
-        effect: "45% slow + 25% freeze chance every 2s",
-        name: "blizzard",
+        description: "적을 완전히 빙결",
+        effect: "45% 감속 + 2초마다 25% 빙결 확률",
+        name: "블리자드",
         stats: {
           range: 385, // 1.75x base range - wide freeze area
           slowAmount: 0.45,
           attackSpeed: 1000,
           stunDuration: 2000,
           stunChance: 0.25, // 25% chance every 2 seconds
-          specialEffect: "Freezes enemies solid",
+          specialEffect: "적을 얼려 굳힘",
         },
       },
     },
@@ -433,7 +433,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
           burnDuration: 4000,
           damage: 48 * 2 * 0.4,
           range: 350,
-          specialEffect: "Creates burning ember fields",
+          specialEffect: "불타는 잿불 지대 생성",
           splashRadius: 170,
         },
       },
@@ -480,7 +480,7 @@ export const TOWER_STATS: Record<string, TowerStatsDefinition> = {
         },
       },
       B: {
-        description: "Mounted knights on warhorses",
+        description: "군마 위의 기마 기사",
         effect: "돌격 능력이 있는 탱커 기병 소환",
         name: "로열 기병",
         stats: {

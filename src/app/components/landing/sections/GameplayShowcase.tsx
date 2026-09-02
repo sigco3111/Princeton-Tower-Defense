@@ -14,7 +14,7 @@ const T = LANDING_THEME;
 const REGION_PALETTES: Record<string, { accent: string; bg: string }> = {
   "사막": { accent: "#fbbf24", bg: "rgba(60,40,10,0.55)" },
   "얼어붙은 황무지": { accent: "#7dd3fc", bg: "rgba(14,26,50,0.55)" },
-  Grasslands: { accent: "#6ee7b7", bg: "rgba(16,42,28,0.55)" },
+  초원: { accent: "#6ee7b7", bg: "rgba(16,42,28,0.55)" },
   "음울한 늪": { accent: "#a3e635", bg: "rgba(20,40,12,0.55)" },
   "화산 영역": { accent: "#f87171", bg: "rgba(60,14,14,0.55)" },
 };
@@ -129,7 +129,7 @@ export function GameplayShowcase() {
       </div>
       <div className="relative z-10">
         <SectionFlourish />
-        <MapSectionHeader title="Battle Across 6 Regions" />
+        <MapSectionHeader title="6개 지역에서 펼쳐지는 전투" />
       </div>
 
       <div className="relative mx-4 sm:mx-8 lg:mx-16 z-10">

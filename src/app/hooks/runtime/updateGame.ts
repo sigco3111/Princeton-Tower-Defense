@@ -1695,7 +1695,7 @@ export function updateGameTick(
               const effectType: EffectType = [
                 "golem",
                 "juggernaut",
-                "학장",
+                "dean",
                 "trustee",
               ].includes(enemy.type)
                 ? "melee_smash"

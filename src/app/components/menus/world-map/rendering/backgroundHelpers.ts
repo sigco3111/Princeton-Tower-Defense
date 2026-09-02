@@ -147,16 +147,16 @@ export function drawRuggedBorder(
   traceOrganicPath(ctx, pathPoints);
   ctx.strokeStyle = "rgba(0,0,0,0.08)";
   ctx.lineWidth = 2;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
   ctx.stroke();
 
   ctx.beginPath();
   traceOrganicPath(ctx, pathPoints);
   ctx.strokeStyle = "rgba(255,255,255,0.04)";
   ctx.lineWidth = 1;
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
   ctx.stroke();
 
   ctx.restore();

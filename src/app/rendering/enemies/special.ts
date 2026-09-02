@@ -1444,7 +1444,7 @@ export function drawTrusteeEnemy(
     // Wing bone struts
     ctx.strokeStyle = "#2a1040";
     ctx.lineWidth = 2.5 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     const boneEnds = [
       {
         cx: size * 0.12,

@@ -104,7 +104,7 @@ export function SectionFlourish({
             <feGaussianBlur stdDeviation="1.5" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
-              <feMergeNode in="원본 그래픽" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>

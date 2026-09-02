@@ -6831,7 +6831,7 @@ export function renderFlamethrower(
     // Primary fuel tube (thick red — main tank to manifold)
     ctx.strokeStyle = "#3a2828";
     ctx.lineWidth = 4 * zoom;
-    ctx.lineCap = "라운드";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(outX, outY);
     ctx.quadraticCurveTo(
@@ -7084,7 +7084,7 @@ export function renderFlamethrower(
       // Feed tube from manifold top to pump
       ctx.strokeStyle = "#3a2828";
       ctx.lineWidth = 3 * zoom;
-      ctx.lineCap = "라운드";
+      ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(mf.x, mf.y - mfH - mfD * 0.5);
       ctx.lineTo(pp.x, pp.y + pR * 0.5);

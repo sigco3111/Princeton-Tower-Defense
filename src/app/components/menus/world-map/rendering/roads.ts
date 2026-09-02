@@ -296,7 +296,7 @@ function drawWheelRuts(
   });
 
   ctx.save();
-  ctx.lineCap = "라운드";
+  ctx.lineCap = "round";
   ctx.strokeStyle = palette.rut;
   ctx.lineWidth = 1.4;
   for (const line of [left, right]) {
@@ -528,8 +528,8 @@ function drawRoadSegment(
     return;
   }
   ctx.save();
-  ctx.lineCap = "라운드";
-  ctx.lineJoin = "라운드";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
   // Convert y-percentages to pixel coords first, *then* wobble. Doing it in
   // pixel space keeps the wobble amplitude visually consistent regardless of

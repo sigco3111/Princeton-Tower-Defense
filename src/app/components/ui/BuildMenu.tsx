@@ -104,10 +104,10 @@ export const BuildMenu: React.FC<BuildMenuProps> = ({
           <div className="flex items-center gap-1.5 sm:gap-2 w-full">
             <h3 className="text-[10px] font-bold text-amber-300 tracking-wider hidden sm:flex flex-col justify-center gap-1 whitespace-nowrap px-1 flex-shrink-0">
               <div className="flex items-center gap-1">
-                <BrickWallShield size={14} /> <div>BUILD TOWERS</div>
+                <BrickWallShield size={14} /> <div>타워 건설</div>
               </div>
               <div className="ml-auto text-[8px] text-amber-600 font-normal">
-                (Select, Click, or Drag!)
+                (선택, 클릭 또는 드래그!)
               </div>
             </h3>
             {BUILD_TOWER_ORDER.map((towerType) => {
@@ -254,7 +254,7 @@ export const BuildMenu: React.FC<BuildMenuProps> = ({
 
                     {isRestricted && (
                       <span className="absolute top-1 sm:top-1.5 left-1 sm:left-1.5 bg-red-950/75 border border-red-500/40 text-red-200 text-[7px] sm:text-[8px] px-1 py-[1px] rounded z-10">
-                        Locked
+                        잠김
                       </span>
                     )}
 
