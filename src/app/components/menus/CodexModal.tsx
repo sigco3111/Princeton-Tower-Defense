@@ -143,7 +143,7 @@ import { PANEL, GOLD, OVERLAY, panelGradient } from "../ui/system/theme";
 const REGION_IMAGES = [
   {
     alt: "프린스턴 캠퍼스",
-    label: "Grounds",
+    label: "지상",
     src: "/images/new/gameplay_grounds.png",
   },
   {
@@ -293,7 +293,7 @@ const SPECIAL_TOWER_INFO: Record<
     name: "변경 병영",
     numbers: "12초마다 소환되며, 최대 3명의 기사가 동시에 활동합니다",
     panelClass: "bg-red-950/35 border-red-800/40",
-    role: "Auto Reinforcement",
+    role: "자동 증원",
     tip: "집결 지점 미세 조정을 통해 소환된 기사들을 교통량이 많은 병목 지점에 배치하세요.",
   },
   beacon: {
@@ -313,7 +313,7 @@ const SPECIAL_TOWER_INFO: Record<
     name: "비전 시간 수정",
     numbers: "+25% attack speed in 220 radius",
     panelClass: "bg-indigo-950/35 border-indigo-800/40",
-    role: "Attack Speed Aura",
+    role: "공격 속도 오라",
     tip: "기본 DPS가 높은 타워와 특히 잘 어울리며, 체인형과 광역 빌드에 효과적입니다.",
   },
   sentinel_nexus: {
@@ -343,7 +343,7 @@ const SPECIAL_TOWER_INFO: Record<
     name: "태양 용광로",
     numbers: `Every ${SUNFORGE_ORRERY_STATS.barrageIntervalMs / 1000}s: up to ${SUNFORGE_ORRERY_STATS.directDamage} direct damage + ${SUNFORGE_ORRERY_STATS.burnDps} DPS burn (${(SUNFORGE_ORRERY_STATS.burnDurationMs / 1000).toFixed(1)}s) per volley`,
     panelClass: "bg-orange-950/35 border-orange-800/40",
-    role: "Cluster Erasure",
+    role: "군집 소거",
     tip: "슬로우와 경로 교차점과 함께 사용해 적 밀집도를 극대화하세요.",
   },
   vault: {
@@ -603,7 +603,7 @@ const TROOP_CATEGORY_MAP: Record<
   },
   hex: {
     color: "text-fuchsia-300",
-    label: "Hex Ward Spirits",
+    label: "주문 보호 정령",
     types: ["thesis", "rowing", "hexling", "hexseer"],
   },
 };
@@ -1374,7 +1374,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
             },
             {
               icon: <Users size={12} />,
-              label: "Max Targets",
+              label: "최대 대상",
               value: stats.isGlobal ? "전체" : `${stats.maxTargets}`,
             },
           ],
@@ -3306,8 +3306,8 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "집결 기사들을 활용해 방어의 빈틈을 막거나 추가 저지 지점을 만드세요.",
                     strengths: [
                       "수시로 병력을 추가 배치",
-                      "Flexible positioning",
-                      "Good for blocking",
+                      "유연한 배치",
+                      "차단에 유용",
                     ],
                     synergies: [
                       "부대 치유 효과와 함께 작동합니다",
@@ -3316,7 +3316,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     weaknesses: [
                       "기사는 일정 시간 후 사라짐",
                       "개인 능력치는 평균적",
-                      "Cooldown dependent",
+                      "재사용 대기시간 의존",
                     ],
                   },
                   engineer: {
@@ -3333,7 +3333,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     strengths: [
                       "자유 위치에 포탑 설치",
                       "타워 사정거리를 확장",
-                      "Good DPS",
+                      "높은 DPS",
                     ],
                     synergies: [
                       "타워가 없는 지역을 커버",
@@ -3342,7 +3342,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     weaknesses: [
                       "Turret is fragile",
                       "Needs good placement",
-                      "Moderate stats",
+                      "중간 스탯",
                     ],
                   },
                   ivy: {
@@ -3351,14 +3351,14 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "범위 160 이내 모든 적에게 120 광역 근접 데미지를 입힙니다",
                       "각 타격이 짧은 기절을 유발 — 끊임없는 지면 강타의 압도적인 위력",
                     ],
-                    role: "Nature Controller",
+                    role: "자연 조종자",
                     roleColor: "emerald",
                     roleIcon: <Leaf size={16} />,
                     strategy:
                       "적 진형 사이로 파고들어 Verdant Colossus를 사용해 거대한 식물 메카로 변신해 근접 범위의 모든 것을 짓눌러 보세요. 살아남은 적은 타워가 갈아서 처리할 것입니다.",
                     strengths: [
-                      "Large AoE root",
-                      "High survivability",
+                      "광역 속박",
+                      "높은 생존력",
                       "탁월한 군중 제어",
                     ],
                     synergies: [
@@ -3368,7 +3368,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     weaknesses: [
                       "낮은 개인 DPS",
                       "이동 둔화",
-                      "Melee range attacks",
+                      "근접 거리 공격",
                     ],
                   },
                   mathey: {
@@ -3383,16 +3383,16 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     strategy:
                       "압도당했을 때 Fortress Shield를 사용해 모든 적의 사격을 끌어당겨 타워와 부대를 보호하세요.",
                     strengths: [
-                      "Highest HP in game",
+                      "게임 내 최고 체력",
                       "무적 능력 보유",
-                      "Draws enemy fire",
+                      "적의 사격 유도",
                     ],
                     synergies: [
                       "취약한 병력을 보호",
                       "높은 DPS 타워와 시너지",
                     ],
                     weaknesses: [
-                      "Low damage output",
+                      "낮은 피해량",
                       "이동 둔화",
                       "능력 재사용 대기시간이 김",
                     ],
@@ -3410,7 +3410,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "비행 적을 쫓고 싸울 수 있는 유일한 영웅입니다. Blue Inferno를 사용해 푸른 불사조로 변신해 빠르게 푸른 파이어볼을 난사하세요. 밀집된 적에게 파괴적인 폭발 DPS를 입힙니다.",
                     strengths: [
                       "비행 적을 상대할 수 있음",
-                      "High mobility",
+                      "높은 기동성",
                       "푸른 불꽃 변신",
                     ],
                     synergies: [
@@ -3420,7 +3420,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     ],
                     weaknesses: [
                       "화염구 1발당 기본 공격력 낮음",
-                      "Moderate HP pool",
+                      "중간 체력 풀",
                       "능력 사용이 전제인 순간 화력",
                     ],
                   },
@@ -3437,7 +3437,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "로키를 전선 뒤에 배치하세요. 모여든 적에게 바위 강타를 사용해 막대한 데미지를 입히세요.",
                     strengths: [
                       "막대한 원거리 피해",
-                      "Large AoE",
+                      "광역",
                       "Safe positioning",
                     ],
                     synergies: [
@@ -3447,7 +3447,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     weaknesses: [
                       "근접에서 취약",
                       "Slow attack speed",
-                      "Ability has delay",
+                      "능력에 지연 있음",
                     ],
                   },
                   scott: {
@@ -3462,9 +3462,9 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     strategy:
                       "F. 스콧은 순수 지원 영웅입니다. 영감을 위기 웨이브나 보스 적에게 아껴 두면 타워 화력을 극대화할 수 있습니다.",
                     strengths: [
-                      "Global tower buff",
-                      "Huge DPS increase",
-                      "Low risk positioning",
+                      "전역 타워 강화",
+                      "엄청난 DPS 증가",
+                      "낮은 리스크 위치",
                     ],
                     synergies: [
                       "많은 타워를 지었을 때 최고",
@@ -3482,15 +3482,15 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "영향을 받은 적을 2초간 기절",
                       "주변 병력을 75만큼 치유",
                     ],
-                    role: "AoE Support",
+                    role: "광역 지원",
                     roleColor: "purple",
                     roleIcon: <Volume2 size={16} />,
                     strategy:
                       "병목 지점 근처에 배치해 데미지를 극대화하세요. Sonic Boom은 적에게 데미지를 주고 부대를 치유합니다.",
                     strengths: [
-                      "Large AoE damage",
-                      "Heals allied troops",
-                      "Good stun duration",
+                      "광역 대미지",
+                      "아군 병사 치유",
+                      "긴 기절 시간",
                     ],
                     synergies: [
                       "딩키 스태이션 병력과 궁합이 좋음",
@@ -3498,7 +3498,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                     ],
                     weaknesses: [
                       "단일 대상 화력은 낮음",
-                      "Moderate HP",
+                      "중간 체력",
                       "Needs positioning",
                     ],
                   },
@@ -3508,13 +3508,13 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "기절 종료 후 50% 슬로우 효과 적용",
                       "주황색 공포 충격파 시각 효과 생성",
                     ],
-                    role: "Frontline Brawler",
+                    role: "전선 싸움꾼",
                     roleColor: "orange",
                     roleIcon: <Swords size={16} />,
                     strategy:
                       "적이 밀집했을 때 진형 사이로 돌진하세요. Mighty Roar로 무리를 기절시킨 뒤 슬로우된 동안 후퇴하세요.",
                     strengths: [
-                      "High melee damage",
+                      "높은 근접 피해",
                       "강력한 군중 제어",
                       "Good survivability",
                     ],
@@ -3523,9 +3523,9 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                       "프리즈 주문과 함께 사용하면 군중 제어 시간을 연장할 수 있습니다",
                     ],
                     weaknesses: [
-                      "Short range",
+                      "단거리",
                       "재사용 대기 중에는 취약",
-                      "Can get overwhelmed",
+                      "압도당할 수 있음",
                     ],
                   },
                 };
@@ -4166,7 +4166,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                     {troop.isStationary
                                       ? "Stationary"
                                       : troop.isMounted
-                                        ? "Mobile Block"
+                                        ? "이동식 방어"
                                         : "Path Blocker"}
                                   </div>
                                 </div>
@@ -4177,7 +4177,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                                   <div className="text-xs text-stone-300 font-semibold">
                                     {troop.isRanged
                                       ? `${troop.range} range`
-                                      : "Close quarters"}
+                                      : "근접전"}
                                   </div>
                                 </div>
                               </div>
@@ -5754,7 +5754,7 @@ export const CodexModal: React.FC<CodexModalProps> = ({
                   >
                     <Image
                       src="/images/new/gameplay_volcano_ui.png"
-                      alt="Gameplay overview"
+                      alt="게임플레이 개요"
                       fill
                       sizes="(max-width: 1024px) 100vw, 800px"
                       className="object-cover object-center"
@@ -6259,3 +6259,4 @@ export const CodexModal: React.FC<CodexModalProps> = ({
     </BaseModal>
   );
 };
+export const __KOREANIZATION_BUMP_v2__ = "koreanization-v2-2026-09-02";

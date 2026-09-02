@@ -31,7 +31,7 @@ export const ENEMY_TAG_DEFS: EnemyTagDef[] = [
   { color: "#22d3ee", id: "breach", label: "돌파" },
   { color: "#4ade80", id: "ranged", label: "원거리" },
   { color: "#c084fc", id: "summoner", label: "소환형" },
-  { color: "#84cc16", id: "regen", label: "Regen" },
+  { color: "#84cc16", id: "regen", label: "재생" },
   { color: "#2dd4bf", id: "arcane", label: "비전" },
   { color: "#fb923c", id: "aoe", label: "광역" },
   { color: "#f43f5e", id: "saboteur", label: "방해공작원" },

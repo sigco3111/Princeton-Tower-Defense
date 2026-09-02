@@ -3395,7 +3395,7 @@ export const ENEMY_TRAIT_META: Record<EnemyTrait, EnemyTraitMeta> = {
   regenerating: {
     color: "text-green-400",
     desc: "시간이 지나며 천천히 체력을 회복한다",
-    label: "Regen",
+    label: "재생",
     pillColor: "bg-emerald-900/60 text-emerald-300 border-emerald-700/40",
   },
   summoner: {
