@@ -382,8 +382,8 @@ export const DECORATION_HEIGHT_TAG_BY_TYPE: Partial<
   snow_lantern: "medium",
   cart: "medium",
   pond: "short",
-  sword: "지상",
-  snow_drift: "지상",
+  sword: "ground",
+  snow_drift: "ground",
 
   // Landmarks and major set pieces
   pyramid: "landmark",
